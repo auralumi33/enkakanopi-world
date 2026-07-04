@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // Static output, hosted from the GitHub repo (Vercel Git integration) — not
 // laptop- or cron-dependent. Canonical domain is enkakanopi.world; override with
@@ -11,6 +12,6 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   output: 'static',
   trailingSlash: 'never',
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   build: { assets: 'assets' },
 });
