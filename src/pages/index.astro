@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import CanopyScene from "../components/CanopyScene.astro";
 import Glyph from "../components/Glyph.astro";
+import Bloom from "../components/Bloom.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const doorways = [
@@ -19,6 +20,7 @@ const whatThisIs = [
 ---
 <Base title="Enka Kanopi">
   <section class="page hero">
+    <div class="bloom-top"><Bloom size={58} /></div>
     <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
     <h1 class="signature">
       We are the first generation<br />
@@ -85,6 +87,7 @@ const whatThisIs = [
 
 <style>
   .hero { padding-top: 0.5rem; text-align: center; }
+  .bloom-top { display: flex; justify-content: center; margin-bottom: 1.1rem; }
   .kicker { display: inline-flex; align-items: center; justify-content: center; }
   .signature {
     font-weight: 440; font-style: italic;

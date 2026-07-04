@@ -1,73 +1,94 @@
 ---
 /**
- * ChainStrip — the tending chain, surfaced honestly.
- * The garden is kept by a small chain of assists, but VOICE-LOCKED: every piece
- * starts from Rika's own note and passes the mirror before it grows in public.
- * Assisted, never authored. Shown lightly — the machine visible, its internals not.
- * Edges carry verbs (Law 2); nodes are anchors.
+ * ChainStrip — the multi-agent layer, and the ONLY place the dark, starry,
+ * intimate skin lives (the rest of the site is warm Charts & Crafts paper).
+ * This is the machine's room: night ground, a calligraphic hero, a human hand
+ * keeping watch. Voice-locked — every piece starts from Rika's note and passes
+ * the mirror before it grows. Assisted, never authored. Edges carry verbs (Law 2).
  */
 import Glyph from "./Glyph.astro";
 const chain = [
-  { key: "note",   glyph: "seam",    job: "Rika writes",        edge: "gather" },
-  { key: "pulse",  glyph: "light",   job: "scans the edge",     edge: "sharpen" },
-  { key: "tend",   glyph: "compass", job: "structures, tightens", edge: "guard" },
+  { key: "note",   glyph: "seam",    job: "Rika writes",           edge: "gather" },
+  { key: "pulse",  glyph: "light",   job: "scans the edge",        edge: "sharpen" },
+  { key: "tend",   glyph: "compass", job: "structures, tightens",  edge: "guard" },
   { key: "mirror", glyph: "spine",   job: "keeps voice & privacy", edge: "grow" },
-  { key: "grow",   glyph: "canopy",  job: "in public",          edge: null },
+  { key: "grow",   glyph: "canopy",  job: "in public",             edge: null },
 ] as const;
+// a few deterministic stars (no Math.random at build time)
+const stars = [[8,22],[19,64],[27,38],[36,80],[44,18],[53,58],[61,30],[70,72],[78,26],[86,54],[92,40],[14,44],[48,84],[66,14],[83,78]];
 ---
-<section class="chain" aria-label="How a piece is tended">
-  <p class="eyebrow">the tending chain</p>
-  <ol class="flow">
-    {chain.map((n, i) => (
-      <li class="node">
-        <span class="g" class:list={[{ accent: n.key === "mirror" }]}>
-          <Glyph name={n.glyph} size={22} accent={n.key === "mirror"} />
-        </span>
-        <span class="k">{n.key}</span>
-        <span class="j">{n.job}</span>
-        {n.edge && <span class="edge" aria-hidden="true"><span class="v">{n.edge}</span><Glyph name="arrow" size={18} /></span>}
-      </li>
-    ))}
-  </ol>
-  <p class="note">
-    Every piece starts from a note in Rika&rsquo;s own hand and passes the
-    <em>mirror</em> — a guard on voice and privacy — before it grows in public.
-    <span class="lock">Assisted, never authored. Nothing is published without her yes.</span>
-  </p>
+<section class="night" aria-label="How a piece is tended — the multi-agent layer">
+  <div class="stars" aria-hidden="true">
+    {stars.map(([x, y]) => <span style={`left:${x}%;top:${y}%`}></span>)}
+  </div>
+  <div class="inner">
+    <p class="kick">the multi-agent layer</p>
+    <h2 class="hero">A garden kept by a human hand,<br />tended alongside the machines.</h2>
+
+    <ol class="flow">
+      {chain.map((n) => (
+        <li class="node">
+          <span class="g" class:list={[{ mir: n.key === "mirror" }]}>
+            <Glyph name={n.glyph} size={22} accent={n.key === "mirror"} />
+          </span>
+          <span class="k">{n.key}</span>
+          <span class="j">{n.job}</span>
+          {n.edge && <span class="edge" aria-hidden="true"><span class="v">{n.edge}</span><Glyph name="arrow" size={18} /></span>}
+        </li>
+      ))}
+    </ol>
+
+    <p class="lock">
+      Every piece starts from a note in Rika&rsquo;s own hand and passes the
+      <em>mirror</em> — a guard on voice and privacy — before it grows in public.
+      <span class="say">Assisted, never authored. Nothing is published without her yes.</span>
+    </p>
+  </div>
 </section>
 <style>
-  .chain {
-    max-width: var(--page); margin: 3rem auto 0; padding: 1.3rem var(--gutter) 0;
+  .night {
+    position: relative; overflow: hidden;
+    background: var(--night); color: var(--night-ink);
+    margin-top: 4rem; padding: 3.2rem 0 3rem;
   }
-  .eyebrow { margin-bottom: 0.9rem; }
-  .flow {
-    list-style: none; margin: 0; padding: 0;
-    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.4rem 0.2rem;
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+  .stars span {
+    position: absolute; width: 2px; height: 2px; border-radius: 50%;
+    background: var(--gold); opacity: 0.5;
+    box-shadow: 0 0 3px var(--gold);
+    animation: twinkle 6s ease-in-out infinite;
   }
-  .node {
-    display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto;
-    column-gap: 0.5rem; align-items: center;
-    padding: 0.5rem 0.2rem; position: relative;
+  .stars span:nth-child(3n) { animation-duration: 9s; opacity: 0.35; }
+  .stars span:nth-child(4n) { animation-delay: -3s; background: var(--night-ink); }
+  @keyframes twinkle { 0%,100% { opacity: 0.2; } 50% { opacity: 0.6; } }
+
+  .inner { position: relative; max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
+  .kick { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
+  .hero {
+    font-family: var(--display); font-optical-sizing: auto;
+    font-style: italic; font-weight: 460; color: var(--night-ink);
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem); line-height: 1.24;
+    letter-spacing: -0.01em; margin: 0.9rem 0 0; max-width: 24ch;
   }
-  .node .g { grid-row: 1 / span 2; color: var(--canopy-deep); line-height: 0; }
-  .node .g.accent { color: var(--poppy); }
-  .node .k { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-  .node .j { font-family: var(--hand); font-size: 1.05rem; color: var(--ink-soft); line-height: 1; grid-column: 2; }
-  .edge {
-    display: inline-flex; align-items: center; gap: 0.25rem;
-    margin: 0 0.55rem; align-self: center; grid-row: 1 / span 2; grid-column: 3;
-    color: var(--ink-faint);
-  }
-  .edge .v { font-family: var(--hand); font-size: 0.95rem; color: var(--poppy); }
-  .edge :global(svg) { opacity: 0.7; }
-  .note {
-    font-size: 0.92rem; color: var(--ink-soft); margin-top: 1rem; max-width: 60ch;
-  }
-  .note em { font-style: normal; color: var(--poppy); }
-  .note .lock { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--canopy-deep); margin-top: 0.3rem; }
+
+  .flow { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.4rem 0.2rem; }
+  .node { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 0.5rem; align-items: center; padding: 0.5rem 0.2rem; }
+  .node .g { grid-row: 1 / span 2; color: var(--gold); line-height: 0; }
+  .node .g.mir { color: var(--bloom); }
+  .node .k { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--night-ink); }
+  .node .j { font-family: var(--hand); font-size: 1.05rem; color: var(--night-dim); line-height: 1; grid-column: 2; }
+  .edge { display: inline-flex; align-items: center; gap: 0.25rem; margin: 0 0.55rem; align-self: center; grid-row: 1 / span 2; grid-column: 3; color: var(--night-dim); }
+  .edge .v { font-family: var(--hand); font-size: 0.95rem; color: var(--gold); }
+  .edge :global(svg) { opacity: 0.6; }
+  .edge :global(svg path) { stroke: var(--night-dim); }
+
+  .lock { font-size: 0.92rem; color: var(--night-dim); margin-top: 1.4rem; max-width: 60ch; }
+  .lock em { font-style: normal; color: var(--bloom); }
+  .lock .say { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--gold); margin-top: 0.3rem; }
+
   @media (max-width: 46rem) {
     .flow { flex-direction: column; align-items: stretch; }
     .edge { display: none; }
-    .node { border-left: 1.4px solid var(--paper-edge); padding-left: 0.7rem; }
+    .node { border-left: 1.4px solid var(--night-line); padding-left: 0.7rem; }
   }
 </style>

@@ -1,0 +1,35 @@
+---
+/**
+ * Bloom — a Marimekko-lineage poppy: flat, bold, confidently imperfect.
+ * The print personality of the warm theme. Used sparingly as a section anchor
+ * (Law 8), and it ties the poppy accent to the botanical canopy motif.
+ * `tone`: solid (filled poppy) or line (drawn outline, for quieter spots).
+ */
+interface Props { size?: number; tone?: "solid" | "line"; }
+const { size = 64, tone = "solid" } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 100" class={`bloom bloom--${tone}`} aria-hidden="true">
+  <!-- five bold petals, hand-imperfect -->
+  <g class="petals">
+    <path d="M50 12 C 64 14, 66 34, 50 40 C 34 34, 36 14, 50 12 Z" />
+    <path d="M85 38 C 84 52, 66 56, 60 44 C 62 30, 80 26, 85 38 Z" />
+    <path d="M72 82 C 60 90, 44 78, 52 66 C 66 62, 74 70, 72 82 Z" />
+    <path d="M28 82 C 26 70, 34 62, 48 66 C 56 78, 40 90, 28 82 Z" />
+    <path d="M15 38 C 20 26, 38 30, 40 44 C 34 56, 16 52, 15 38 Z" />
+  </g>
+  <!-- the seed-head centre -->
+  <circle class="core" cx="50" cy="50" r="12" />
+  <g class="seeds">
+    <circle cx="50" cy="44" r="1.6" /><circle cx="45" cy="52" r="1.6" />
+    <circle cx="55" cy="52" r="1.6" /><circle cx="50" cy="55" r="1.6" />
+  </g>
+</svg>
+<style>
+  .bloom { display: inline-block; vertical-align: middle; overflow: visible; }
+  .bloom--solid .petals path { fill: var(--bloom); }
+  .bloom--solid .core { fill: var(--night); }
+  .bloom--solid .seeds circle { fill: var(--paper); }
+  .bloom--line .petals path { fill: none; stroke: var(--bloom); stroke-width: 2; stroke-linejoin: round; }
+  .bloom--line .core { fill: none; stroke: var(--stem); stroke-width: 2; }
+  .bloom--line .seeds circle { fill: var(--stem); }
+</style>

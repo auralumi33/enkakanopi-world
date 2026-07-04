@@ -40,6 +40,19 @@
   --budding:   #c48a3f;   /* taking shape */
   --evergreen: #4f5b3f;   /* stands on its own */
 
+  /* — Marimekko print accents (bold, flat, botanical — used sparingly, Law 8) — */
+  --bloom:      #cf4a45;   /* the poppy bloom (== accent) */
+  --bloom-deep: #a83731;   /* its shadow petal */
+  --stem:       #6f7d5a;   /* stalk / leaf, == canopy */
+
+  /* — the night skin: RESERVED for the multi-agent layer only — */
+  --night:      #17141c;   /* deep aubergine-ink ground */
+  --night-2:    #201b28;   /* raised panel on night */
+  --night-ink:  #ece7dd;   /* cream text on night */
+  --night-dim:  #9b93a2;   /* muted text on night */
+  --night-line: #362f40;   /* hairline on night */
+  --gold:       #d7a45c;   /* warm star / focal on night */
+
   --measure: 65ch;           /* reading measure */
   --lh:      1.72;           /* generous line-height */
 

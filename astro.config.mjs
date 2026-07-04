@@ -2,12 +2,12 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 
-// Static output. The domain (enkakanopi.world) is re-attached at deploy time —
-// deliberately NOT hardcoded here yet. `site` is left to the Vercel preview URL
-// via the SITE env var so canonical URLs stay portable across preview + Pages.
-// Assets resolve relative to BASE_URL so a GitHub-Pages project subpath works too.
+// Static output, hosted from the GitHub repo (Vercel Git integration) — not
+// laptop- or cron-dependent. Canonical domain is enkakanopi.world; override with
+// the SITE env var for preview builds. Assets resolve relative to BASE_URL so a
+// GitHub-Pages project subpath still works as a fallback host.
 export default defineConfig({
-  site: process.env.SITE || undefined,
+  site: process.env.SITE || 'https://enkakanopi.world',
   base: process.env.BASE_PATH || '/',
   output: 'static',
   trailingSlash: 'never',
