@@ -1,0 +1,22 @@
+---
+// One idea: the critic forecasts "you must stay small" from old data — and one
+// lived rep the data didn't have revises the forecast.
+---
+<svg viewBox="0 0 560 200" role="img" aria-labelledby="fc-t">
+  <title id="fc-t">A line of past data points trending low, extended by a dotted forecast that predicts "stay small." A single new lived point lands well above the forecast, and the line is redrawn upward to meet it.</title>
+  <!-- past data, low trend -->
+  <g class="ink block">
+    <circle cx="50" cy="140" r="3.5" /><circle cx="100" cy="136" r="3.5" />
+    <circle cx="150" cy="142" r="3.5" /><circle cx="200" cy="138" r="3.5" />
+  </g>
+  <path class="ink hair" d="M50 140 C 100 136, 150 142, 200 138" opacity="0.7" />
+  <!-- the forecast: stay small -->
+  <path class="ink hair" d="M200 138 C 260 140, 320 142, 380 144" stroke-dasharray="3 5" opacity="0.7" />
+  <text class="hand-label" x="248" y="164" font-size="13" opacity="0.7">forecast: &ldquo;stay small&rdquo;</text>
+  <!-- the new lived point, above -->
+  <circle class="port-ring" cx="360" cy="80" r="8" /><circle class="port-fill" cx="360" cy="80" r="3.2" />
+  <text class="hand-label hand-label--accent" x="330" y="64" font-size="13">one lived rep</text>
+  <!-- the revised forecast -->
+  <path class="ink spine" d="M200 138 C 280 120, 320 96, 360 80 C 410 60, 460 52, 520 44" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="400" y="96" font-size="13">the forecast, revised</text>
+</svg>

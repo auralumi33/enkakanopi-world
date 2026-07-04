@@ -77,6 +77,20 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaCarriedCapacity` | Field Notes · The Keel, Not the Harbour | Capacity isn't a trait you have — it's the running total of the reps you survived, compounded into ballast you carry into every room. |
 | `DiaGranularity` | Field Notes · The Weather and the Sky | A precisely named feeling gives you a heading; "bad" gives you nowhere to steer. |
 | `DiaFallData` | Body & Spine · Relearning to Fall | Every fall is data, gilded — a landing to learn from, plotted into a rising series, never a verdict stamped on you. |
+| `DiaLoadBearing` | Body & Spine · Articulation | The discipline is knowing which parts must bear the load and which are free to move — and for years I had it backwards. |
+| `DiaMendPace` | Body & Spine · The Tide Knows When | You mend at the speed the mending happens — a real recovery is a jagged rising line, not the straight one you'd have willed. |
+| `DiaRelay` | Field Notes · Hallucinations of the Past | Memory is finally for the handoff — the machine can out-hoard me forever, but can never hand anything on. |
+| `DiaRevising` | Field Notes · In Formation | A living line you can return to and find changed beats a sealed, lacquered one that can't move. |
+| `DiaContainerCraft` | Field Notes · Only in Motion | The still frame catches the craft and loses the container; the object deflates the instant you still it. |
+| `DiaStableOrbit` | Field Notes · The Company of Machines | Too close and you crush it; too far and it drifts — the craft is the stable orbit, close enough to hold, far enough to spin. |
+| `DiaStorms` | Field Notes · The Detours Were the Voyage | Nobody remembers the calm passages; it's the storms that get gilded into the story. |
+| `DiaAtTheDoor` | Field Notes · The Room I Left | I linger by the door, hand half-raised, while the work happens correctly in a room I've already left. |
+| `DiaKintsugi` | Field Notes · The Seam | Don't hide the break or merely tolerate it — gild it, until the mended seam is the most precious line on the vessel. |
+| `DiaAbsence` | Field Notes · What the Machine Remembers of Me | The machine holds up an absence I can't feel from inside it — a self I stopped being without noticing. |
+| `DiaForecast` | Field Notes · Who Gets to Write to You | The critic forecasts "stay small" from old data; one lived rep the data didn't have revises the forecast. |
+| `DiaFreshEyes` | The Workbench · The Shape of Things | Fresh eyes don't see more facts — they look until the few forces that move the tangle surface as a shape. |
+| `DiaHandsBegin` | The Workbench · Trust the Little Kit | The head wants the whole plan; the hands just want to begin — and beginning is the part no plan can do for you. |
+| `DiaArc` | The Workbench · Why Start With the Hands | Hands, screen, room — one continuous appetite for making the thing you can stand inside. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.

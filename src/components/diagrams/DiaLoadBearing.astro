@@ -1,0 +1,19 @@
+---
+// One idea: the whole discipline is knowing which parts must bear the load and
+// which are free to move — and for years I had it exactly backwards.
+---
+<svg viewBox="0 0 560 200" role="img" aria-labelledby="lb-t">
+  <title id="lb-t">A structure: two columns marked "bear the load" standing firm, and between them a set of hinged joints marked "free to move" that flex. An inset shows the reverse — bracing the hinges and loading the joints meant to be still — crossed out.</title>
+  <!-- the right way: columns bear, joints flex -->
+  <path class="ink spine" d="M70 40 L 70 160 M170 40 L 170 160" />
+  <text class="hand-label" x="40" y="182" font-size="14">bear the load</text>
+  <path class="ink block" d="M70 60 C 100 74, 140 46, 170 60 M70 100 C 100 114, 140 86, 170 100 M70 140 C 100 154, 140 126, 170 140" />
+  <text class="hand-label hand-label--accent" x="86" y="34" font-size="14">free to move</text>
+  <!-- the reverse, crossed out -->
+  <g opacity="0.45">
+    <path class="ink hair" d="M330 44 C 360 40, 360 60, 330 64 C 360 68, 360 88, 330 92 C 360 96, 360 116, 330 120 C 360 124, 360 144, 330 148" />
+    <path class="ink hair" d="M430 40 L 430 156" stroke-dasharray="3 5" />
+  </g>
+  <path class="ink hair" d="M320 60 L 456 140 M456 60 L 320 140" stroke="var(--poppy)" opacity="0.5" />
+  <text class="hand-label" x="330" y="182" font-size="13" opacity="0.6">braced the bend, loaded the still</text>
+</svg>
