@@ -73,6 +73,10 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaMerging` | Versions of Me | The selves don't resolve into one; they braid into a single current that keeps each of their colours. |
 | `DiaWeatherSky` | Field Notes · The Weather and the Sky | The moods are weather; you are the sky they pass through — neither improved by clear days nor damaged by storms (metaphor, not the heavens). |
 | `DiaQuest` | Field Notes · The Detours Were the Voyage | The straight line home was never on offer — the detours were the voyage. |
+| `DiaWobble` | The Workbench · The Shape of Things | The tremble isn't your core failing; it's the deep muscle waking up — the wobble is the rebuild. |
+| `DiaCarriedCapacity` | Field Notes · The Keel, Not the Harbour | Capacity isn't a trait you have — it's the running total of the reps you survived, compounded into ballast you carry into every room. |
+| `DiaGranularity` | Field Notes · The Weather and the Sky | A precisely named feeling gives you a heading; "bad" gives you nowhere to steer. |
+| `DiaFallData` | Body & Spine · Relearning to Fall | Every fall is data, gilded — a landing to learn from, plotted into a rising series, never a verdict stamped on you. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.

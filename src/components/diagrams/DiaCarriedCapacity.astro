@@ -1,0 +1,29 @@
+---
+// One idea: capacity isn't a trait you have — it's the running total of the reps
+// you survived, quietly compounded into ballast you carry into every room.
+---
+<svg viewBox="0 0 600 240" role="img" aria-labelledby="cap-t">
+  <title id="cap-t">On the left, a long tally of small individual marks — each a survived rep or fall, forgettable on its own. They accumulate and compound rightward into a single weighted keel-ballast that a small steady figure carries beneath her, upright in open water.</title>
+
+  <!-- the tally of survived reps (small, forgettable, many) -->
+  <text class="hand-label" x="20" y="40" font-size="14">each rep, survived</text>
+  <g class="ink hair">
+    <path d="M28 60 l 0 14 M40 60 l 0 14 M52 60 l 0 14 M64 60 l 0 14 M76 58 l 6 12" />
+    <path d="M28 86 l 0 14 M40 86 l 0 14 M52 86 l 0 14 M64 86 l 0 14 M76 84 l 6 12" />
+    <path d="M28 112 l 0 14 M40 112 l 0 14 M52 112 l 0 14 M64 112 l 0 14 M76 110 l 6 12" />
+    <path d="M28 138 l 0 14 M40 138 l 0 14 M52 138 l 0 14" />
+  </g>
+  <!-- compounding arrow -->
+  <path class="ink hair" d="M110 110 C 170 108, 210 116, 258 118" stroke-dasharray="2 6" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="130" y="98" font-size="14">compounds into</text>
+  <!-- the figure, steady, carrying the ballast -->
+  <path class="ink hair" d="M300 150 C 380 142, 460 158, 560 150" opacity="0.6" />
+  <circle class="ink block" cx="430" cy="96" r="10" />
+  <path class="ink spine" d="M430 106 C 426 126, 430 146, 428 162" />
+  <path class="ink hair" d="M430 120 C 416 116, 408 124, 400 120 M430 120 C 444 116, 452 124, 460 120" />
+  <!-- the keel-ballast (the carried capacity) -->
+  <path class="ink block" d="M410 168 C 414 190, 446 190, 450 168 C 448 200, 412 200, 410 168 Z" fill="var(--poppy-wash)" />
+  <path class="ink spine" d="M430 162 L 430 196" stroke="var(--poppy)" />
+  <circle class="port-fill" cx="430" cy="180" r="3.4" />
+  <text class="hand-label" x="374" y="222" font-size="15">the capacity you carry into every room</text>
+</svg>

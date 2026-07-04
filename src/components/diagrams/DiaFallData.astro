@@ -1,0 +1,29 @@
+---
+// One idea: every fall is data, gilded — a landing to learn from, plotted into a
+// series, never a single verdict stamped on you.
+---
+<svg viewBox="0 0 600 240" role="img" aria-labelledby="falldata-t">
+  <title id="falldata-t">On the left, one fall drawn as a hard stamp reading "VERDICT" — final, damning, crossed through. On the right, the same falls plotted as a rising series of gilded points, each a landing that taught the next, curving upward.</title>
+
+  <!-- the fall read as a verdict (single, terminal) -->
+  <g opacity="0.5">
+    <rect x="40" y="86" width="120" height="52" rx="3" class="ink block" />
+    <text class="hand-label" x="62" y="120" font-size="20">VERDICT</text>
+  </g>
+  <path class="ink hair" d="M46 80 L 158 146 M158 80 L 46 146" stroke="var(--poppy)" opacity="0.6" />
+  <text class="hand-label" x="44" y="168" font-size="14" opacity="0.65">one fall = a sentence</text>
+
+  <!-- the turn -->
+  <path class="ink hair" d="M188 112 C 220 110, 240 114, 262 116" stroke-dasharray="2 6" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="196" y="102" font-size="14">re-read as</text>
+
+  <!-- the falls as gilded data, a rising series -->
+  <path class="ink spine" d="M300 188 C 340 180, 356 156, 392 150 C 430 144, 446 118, 484 110 C 516 103, 532 92, 560 84" stroke="var(--poppy)" />
+  <g>
+    <circle class="port-ring" cx="300" cy="188" r="7" /><circle class="port-fill" cx="300" cy="188" r="3" />
+    <circle class="port-ring" cx="392" cy="150" r="7" /><circle class="port-fill" cx="392" cy="150" r="3" />
+    <circle class="port-ring" cx="484" cy="110" r="7" /><circle class="port-fill" cx="484" cy="110" r="3" />
+    <circle class="port-ring" cx="556" cy="86" r="7" /><circle class="port-fill" cx="556" cy="86" r="3" />
+  </g>
+  <text class="hand-label hand-label--accent" x="330" y="214" font-size="15">each fall: data, gilded — a landing</text>
+</svg>
