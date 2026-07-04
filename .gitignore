@@ -19,8 +19,13 @@ Thumbs.db
 .env.*
 !.env.example
 
-# drafts (kept out of the public repo on purpose)
+# drafts + raw notes (kept out of the public repo on purpose)
 _drafts/
+notes/inbox/
+notes/redlines/
+
+# the private register guard list — enforced locally, never shipped
+guard.words.local.txt
 
 # never commit PDFs
 *.pdf

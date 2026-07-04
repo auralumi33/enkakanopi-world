@@ -10,12 +10,14 @@ a { color: inherit; }
 /* ── the paper ───────────────────────────────────────────────── */
 body {
   background-color: var(--paper);
-  /* faint graph-grid, very low opacity — texture, never pattern (Law 8) */
+  /* graph-grid + a whisper of the old night sky, carried over to warm paper.
+     Texture, never pattern (Law 8): both sit far below the reading threshold. */
   background-image:
+    radial-gradient(var(--canopy-soft) 0.6px, transparent 0.7px),
     linear-gradient(var(--grid) 0.7px, transparent 0.7px),
     linear-gradient(90deg, var(--grid) 0.7px, transparent 0.7px);
-  background-size: 26px 26px;
-  background-position: -1px -1px;
+  background-size: 78px 78px, 26px 26px, 26px 26px;
+  background-position: 12px 30px, -1px -1px, -1px -1px;
   color: var(--ink);
   font-family: var(--serif);
   font-size: 1.0625rem;
@@ -29,7 +31,8 @@ body {
 
 /* ── typography ──────────────────────────────────────────────── */
 h1, h2, h3 { font-weight: 500; line-height: 1.18; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2rem, 5.5vw, 3.1rem); }
+h1 { font-family: var(--display); font-optical-sizing: auto; font-weight: 460; font-size: clamp(2rem, 5.5vw, 3.1rem); letter-spacing: -0.015em; }
+h2 { font-family: var(--display); font-weight: 480; }
 h2 { font-size: clamp(1.4rem, 3.2vw, 1.9rem); margin-top: calc(var(--step) * 1.8); }
 h3 { font-size: 1.2rem; margin-top: calc(var(--step) * 1.2); }
 

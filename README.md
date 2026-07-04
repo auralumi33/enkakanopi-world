@@ -10,9 +10,13 @@ A canopy for a self in motion — a quiet garden of essays and hand-drawn diagra
 npm install
 npm run dev      # local, with live reload
 npm run build    # static output → dist/
-npm run preview  # serve the build
+npm run guard    # the mechanical mirror — secrets + off-register check
+npm run verify   # guard → type-check → build
 ```
 
-Essays live in `src/content/` as Markdown/MDX. The drawing hand — glyphs, diagrams, tokens — lives in `src/components/` and `src/styles/`. Design reasoning is in [`DESIGN-NOTES.md`](./DESIGN-NOTES.md).
+Essays live in `src/content/` as Markdown/MDX, organised by growth stage — *seedling · budding · evergreen* — never by date. The drawing hand (glyphs, diagrams, tokens) lives in `src/components/` and `src/styles/`.
+
+- Design reasoning — [`DESIGN-NOTES.md`](./DESIGN-NOTES.md)
+- How the garden is tended (the note → mirror → grow chain, and the guard) — [`ARCHITECTURE.md`](./ARCHITECTURE.md)
 
 Licensing is split: the **code** is MIT, the **writing and drawings** are CC BY-NC-ND 4.0. See [`LICENSE`](./LICENSE).

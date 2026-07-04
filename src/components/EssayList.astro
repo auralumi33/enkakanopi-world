@@ -1,11 +1,14 @@
 ---
 import Glyph from "./Glyph.astro";
+import StageTag from "./StageTag.astro";
 interface Item {
   slug: string;
   title: string;
   dek: string;
   status: string;
   glyph: "leaf" | "canopy" | "seam" | "spine" | "compass" | "light" | "arrow";
+  stage: "seedling" | "budding" | "evergreen";
+  tended?: string;
 }
 interface Props { items: Item[]; basePath: string; }
 const { items, basePath } = Astro.props;
@@ -19,7 +22,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         <span class="txt">
           <span class="title">{it.title}</span>
           <span class="dek">{it.dek}</span>
-          <span class="status">{it.status}</span>
+          <span class="meta">
+            <StageTag stage={it.stage} tended={it.tended} />
+            <span class="status">{it.status}</span>
+          </span>
         </span>
       </a>
     </li>
@@ -38,5 +44,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .title { display: block; font-size: 1.45rem; letter-spacing: -0.01em; }
   .stream a:hover .title { color: var(--poppy); }
   .dek { display: block; color: var(--ink-soft); margin-top: 0.25rem; max-width: 54ch; }
-  .status { display: block; font-family: var(--hand); font-size: 1.05rem; color: var(--canopy-deep); margin-top: 0.5rem; }
+  .meta { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.6rem; }
+  .status { font-family: var(--hand); font-size: 1.05rem; color: var(--canopy-deep); }
 </style>

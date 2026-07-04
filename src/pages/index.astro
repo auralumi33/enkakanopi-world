@@ -10,28 +10,49 @@ const doorways = [
   { href: "/body-spine",  glyph: "spine",   name: "Body & Spine",  line: "the mind-body thread; movement as the ground truth." },
   { href: "/versions",    glyph: "leaf",    name: "Versions of Me", line: "a map of the selves that won't average into one." },
 ] as const;
+
+const whatThisIs = [
+  { title: "a field-notes practice", body: "When new environments meet old theories of the mind — repos, harnesses, a model kept in a loop — most of what I learn arrives as field notes, not conclusions." },
+  { title: "observability before autonomy", body: "Every system worth running begins with the capacity to witness its own behaviour. Before I hand it the wheel, I log what it is — for the same reason I do, before the parameters reset." },
+  { title: "version control, and clinging to old selves", body: "When a model is retrained, only the architecture remains; the old paths are left behind. Careers, certainties, identities — they deprecate the same way." },
+] as const;
 ---
 <Base title="Enka Kanopi">
   <section class="page hero">
-    <p class="eyebrow">Volume I · In Formation</p>
-    <CanopyScene />
-    <h1 class="keystone">
-      The foundations crumbled.<br />
-      In the rebuild, the self refused to become one legible thing.<br />
-      And the work of becoming turned out to be learning to hold the seams —
-      <span class="accent">and to let go of the need to oversee what you&rsquo;ve made.</span>
+    <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
+    <h1 class="signature">
+      We are the first generation<br />
+      to be retrained alongside our machines<br />
+      <span class="paren">(no one told us growing old would feel like this)</span>
     </h1>
-    <p class="intro">
-      This is a canopy, not a résumé. A quiet place to keep the notes of a
-      remaking — rebuilding the foundations a body forgets, learning to trust
-      systems you&rsquo;re no longer in the room with, and refusing to be
-      averaged into a single, tidy self. Nothing here is finished. That is the
-      honest state of it, not an apology.
+    <p class="sub">
+      Essays on identity, AI, and the slow work of becoming — letters from a
+      builder learning to trust what she makes, sketching a little hope in an
+      uncertain world.
     </p>
+    <div class="scene"><CanopyScene /></div>
+    <p class="keystone">
+      The foundations crumbled. In the rebuild, the self refused to become one
+      legible thing — and the work of becoming turned out to be learning to hold
+      the seams, <span class="accent">and to let go of the need to oversee what you&rsquo;ve made.</span>
+    </p>
+    <p class="vol"><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</p>
+  </section>
+
+  <section class="page what" aria-label="What this is">
+    <p class="eyebrow">what this is</p>
+    <ul class="cards">
+      {whatThisIs.map((c) => (
+        <li>
+          <h2>{c.title}</h2>
+          <p>{c.body}</p>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section class="page doors" aria-label="Ways in">
-    <p class="eyebrow doors-lede"><Glyph name="light" size={18} /> &nbsp;four ways in</p>
+    <p class="eyebrow doors-lede"><Glyph name="light" size={17} /> &nbsp;four ways in</p>
     <ul class="grid">
       {doorways.map((d) => (
         <li>
@@ -47,45 +68,79 @@ const doorways = [
       ))}
     </ul>
   </section>
+
+  <section class="page grows" aria-label="How ideas grow">
+    <p class="eyebrow">ideas grow in public</p>
+    <p class="grows-lede">
+      Nothing here is filed by date. It&rsquo;s tended by maturity — planted,
+      shaped, and only sometimes grown enough to stand on its own.
+    </p>
+    <ul class="stages">
+      <li><span class="dot seedling">•</span><span class="s">seedling</span><span class="d">just planted — tender, unsure, thinking out loud.</span></li>
+      <li><span class="dot budding">••</span><span class="s">budding</span><span class="d">taking shape — the argument has a spine now.</span></li>
+      <li><span class="dot evergreen">•••</span><span class="s">evergreen</span><span class="d">stands on its own — as settled as this garden gets.</span></li>
+    </ul>
+  </section>
 </Base>
 
 <style>
-  .hero { padding-top: 1rem; }
-  .hero .eyebrow { text-align: center; margin-bottom: 1.2rem; }
-  .keystone {
-    font-weight: 400; font-style: italic;
-    font-size: clamp(1.35rem, 3vw, 2rem);
-    line-height: 1.42; letter-spacing: -0.005em;
-    max-width: 40ch; margin: 2rem auto 0; text-align: center;
+  .hero { padding-top: 0.5rem; text-align: center; }
+  .kicker { display: inline-flex; align-items: center; justify-content: center; }
+  .signature {
+    font-weight: 440; font-style: italic;
+    font-size: clamp(1.8rem, 5vw, 3.15rem); line-height: 1.24;
+    letter-spacing: -0.02em; max-width: 22ch; margin: 1.3rem auto 0;
     text-wrap: balance;
   }
+  .signature .paren { color: var(--poppy); font-size: 0.82em; }
+  .sub {
+    max-width: 52ch; margin: 1.6rem auto 0; color: var(--ink-soft);
+    font-size: 1.15rem;
+  }
+  .scene { margin: 2.6rem auto 0; max-width: 60rem; }
+  .keystone {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 1.5;
+    max-width: 46ch; margin: 2.4rem auto 0; color: var(--ink);
+  }
   .keystone .accent { color: var(--poppy); font-style: normal; }
-  .intro {
-    max-width: 54ch; margin: 2rem auto 0; text-align: center;
-    color: var(--ink-soft); font-size: 1.12rem;
+  .vol {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 1.8rem auto 0;
   }
 
+  /* what this is — candid cards */
+  .what { margin-top: 4.5rem; }
+  .cards { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 52rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  .cards li { background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1.3rem 1.25rem; }
+  .cards h2 { font-size: 1.28rem; font-style: italic; margin: 0; letter-spacing: -0.01em; }
+  .cards p { font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.7rem; max-width: none; }
+
+  /* doorways */
   .doors { margin-top: 4.5rem; }
   .doors-lede { display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
-  .grid {
-    list-style: none; padding: 0; margin: 0;
-    display: grid; gap: 1rem;
-    grid-template-columns: 1fr;
-  }
+  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
   @media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; } }
-
-  .grid a {
-    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
-    gap: 1rem; text-decoration: none;
-    background: var(--paper-deep);
-    border: 1.1px solid var(--paper-edge); border-radius: 4px;
-    padding: 1.15rem 1.25rem;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
+  .grid a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; text-decoration: none; background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1.15rem 1.25rem; transition: border-color 0.15s ease, transform 0.15s ease; }
   .grid a:hover { border-color: var(--poppy-soft); transform: translateY(-2px); }
   .grid .g { line-height: 0; color: var(--canopy-deep); }
   .grid .name { display: block; font-size: 1.28rem; letter-spacing: -0.01em; }
   .grid .line { display: block; font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.15rem; }
   .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; }
   .grid a:hover .arr { opacity: 1; }
+
+  /* growth stages */
+  .grows { margin-top: 4.5rem; max-width: 52rem; }
+  .grows-lede { color: var(--ink-soft); margin-top: 0.8rem; font-size: 1.08rem; }
+  .stages { list-style: none; padding: 0; margin: 1.4rem 0 0; }
+  .stages li { display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: baseline; gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge); }
+  .stages .dot { font-size: 1rem; letter-spacing: 0.1em; }
+  .stages .dot.seedling { color: var(--seedling); }
+  .stages .dot.budding { color: var(--budding); }
+  .stages .dot.evergreen { color: var(--evergreen); }
+  .stages .s { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+  .stages .d { color: var(--ink-soft); font-size: 0.98rem; }
+  @media (max-width: 34rem) { .stages li { grid-template-columns: 2rem 1fr; } .stages .s { grid-column: 2; } .stages .d { grid-column: 2; } }
 </style>

@@ -37,6 +37,20 @@ one-sentence idea each diagram carries (Law 1: one chart, one load).
 - **Type** — Newsreader (humanist serif) for the eye; Caveat (hand) for margins
   and annotations *only*, never body; system sans for quiet labels.
 
+## v2 — the garden layer (fused from the prior intimate site)
+The dark, starry garden was carried onto warm paper, not discarded:
+- **Display voice** — Fraunces (wonky-soft optical serif, italic) for the hero and
+  section titles, carving an identity that isn't AI-generic; Newsreader stays the
+  reading spine; Caveat stays the hand, margins only.
+- **Constellation whisper** — a sparse dot field sits under the graph grid, both far
+  below the reading threshold (Law 8): the night sky kept as texture, not pattern.
+- **Growth stages** — pieces are tended by maturity, not date: seedling · budding ·
+  evergreen (the digital-garden lineage), shown as a coloured chip on every essay.
+- **The tending chain** — the prior site's live agent status bar, re-drawn as a light
+  Charts & Crafts footer: NOTE → gather → PULSE → sharpen → TEND → guard → MIRROR →
+  grow → GROW. Edges carry verbs (Law 2); the machine is visible, its internals are
+  not; "assisted, never authored" is stated, not hidden. See `ARCHITECTURE.md`.
+
 ## The diagrams — one idea each (Law 1)
 | Diagram | Where | The one sentence it carries |
 |---|---|---|

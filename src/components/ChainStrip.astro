@@ -1,0 +1,73 @@
+---
+/**
+ * ChainStrip — the tending chain, surfaced honestly.
+ * The garden is kept by a small chain of assists, but VOICE-LOCKED: every piece
+ * starts from Rika's own note and passes the mirror before it grows in public.
+ * Assisted, never authored. Shown lightly — the machine visible, its internals not.
+ * Edges carry verbs (Law 2); nodes are anchors.
+ */
+import Glyph from "./Glyph.astro";
+const chain = [
+  { key: "note",   glyph: "seam",    job: "Rika writes",        edge: "gather" },
+  { key: "pulse",  glyph: "light",   job: "scans the edge",     edge: "sharpen" },
+  { key: "tend",   glyph: "compass", job: "structures, tightens", edge: "guard" },
+  { key: "mirror", glyph: "spine",   job: "keeps voice & privacy", edge: "grow" },
+  { key: "grow",   glyph: "canopy",  job: "in public",          edge: null },
+] as const;
+---
+<section class="chain" aria-label="How a piece is tended">
+  <p class="eyebrow">the tending chain</p>
+  <ol class="flow">
+    {chain.map((n, i) => (
+      <li class="node">
+        <span class="g" class:list={[{ accent: n.key === "mirror" }]}>
+          <Glyph name={n.glyph} size={22} accent={n.key === "mirror"} />
+        </span>
+        <span class="k">{n.key}</span>
+        <span class="j">{n.job}</span>
+        {n.edge && <span class="edge" aria-hidden="true"><span class="v">{n.edge}</span><Glyph name="arrow" size={18} /></span>}
+      </li>
+    ))}
+  </ol>
+  <p class="note">
+    Every piece starts from a note in Rika&rsquo;s own hand and passes the
+    <em>mirror</em> — a guard on voice and privacy — before it grows in public.
+    <span class="lock">Assisted, never authored. Nothing is published without her yes.</span>
+  </p>
+</section>
+<style>
+  .chain {
+    max-width: var(--page); margin: 3rem auto 0; padding: 1.3rem var(--gutter) 0;
+  }
+  .eyebrow { margin-bottom: 0.9rem; }
+  .flow {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.4rem 0.2rem;
+  }
+  .node {
+    display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto;
+    column-gap: 0.5rem; align-items: center;
+    padding: 0.5rem 0.2rem; position: relative;
+  }
+  .node .g { grid-row: 1 / span 2; color: var(--canopy-deep); line-height: 0; }
+  .node .g.accent { color: var(--poppy); }
+  .node .k { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+  .node .j { font-family: var(--hand); font-size: 1.05rem; color: var(--ink-soft); line-height: 1; grid-column: 2; }
+  .edge {
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    margin: 0 0.55rem; align-self: center; grid-row: 1 / span 2; grid-column: 3;
+    color: var(--ink-faint);
+  }
+  .edge .v { font-family: var(--hand); font-size: 0.95rem; color: var(--poppy); }
+  .edge :global(svg) { opacity: 0.7; }
+  .note {
+    font-size: 0.92rem; color: var(--ink-soft); margin-top: 1rem; max-width: 60ch;
+  }
+  .note em { font-style: normal; color: var(--poppy); }
+  .note .lock { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--canopy-deep); margin-top: 0.3rem; }
+  @media (max-width: 46rem) {
+    .flow { flex-direction: column; align-items: stretch; }
+    .edge { display: none; }
+    .node { border-left: 1.4px solid var(--paper-edge); padding-left: 0.7rem; }
+  }
+</style>

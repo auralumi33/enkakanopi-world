@@ -9,6 +9,10 @@ const essay = z.object({
   status: z.string().default("in formation · v0"),
   order: z.number().default(0),    // small = earlier in the stream
   glyph: z.enum(["leaf", "canopy", "seam", "spine", "compass", "light", "arrow"]).default("seam"),
+  // growth stage — a piece is planted, then tended, then stands on its own.
+  // organised by maturity, never by date (the digital-garden lineage).
+  stage: z.enum(["seedling", "budding", "evergreen"]).default("seedling"),
+  tended: z.string().optional(),   // an honest, non-triangulating note on when it was last worked
 });
 
 const fieldNotes = defineCollection({

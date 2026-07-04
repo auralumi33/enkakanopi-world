@@ -30,9 +30,15 @@
   --w-hair:       0.7;       /* annotation hairlines */
 
   /* — type — */
+  --display: "Fraunces", "Newsreader", Georgia, serif;                /* the wonky-soft display voice */
   --serif:  "Newsreader", Iowan Old Style, "Palatino Linotype", Palatino, Georgia, serif;
   --hand:   "Caveat", "Segoe Print", "Bradley Hand", cursive;         /* annotations ONLY */
   --sans:   ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* — the garden's growth stages (Maggie-Appleton lineage, in Enka's key) — */
+  --seedling:  #8a9a5b;   /* just planted, tender */
+  --budding:   #c48a3f;   /* taking shape */
+  --evergreen: #4f5b3f;   /* stands on its own */
 
   --measure: 65ch;           /* reading measure */
   --lh:      1.72;           /* generous line-height */

@@ -1,0 +1,28 @@
+---
+/**
+ * StageTag — a piece's growth stage, shown as a small tended-plant chip.
+ * Organised by maturity, never by date. Seedling → Budding → Evergreen.
+ */
+interface Props { stage: "seedling" | "budding" | "evergreen"; tended?: string; }
+const { stage, tended } = Astro.props;
+const meta = {
+  seedling:  { label: "seedling",  mark: "•",   note: "just planted — tender, unsure" },
+  budding:   { label: "budding",   mark: "••",  note: "taking shape" },
+  evergreen: { label: "evergreen", mark: "•••", note: "stands on its own" },
+}[stage];
+---
+<span class={`stage stage--${stage}`} title={tended ? `${meta.note} · ${tended}` : meta.note}>
+  <span class="dots" aria-hidden="true">{meta.mark}</span>
+  <span class="lbl">{meta.label}</span>
+</span>
+<style>
+  .stage {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .dots { font-family: var(--serif); letter-spacing: 0.12em; font-size: 0.85rem; line-height: 1; }
+  .stage--seedling  .dots { color: var(--seedling); }
+  .stage--budding   .dots { color: var(--budding); }
+  .stage--evergreen .dots { color: var(--evergreen); }
+</style>

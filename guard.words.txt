@@ -1,0 +1,16 @@
+# guard.words.txt — the public off-register list
+#
+# One word or phrase per line; blank lines and # comments are ignored.
+# `npm run guard` refuses to let any of these into the repo. Matching is
+# whole-word, case-insensitive.
+#
+# This public list is intentionally sparse. The garden's private register
+# guards (names, places, and any vocabulary that would triangulate a person
+# or a venture) live in an UNTRACKED sibling file, `guard.words.local.txt`,
+# so sensitive terms are enforced locally but never shipped. See ARCHITECTURE.md.
+#
+# Add words here only when they are safe to be seen in public — e.g. filler
+# or AI-tell words the writing avoids on style grounds:
+
+delve
+seamlessly
