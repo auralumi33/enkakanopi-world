@@ -1,0 +1,26 @@
+---
+// One idea: the straight line home was never on offer — the detours were the voyage.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="quest-t">
+  <title id="quest-t">A voyage map: a start-mark on the left, a wandering dotted route that loops past small islands and trials, arriving at a home-mark on the right. A faint straight line between start and home is crossed out.</title>
+  <!-- start -->
+  <circle class="port-ring" cx="46" cy="128" r="9" /><circle class="port-fill" cx="46" cy="128" r="3.2" />
+  <text class="hand-label" x="24" y="160" font-size="14">set out</text>
+  <!-- the faint straight line, crossed out -->
+  <path class="ink hair" d="M56 128 L 548 128" stroke-dasharray="3 7" opacity="0.35" />
+  <path class="ink hair" d="M286 116 L 314 140 M314 116 L 286 140" stroke="var(--poppy)" opacity="0.55" />
+  <text class="hand-label" x="250" y="112" font-size="12" opacity="0.5">the straight way (never offered)</text>
+  <!-- the wandering route -->
+  <path class="ink spine" d="M56 128 C 120 80, 150 84, 180 120 C 210 156, 240 176, 300 160 C 356 145, 360 96, 410 96 C 456 96, 470 140, 520 132" />
+  <!-- islands / trials along the way -->
+  <g class="ink block">
+    <path d="M172 120 c 8 -6 20 -6 26 2 c -8 6 -20 6 -26 -2 Z" class="leaf-fill" />
+    <path d="M292 160 c 8 -6 20 -6 26 2 c -8 6 -20 6 -26 -2 Z" class="leaf-fill" />
+    <path d="M402 96 c 8 -6 20 -6 26 2 c -8 6 -20 6 -26 -2 Z" class="leaf-fill" />
+  </g>
+  <text class="hand-label" x="150" y="196" font-size="13" opacity="0.8">each trial, a landfall</text>
+  <!-- home -->
+  <circle class="port-ring" cx="536" cy="132" r="9" /><circle class="port-fill" cx="536" cy="132" r="3.4" />
+  <path class="ink hair" d="M536 118 L 536 104 L 548 112 L 536 116" />
+  <text class="hand-label hand-label--accent" x="512" y="164" font-size="15">home (changed)</text>
+</svg>

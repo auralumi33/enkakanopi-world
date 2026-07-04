@@ -1,0 +1,27 @@
+---
+// One idea: the moods are weather; you are the sky they pass through — the sky is
+// neither improved by clear days nor damaged by storms. (Metaphor, not the heavens.)
+---
+<svg viewBox="0 0 600 240" role="img" aria-labelledby="weather-t">
+  <title id="weather-t">A wide steady band labelled "the sky — you" runs the full width. Across it drifts a strip of weather — a cloud, some rain, a burst of sun — labelled "the moods, passing." The weather moves; the sky stays.</title>
+  <!-- the steady sky -->
+  <rect x="20" y="40" width="560" height="150" rx="4" class="ink block" />
+  <text class="hand-label" x="36" y="176" font-size="16">the sky — you (steady, unharmed)</text>
+  <!-- the passing weather strip -->
+  <g class="ink hair">
+    <!-- cloud -->
+    <path d="M90 90 C 84 78, 104 74, 110 84 C 116 74, 136 78, 132 92 C 146 92, 146 106, 130 106 L 96 106 C 82 106, 82 92, 90 90 Z" />
+    <!-- rain -->
+    <path d="M100 112 L 96 124 M114 112 L 110 124 M128 112 L 124 124" />
+    <!-- sun -->
+    <circle cx="300" cy="96" r="14" />
+    <path d="M300 74 L 300 66 M322 96 L 330 96 M300 118 L 300 126 M278 96 L 270 96 M315 81 L 321 75 M285 81 L 279 75" />
+    <!-- storm cloud -->
+    <path d="M470 92 C 464 80, 486 76, 492 86 C 498 76, 520 80, 514 96 C 528 96, 528 110, 512 110 L 476 110 C 462 110, 462 96, 470 92 Z" />
+    <path d="M486 116 L 480 130 M500 116 L 494 130" stroke="var(--poppy)" />
+  </g>
+  <!-- drift arrow -->
+  <path class="ink hair" d="M150 60 C 260 56, 400 56, 540 60" stroke-dasharray="2 6" opacity="0.6" />
+  <path class="ink hair" d="M528 52 C 536 57, 542 60, 548 62 C 542 65, 535 70, 530 76" opacity="0.6" />
+  <text class="hand-label hand-label--accent" x="240" y="46" font-size="15">the moods, passing through</text>
+</svg>
