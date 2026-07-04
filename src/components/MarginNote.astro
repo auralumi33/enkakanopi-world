@@ -1,0 +1,33 @@
+---
+/**
+ * MarginNote — a hand-voice aside. On wide screens it drifts into the right margin;
+ * on narrow screens it folds inline as an indented whisper. Annotation face only.
+ */
+interface Props { glyph?: boolean; }
+const { glyph = true } = Astro.props;
+import Glyph from "./Glyph.astro";
+---
+<aside class="mnote">
+  {glyph && <span class="g"><Glyph name="light" size={18} accent /></span>}
+  <span class="body"><slot /></span>
+</aside>
+<style>
+  .mnote {
+    font-family: var(--hand);
+    font-size: 1.24rem; line-height: 1.3;
+    color: var(--ink-soft);
+    display: flex; gap: 0.45rem; align-items: flex-start;
+    border-left: 1.4px solid var(--poppy-soft);
+    padding-left: 0.85rem;
+    margin: var(--step) 0;
+  }
+  .g { line-height: 0; margin-top: 0.25rem; }
+  @media (min-width: 78rem) {
+    .mnote {
+      float: right; clear: right;
+      width: 15rem; margin-right: -17rem; margin-top: 0.2rem;
+      border-left: none; border-top: 1.4px solid var(--poppy-soft);
+      padding-left: 0; padding-top: 0.5rem;
+    }
+  }
+</style>

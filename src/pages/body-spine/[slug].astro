@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from "astro:content";
+import Essay from "../../layouts/Essay.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("bodySpine");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Essay
+  title={entry.data.title}
+  dek={entry.data.dek}
+  status={entry.data.status}
+  glyph={entry.data.glyph}
+  backHref="/body-spine"
+  backLabel="Body & Spine"
+>
+  <Content />
+</Essay>

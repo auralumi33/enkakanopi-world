@@ -1,0 +1,79 @@
+---
+import Base from "../layouts/Base.astro";
+import Figure from "../components/Figure.astro";
+import MarginNote from "../components/MarginNote.astro";
+import DiaVersions from "../components/diagrams/DiaVersions.astro";
+import Glyph from "../components/Glyph.astro";
+---
+<Base title="Versions of Me" description="A hand-drawn map of the selves that won't average into one — and the open question this place never resolves.">
+  <article class="page room">
+    <header class="head">
+      <p class="eyebrow"><Glyph name="leaf" size={18} /> &nbsp;the identity room</p>
+      <h1>Versions of Me</h1>
+      <p class="dek">
+        A map of the selves, and the seams between them. The seams are labelled
+        with verbs, because the self is not the nodes — it is what moves along
+        the edges.
+      </p>
+    </header>
+
+    <div class="prose">
+      <p>
+        There is a terse self and a rambling self. A self that works in one
+        language and a self that only arrives in another. A maker self with
+        clay under her nails and a self who builds things she then has to walk
+        away from. For years I drew these as a problem to be solved — a set of
+        contradictions I was supposed to reconcile into one clean, introducible
+        person.
+      </p>
+
+      <Figure idea="The versions are nodes; the seams between them — labelled with verbs — are the self. The centre is a question, not an average.">
+        <DiaVersions />
+      </Figure>
+
+      <p>
+        Then I stopped trying to collapse them and started drawing the edges
+        instead. The terse self <em>translates</em> the rambling one; the maker
+        self <em>hands off to</em> the one who lets go; they all
+        <em>refuse to average.</em> The truth of me was never in any single
+        node. It was in the traffic between them — the translating, the
+        contradicting, the returning. A self is a map you can only read by
+        following the roads.
+      </p>
+
+      <MarginNote>the in-between self isn&rsquo;t a compromise. it&rsquo;s where the traffic actually lives.</MarginNote>
+
+      <p>
+        At the centre, where a tidier map would put the resolved, averaged
+        person, I have put a question mark instead. Not because I couldn't
+        finish the map. Because the honest centre of it <em>is</em> an open
+        question, and to draw a face there would be the one real lie the map
+        could tell.
+      </p>
+
+      {/* SLOT: awaiting Rika's true detail — one concrete, abstractable instance of the self-split she noticed and couldn't reconcile (shape, not names). */}
+      <!-- SLOT II · the true self-split detail goes here, written as shape not coordinates. Until then this room holds the structure around the gap. -->
+
+      <p class="q">
+        So here is the question this whole place is built around, and will never
+        answer: is a self that cannot be averaged a failure of integration — a
+        person who never managed to become one thing —
+        <span class="accent">or is it the only kind of self worth keeping?</span>
+      </p>
+      <p>
+        I have decided not to decide. I think the deciding would cost me the
+        thing itself.
+      </p>
+    </div>
+  </article>
+</Base>
+<style>
+  .room { max-width: 46rem; }
+  .head { margin-bottom: 1.4rem; }
+  .head .eyebrow { display: flex; align-items: center; }
+  .head h1 { margin-top: 0.8rem; }
+  .dek { font-size: 1.2rem; color: var(--ink-soft); margin-top: 1rem; max-width: 50ch; }
+  .prose > * + * { margin-top: var(--step); }
+  .q { font-size: 1.3rem; line-height: 1.5; }
+  .q .accent { color: var(--poppy); }
+</style>

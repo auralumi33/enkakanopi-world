@@ -1,0 +1,51 @@
+/* ─────────────────────────────────────────────────────────────
+   Charts & Crafts · design tokens
+   Warm surface, rigorous spine. One accent, held for focal points.
+   Every value here earns its place (Law 8): colour ranks hierarchy
+   (Law 5), line weights encode the drawing hand (§3).
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* — paper & ink — */
+  --paper:        #f7f2e7;   /* soft cream ground */
+  --paper-deep:   #efe7d6;   /* recessed panels, cards */
+  --paper-edge:   #e7dcc6;   /* hairline dividers on paper */
+  --grid:         #e5dcc8;   /* faint graph-grid line */
+  --ink:          #2a251d;   /* body text — warm near-black */
+  --ink-soft:     #575049;   /* secondary text */
+  --ink-faint:    #8c8377;   /* captions, metadata */
+
+  /* — the one warm accent (poppy), held for ports / focal points — */
+  --poppy:        #cf4a45;   /* the single accent — a mark, not a mood */
+  --poppy-soft:   #e08d84;   /* tints, underlines */
+  --poppy-wash:   #f4e0da;   /* the faintest fill */
+
+  /* — muted botanical greens (the canopy motif) — */
+  --canopy:       #6f7d5a;   /* leaf / sage */
+  --canopy-deep:  #4f5b3f;   /* shadow side of a leaf */
+  --canopy-soft:  #aeb896;   /* dappled edge */
+
+  /* — drawing-hand line weights (micron-pen idiom, §3) — */
+  --w-spine:      1.5;       /* the load-bearing stroke */
+  --w-block:      1.1;       /* box / node edges */
+  --w-hair:       0.7;       /* annotation hairlines */
+
+  /* — type — */
+  --serif:  "Newsreader", Iowan Old Style, "Palatino Linotype", Palatino, Georgia, serif;
+  --hand:   "Caveat", "Segoe Print", "Bradley Hand", cursive;         /* annotations ONLY */
+  --sans:   ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --measure: 65ch;           /* reading measure */
+  --lh:      1.72;           /* generous line-height */
+
+  /* — rhythm — */
+  --step: 1.5rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --page: 68rem;
+
+  /* — motion (all gated on prefers-reduced-motion) — */
+  --drift: 14s;
+}
+
+/* Focus + selection carry the accent so keyboard users see the hand too. */
+::selection { background: var(--poppy-wash); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--poppy); outline-offset: 3px; border-radius: 2px; }

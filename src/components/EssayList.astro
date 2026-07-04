@@ -1,0 +1,42 @@
+---
+import Glyph from "./Glyph.astro";
+interface Item {
+  slug: string;
+  title: string;
+  dek: string;
+  status: string;
+  glyph: "leaf" | "canopy" | "seam" | "spine" | "compass" | "light" | "arrow";
+}
+interface Props { items: Item[]; basePath: string; }
+const { items, basePath } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<ul class="stream">
+  {items.map((it) => (
+    <li>
+      <a href={`${base}${basePath}/${it.slug}`}>
+        <span class="g"><Glyph name={it.glyph} size={28} /></span>
+        <span class="txt">
+          <span class="title">{it.title}</span>
+          <span class="dek">{it.dek}</span>
+          <span class="status">{it.status}</span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+<style>
+  .stream { list-style: none; padding: 0; margin: 0; }
+  .stream li + li { border-top: 1.1px solid var(--paper-edge); }
+  .stream a {
+    display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
+    text-decoration: none; padding: 1.4rem 0.4rem;
+    transition: background 0.15s ease;
+  }
+  .stream a:hover { background: var(--paper-deep); }
+  .g { line-height: 0; margin-top: 0.35rem; color: var(--canopy-deep); }
+  .title { display: block; font-size: 1.45rem; letter-spacing: -0.01em; }
+  .stream a:hover .title { color: var(--poppy); }
+  .dek { display: block; color: var(--ink-soft); margin-top: 0.25rem; max-width: 54ch; }
+  .status { display: block; font-family: var(--hand); font-size: 1.05rem; color: var(--canopy-deep); margin-top: 0.5rem; }
+</style>

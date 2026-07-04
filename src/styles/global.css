@@ -1,0 +1,129 @@
+@import "./tokens.css";
+
+/* ── reset (light touch) ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, figure, blockquote, ul, ol { margin: 0; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ── the paper ───────────────────────────────────────────────── */
+body {
+  background-color: var(--paper);
+  /* faint graph-grid, very low opacity — texture, never pattern (Law 8) */
+  background-image:
+    linear-gradient(var(--grid) 0.7px, transparent 0.7px),
+    linear-gradient(90deg, var(--grid) 0.7px, transparent 0.7px);
+  background-size: 26px 26px;
+  background-position: -1px -1px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: var(--lh);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+@media (min-width: 40rem) { body { background-size: 30px 30px; } }
+
+/* ── typography ──────────────────────────────────────────────── */
+h1, h2, h3 { font-weight: 500; line-height: 1.18; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 5.5vw, 3.1rem); }
+h2 { font-size: clamp(1.4rem, 3.2vw, 1.9rem); margin-top: calc(var(--step) * 1.8); }
+h3 { font-size: 1.2rem; margin-top: calc(var(--step) * 1.2); }
+
+p { max-width: var(--measure); }
+p + p { margin-top: var(--step); }
+
+a.link, .prose a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--poppy-soft);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  transition: text-decoration-color 0.15s ease;
+}
+a.link:hover, .prose a:hover { text-decoration-color: var(--poppy); }
+
+/* the eyebrow / label voice — sans, spaced, quiet */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* epistemic-status tag — in-format, never an apology */
+.status {
+  font-family: var(--hand);
+  font-size: 1.15rem;
+  color: var(--canopy-deep);
+  line-height: 1;
+}
+
+/* margin / annotation voice — hand face, ONLY here */
+.annot { font-family: var(--hand); color: var(--ink-soft); font-size: 1.28rem; line-height: 1.25; }
+
+blockquote {
+  border-left: 2px solid var(--poppy);
+  padding-left: 1.1rem;
+  margin: calc(var(--step) * 1.3) 0;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+}
+
+hr, .rule {
+  border: none;
+  height: 0;
+  border-top: 1.1px solid var(--paper-edge);
+  margin: calc(var(--step) * 2) 0;
+}
+
+/* ── layout helpers ──────────────────────────────────────────── */
+.page { max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
+.measure { max-width: var(--measure); }
+.center { margin-inline: auto; }
+.stack > * + * { margin-top: var(--step); }
+
+.prose > * + * { margin-top: var(--step); }
+.prose h2 + p, .prose h3 + p { margin-top: 0.8rem; }
+.prose figure { margin: calc(var(--step) * 1.6) 0; }
+.prose figcaption {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-top: 0.6rem;
+  max-width: var(--measure);
+}
+.prose ul, .prose ol { max-width: var(--measure); padding-left: 1.3rem; }
+.prose li + li { margin-top: 0.4rem; }
+
+/* ── skip link (a11y) ────────────────────────────────────────── */
+.skip {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: 0.6rem 1rem; z-index: 20; font-family: var(--sans); font-size: 0.85rem;
+}
+.skip:focus { left: 0.5rem; top: 0.5rem; border-radius: 3px; }
+
+/* ── the drawing hand: shared svg idiom ──────────────────────── */
+.ink   { stroke: var(--ink);        fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.spine { stroke-width: var(--w-spine); }
+.block { stroke-width: var(--w-block); }
+.hair  { stroke-width: var(--w-hair); }
+.leaf-fill  { fill: var(--canopy-soft); opacity: 0.55; }
+.port-fill  { fill: var(--poppy); }
+.port-ring  { stroke: var(--poppy); fill: var(--paper); stroke-width: var(--w-block); }
+.hand-label { font-family: var(--hand); fill: var(--ink-soft); }
+.hand-label--accent { fill: var(--poppy); }
+
+/* ── reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

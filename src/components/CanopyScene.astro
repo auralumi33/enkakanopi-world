@@ -1,0 +1,68 @@
+---
+/**
+ * CanopyScene — the home's single hand-drawn image.
+ * One idea (Law 1): light reaches the ground only by passing through what holds it.
+ * The canopy = the container; the dapples = canopy = craft experienced through it.
+ * The poppy mark is the one focal port — where the light lands.
+ * Motion is CSS-only and gated on prefers-reduced-motion.
+ */
+---
+<figure class="scene">
+  <svg viewBox="0 0 820 440" role="img" aria-labelledby="scene-t" preserveAspectRatio="xMidYMid meet">
+    <title id="scene-t">A hand-drawn canopy; dappled light falls through the leaves to a single point on the ground.</title>
+
+    <!-- canopy: overlapping leaf-arcs, drawn not stamped -->
+    <g class="ink block canopy-strokes">
+      <path d="M40 150 C 150 60, 300 70, 410 132 C 520 66, 690 74, 790 156" />
+      <path d="M96 158 C 150 112, 232 110, 286 150" />
+      <path d="M250 150 C 316 104, 404 108, 452 156" />
+      <path d="M430 150 C 500 104, 596 108, 648 154" />
+      <path d="M582 156 C 640 116, 716 118, 760 156" />
+    </g>
+    <!-- a few leaves catching the eye toward the light -->
+    <g class="leaves">
+      <path class="leaf-fill" d="M150 128 C 168 108, 208 110, 224 132 C 206 150, 168 150, 150 128 Z" />
+      <path class="leaf-fill" d="M356 122 C 376 104, 416 108, 430 130 C 410 148, 372 146, 356 122 Z" />
+      <path class="leaf-fill" d="M560 126 C 580 108, 620 110, 636 132 C 616 150, 578 150, 560 126 Z" />
+    </g>
+
+    <!-- dappled light falling — canopy -->
+    <g class="dapples ink hair" aria-hidden="true">
+      <circle cx="210" cy="250" r="9" /><circle cx="268" cy="312" r="6" />
+      <circle cx="360" cy="238" r="7" /><circle cx="418" cy="300" r="11" />
+      <circle cx="470" cy="252" r="6" /><circle cx="556" cy="288" r="8" />
+      <circle cx="330" cy="330" r="5" /><circle cx="500" cy="330" r="6" />
+    </g>
+
+    <!-- the one beam that reaches the ground, and the port where it lands -->
+    <path class="ink hair beam" d="M412 168 C 420 250, 404 330, 412 388" stroke-dasharray="1.5 7" />
+    <g class="ground">
+      <path class="ink block" d="M120 392 C 320 380, 520 380, 700 392" />
+      <circle class="port-ring" cx="412" cy="392" r="9" />
+      <circle class="port-fill" cx="412" cy="392" r="3.4" />
+    </g>
+
+    <!-- a seedling at the port — becoming, not arrived -->
+    <path class="ink spine" d="M412 388 C 410 368, 414 352, 412 336" />
+    <path class="ink hair" d="M412 356 C 400 350, 392 356, 388 350 M412 348 C 424 342, 432 348, 436 342" />
+
+    <text class="hand-label" x="470" y="120" font-size="21">the canopy</text>
+    <text class="hand-label hand-label--accent" x="430" y="418" font-size="20">the light lands</text>
+  </svg>
+</figure>
+<style>
+  .scene { margin: 0; }
+  .scene svg { width: 100%; height: auto; }
+  .canopy-strokes path { stroke: var(--canopy-deep); }
+  .dapples circle { fill: var(--canopy-soft); stroke: var(--canopy); opacity: 0.5; }
+  .beam { opacity: 0.7; }
+
+  /* the light breathes — one slow drift, reduced-motion turns it off */
+  .dapples circle { animation: shimmer var(--drift) ease-in-out infinite; transform-origin: center; }
+  .dapples circle:nth-child(2n) { animation-duration: calc(var(--drift) * 1.3); }
+  .dapples circle:nth-child(3n) { animation-duration: calc(var(--drift) * 0.8); animation-delay: -3s; }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.28; }
+    50%      { opacity: 0.6; }
+  }
+</style>

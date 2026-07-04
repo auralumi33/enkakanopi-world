@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# OS junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# editor
+.vscode/
+.idea/
+
+# env
+.env
+.env.*
+!.env.example
+
+# drafts (kept out of the public repo on purpose)
+_drafts/
+
+# never commit PDFs
+*.pdf
+
+# logs
+*.log
+npm-debug.log*

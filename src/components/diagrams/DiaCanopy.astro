@@ -1,0 +1,24 @@
+---
+// One idea: a self, like canopy, is legible only in motion — never in the still frame.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="komo-t">
+  <title id="komo-t">On the left, a still frame holds a single blank dot — nothing to read. On the right, the same light in motion scatters into legible dappled shapes.</title>
+  <!-- still frame: unreadable -->
+  <rect x="46" y="52" width="180" height="150" rx="3" class="ink block" />
+  <circle cx="136" cy="127" r="10" class="ink hair" opacity="0.5" />
+  <text class="hand-label" x="66" y="230" font-size="16" opacity="0.7">held still — unreadable</text>
+  <!-- the passage of motion -->
+  <path class="ink spine" d="M244 128 C 300 118, 320 138, 372 128" stroke="var(--poppy)" />
+  <path class="ink spine" d="M356 118 C 366 124, 372 128, 378 130 C 370 134, 362 142, 356 150" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="270" y="112" font-size="18">in motion</text>
+  <!-- moving: legible dapples -->
+  <rect x="392" y="52" width="180" height="150" rx="3" class="ink block" />
+  <g class="leaves">
+    <path class="leaf-fill" d="M414 92 C 424 80, 448 82, 456 96 C 446 108, 422 106, 414 92 Z" />
+    <path class="leaf-fill" d="M486 108 C 498 96, 522 100, 528 116 C 516 128, 494 124, 486 108 Z" />
+    <path class="leaf-fill" d="M436 148 C 448 138, 470 142, 476 156 C 464 168, 444 164, 436 148 Z" />
+    <circle cx="520" cy="80" r="6" class="ink hair" />
+    <circle cx="410" cy="170" r="5" class="ink hair" />
+  </g>
+  <text class="hand-label" x="412" y="230" font-size="16">legible — canopy</text>
+</svg>

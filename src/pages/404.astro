@@ -1,0 +1,23 @@
+---
+import Base from "../layouts/Base.astro";
+import Glyph from "../components/Glyph.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<Base title="Lost in the canopy" description="This path doesn't lead anywhere yet.">
+  <section class="page lost">
+    <span class="g"><Glyph name="compass" size={40} accent /></span>
+    <h1>A path that doesn&rsquo;t lead anywhere</h1>
+    <p>
+      This corner of the canopy isn&rsquo;t here — perhaps not yet, perhaps not
+      ever. The light moves; some gaps close.
+    </p>
+    <a class="link" href={base + "/"}>&larr; back to the canopy</a>
+  </section>
+</Base>
+<style>
+  .lost { max-width: 40rem; text-align: center; padding-top: 4rem; }
+  .g { line-height: 0; display: inline-block; margin-bottom: 1rem; }
+  h1 { margin-bottom: 1rem; }
+  p { color: var(--ink-soft); margin-inline: auto; }
+  a { display: inline-block; margin-top: 2rem; font-family: var(--sans); font-size: 0.9rem; }
+</style>

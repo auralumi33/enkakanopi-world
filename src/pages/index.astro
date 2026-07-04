@@ -1,0 +1,91 @@
+---
+import Base from "../layouts/Base.astro";
+import CanopyScene from "../components/CanopyScene.astro";
+import Glyph from "../components/Glyph.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const doorways = [
+  { href: "/field-notes", glyph: "seam",    name: "Field Notes",   line: "short letters from the seams between versions of a self." },
+  { href: "/workbench",   glyph: "compass", name: "The Workbench", line: "relearning to think with my hands — clay, wood, paper, code." },
+  { href: "/body-spine",  glyph: "spine",   name: "Body & Spine",  line: "the mind-body thread; movement as the ground truth." },
+  { href: "/versions",    glyph: "leaf",    name: "Versions of Me", line: "a map of the selves that won't average into one." },
+] as const;
+---
+<Base title="Enka Kanopi">
+  <section class="page hero">
+    <p class="eyebrow">Volume I · In Formation</p>
+    <CanopyScene />
+    <h1 class="keystone">
+      The foundations crumbled.<br />
+      In the rebuild, the self refused to become one legible thing.<br />
+      And the work of becoming turned out to be learning to hold the seams —
+      <span class="accent">and to let go of the need to oversee what you&rsquo;ve made.</span>
+    </h1>
+    <p class="intro">
+      This is a canopy, not a résumé. A quiet place to keep the notes of a
+      remaking — rebuilding the foundations a body forgets, learning to trust
+      systems you&rsquo;re no longer in the room with, and refusing to be
+      averaged into a single, tidy self. Nothing here is finished. That is the
+      honest state of it, not an apology.
+    </p>
+  </section>
+
+  <section class="page doors" aria-label="Ways in">
+    <p class="eyebrow doors-lede"><Glyph name="light" size={18} /> &nbsp;four ways in</p>
+    <ul class="grid">
+      {doorways.map((d) => (
+        <li>
+          <a href={base + d.href}>
+            <span class="g"><Glyph name={d.glyph} size={30} /></span>
+            <span class="txt">
+              <span class="name">{d.name}</span>
+              <span class="line">{d.line}</span>
+            </span>
+            <span class="arr"><Glyph name="arrow" size={22} accent /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: 1rem; }
+  .hero .eyebrow { text-align: center; margin-bottom: 1.2rem; }
+  .keystone {
+    font-weight: 400; font-style: italic;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.42; letter-spacing: -0.005em;
+    max-width: 40ch; margin: 2rem auto 0; text-align: center;
+    text-wrap: balance;
+  }
+  .keystone .accent { color: var(--poppy); font-style: normal; }
+  .intro {
+    max-width: 54ch; margin: 2rem auto 0; text-align: center;
+    color: var(--ink-soft); font-size: 1.12rem;
+  }
+
+  .doors { margin-top: 4.5rem; }
+  .doors-lede { display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
+  .grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  .grid a {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    gap: 1rem; text-decoration: none;
+    background: var(--paper-deep);
+    border: 1.1px solid var(--paper-edge); border-radius: 4px;
+    padding: 1.15rem 1.25rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .grid a:hover { border-color: var(--poppy-soft); transform: translateY(-2px); }
+  .grid .g { line-height: 0; color: var(--canopy-deep); }
+  .grid .name { display: block; font-size: 1.28rem; letter-spacing: -0.01em; }
+  .grid .line { display: block; font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.15rem; }
+  .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; }
+  .grid a:hover .arr { opacity: 1; }
+</style>

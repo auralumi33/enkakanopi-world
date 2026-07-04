@@ -1,0 +1,26 @@
+---
+/**
+ * Figure — the frame every diagram lives in.
+ * `idea` is the one sentence the chart carries (Law 1). It is shown, so the
+ * reader consumes the conclusion, not the derivation (Law 9).
+ */
+interface Props { idea: string; }
+const { idea } = Astro.props;
+---
+<figure class="fig">
+  <div class="draw"><slot /></div>
+  <figcaption>{idea}</figcaption>
+</figure>
+<style>
+  .fig { margin: calc(var(--step) * 1.7) 0; }
+  .draw {
+    background: var(--paper-deep);
+    border: 1.1px solid var(--paper-edge); border-radius: 4px;
+    padding: 1.3rem 1.1rem 1rem;
+  }
+  .draw :global(svg) { width: 100%; height: auto; }
+  figcaption {
+    font-family: var(--sans); font-size: 0.8rem; color: var(--ink-faint);
+    margin-top: 0.7rem; max-width: var(--measure); line-height: 1.5;
+  }
+</style>

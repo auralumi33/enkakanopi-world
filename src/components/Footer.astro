@@ -1,0 +1,30 @@
+---
+import Glyph from "./Glyph.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+<footer class="foot">
+  <div class="rule"></div>
+  <div class="row">
+    <span class="glyphline"><Glyph name="light" size={20} /></span>
+    <p class="line">
+      <span class="hand">enka kanopi</span> —
+      a canopy for a self in motion.
+      <span class="dim">Volume I · In Formation.</span>
+    </p>
+    <a class="col" href={base + "/colophon"}>Colophon</a>
+  </div>
+</footer>
+<style>
+  .foot { max-width: var(--page); margin: 4rem auto 0; padding: 0 var(--gutter) 3rem; }
+  .row { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+  .glyphline { line-height: 0; }
+  .line { font-size: 0.95rem; color: var(--ink-soft); margin: 0; max-width: none; }
+  .line .hand { font-family: var(--hand); font-size: 1.25rem; color: var(--canopy-deep); }
+  .line .dim { color: var(--ink-faint); }
+  .col {
+    margin-left: auto; font-family: var(--sans); font-size: 0.78rem;
+    letter-spacing: 0.02em; color: var(--ink-faint); text-decoration: none;
+    border-bottom: 1.4px solid var(--paper-edge); padding-bottom: 2px;
+  }
+  .col:hover { color: var(--ink); border-color: var(--poppy-soft); }
+</style>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import EssayList from "../../components/EssayList.astro";
+import Glyph from "../../components/Glyph.astro";
+
+const entries = (await getCollection("bodySpine")).sort((a, b) => a.data.order - b.data.order);
+const items = entries.map((e) => ({ slug: e.id, ...e.data }));
+---
+<Base title="Body & Spine" description="The mind-body thread — spine work, skating, mat work. Movement as the ground truth the head kept overruling.">
+  <section class="page head">
+    <p class="eyebrow"><Glyph name="spine" size={18} /> &nbsp;the mind-body thread</p>
+    <h1>Body &amp; Spine</h1>
+    <p class="lede">
+      Notes from the long work of coming back into a body — spine, skates, the
+      slow mat mornings. This is where the head learns to stop overruling the
+      one instrument that was, in the end, more competent than it. Written as
+      practice, not as disclosure.
+    </p>
+  </section>
+  <section class="page listing">
+    <EssayList items={items} basePath="/body-spine" />
+  </section>
+</Base>
+<style>
+  .head { max-width: 46rem; }
+  .head .eyebrow { display: flex; align-items: center; }
+  h1 { margin-top: 0.8rem; }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; }
+  .listing { max-width: 46rem; margin-top: 1.5rem; }
+</style>

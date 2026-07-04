@@ -1,0 +1,59 @@
+---
+// One idea: the versions are nodes; the seams between them — labelled with verbs — are the self.
+---
+<svg viewBox="0 0 700 470" role="img" aria-labelledby="ver-t">
+  <title id="ver-t">A hand-drawn map of five versions of a self as nodes — the terse one, the rambling one, the in-between, the maker, the one who lets go — joined by labelled edges that carry verbs like translates, contradicts, hands off. At the centre sits an open question rather than a resolved average.</title>
+
+  <!-- edges first, so nodes sit on top. Edges carry the verbs (Law 2). -->
+  <g class="ink block edges">
+    <path d="M150 118 C 250 150, 300 180, 348 214" />
+    <path d="M556 120 C 456 152, 404 182, 356 214" />
+    <path d="M120 350 C 220 316, 288 268, 336 234" />
+    <path d="M582 352 C 486 318, 420 270, 372 234" />
+    <path d="M168 128 C 300 96, 420 96, 548 126" />
+    <path d="M150 344 C 300 400, 420 400, 566 346" />
+  </g>
+  <g class="verbs">
+    <text class="hand-label hand-label--accent" x="228" y="168" font-size="18">translates</text>
+    <text class="hand-label hand-label--accent" x="430" y="170" font-size="18">contradicts</text>
+    <text class="hand-label hand-label--accent" x="150" y="300" font-size="18">hands off to</text>
+    <text class="hand-label hand-label--accent" x="470" y="300" font-size="18">returns to</text>
+    <text class="hand-label" x="300" y="92" font-size="17">overhears</text>
+    <text class="hand-label" x="308" y="402" font-size="17">refuses to average</text>
+  </g>
+
+  <!-- nodes -->
+  <g class="node">
+    <ellipse cx="120" cy="112" rx="58" ry="34" class="ink block node-fill" />
+    <text class="hand-label" x="82" y="108" font-size="17">the terse</text>
+    <text class="hand-label" x="96" y="128" font-size="17">self</text>
+  </g>
+  <g class="node">
+    <ellipse cx="580" cy="112" rx="66" ry="34" class="ink block node-fill" />
+    <text class="hand-label" x="534" y="108" font-size="17">the rambling</text>
+    <text class="hand-label" x="558" y="128" font-size="17">self</text>
+  </g>
+  <g class="node">
+    <ellipse cx="98" cy="360" rx="58" ry="34" class="ink block node-fill" />
+    <text class="hand-label" x="66" y="356" font-size="17">the maker</text>
+    <text class="hand-label" x="78" y="376" font-size="17">self</text>
+  </g>
+  <g class="node">
+    <ellipse cx="600" cy="360" rx="70" ry="34" class="ink block node-fill" />
+    <text class="hand-label" x="548" y="356" font-size="17">the one who</text>
+    <text class="hand-label" x="558" y="376" font-size="17">lets go</text>
+  </g>
+  <!-- the in-between self, at the seam -->
+  <g class="node">
+    <ellipse cx="354" cy="224" rx="64" ry="36" class="ink block" fill="var(--poppy-wash)" />
+    <text class="hand-label hand-label--accent" x="312" y="220" font-size="17">the in-between</text>
+    <text class="hand-label hand-label--accent" x="336" y="240" font-size="17">self</text>
+  </g>
+
+  <!-- the centre is a question, not an average -->
+  <text class="hand-label" x="286" y="446" font-size="17" opacity="0.8">not an average — a question left open</text>
+</svg>
+<style>
+  .node-fill { fill: var(--paper); }
+  .edges path { stroke: var(--ink-soft); opacity: 0.85; }
+</style>

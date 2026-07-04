@@ -1,0 +1,32 @@
+---
+// One idea: the hand learns what the head can only later name.
+---
+<svg viewBox="0 0 600 270" role="img" aria-labelledby="hands-t">
+  <title id="hands-t">Four materials — clay, wood, paper, wire — feed into a drawn hand at the centre; from the hand one edge labelled "later, a name" runs out to a small system of connected nodes.</title>
+  <!-- materials in -->
+  <g class="ink block">
+    <path d="M60 46 C 84 40, 96 58, 82 72 C 66 84, 46 70, 60 46 Z" />
+    <rect x="52" y="104" width="42" height="20" rx="3" />
+    <path d="M52 168 L 96 160 L 92 186 L 50 190 Z" />
+    <path d="M54 222 C 74 214, 88 226, 96 220" />
+  </g>
+  <text class="hand-label" x="104" y="66" font-size="16">clay</text>
+  <text class="hand-label" x="104" y="122" font-size="16">wood</text>
+  <text class="hand-label" x="104" y="186" font-size="16">paper</text>
+  <text class="hand-label" x="104" y="228" font-size="16">wire</text>
+  <!-- converging edges (verbs implied: shaping, joining) -->
+  <path class="ink hair" d="M150 60 C 210 96, 236 120, 268 134 M150 116 C 210 124, 240 130, 268 136 M150 180 C 210 156, 240 144, 268 138 M150 224 C 210 176, 244 150, 270 140" />
+  <!-- the hand -->
+  <path class="ink block" d="M292 140 C 288 116, 300 110, 306 128 C 308 108, 322 108, 322 128 C 328 110, 340 114, 336 132 C 344 122, 356 130, 348 146 C 342 168, 332 188, 308 188 C 288 188, 282 162, 292 140 Z" />
+  <text class="hand-label" x="286" y="214" font-size="17">the hand knows first</text>
+  <!-- out to a named system -->
+  <path class="ink spine" d="M372 142 C 410 136, 440 138, 468 142" stroke="var(--poppy)" />
+  <path class="ink spine" d="M452 132 C 462 138, 468 141, 474 143 C 468 146, 460 152, 456 160" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="384" y="126" font-size="17">later, a name</text>
+  <g class="ink block">
+    <circle cx="500" cy="96" r="12" /><circle cx="546" cy="140" r="12" />
+    <circle cx="500" cy="186" r="12" />
+    <path class="ink hair" d="M510 104 L 536 130 M536 150 L 510 178 M500 108 L 500 174" />
+  </g>
+  <circle class="port-fill" cx="546" cy="140" r="3.2" />
+</svg>

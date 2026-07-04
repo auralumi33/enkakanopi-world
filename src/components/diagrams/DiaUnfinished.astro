@@ -1,0 +1,19 @@
+---
+// One idea: unfinished is a state, drawn as an open bracket — not a broken line.
+---
+<svg viewBox="0 0 600 220" role="img" aria-labelledby="unf-t">
+  <title id="unf-t">A bracket that opens on the left and is deliberately left open on the right, with a small mark showing the work continues past the edge.</title>
+  <!-- the open bracket -->
+  <path class="ink spine" d="M120 40 C 96 42, 92 66, 94 110 C 96 154, 92 178, 120 182" />
+  <!-- contents: a few steady beats, then it keeps going -->
+  <circle class="port-fill" cx="200" cy="111" r="4" />
+  <circle class="ink block" cx="270" cy="111" r="6" />
+  <circle class="ink block" cx="340" cy="111" r="6" />
+  <path class="ink hair" d="M226 111 L 250 111 M296 111 L 320 111" />
+  <!-- the edge left open on purpose -->
+  <path class="ink spine" d="M420 111 C 452 111, 470 108, 500 111" stroke="var(--poppy)" stroke-dasharray="2 8" />
+  <path class="ink hair" d="M486 100 C 494 105, 500 109, 506 111 C 500 114, 494 118, 488 123" stroke="var(--poppy)" />
+  <text class="hand-label" x="150" y="66" font-size="18">Volume I</text>
+  <text class="hand-label hand-label--accent" x="410" y="86" font-size="18">still going</text>
+  <text class="hand-label" x="240" y="164" font-size="16" opacity="0.75">in formation</text>
+</svg>

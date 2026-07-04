@@ -1,0 +1,65 @@
+name: build
+
+# Builds the static site on every push and PR so a broken build never lands.
+# The deploy step is intentionally left commented until a host is connected
+# (Vercel is auto-wired via its Git integration; the Pages path is stubbed below).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist/
+          if-no-files-found: error
+
+  # ── deploy (stubbed) ────────────────────────────────────────────────
+  # Vercel: connect the repo in the Vercel dashboard — its Git integration
+  # builds + deploys automatically, no workflow needed here.
+  #
+  # GitHub Pages: uncomment the job below and set Settings → Pages → Source:
+  # "GitHub Actions". Set BASE_PATH to "/<repo-name>" for a project page.
+  #
+  # deploy-pages:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     pages: write
+  #     id-token: write
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with: { node-version: 20, cache: npm }
+  #     - run: npm ci
+  #     - run: npm run build
+  #       env:
+  #         BASE_PATH: /enkakanopi-world
+  #     - uses: actions/configure-pages@v5
+  #     - uses: actions/upload-pages-artifact@v3
+  #       with: { path: dist }
+  #     - id: deployment
+  #       uses: actions/deploy-pages@v4

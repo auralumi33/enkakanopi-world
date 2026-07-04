@@ -1,0 +1,56 @@
+---
+import Glyph from "./Glyph.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const here = Astro.url.pathname.replace(/\/$/, "");
+const links = [
+  { href: "/", label: "Canopy", glyph: "canopy" },
+  { href: "/field-notes", label: "Field Notes", glyph: "seam" },
+  { href: "/workbench", label: "The Workbench", glyph: "compass" },
+  { href: "/body-spine", label: "Body & Spine", glyph: "spine" },
+  { href: "/versions", label: "Versions of Me", glyph: "leaf" },
+  { href: "/colophon", label: "Colophon", glyph: "light" },
+] as const;
+const isCurrent = (href: string) => {
+  const h = (base + href).replace(/\/$/, "");
+  if (href === "/") return here === base || here === "";
+  return here === h || here.startsWith(h + "/");
+};
+---
+<nav class="nav" aria-label="Primary">
+  <a class="mark" href={base + "/"} aria-label="Enka Kanopi — home">
+    <Glyph name="canopy" size={26} />
+    <span>enka&nbsp;kanopi</span>
+  </a>
+  <ul>
+    {links.slice(1).map((l) => (
+      <li>
+        <a href={base + l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>
+          {l.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+<style>
+  .nav {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 0.6rem 1.4rem;
+    max-width: var(--page); margin-inline: auto;
+    padding: 1.4rem var(--gutter) 0.9rem;
+  }
+  .mark {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    text-decoration: none; margin-right: auto;
+    font-size: 1.15rem; letter-spacing: 0.01em;
+  }
+  .mark span { font-variant: small-caps; letter-spacing: 0.06em; }
+  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; padding: 0; margin: 0; }
+  a { text-decoration: none; }
+  ul a {
+    font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
+    color: var(--ink-soft); padding-bottom: 2px;
+    border-bottom: 1.4px solid transparent; transition: border-color 0.15s, color 0.15s;
+  }
+  ul a:hover { color: var(--ink); border-color: var(--poppy-soft); }
+  ul a[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
+</style>
