@@ -1,0 +1,32 @@
+---
+// One idea: forgetting is maintenance — keep the seams, let the rest decay,
+// and never consolidate the past into one legible summary.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="mem-t">
+  <title id="mem-t">A row of remembered traces; some are kept and joined by a bright seam, some are left to fade. An arrow to a single smooth blob — "one clean summary" — is crossed out, because merging them all would average the self away.</title>
+
+  <!-- the raw traces along a line -->
+  <path class="ink hair" d="M40 96 C 200 90, 400 90, 560 96" opacity="0.5" />
+  <g class="ink block">
+    <circle cx="80" cy="96" r="7" /><circle cx="150" cy="96" r="7" />
+    <circle cx="220" cy="96" r="7" /><circle cx="290" cy="96" r="7" />
+    <circle cx="360" cy="96" r="7" />
+  </g>
+  <text class="hand-label" x="60" y="66" font-size="16">what was remembered</text>
+
+  <!-- keep + seam (the meaningful joins) -->
+  <path class="ink spine" d="M80 96 C 150 78, 220 78, 290 96" stroke="var(--poppy)" stroke-dasharray="0.5 8" />
+  <circle class="port-fill" cx="80" cy="96" r="3.4" /><circle class="port-fill" cx="290" cy="96" r="3.4" />
+  <text class="hand-label hand-label--accent" x="150" y="128" font-size="17">keep the seams</text>
+
+  <!-- let the rest decay -->
+  <circle cx="360" cy="96" r="12" class="ink hair" stroke-dasharray="2 5" opacity="0.5" />
+  <text class="hand-label" x="330" y="150" font-size="15" opacity="0.65">let some decay</text>
+
+  <!-- the tempting consolidation, crossed out -->
+  <path class="ink hair" d="M400 96 C 430 96, 452 100, 470 108" />
+  <ellipse cx="518" cy="120" rx="40" ry="30" class="ink block" opacity="0.55" />
+  <text class="hand-label" x="486" y="118" font-size="14" opacity="0.7">one clean</text>
+  <text class="hand-label" x="490" y="134" font-size="14" opacity="0.7">summary</text>
+  <path class="ink spine" d="M486 92 L 552 150 M552 92 L 486 150" stroke="var(--poppy)" />
+</svg>

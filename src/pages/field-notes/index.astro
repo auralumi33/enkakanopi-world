@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import EssayList from "../../components/EssayList.astro";
+import NotesFromMargin from "../../components/NotesFromMargin.astro";
 import Glyph from "../../components/Glyph.astro";
 
 const entries = (await getCollection("fieldNotes")).sort((a, b) => a.data.order - b.data.order);
@@ -19,6 +20,9 @@ const items = entries.map((e) => ({ slug: e.id, ...e.data }));
   </section>
   <section class="page listing">
     <EssayList items={items} basePath="/field-notes" />
+  </section>
+  <section class="page">
+    <NotesFromMargin />
   </section>
 </Base>
 <style>

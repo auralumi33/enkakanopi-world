@@ -63,6 +63,7 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaFall` | Body & Spine · Relearning to Fall | The body's first lesson is the safe fall, not the graceful stand. |
 | `DiaArticulation` | Body & Spine · Articulation | A spine re-punctuated: the same sentence, newly articulated. |
 | `DiaVersions` | Versions of Me | The versions are nodes; the seams between them — labelled with verbs — are the self. |
+| `DiaMemory` | Field Notes · Hallucinations of the Past | Forgetting is maintenance: keep the seams, let the rest decay, never consolidate the past into one clean summary. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.

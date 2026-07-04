@@ -1,0 +1,36 @@
+---
+/**
+ * NotesFromMargin — shorter marginalia than the essays: aphorisms carried over
+ * from the prior garden, kept in Rika's builder-candor register and growth-tagged.
+ * Half-thoughts that haven't earned a whole field note yet.
+ */
+import StageTag from "./StageTag.astro";
+import Glyph from "./Glyph.astro";
+const notes = [
+  { stage: "seedling", text: "Choosing which version of yourself to instantiate — per context, per hour — and sitting with the ones that never get rendered." },
+  { stage: "budding",  text: "Design the container deliberately. Every environment is a prior: a folder structure, a habit, a room — each one a quiet constraint on which thoughts are even possible inside it." },
+  { stage: "seedling", text: "The most dangerous moment in any system is right after it starts working. That is when you stop watching — and when it begins to drift, one small token at a time." },
+  { stage: "seedling", text: "There is a specific loneliness in being the only one who can read the logs — who can see exactly where it broke, and why. Some of the work is just learning to hold that alone." },
+] as const;
+---
+<section class="margin" aria-label="Notes from the margin">
+  <p class="eyebrow"><Glyph name="seam" size={16} /> &nbsp;notes from the margin</p>
+  <p class="lede">Half-thoughts that haven&rsquo;t earned a whole field note yet — kept here so they can grow.</p>
+  <ul class="grid">
+    {notes.map((n) => (
+      <li>
+        <p class="q">{n.text}</p>
+        <StageTag stage={n.stage} />
+      </li>
+    ))}
+  </ul>
+</section>
+<style>
+  .margin { max-width: 46rem; margin-top: 3.5rem; }
+  .eyebrow { display: flex; align-items: center; }
+  .lede { color: var(--ink-soft); margin-top: 0.7rem; font-size: 1.02rem; }
+  .grid { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; } }
+  .grid li { background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1.2rem 1.25rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .q { font-family: var(--serif); font-style: italic; font-size: 1.1rem; line-height: 1.5; margin: 0; color: var(--ink); max-width: none; }
+</style>
