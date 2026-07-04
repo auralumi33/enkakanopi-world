@@ -102,6 +102,19 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaOutgrown` | Field Notes · A Home You Keep Rebuilding | You didn't lose the old life — you outgrew it, a shell left behind, not a limb cut off. |
 | `DiaRhyme` | Field Notes · Fragments That Rhyme | The fragments don't reconcile into one; they rhyme across the gaps, like stanzas of a single poem. |
 | `DiaMultiplicityDuality` | Field Notes · Fragments That Rhyme | The many selves don't collapse to one; they pair off into tensions held in balance — multiplicity as duality, not a single average. |
+| `DiaSilences` | Body & Spine · Articulation | The meaning is in the pauses — the small silences put back between the bones. |
+| `DiaHeadBody` | Body & Spine · Relearning to Fall | The head stiffens and fights the floor; the body, left to its own counsel, knows to go soft. |
+| `DiaSeaToSail` | Body & Spine · The Tide Knows When | The body stops being a machine that keeps breaking and becomes a sea you're learning to sail. |
+| `DiaBurnBoats` | Field Notes · A Home You Keep Rebuilding | Some rebuildings only begin once you burn the boats behind you — the crossing with no return. |
+| `DiaConvoy` | Field Notes · Fragments That Rhyme | Not one ship and not a wreck — a convoy, sailing loosely together, each self keeping its own hull. |
+| `DiaScaffolding` | Field Notes · In Formation | Does showing the scaffolding cost you authority — or is being seen mid-build the only authority worth trusting? |
+| `DiaWeight` | Field Notes · The Company of Machines | The captain who cannot pass the weight of the ship to the ship — the fear is yours alone to hold. |
+| `DiaLandfall` | Field Notes · The Detours Were the Voyage | Each trial is a landfall where you pick up the one thing only that island held. |
+| `DiaStormMessage` | Field Notes · The Weather and the Sky | How do you tell the storm that is only weather from the storm trying to tell you something true? |
+| `DiaSeriousLight` | The Workbench · The Shape of Things | Seriousness of seeing in one hand, the human lightness a machine can't commoditize in the other — you need both. |
+| `DiaConstraint` | The Workbench · Trust the Little Kit | Constraint is the generator — a small kit you trust invents more than a big one you're afraid of. |
+| `DiaTally` | The Workbench · Why Start With the Hands | You learn by the count of ruined bowls — the hand keeps a tally the head cannot argue with. |
+| `DiaTwoVerdicts` | Versions of Me | A self that cannot be averaged — a failure of integration, or the only kind worth keeping? |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.
