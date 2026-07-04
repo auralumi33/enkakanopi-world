@@ -1,0 +1,36 @@
+---
+// One idea: the tremble isn't your core failing — it's the deep muscle waking up.
+// The wobble is the rebuild, not the breakdown.
+---
+<svg viewBox="0 0 600 240" role="img" aria-labelledby="wobble-t">
+  <title id="wobble-t">A small figure holds a pose on a wobbling spring-loaded platform; tremor lines shiver along the limbs, and a bright spark marks a deep stabilising muscle switching on at the centre. Beside it, a rigid braced version is faded and crossed out.</title>
+
+  <!-- the wobble platform on springs -->
+  <path class="ink block" d="M60 176 L 220 176 L 214 190 L 66 190 Z" />
+  <path class="ink hair" d="M78 190 c 0 8 -8 8 -8 16 M118 190 c 0 8 8 8 8 16 M160 190 c 0 8 -8 8 -8 16 M200 190 c 0 8 8 8 8 16" />
+  <!-- the figure, holding, trembling -->
+  <circle class="ink block" cx="140" cy="96" r="10" />
+  <path class="ink spine" d="M140 106 C 136 126, 140 150, 138 172" />
+  <path class="ink block" d="M140 120 L 108 140 M140 120 L 172 140" />
+  <!-- tremor lines -->
+  <g class="ink hair" opacity="0.8">
+    <path d="M104 138 q 3 -4 6 0 q 3 4 6 0" stroke="var(--poppy)" />
+    <path d="M170 138 q 3 -4 6 0 q 3 4 6 0" stroke="var(--poppy)" />
+    <path d="M132 170 q 3 -4 6 0 q 3 4 6 0" stroke="var(--poppy)" />
+  </g>
+  <!-- the deep muscle waking (spark at the core) -->
+  <circle class="port-fill" cx="139" cy="132" r="3.6" />
+  <path class="ink hair" d="M139 122 L 139 116 M149 132 L 155 132 M139 142 L 139 148 M129 132 L 123 132" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="180" y="118" font-size="15">the core, waking</text>
+  <text class="hand-label" x="72" y="222" font-size="15">the shake = the rebuild</text>
+
+  <!-- the braced / armoured version, faded + crossed out -->
+  <g opacity="0.4">
+    <circle class="ink hair" cx="430" cy="96" r="10" />
+    <path class="ink hair" d="M430 106 L 430 172" />
+    <path class="ink hair" d="M430 120 L 402 128 M430 120 L 458 128" />
+    <rect x="360" y="176" width="140" height="12" class="ink hair" />
+  </g>
+  <path class="ink hair" d="M400 92 L 460 150 M460 92 L 400 150" stroke="var(--poppy)" opacity="0.5" />
+  <text class="hand-label" x="380" y="222" font-size="14" opacity="0.6">braced (armour, not core)</text>
+</svg>
