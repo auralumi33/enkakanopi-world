@@ -91,6 +91,10 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaFreshEyes` | The Workbench · The Shape of Things | Fresh eyes don't see more facts — they look until the few forces that move the tangle surface as a shape. |
 | `DiaHandsBegin` | The Workbench · Trust the Little Kit | The head wants the whole plan; the hands just want to begin — and beginning is the part no plan can do for you. |
 | `DiaArc` | The Workbench · Why Start With the Hands | Hands, screen, room — one continuous appetite for making the thing you can stand inside. |
+| `DiaBreathAir` | Field Notes · Hallucinations of the Past | The self ends; what it handed on becomes air, and the air keeps moving in others — breath becomes air (after Paul Kalanithi). |
+| `DiaWhichWins` | Field Notes · What the Machine Remembers of Me | When mercy and accuracy disagree about who you are, which do you let win — and is the accurate one telling the truth? |
+| `DiaAche` | Field Notes · The Keel, Not the Harbour | The ache that says you can never go home is the same ache that drives you to build one you can carry — one source, two pulls. |
+| `DiaWholeness` | Field Notes · The Seam | A wholeness made of seams — not one smooth blank surface, but many pieces whose visible joins are the whole point. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.
