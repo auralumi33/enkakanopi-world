@@ -95,6 +95,13 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaWhichWins` | Field Notes · What the Machine Remembers of Me | When mercy and accuracy disagree about who you are, which do you let win — and is the accurate one telling the truth? |
 | `DiaAche` | Field Notes · The Keel, Not the Harbour | The ache that says you can never go home is the same ache that drives you to build one you can carry — one source, two pulls. |
 | `DiaWholeness` | Field Notes · The Seam | A wholeness made of seams — not one smooth blank surface, but many pieces whose visible joins are the whole point. |
+| `DiaGovernedFree` | Field Notes · Who Gets to Write to You | Is a self meant to be governed — a gate against its own revisions — or free to overwrite itself completely? |
+| `DiaAttentionAsked` | Field Notes · Only in Motion | To be legible only in motion is to ask for a slow, patient attention most people don't have time to give. |
+| `DiaCommandRegulate` | Field Notes · The Room I Left | Trust isn't gripping tighter; it's the shift from command to regulate — steady the vessel, don't seize the wheel. |
+| `DiaCrumbleRebuild` | Field Notes · A Home You Keep Rebuilding | What crumbled wasn't a setback to repair but a foundation to rebuild differently — the home remade, not restored. |
+| `DiaOutgrown` | Field Notes · A Home You Keep Rebuilding | You didn't lose the old life — you outgrew it, a shell left behind, not a limb cut off. |
+| `DiaRhyme` | Field Notes · Fragments That Rhyme | The fragments don't reconcile into one; they rhyme across the gaps, like stanzas of a single poem. |
+| `DiaMultiplicityDuality` | Field Notes · Fragments That Rhyme | The many selves don't collapse to one; they pair off into tensions held in balance — multiplicity as duality, not a single average. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.
