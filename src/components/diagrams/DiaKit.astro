@@ -1,0 +1,29 @@
+---
+// One idea: a few trusted primitives and a grammar for joining them make more
+// than a big box of bespoke parts.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="kit-t">
+  <title id="kit-t">Six small primitive shapes — a line, a dot, an arc, a leaf, a box, a fold — sit in a little kit on the left. A "snap" grammar joins them into a larger made thing on the right.</title>
+  <!-- the little kit of six -->
+  <text class="hand-label" x="24" y="40" font-size="15">a kit of six</text>
+  <g class="ink block">
+    <path d="M40 70 L 84 70" />
+    <circle cx="62" cy="104" r="9" />
+    <path d="M40 140 C 54 124, 74 124, 84 140" />
+    <path d="M44 168 C 56 158, 78 160, 84 174 C 72 184, 50 182, 44 168 Z" class="leaf-fill" />
+    <rect x="44" y="196" width="40" height="20" rx="2" />
+    <path d="M40 236 L 84 236 L 74 224" />
+  </g>
+  <!-- the snapping grammar -->
+  <path class="ink hair" d="M108 150 C 160 150, 200 150, 244 150" stroke-dasharray="1 6" stroke="var(--poppy)" />
+  <text class="hand-label hand-label--accent" x="140" y="140" font-size="15">snap</text>
+  <!-- the made thing -->
+  <g class="ink block">
+    <circle cx="360" cy="120" r="12" /><circle cx="440" cy="90" r="12" /><circle cx="470" cy="160" r="12" />
+    <circle cx="390" cy="190" r="12" />
+    <path d="M370 114 L 430 96 M450 100 L 462 148 M462 168 L 400 186 M382 180 L 366 132 M372 126 L 460 154" class="hair" />
+    <path d="M436 78 C 448 68, 468 70, 476 82" class="hair" />
+  </g>
+  <circle class="port-fill" cx="440" cy="90" r="3.2" />
+  <text class="hand-label" x="392" y="228" font-size="15">more than the box held</text>
+</svg>

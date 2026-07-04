@@ -1,0 +1,20 @@
+---
+// One idea: the selves don't resolve into one — they braid into a single current
+// that keeps each of their colours.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="merge-t">
+  <title id="merge-t">Three separate streams — a terse self, a rambling self, a maker self — flowing from the left and braiding into one moving current on the right, where their distinct colours stay visible in the weave rather than blending into grey.</title>
+  <!-- three sources -->
+  <text class="hand-label" x="20" y="52" font-size="15">the terse</text>
+  <text class="hand-label" x="20" y="130" font-size="15">the rambling</text>
+  <text class="hand-label" x="20" y="208" font-size="15">the maker</text>
+  <!-- three streams braiding into one current -->
+  <path class="ink spine" d="M96 48 C 220 60, 300 96, 420 112 C 480 120, 520 116, 566 118" stroke="var(--ink)" />
+  <path class="ink spine" d="M96 126 C 220 124, 320 120, 420 118 C 480 117, 520 118, 566 120" stroke="var(--canopy-deep)" />
+  <path class="ink spine" d="M96 204 C 220 192, 300 148, 420 126 C 480 116, 520 120, 566 122" stroke="var(--poppy)" />
+  <!-- the woven current -->
+  <path class="ink hair" d="M430 108 C 470 128, 470 108, 510 126 C 540 138, 540 104, 566 120" opacity="0.6" />
+  <text class="hand-label" x="452" y="164" font-size="16">one current,</text>
+  <text class="hand-label hand-label--accent" x="452" y="186" font-size="16">still three colours</text>
+  <circle class="port-fill" cx="566" cy="120" r="3.6" />
+</svg>

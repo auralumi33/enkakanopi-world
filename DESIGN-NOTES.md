@@ -65,6 +65,12 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `DiaVersions` | Versions of Me | The versions are nodes; the seams between them — labelled with verbs — are the self. |
 | `DiaMemory` | Field Notes · Hallucinations of the Past | Forgetting is maintenance: keep the seams, let the rest decay, never consolidate the past into one clean summary. |
 | `DiaWriteAuthority` | Field Notes · Who Gets to Write to You | A self is not what it remembers but what it lets become permanent — most of what knocks should stay provisional until it has been lived. |
+| `DiaKeel` | Field Notes · The Keel, Not the Harbour | Home isn't the harbour you return to; it's the keel you carry that keeps you upright in any water. |
+| `DiaTwoMemories` | Field Notes · What the Machine Remembers of Me | One memory forgets me softly, the other keeps me exact — and I live in the gap between them. |
+| `DiaCompany` | Field Notes · The Company of Machines | The crew that doesn't share your vertigo keeps working while you carry the fear alone. |
+| `DiaKit` | The Workbench · Trust the Little Kit | A few trusted primitives and a grammar for joining them make more than a big box of bespoke parts. |
+| `DiaTides` | Body & Spine · The Tide Knows When | The body has tides — the craft is timing the effort to them, not overriding them (natural rhythm, never the sky). |
+| `DiaMerging` | Versions of Me | The selves don't resolve into one; they braid into a single current that keeps each of their colours. |
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.

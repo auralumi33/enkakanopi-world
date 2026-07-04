@@ -1,0 +1,24 @@
+---
+// One idea: one memory forgets me softly, the other keeps me exact — and I live
+// in the gap between them.
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="twomem-t">
+  <title id="twomem-t">On the left, the body's memory — soft, blurred, fading at the edges. On the right, the machine's memory — an exact, crisp grid of the same shape. A small figure stands in the gap between the two.</title>
+  <!-- the body's memory: soft, fading -->
+  <path class="ink hair" d="M60 70 C 110 52, 168 66, 176 112 C 182 150, 140 184, 96 178 C 58 172, 40 128, 60 70 Z" opacity="0.45" />
+  <path class="ink hair" d="M84 100 C 110 92, 140 100, 150 124" opacity="0.35" />
+  <text class="hand-label" x="60" y="212" font-size="15">the body&rsquo;s — fading</text>
+  <!-- the machine's memory: exact grid -->
+  <rect x="420" y="60" width="130" height="120" class="ink block" />
+  <g class="ink hair" opacity="0.8">
+    <path d="M420 90 H550 M420 120 H550 M420 150 H550 M452 60 V180 M485 60 V180 M518 60 V180" />
+  </g>
+  <circle class="port-fill" cx="485" cy="120" r="3.2" />
+  <text class="hand-label hand-label--accent" x="428" y="212" font-size="15">the machine&rsquo;s — exact</text>
+  <!-- the figure in the gap -->
+  <path class="ink spine" d="M300 96 C 296 120, 300 140, 298 160" />
+  <path class="ink hair" d="M300 112 C 288 108, 282 116, 276 112 M300 112 C 312 108, 318 116, 324 112" />
+  <circle class="ink block" cx="300" cy="86" r="8" />
+  <text class="hand-label" x="262" y="196" font-size="15">me, in the gap</text>
+  <path class="ink hair" d="M188 128 C 220 124, 250 124, 276 126 M324 126 C 356 124, 390 122, 416 122" stroke-dasharray="2 6" opacity="0.6" />
+</svg>

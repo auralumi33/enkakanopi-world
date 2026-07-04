@@ -1,0 +1,21 @@
+---
+// One idea: the body has tides — the craft is timing the effort to them, not
+// overriding them. (A natural-rhythm metaphor; nothing to do with the sky.)
+---
+<svg viewBox="0 0 600 250" role="img" aria-labelledby="tide-t">
+  <title id="tide-t">A tide curve rising to a high mark and falling to a low across the day. A small figure pushes effort at the high tide and rests at the low, timing the work to the body's own rhythm rather than forcing it flat.</title>
+  <!-- the tide curve -->
+  <path class="ink spine" d="M20 150 C 90 150, 120 70, 180 70 C 240 70, 270 150, 340 150 C 410 150, 440 70, 500 70 C 540 70, 560 110, 580 130" />
+  <!-- high + low marks -->
+  <path class="ink hair" d="M180 60 L 180 44 M500 60 L 500 44" opacity="0.7" />
+  <text class="hand-label hand-label--accent" x="150" y="38" font-size="15">push (high)</text>
+  <text class="hand-label" x="290" y="182" font-size="15">rest (low)</text>
+  <!-- effort placed on the tide, not against it -->
+  <circle class="port-ring" cx="180" cy="70" r="8" /><circle class="port-fill" cx="180" cy="70" r="3.2" />
+  <circle class="ink block" cx="340" cy="150" r="7" opacity="0.7" />
+  <circle class="port-ring" cx="500" cy="70" r="8" /><circle class="port-fill" cx="500" cy="70" r="3.2" />
+  <!-- the overriding line, crossed out -->
+  <path class="ink hair" d="M20 110 L 580 110" stroke-dasharray="3 6" opacity="0.4" />
+  <text class="hand-label" x="24" y="104" font-size="13" opacity="0.55">forcing it flat</text>
+  <path class="ink hair" d="M60 96 L 96 122 M96 96 L 60 122" stroke="var(--poppy)" opacity="0.7" />
+</svg>
