@@ -5,13 +5,19 @@ import Glyph from "../components/Glyph.astro";
 import Bloom from "../components/Bloom.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const doorways = [
-  { href: "/field-notes", glyph: "seam",    name: "Field Notes",   line: "short letters from the seams between versions of a self." },
-  { href: "/workbench",   glyph: "compass", name: "The Workbench", line: "relearning to think with my hands — clay, wood, paper, code." },
-  { href: "/body-spine",  glyph: "spine",   name: "Body & Spine",  line: "the mind-body thread; movement as the ground truth." },
-  { href: "/versions",    glyph: "leaf",    name: "Versions of Me", line: "a map of the selves that won't average into one." },
-  { href: "/nursery",     glyph: "leaf",    name: "The Nursery",    line: "musings & dreams — seeds before they are essays, tended in low light." },
-  { href: "/studio",      glyph: "compass", name: "The Studio",     line: "the wall of work-in-progress — material, constraint, and the honest tally." },
+// The floor plan (D2 placemaking, Rika 2026-07-05): the home wayfinding reads
+// as rooms under one roof — where things begin, the reading rooms, and the
+// archive wall. Markup classes (.plan/.row/.room/.band) stay stable so the D3
+// scenography (gallery hang, workshop wall) can layer on as pure CSS later.
+const beginnings = [
+  { href: "/nursery", glyph: "leaf",    name: "The Nursery", mark: "◦", line: "a seed-bed of musings — tender, low light, no dates." },
+  { href: "/studio",  glyph: "compass", name: "The Studio",  mark: "",  line: "the wall of work-in-progress — bench light, tool marks, the honest tally." },
+] as const;
+const readingRooms = [
+  { href: "/field-notes", glyph: "seam",    name: "Field Notes" },
+  { href: "/workbench",   glyph: "compass", name: "The Workbench" },
+  { href: "/body-spine",  glyph: "spine",   name: "Body & Spine" },
+  { href: "/versions",    glyph: "leaf",    name: "Versions of Me" },
 ] as const;
 
 const whatThisIs = [
@@ -56,22 +62,53 @@ const whatThisIs = [
     </ul>
   </section>
 
-  <section class="page doors" aria-label="Ways in">
-    <p class="eyebrow doors-lede"><Glyph name="light" size={17} /> &nbsp;six ways in</p>
-    <ul class="grid">
-      {doorways.map((d) => (
-        <li>
-          <a href={base + d.href}>
-            <span class="g"><Glyph name={d.glyph} size={30} /></span>
-            <span class="txt">
+  <section class="page plan" aria-label="The floor plan — rooms under one roof">
+    <div class="row">
+      <p class="eyebrow">where things begin</p>
+      <ul class="grid begin">
+        {beginnings.map((d) => (
+          <li class="room">
+            <a href={base + d.href}>
+              <span class="g"><Glyph name={d.glyph} size={30} /></span>
+              <span class="txt">
+                <span class="name">{d.name}{d.mark && <span class="seedmark"> {d.mark}</span>}</span>
+                <span class="line">{d.line}</span>
+              </span>
+              <span class="arr"><Glyph name="arrow" size={22} accent /></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="row">
+      <p class="eyebrow">the reading rooms</p>
+      <ul class="grid read">
+        {readingRooms.map((d) => (
+          <li class="room">
+            <a href={base + d.href}>
+              <span class="g"><Glyph name={d.glyph} size={22} /></span>
               <span class="name">{d.name}</span>
-              <span class="line">{d.line}</span>
-            </span>
-            <span class="arr"><Glyph name="arrow" size={22} accent /></span>
-          </a>
-        </li>
-      ))}
-    </ul>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="row">
+      <p class="eyebrow">the archive wall</p>
+      <div class="band room">
+        <a class="band-main" href={base + "/volume-i"}>
+          <span class="band-title">Volume I · In Formation</span>
+          <span class="band-line">the founding collection — nineteen pieces, hung with care</span>
+        </a>
+        <span class="band-side">
+          <a href={base + "/lexicon"}>Lexicon</a>
+          <span class="sep">·</span>
+          <a href={base + "/colophon"}>Colophon</a>
+        </span>
+      </div>
+    </div>
   </section>
 
   <section class="page grows" aria-label="How ideas grow">
@@ -128,18 +165,40 @@ const whatThisIs = [
   .cards h2 { font-size: 1.28rem; font-style: italic; margin: 0; letter-spacing: -0.01em; }
   .cards p { font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.7rem; max-width: none; }
 
-  /* doorways */
-  .doors { margin-top: 4.5rem; }
-  .doors-lede { display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
+  /* the floor plan — rooms under one roof (D2; D3 scenography layers on later) */
+  .plan { margin-top: 4.5rem; }
+  .plan .row { margin-top: 1.8rem; }
+  .plan .row:first-child { margin-top: 0; }
+  .plan .eyebrow { margin-bottom: 0.8rem; }
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 44rem) { .grid.begin { grid-template-columns: 1fr 1fr; } .grid.read { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 62rem) { .grid.read { grid-template-columns: repeat(4, 1fr); } }
   .grid a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; text-decoration: none; background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1.15rem 1.25rem; transition: border-color 0.15s ease, transform 0.15s ease; }
   .grid a:hover { border-color: var(--poppy-soft); transform: translateY(-2px); }
   .grid .g { line-height: 0; color: var(--canopy-deep); }
-  .grid .name { display: block; font-size: 1.28rem; letter-spacing: -0.01em; }
+  .grid .name { display: block; font-size: 1.28rem; letter-spacing: -0.01em; color: var(--ink); }
+  .grid .seedmark { color: var(--canopy-soft); font-size: 0.85em; }
   .grid .line { display: block; font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.15rem; }
   .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; }
   .grid a:hover .arr { opacity: 1; }
+  .grid.read a { grid-template-columns: auto 1fr; padding: 0.95rem 1.15rem; }
+  .grid.read .name { font-size: 1.12rem; }
+
+  /* the archive wall band */
+  .band {
+    display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
+    border-radius: 4px; padding: 1.05rem 1.25rem;
+    transition: border-color 0.15s ease;
+  }
+  .band:hover { border-color: var(--poppy-soft); }
+  .band-main { text-decoration: none; display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; }
+  .band-title { font-family: var(--display); font-style: italic; font-weight: 460; font-size: 1.22rem; color: var(--ink); letter-spacing: -0.01em; }
+  .band-line { font-size: 0.95rem; color: var(--ink-soft); }
+  .band-side { margin-left: auto; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-faint); display: inline-flex; gap: 0.5rem; align-items: baseline; }
+  .band-side a { color: var(--ink-faint); text-decoration: none; padding: 0.4rem 0.1rem; border-bottom: 1.4px solid transparent; transition: color 0.15s, border-color 0.15s; }
+  .band-side a:hover { color: var(--ink); border-color: var(--poppy-soft); }
+  .band-side .sep { color: var(--ink-faint); }
 
   /* growth stages */
   .grows { margin-top: 4.5rem; max-width: 52rem; }

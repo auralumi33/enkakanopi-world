@@ -3,20 +3,11 @@ import Glyph from "./Glyph.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const here = Astro.url.pathname.replace(/\/$/, "");
 
-// Signposted clusters (Rika, 2026-07-05): the nav reads like a floor plan.
-// Volume I signposts the reading streams; the beginnings hold the seed-bed
-// and the wall; the house holds the keeper's pages. No dropdowns — every
-// room stays one tap away.
+// Signposted clusters (Rika, 2026-07-05): the nav follows the home floor
+// plan exactly — where things begin, the reading rooms, the archive wall.
+// No dropdowns — every room stays one tap away. The D3 scenography layers
+// on later without changing this grammar.
 const groups = [
-  {
-    label: "volume i",
-    labelHref: "/volume-i",
-    links: [
-      { href: "/field-notes", label: "Field Notes" },
-      { href: "/workbench", label: "The Workbench" },
-      { href: "/body-spine", label: "Body & Spine" },
-    ],
-  },
   {
     label: "beginnings",
     labelHref: null,
@@ -26,10 +17,20 @@ const groups = [
     ],
   },
   {
-    label: "the house",
+    label: "the reading rooms",
     labelHref: null,
     links: [
+      { href: "/field-notes", label: "Field Notes" },
+      { href: "/workbench", label: "The Workbench" },
+      { href: "/body-spine", label: "Body & Spine" },
       { href: "/versions", label: "Versions of Me" },
+    ],
+  },
+  {
+    label: "the archive wall",
+    labelHref: "/volume-i",
+    links: [
+      { href: "/volume-i", label: "Volume I" },
       { href: "/lexicon", label: "Lexicon" },
       { href: "/colophon", label: "Colophon" },
     ],
