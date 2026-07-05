@@ -190,6 +190,15 @@ const whatThisIs = [
      left gutter; the sprout SVG hugs the h1 via width: fit-content, so the
      five crown blooms fall exactly where the text lands. */
   .hero { padding-top: 2.6rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+  /* Text elements in the hero are optically nudged right ~1.4 rem so they
+     align with the CARD CONTENT edge (card border + padding) in the
+     "what this is" and "plan" sections below, and with the CanopyScene's
+     leftmost arch. .scene itself stays at the hero's native left edge —
+     its arches carry the internal indent that visually meets the text. */
+  .hero > :not(.scene) { margin-left: 1.4rem; }
+  @media (max-width: 46rem) {
+    .hero > :not(.scene) { margin-left: 0; }
+  }
   .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
     position: relative;
