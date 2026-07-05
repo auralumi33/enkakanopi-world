@@ -2,16 +2,38 @@
 import Glyph from "./Glyph.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const here = Astro.url.pathname.replace(/\/$/, "");
-const links = [
-  { href: "/", label: "Canopy", glyph: "canopy" },
-  { href: "/field-notes", label: "Field Notes", glyph: "seam" },
-  { href: "/workbench", label: "The Workbench", glyph: "compass" },
-  { href: "/body-spine", label: "Body & Spine", glyph: "spine" },
-  { href: "/versions", label: "Versions of Me", glyph: "leaf" },
-  { href: "/nursery", label: "Nursery", glyph: "leaf" },
-  { href: "/studio", label: "Studio", glyph: "compass" },
-  { href: "/lexicon", label: "Lexicon", glyph: "compass" },
-  { href: "/colophon", label: "Colophon", glyph: "light" },
+
+// Signposted clusters (Rika, 2026-07-05): the nav reads like a floor plan.
+// Volume I signposts the reading streams; the beginnings hold the seed-bed
+// and the wall; the house holds the keeper's pages. No dropdowns — every
+// room stays one tap away.
+const groups = [
+  {
+    label: "volume i",
+    labelHref: "/volume-i",
+    links: [
+      { href: "/field-notes", label: "Field Notes" },
+      { href: "/workbench", label: "The Workbench" },
+      { href: "/body-spine", label: "Body & Spine" },
+    ],
+  },
+  {
+    label: "beginnings",
+    labelHref: null,
+    links: [
+      { href: "/nursery", label: "Nursery" },
+      { href: "/studio", label: "Studio" },
+    ],
+  },
+  {
+    label: "the house",
+    labelHref: null,
+    links: [
+      { href: "/versions", label: "Versions of Me" },
+      { href: "/lexicon", label: "Lexicon" },
+      { href: "/colophon", label: "Colophon" },
+    ],
+  },
 ] as const;
 const isCurrent = (href: string) => {
   const h = (base + href).replace(/\/$/, "");
@@ -24,20 +46,35 @@ const isCurrent = (href: string) => {
     <Glyph name="canopy" size={26} />
     <span>enka&nbsp;kanopi</span>
   </a>
-  <ul>
-    {links.slice(1).map((l) => (
-      <li>
-        <a href={base + l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>
-          {l.label}
-        </a>
-      </li>
+  <div class="rooms">
+    {groups.map((g) => (
+      <div class="group">
+        {g.labelHref ? (
+          <a
+            class="signpost"
+            href={base + g.labelHref}
+            aria-current={isCurrent(g.labelHref) ? "page" : undefined}
+          >{g.label}</a>
+        ) : (
+          <span class="signpost">{g.label}</span>
+        )}
+        <ul>
+          {g.links.map((l) => (
+            <li>
+              <a href={base + l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     ))}
-  </ul>
+  </div>
 </nav>
 <style>
   .nav {
-    display: flex; flex-wrap: wrap; align-items: baseline;
-    gap: 0.6rem 1.4rem;
+    display: flex; flex-wrap: wrap; align-items: flex-start;
+    gap: 0.9rem 1.6rem;
     max-width: var(--page); margin-inline: auto;
     padding: 1.4rem var(--gutter) 0.9rem;
   }
@@ -47,7 +84,20 @@ const isCurrent = (href: string) => {
     font-size: 1.15rem; letter-spacing: 0.01em;
   }
   .mark span { font-variant: small-caps; letter-spacing: 0.06em; }
-  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; padding: 0; margin: 0; }
+
+  .rooms { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; }
+  .group { display: flex; flex-direction: column; gap: 0.28rem; }
+  .signpost {
+    font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-faint); text-decoration: none;
+    width: fit-content; position: relative;
+  }
+  a.signpost { border-bottom: 1.4px solid transparent; padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; }
+  a.signpost:hover { color: var(--ink); border-color: var(--poppy-soft); }
+  a.signpost[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
+  a.signpost::after { content: ""; position: absolute; inset: -0.5rem -0.4rem; }
+
+  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.05rem; padding: 0; margin: 0; }
   a { text-decoration: none; }
   ul a {
     font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
@@ -56,11 +106,16 @@ const isCurrent = (href: string) => {
     /* comfortable hit area: the target grows, the ink stays put */
     position: relative;
   }
-  ul a::after { content: ""; position: absolute; inset: -0.6rem -0.5rem; }
-  @media (pointer: coarse) {
-    ul { row-gap: 0.9rem; }
-    ul a::after { inset: -0.85rem -0.55rem; } /* ≥44px effective target on touch */
-  }
+  ul a::after { content: ""; position: absolute; inset: -0.5rem -0.5rem; }
   ul a:hover { color: var(--ink); border-color: var(--poppy-soft); }
   ul a[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
+
+  @media (pointer: coarse) {
+    .rooms { row-gap: 1rem; }
+    ul { row-gap: 0.8rem; }
+    ul a::after { inset: -0.75rem -0.55rem; } /* ≥44px effective target on touch */
+  }
+  @media (max-width: 46rem) {
+    .rooms { flex-direction: column; gap: 0.85rem; width: 100%; }
+  }
 </style>
