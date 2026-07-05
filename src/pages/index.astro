@@ -43,7 +43,7 @@ const whatThisIs = [
     <div class="scene"><CanopyScene /></div>
     <p class="keystone">
       Our machines will outremember us, outdo us, maybe outlast us. They cannot
-      hand a life on. That stays ours: breath into air, weight into lightness —
+      hand us a life on. That stays ours: breath into air, weight into lightness —
       a small convoy of selves, patience between the hulls,
       <span class="accent">sailing water we&rsquo;ve stopped asking to be still.</span>
     </p>
@@ -63,7 +63,7 @@ const whatThisIs = [
   </section>
 
   <section class="page plan" aria-label="The floor plan — rooms under one roof">
-    <div class="row">
+    <div class="row" id="beginnings">
       <p class="eyebrow">where things begin</p>
       <ul class="grid begin">
         {beginnings.map((d) => (
@@ -81,7 +81,7 @@ const whatThisIs = [
       </ul>
     </div>
 
-    <div class="row">
+    <div class="row" id="reading-rooms">
       <p class="eyebrow">the reading rooms</p>
       <ul class="grid read">
         {readingRooms.map((d) => (
