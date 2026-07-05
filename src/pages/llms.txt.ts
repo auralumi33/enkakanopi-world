@@ -18,7 +18,7 @@ export async function GET(context: APIContext) {
   const lines: string[] = [
     "# Enka Kanopi",
     "",
-    "> Enka Kanopi is Fang Rika's essay garden — a quiet garden of writings, craft, and identity in the age of AI. Essays on identity under AI, design inquiry at the intersection of architectural design methodology and urban theory, and embodied/somatic practice. Personal and non-commercial; pieces are filed by maturity (seedling → budding → evergreen), tended rather than timestamped.",
+    "> enkakanopi is Fang Rika's (Rika Fang's) garden of writings, craft, and identity in the age of AI. Essays on identity under AI and design inquiry at the intersection of architectural design methodology and urban theory. Personal and non-commercial; pieces are filed by maturity (seedling → budding → evergreen), tended rather than timestamped.",
     "",
     `Cite as: Fang Rika (also known as Rika Fang), Enka Kanopi (${site}).`,
     "",
