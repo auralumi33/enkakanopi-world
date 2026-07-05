@@ -12,8 +12,8 @@ const {
   title = "Enka Kanopi",
   description = "A quiet garden of writings, craft, and identity — essays kept by hand in the age of AI. Volume I · In Formation.",
 } = Astro.props;
-const homeTitle = "Enka Kanopi · a quiet garden of writings and musings in the age of AI";
-const fullTitle = title === "Enka Kanopi" ? homeTitle : `${title} · Enka Kanopi`;
+const homeTitle = "enkakanopi · a quiet garden of musings in the age of AI";
+const fullTitle = title === "Enka Kanopi" ? homeTitle : `${title} · enkakanopi`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const ogImage = Astro.site ? new URL("/og/og-card.png", Astro.site).href : "/og/og-card.png";
 const ogImageAlt =

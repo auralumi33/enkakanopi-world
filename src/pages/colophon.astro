@@ -67,7 +67,8 @@ import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
       </ul>
 
       <p class="byline">
-        Written and drawn by <span class="name">Fang Rika</span>.
+        Written and drawn by <span class="name">Fang Rika</span>
+        <span class="alt-name" title="Western order">(Rika Fang)</span>.
         <br />
         <a class="link mail" href="mailto:hello@enkakanopi.world">a quiet line, if you'd like one</a>
       </p>
@@ -94,6 +95,7 @@ import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
   .specs .hand { font-family: var(--hand); font-size: 1.1rem; color: var(--canopy-deep); }
   .byline { font-size: 1.1rem; color: var(--ink-soft); margin-top: 2rem; }
   .byline .name { color: var(--ink); }
+  .byline .alt-name { color: var(--ink-faint); font-size: 0.88em; margin-left: 0.15rem; }
   .mail { font-size: 0.98rem; }
   .scene-foot { margin-top: 2.5rem; opacity: 0.85; }
   @media (max-width: 32rem) { .specs li { grid-template-columns: 1fr; gap: 0.1rem; } }
