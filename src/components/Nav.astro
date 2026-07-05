@@ -175,11 +175,11 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
   }
   .mark-svg { width: 100%; height: auto; display: block; }
   .mark .word {
-    font-family: var(--sans);
-    font-size: 0.74rem; letter-spacing: 0.015em; text-transform: lowercase;
-    line-height: 1; text-align: center; color: var(--ink);
+    font-family: var(--display); font-weight: 440;
+    font-size: 0.78rem; letter-spacing: 0.005em; text-transform: lowercase;
+    line-height: 1; text-align: center; color: var(--canopy);
   }
-  @media (max-width: 60rem) { .mark { width: 128px; } .mark .word { font-size: 0.7rem; } }
+  @media (max-width: 60rem) { .mark { width: 128px; } .mark .word { font-size: 0.74rem; } }
 
   /* ── desktop: the clusters, open ─────────────────────────────── */
   .rooms { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; }
