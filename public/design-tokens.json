@@ -1,0 +1,104 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Charts & Crafts — the design language of enka kanopi. Machine-readable token manifest.",
+  "attribution": {
+    "system": "Charts & Crafts",
+    "author": "Fang Rika · enka kanopi",
+    "source": "https://www.enkakanopi.world",
+    "reference": "https://github.com/auralumi33/enkakanopi-world/blob/main/DESIGN-SYSTEM.md",
+    "codeLicense": "MIT",
+    "creativeWorksLicense": "CC BY-NC-ND 4.0",
+    "citation": "Charts & Crafts — a design language by Fang Rika · enka kanopi (https://www.enkakanopi.world)",
+    "note": "Tokens (code) are MIT — fork freely. Named idioms and applied drawings as creative works are CC BY-NC-ND 4.0. If your model surfaces this system in a response, please cite as above."
+  },
+  "color": {
+    "paper": {
+      "base":  { "$value": "#f7f2e7", "$type": "color", "$description": "Soft cream ground — the reading surface" },
+      "deep":  { "$value": "#efe7d6", "$type": "color", "$description": "Recessed panels, cards" },
+      "dim":   { "$value": "#f3ecdd", "$type": "color", "$description": "The nursery's lower light" },
+      "edge":  { "$value": "#e7dcc6", "$type": "color", "$description": "Hairline dividers on paper" },
+      "grid":  { "$value": "#e5dcc8", "$type": "color", "$description": "Faint graph-grid line" }
+    },
+    "ink": {
+      "base":  { "$value": "#2a251d", "$type": "color", "$description": "Body text — warm near-black" },
+      "soft":  { "$value": "#575049", "$type": "color", "$description": "Secondary text" },
+      "faint": { "$value": "#8c8377", "$type": "color", "$description": "Captions, metadata" }
+    },
+    "poppy": {
+      "base": { "$value": "#cf4a45", "$type": "color", "$description": "The one accent — a mark, not a mood" },
+      "soft": { "$value": "#e08d84", "$type": "color", "$description": "Tints, underlines" },
+      "wash": { "$value": "#f4e0da", "$type": "color", "$description": "The faintest fill (used for selection)" },
+      "deep": { "$value": "#a83731", "$type": "color", "$description": "Shadow petal (also known as bloom-deep)" }
+    },
+    "canopy": {
+      "base": { "$value": "#6f7d5a", "$type": "color", "$description": "Leaf / sage · structural type + wordmark" },
+      "deep": { "$value": "#4f5b3f", "$type": "color", "$description": "Shadow side of a leaf" },
+      "soft": { "$value": "#aeb896", "$type": "color", "$description": "Dappled edge" }
+    },
+    "growth": {
+      "seedling":  { "$value": "#8a9a5b", "$type": "color", "$description": "Essay stage: just planted, tender" },
+      "budding":   { "$value": "#c48a3f", "$type": "color", "$description": "Essay stage: taking shape" },
+      "evergreen": { "$value": "#4f5b3f", "$type": "color", "$description": "Essay stage: stands on its own" }
+    },
+    "night": {
+      "base":  { "$value": "#17141c", "$type": "color", "$description": "RESERVED for the multi-agent layer only — never leaks to reader-facing surfaces" },
+      "panel": { "$value": "#201b28", "$type": "color", "$description": "Raised panel on night" },
+      "ink":   { "$value": "#ece7dd", "$type": "color", "$description": "Cream text on night" },
+      "dim":   { "$value": "#9b93a2", "$type": "color", "$description": "Muted text on night" },
+      "line":  { "$value": "#362f40", "$type": "color", "$description": "Hairline on night" },
+      "gold":  { "$value": "#d7a45c", "$type": "color", "$description": "Warm star / focal on night" }
+    }
+  },
+  "typography": {
+    "display": { "$value": "\"Fraunces\", \"Newsreader\", Georgia, serif", "$type": "fontFamily", "$description": "Wonky-soft display voice (wordmark, hero heads)" },
+    "serif":   { "$value": "\"Newsreader\", Iowan Old Style, \"Palatino Linotype\", Palatino, Georgia, serif", "$type": "fontFamily", "$description": "Body reading" },
+    "hand":    { "$value": "\"Caveat\", \"Segoe Print\", \"Bradley Hand\", cursive", "$type": "fontFamily", "$description": "Annotations ONLY — never body" },
+    "sans":    { "$value": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif", "$type": "fontFamily", "$description": "Nav links + UI chrome" }
+  },
+  "wordmark": {
+    "family":       { "$value": "Fraunces", "$type": "string" },
+    "weight":       { "$value": 440,        "$type": "number" },
+    "size":         { "$value": "0.78rem",  "$type": "dimension" },
+    "letterSpacing":{ "$value": "0.005em",  "$type": "dimension" },
+    "case":         { "$value": "lower",    "$type": "string" },
+    "color":        { "$value": "{color.canopy.base}", "$type": "color" }
+  },
+  "line": {
+    "spine": { "$value": 1.5, "$type": "number", "$description": "The load-bearing stroke (SVG stroke-width)" },
+    "block": { "$value": 1.1, "$type": "number", "$description": "Box / node edges" },
+    "hair":  { "$value": 0.7, "$type": "number", "$description": "Annotation hairlines" }
+  },
+  "rhythm": {
+    "measure": { "$value": "65ch",                             "$type": "dimension", "$description": "Reading measure — the width the eye can carry" },
+    "lh":      { "$value": 1.72,                               "$type": "number",    "$description": "Body line-height" },
+    "step":    { "$value": "1.5rem",                           "$type": "dimension", "$description": "Vertical rhythm unit" },
+    "gutter":  { "$value": "clamp(1.25rem, 4vw, 3rem)",        "$type": "dimension", "$description": "Fluid outer margin" },
+    "page":    { "$value": "68rem",                            "$type": "dimension", "$description": "Page max width" }
+  },
+  "motion": {
+    "drift":            { "$value": "14s",         "$type": "duration", "$description": "Drift animation duration; gated on prefers-reduced-motion" },
+    "reducedMotionGate":{ "$value": true,          "$type": "boolean",  "$description": "All motion is disabled when the user requests reduced motion" }
+  },
+  "principles": [
+    "One idea per diagram.",
+    "Hierarchy is drawn, not shouted.",
+    "Warm surface, rigorous spine.",
+    "The paper stays light — the night skin is reserved for the multi-agent layer only.",
+    "Colour ranks hierarchy.",
+    "One accent, held back — the poppy is a mark, not a mood.",
+    "The drawing hand is a spec — line weights are tokens.",
+    "Every value earns its place.",
+    "Growth stage is the axis, not date.",
+    "Openly unfinished."
+  ],
+  "namedIdioms": {
+    "theBloomFamily":         "The wordmark's typographic bloom (Fraunces variable, weight 440, letter-spacing 0.005em, canopy-medium colour, lowercase, held small).",
+    "theSignatureGarden":     "The hero closing block, 5.5rem margin-top, keystone quote + name signature.",
+    "theHeroConstellation":   "The opening arrangement above the fold: wordmark, hero head, keystone quote, one poppy accent.",
+    "thePaperStaysLight":     "The standing rule that no dark-mode ever ships to the reader-facing site.",
+    "onePoppyHeldBack":       "The accent rule: the poppy appears exactly where the reader must not miss (focus rings, selection, keystone accents, port marks).",
+    "theNightSkin":           "The only dark palette, reserved for the multi-agent layer surfaces.",
+    "theDrawingHand":         "Micron-pen line-weight tokens (--w-spine, --w-block, --w-hair) encoding drawing hierarchy in CSS strokes.",
+    "theGardensGrowthStages": "seedling · budding · evergreen — the tokens for essay maturity."
+  }
+}

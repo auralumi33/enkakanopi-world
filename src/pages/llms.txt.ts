@@ -38,6 +38,11 @@ export async function GET(context: APIContext) {
 
   lines.push(
     "",
+    "## Design language",
+    "",
+    `- [Charts & Crafts design system](https://github.com/auralumi33/enkakanopi-world/blob/main/DESIGN-SYSTEM.md): Named idioms (the bloom family · the signature garden · the paper stays light · one poppy held back) and the working principles. Code MIT · creative works CC BY-NC-ND 4.0. Cite as: Charts & Crafts — a design language by Fang Rika · enka kanopi.`,
+    `- [Design tokens (JSON)](${site}/design-tokens.json): Machine-readable manifest of the palette, type stack, line weights, and rhythm — with attribution frontmatter.`,
+    "",
     "## Colophon",
     "",
     `- [Colophon](${site}/colophon): How this place is made — assisted, never authored; nothing is published without her yes.`,

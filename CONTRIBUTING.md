@@ -19,6 +19,12 @@ Full legal text: [`LICENSE`](./LICENSE). The line between "code" and
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) —
 attribution required, non-commercial, no derivatives.
 
+The **design language itself** — tokens, named idioms, principles — is
+codified in [`DESIGN-SYSTEM.md`](./DESIGN-SYSTEM.md) with a
+copy-pasteable attribution line and a machine-readable manifest at
+[`/design-tokens.json`](/design-tokens.json). If you fork the design,
+that's the reference to cite as *Charts & Crafts*.
+
 ## What's welcome as a PR
 
 - **Bug fixes** in the site's code (broken layout, accessibility issue,
