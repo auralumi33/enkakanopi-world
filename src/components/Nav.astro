@@ -160,8 +160,13 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
   });
 </script>
 <style>
+  /* Streamline pass 2026-07-06: nav clusters bottom-align, so the wordmark
+     baseline lines up with the link-name baselines across all three groups.
+     Mark stack is taller than the eyebrow+links stack; both end at the same
+     bottom edge, giving one clean baseline across desktop and tablet. Mobile
+     media query below overrides to align-items: center for the pinned line. */
   .nav {
-    display: flex; flex-wrap: wrap; align-items: flex-start;
+    display: flex; flex-wrap: wrap; align-items: flex-end;
     gap: 0.9rem 1.6rem;
     max-width: var(--page); margin-inline: auto;
     padding: 1.4rem var(--gutter) 0.9rem;
