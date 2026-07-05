@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "canopy · identity in motion",
+  "description": "canopy \u00b7 identity in motion",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "astro dev",
@@ -11,12 +11,16 @@
     "preview": "astro preview",
     "check": "astro check",
     "guard": "node scripts/guard.mjs",
-    "verify": "npm run guard && astro check && astro build"
+    "verify": "npm run guard && astro check && astro build",
+    "shots": "node scripts/shoot.mjs ./_shots http://localhost:4173"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.6.1"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.61.1"
   }
 }

@@ -36,3 +36,6 @@ npm-debug.log*
 
 # session archives (durable on disk; repo state preserved by git tags)
 _archive/
+
+# local screenshot output
+_shots/
