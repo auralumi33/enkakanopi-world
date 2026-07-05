@@ -34,13 +34,13 @@ const whatThisIs = [
       <h1 class="signature">
         We are the first generation<br />
         to be retrained alongside our machines<br />
-        <span class="paren">(no one told us growing old<br />would feel like this)</span>
+        <span class="paren">(no one told us growing old would feel like this)</span>
       </h1>
     </div>
     <p class="sub">
-      Essays on identity, memory, and the slow work of rebuilding in the age of ai —
-      a little technologist/craftsman, dancing under the weight of the clouds; holding on,
-      letting go, loving anyway.
+      Essays on identity, memory, and the slow, tender work of rebuilding in the age of ai —
+      a little technologist-craftsman, dancing under the weight of the clouds;
+      holding on, letting go, loving anyway.
     </p>
     <div class="scene"><CanopyScene /></div>
     <p class="keystone">
@@ -189,23 +189,23 @@ const whatThisIs = [
     width: fit-content;
     max-width: 100%;
     margin: 1.4rem 0 0;
-    padding: 2.6rem 0 1.4rem;
+    padding: 3.1rem 0 2.3rem;
   }
   .signature-garden .sprout {
     position: absolute;
     inset: 0;
     z-index: -1;
-    display: flex; align-items: center; justify-content: flex-start;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
     opacity: 0.8;
     pointer-events: none;
   }
-  .signature-garden .sprout :global(svg) { width: 100%; height: 100%; max-width: 100%; }
+  .signature-garden .sprout :global(svg) { width: 100%; height: auto; display: block; }
   .signature {
     position: relative;
     z-index: 1;
     font-weight: 440; font-style: italic;
     font-size: clamp(1.55rem, 4.3vw, 2.55rem); line-height: 1.3;
-    letter-spacing: -0.02em; max-width: none; margin: 0;
+    letter-spacing: -0.02em; max-width: 42rem; margin: 0;
     text-wrap: balance; text-align: left;
   }
   @media (max-width: 46rem) {
