@@ -43,3 +43,43 @@ _shots/
 # claude code dev tooling — never ship to the public repo
 .claude/
 _shots-*/
+
+# ── firewall belt-and-braces ─────────────────────────────────────────
+# The Enka _repo is a public github (auralumi33/enkakanopi-world) and
+# must never track anything from adjacent ventures or private doctrine.
+# The workspace one level up carries P0–P10 material; these patterns
+# make it impossible for a stray copy/symlink into _repo to be staged.
+# See enka-airlock-firewall SKILL.md for the crossing rules (LESSONS.md
+# via tools/lesson-gate.sh is the ONLY sanctioned inbound path).
+
+# priority-folder prefixes from the venture workspace
+P0-*
+P1-*
+P2-*
+P3-*
+P4-*
+P5-*
+P6-*
+P7-*
+P8-*
+P9-*
+P10-*
+
+# private doctrine + succession that lives one level up
+SUCCESSION.md
+HANDOFF-*.md
+HANDOFF-*
+STUDIO-CHARTER.md
+ENKA-VOICE-*.md
+CALIBRATION-DOCTRINE.md
+MULTI-AGENT-FOUNDATION.md
+CHARTER-*.md
+implementation-notes.md
+
+# astrology / personal-OS filename patterns (P2)
+HERMIT-*
+HERMIT-*.md
+
+# per-venture memory + lessons directories that live outside _repo
+_memory/
+../SUCCESSION.md
