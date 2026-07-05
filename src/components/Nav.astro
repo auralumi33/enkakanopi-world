@@ -131,10 +131,11 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     text-transform: uppercase; color: var(--ink-faint); text-decoration: none;
     width: fit-content; position: relative;
   }
-  a.signpost { border-bottom: 1.4px solid transparent; padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; }
+  a.signpost { border-bottom: 1.4px solid transparent; padding-bottom: 1px; transition: border-color 0.15s, color 0.15s; z-index: 0; }
   a.signpost:hover { color: var(--ink); border-color: var(--poppy-soft); }
   a.signpost[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
-  a.signpost::after { content: ""; position: absolute; inset: -0.5rem -0.4rem; }
+  a.signpost::after { content: ""; position: absolute; inset: -0.5rem -0.4rem; border-radius: 4px; z-index: -1; transition: background-color 0.15s; }
+  a.signpost:hover::after { background: var(--paper-deep); }
 
   ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.05rem; padding: 0; margin: 0; }
   a { text-decoration: none; }
@@ -142,10 +143,11 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
     color: var(--ink-soft); padding-bottom: 2px;
     border-bottom: 1.4px solid transparent; transition: border-color 0.15s, color 0.15s;
-    position: relative;
+    position: relative; z-index: 0;
   }
-  ul a::after { content: ""; position: absolute; inset: -0.5rem -0.5rem; }
+  ul a::after { content: ""; position: absolute; inset: -0.5rem -0.5rem; border-radius: 4px; z-index: -1; transition: background-color 0.15s; }
   ul a:hover { color: var(--ink); border-color: var(--poppy-soft); }
+  ul a:hover::after { background: var(--paper-deep); }
   ul a[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
 
   /* ── mobile: pinned single line, cluster pockets ─────────────── */
@@ -169,10 +171,12 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
       padding: 0.7rem 0.45rem; /* comfortable tap target on the pinned line */
       border-bottom: 1.4px solid transparent;
       white-space: nowrap;
+      border-radius: 4px; transition: background-color 0.15s, color 0.15s;
     }
     .pocket summary::-webkit-details-marker { display: none; }
     .pocket .chev { color: var(--ink-faint); margin-left: 0.25rem; font-size: 0.55rem; }
-    .pocket[open] summary { color: var(--ink); }
+    .pocket summary:hover, .pocket summary:active { background: var(--paper-deep); }
+    .pocket[open] summary { color: var(--ink); background: var(--paper-deep); }
     .pocket[open] .chev { color: var(--poppy); }
     .pocket.within summary { color: var(--ink); border-bottom-color: var(--poppy); }
     .pocket ul {
@@ -187,7 +191,9 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     .pocket ul a {
       display: block; padding: 0.72rem 1rem; /* ≥44px rows */
       font-size: 0.82rem; border-bottom: none;
+      transition: background-color 0.15s, color 0.15s;
     }
+    .pocket ul a:hover, .pocket ul a:active, .pocket ul a:focus-visible { background: var(--paper-deep); color: var(--ink); }
     .pocket ul a::after { content: none; }
     .pocket ul a[aria-current="page"] { color: var(--ink); }
     .pocket ul a[aria-current="page"]::before { content: "• "; color: var(--poppy); }
