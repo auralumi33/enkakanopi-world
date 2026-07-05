@@ -13,6 +13,7 @@ const essay = z.object({
   // organised by maturity, never by date (the digital-garden lineage).
   stage: z.enum(["seedling", "budding", "evergreen"]).default("seedling"),
   tended: z.string().optional(),   // an honest, non-triangulating note on when it was last worked
+  breath: z.string().optional(),   // "in one breath" — the liftable thesis, in the essay's own words
 });
 
 const fieldNotes = defineCollection({

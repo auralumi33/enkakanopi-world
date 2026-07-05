@@ -1,2 +1,16 @@
+# enkakanopi.world — origin robots policy (2026-07-05)
+# Goal: maximise citation & distribution. Answer/retrieval engines are welcome
+# (the Lexicon is meant to be cited); training crawlers are welcome too — the
+# named frameworks have one canonical source, so diffusion feeds citation.
+# NOTE: this file only governs once Cloudflare's managed "block AI bots" rule
+# is switched off in the zone dashboard; that rule currently prepends blocks
+# that override everything below.
+
 User-agent: *
 Allow: /
+
+# The one exception: aggressive scraping with no citation or answer surface.
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://www.enkakanopi.world/sitemap-index.xml

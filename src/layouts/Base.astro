@@ -13,23 +13,38 @@ const {
 } = Astro.props;
 const fullTitle = title === "Enka Kanopi" ? title : `${title} · Enka Kanopi`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImage = Astro.site ? new URL("/og/og-card.png", Astro.site).href : "/og/og-card.png";
+const ogImageAlt =
+  "Enka Kanopi — a hand-drawn canopy over the words 'a canopy for a self in motion'";
 
 // Site + author structured data — so answer engines can attribute the frameworks
 // to a named source (AEO/GEO). Person kept minimal + non-identifying by design.
+// (sameAs omitted deliberately — external profiles to be confirmed by Rika.)
 const ldSite = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
+      "@id": "https://www.enkakanopi.world/#website",
       name: "Enka Kanopi",
       url: Astro.site?.href,
       description: "A canopy for a self in motion — essays on identity, craft, memory, and the body.",
+      publisher: { "@id": "https://www.enkakanopi.world/#rika" },
+      author: { "@id": "https://www.enkakanopi.world/#rika" },
     },
     {
       "@type": "Person",
+      "@id": "https://www.enkakanopi.world/#rika",
       name: "Rika Fang",
-      url: Astro.site?.href,
+      url: Astro.site ? new URL("/colophon", Astro.site).href : undefined,
       description: "Writer and maker. Essays on the container beneath the craft, the deflation of execution, and the canopy and the light.",
+      knowsAbout: [
+        "identity under AI",
+        "design inquiry at the intersection of architectural design methodology and urban theory",
+        "craft and embodied practice",
+        "digital gardens",
+        "human–machine co-creation",
+      ],
     },
   ],
 };
@@ -46,7 +61,19 @@ const ldSite = {
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:site_name" content="Enka Kanopi" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#f7f2e7" />
+    <link rel="alternate" type="application/rss+xml" title="Enka Kanopi" href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

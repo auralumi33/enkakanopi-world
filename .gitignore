@@ -33,3 +33,6 @@ guard.words.local.txt
 # logs
 *.log
 npm-debug.log*
+
+# session archives (durable on disk; repo state preserved by git tags)
+_archive/
