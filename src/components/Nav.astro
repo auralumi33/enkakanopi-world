@@ -202,9 +202,11 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
   a.signpost::after { content: ""; position: absolute; inset: -0.5rem -0.4rem; border-radius: 4px; z-index: -1; transition: background-color 0.15s; }
   a.signpost:hover::after { background: var(--paper-deep); }
 
-  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.05rem; padding: 0; margin: 0; }
+  ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.05rem; padding: 0; margin: 0; line-height: 1; }
+  .group ul li { line-height: 1; }
   a { text-decoration: none; }
   ul a {
+    display: inline-block;
     font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
     line-height: 1;
     color: var(--ink-soft); padding-bottom: 2px;
