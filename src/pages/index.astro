@@ -33,7 +33,7 @@ const whatThisIs = [
     <h1 class="signature">
       We are the first generation<br />
       to be retrained alongside our machines<br />
-      <span class="paren">(no one told us growing old would feel like this)</span>
+      <span class="paren">(no one told us growing old<br />would feel like this)</span>
     </h1>
     <p class="sub">
       Essays on identity, memory, and the slow work of rebuilding — from a
@@ -137,8 +137,7 @@ const whatThisIs = [
   }
   .signature .paren {
     color: var(--poppy); font-size: 0.82em;
-    /* the aside never strands a word — one line when it fits, balanced when it wraps */
-    display: inline-block; text-wrap: balance; max-width: 24ch;
+    /* the aside breaks by hand after "old" — "growing old" is never split */
   }
   .sub {
     max-width: 52ch; margin: 1.6rem auto 0; color: var(--ink-soft);
