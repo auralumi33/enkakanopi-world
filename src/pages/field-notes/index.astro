@@ -8,7 +8,7 @@ import Glyph from "../../components/Glyph.astro";
 const entries = (await getCollection("fieldNotes")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
 ---
-<Base title="Field Notes" description="Short letters from the seams between versions of a self — on wabi-sabi, letting go, canopy, and staying honestly unfinished.">
+<Base title="Field Notes" description="Short letters from the seams between versions of a self — on wabi-sabi, letting go, a self legible only in motion, and staying honestly unfinished.">
   <section class="page head">
     <p class="eyebrow"><Glyph name="seam" size={18} /> &nbsp;the diary</p>
     <h1>Field Notes</h1>

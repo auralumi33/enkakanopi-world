@@ -42,7 +42,7 @@ export const terms: LexiconTerm[] = [
   },
   {
     term: "The canopy and the light",
-    def: "Canopy (木漏れ日) — light filtered through a moving canopy — as the whole thesis in an image: the canopy is the container, the light is the craft, and the craft is only legible because it passes through something that holds it. The name came before the words. Kanopi is a canopy; canopy is the light it lets through.",
+    def: "Kanopi is a canopy — a container that holds without fixing. What passes through it is a self in motion: held long enough to become, never long enough to harden — legible only while it keeps moving, never in the still frame. The name came before the words.",
     seeIn: [{ label: "Only in Motion", href: "/field-notes/only-in-motion" }, { label: "Colophon", href: "/colophon" }],
   },
 ];

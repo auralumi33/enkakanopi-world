@@ -23,7 +23,7 @@ import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, extname, relative } from "node:path";
 
 const ROOT = process.cwd();
-const IGNORE_DIRS = new Set(["node_modules", "dist", ".git", ".astro", ".vercel"]);
+const IGNORE_DIRS = new Set(["node_modules", "dist", ".git", ".astro", ".vercel", "_archive"]);
 const IGNORE_FILES = new Set(["package-lock.json", "guard.words.txt", "guard.words.local.txt"]);
 const SKIP_EXT = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".woff", ".woff2", ".ico", ".mov", ".mp4", ".pdf"]);
 

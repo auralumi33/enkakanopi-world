@@ -19,8 +19,9 @@ one-sentence idea each diagram carries (Law 1: one chart, one load).
    poppy accent is the strongest signal and is spent sparingly.
 6. **Reveal in beats** — home moves keystone → intro → doorways; essays move
    claim → diagram → turn → open question.
-7. **The metaphor must bear weight** — canopy↔container, canopy↔legible-in-
-   motion, seam↔the-join-that-holds each map ≥2 properties to ≥2 of the idea.
+7. **The metaphor must bear weight** — canopy↔container (holds without
+   fixing), self-in-motion↔legible-only-in-motion, seam↔the-join-that-holds
+   each map ≥2 properties to ≥2 of the idea.
 8. **The glyph earns its place** — the 7-mark glyph kit (`Glyph.astro`) is only
    used where a mark guides the eye or encodes a relation; decoration is cut.
 9. **Show the precomputed answer** — captions give the conclusion; the drawing
@@ -68,7 +69,7 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | `CanopyScene` | home, colophon | Light reaches the ground only by passing through what holds it. |
 | `DiaSeams` | Field Notes · The Seam | The truth is in the seam between versions, not the average of them. |
 | `DiaTrust` | Field Notes · The Room I Left | Letting go is the last craft — the work continues in a room you have left. |
-| `DiaCanopy` | Field Notes · Only in Motion | A self, like canopy, is legible only in motion — never in the still frame. |
+| `DiaCanopy` | Field Notes · Only in Motion | A self is legible only in motion — never in the still frame. |
 | `DiaUnfinished` | Field Notes · In Formation | Unfinished is a state, drawn as a bracket left open on purpose — not a broken line. |
 | `DiaHands` | Workbench · Why Start With the Hands | The hand learns what the head can only later name. |
 | `DiaFall` | Body & Spine · Relearning to Fall | The body's first lesson is the safe fall, not the graceful stand. |
@@ -129,7 +130,7 @@ The dark, starry garden was carried onto warm paper, not discarded:
 
 ## Accessibility
 - WCAG AA contrast on text; ink-on-cream is comfortably above 4.5:1.
-- `prefers-reduced-motion` disables the canopy drift and all transitions.
+- `prefers-reduced-motion` disables the leaf-light drift and all transitions.
 - Every diagram is `role="img"` with a `<title>` describing what it shows.
 - Semantic landmarks (`nav`, `main`, `article`, `footer`), a skip link, and
   `aria-current` on the active nav item.
