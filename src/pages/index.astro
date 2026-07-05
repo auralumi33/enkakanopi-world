@@ -119,9 +119,52 @@ const whatThisIs = [
       enough to stand on its own.
     </p>
     <ul class="stages">
-      <li><span class="dot seedling">•</span><span class="s">seedling</span><span class="d">just planted — tender, unsure, thinking out loud.</span></li>
-      <li><span class="dot budding">••</span><span class="s">budding</span><span class="d">taking shape — the argument has a spine now.</span></li>
-      <li><span class="dot evergreen">•••</span><span class="s">evergreen</span><span class="d">stands on its own — as settled as this garden gets.</span></li>
+      <li>
+        <span class="dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path d="M12 21 L 12 12" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+            <ellipse cx="9" cy="9" rx="3" ry="4.8" transform="rotate(-25 9 9)" fill="#e8c15a"/>
+            <ellipse cx="15" cy="9" rx="3" ry="4.8" transform="rotate(25 15 9)" fill="#e8c15a"/>
+            <path d="M10 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="s">seedling</span>
+        <span class="d">just planted — tender, unsure, thinking out loud.</span>
+      </li>
+      <li>
+        <span class="dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path d="M12 21 L 12 11" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+            <g fill="#b899c9">
+              <ellipse cx="9" cy="8" rx="3" ry="4.8" transform="rotate(-25 9 8)"/>
+              <ellipse cx="15" cy="8" rx="3" ry="4.8" transform="rotate(25 15 8)"/>
+              <ellipse cx="12" cy="12" rx="3" ry="4.8"/>
+            </g>
+            <circle cx="12" cy="10" r="1.4" fill="#f7f2e7"/>
+            <path d="M10 15 L 12 14 M14 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="s">budding</span>
+        <span class="d">taking shape — the argument has a spine now.</span>
+      </li>
+      <li>
+        <span class="dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path d="M12 21 L 12 14" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+            <g fill="#e46b6b">
+              <path d="M12 3 C 14.2 3.5, 14.6 7.4, 12 8.8 C 9.4 7.4, 9.8 3.5, 12 3 Z"/>
+              <path d="M17.5 5.5 C 19.5 8, 17.5 11.5, 14 10.6 C 12.4 8.5, 14.9 5, 17.5 5.5 Z"/>
+              <path d="M15.2 13 C 12.5 15.4, 8.8 14, 10 10.8 C 12.5 9.5, 15.7 10.5, 15.2 13 Z"/>
+              <path d="M6.5 12.5 C 4.5 10.2, 5.8 7.4, 8.4 8 C 10.5 8.7, 10 12.9, 6.5 12.5 Z"/>
+              <path d="M4.6 5.5 C 7.6 4.9, 10.4 7.3, 9 10.4 C 5.8 11, 3.4 7, 4.6 5.5 Z"/>
+            </g>
+            <path d="M12 8.5 C 11 7.5, 9 7.7, 9 9.3 C 9 10.8, 12 11.9, 12 11.9 C 12 11.9, 15 10.8, 15 9.3 C 15 7.7, 13 7.5, 12 8.5 Z" fill="#f7f2e7"/>
+            <path d="M10 17 L 12 16 M14 17 L 12 16" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="s">evergreen</span>
+        <span class="d">stands on its own — as settled as this garden gets.</span>
+      </li>
     </ul>
   </section>
 </Base>
@@ -208,11 +251,9 @@ const whatThisIs = [
   .grows { margin-top: 4.5rem; max-width: 52rem; }
   .grows-lede { color: var(--ink-soft); margin-top: 0.8rem; font-size: 1.08rem; }
   .stages { list-style: none; padding: 0; margin: 1.4rem 0 0; }
-  .stages li { display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: baseline; gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge); }
-  .stages .dot { font-size: 1rem; letter-spacing: 0.1em; }
-  .stages .dot.seedling { color: var(--seedling); }
-  .stages .dot.budding { color: var(--budding); }
-  .stages .dot.evergreen { color: var(--evergreen); }
+  .stages li { display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: center; gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge); }
+  .stages .dot { line-height: 0; display: inline-flex; align-items: center; justify-content: flex-start; }
+  .stages .dot :global(svg) { display: block; }
   .stages .s { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
   .stages .d { color: var(--ink-soft); font-size: 0.98rem; }
   @media (max-width: 34rem) { .stages li { grid-template-columns: 2rem 1fr; } .stages .s { grid-column: 2; } .stages .d { grid-column: 2; } }

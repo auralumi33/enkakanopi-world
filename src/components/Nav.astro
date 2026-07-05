@@ -167,13 +167,16 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     padding: 1.4rem var(--gutter) 0.9rem;
   }
   .mark {
-    display: inline-flex; align-items: center; gap: 0.55rem;
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    gap: 0.18rem;
     text-decoration: none; margin-right: auto;
-    font-size: 1.15rem; letter-spacing: 0.01em;
     color: var(--ink);
   }
   .mark-svg { flex: 0 0 auto; display: block; }
-  .mark .word { letter-spacing: 0; text-transform: lowercase; }
+  .mark .word {
+    font-size: 0.86rem; letter-spacing: 0.005em; text-transform: lowercase;
+    padding-left: 0.15rem; line-height: 1;
+  }
 
   /* ── desktop: the clusters, open ─────────────────────────────── */
   .rooms { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; }
