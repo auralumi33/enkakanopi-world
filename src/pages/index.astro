@@ -135,7 +135,11 @@ const whatThisIs = [
     letter-spacing: -0.02em; max-width: 22ch; margin: 1.3rem auto 0;
     text-wrap: balance;
   }
-  .signature .paren { color: var(--poppy); font-size: 0.82em; }
+  .signature .paren {
+    color: var(--poppy); font-size: 0.82em;
+    /* the aside never strands a word — one line when it fits, balanced when it wraps */
+    display: inline-block; text-wrap: balance; max-width: 24ch;
+  }
   .sub {
     max-width: 52ch; margin: 1.6rem auto 0; color: var(--ink-soft);
     font-size: 1.15rem;
