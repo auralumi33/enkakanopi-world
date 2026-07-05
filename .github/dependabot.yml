@@ -1,0 +1,45 @@
+version: 2
+# Dependabot config for enkakanopi-world.
+#
+# npm dependencies: patch/minor grouped weekly to reduce PR noise.
+# GitHub Actions: version updates monthly so the SHA-pinned workflow
+# entries in .github/workflows/*.yml get maintained automatically.
+#
+# Docs: https://docs.github.com/code-security/dependabot/dependabot-version-updates
+
+updates:
+  # npm — the site's build + dev dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Singapore"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "auralumi33"
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # GitHub Actions — keeps the pinned SHAs current
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Singapore"
+    open-pull-requests-limit: 3
+    reviewers:
+      - "auralumi33"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

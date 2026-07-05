@@ -1,8 +1,11 @@
 name: build
 
 # Builds the static site on every push and PR so a broken build never lands.
-# The deploy step is intentionally left commented until a host is connected
-# (Vercel is auto-wired via its Git integration; the Pages path is stubbed below).
+# Actions pinned to full commit SHAs — a tag can be rewritten upstream; a SHA
+# cannot. Dependabot maintains these via .github/dependabot.yml.
+#
+# The deploy step is intentionally left commented — Vercel is auto-wired via
+# its Git integration; the Pages path is stubbed below.
 
 on:
   push:
@@ -10,58 +13,54 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
+# Least-privilege default at the workflow level; every job re-declares
+# only what it actually needs.
+permissions: {}
+
+# Prevent multiple concurrent runs on the same ref; cancel in-progress on a
+# new push. Saves minutes and avoids racy artifact uploads.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout (pinned SHA · v7)
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node (pinned SHA · v6)
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
           node-version: 20
           cache: npm
 
-      - run: npm ci
-      - name: Guard — the mechanical mirror (secrets + off-register)
-        run: npm run guard
-      - run: npm run build
+      - name: Install (frozen lockfile)
+        run: npm ci
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Guard — the mechanical mirror (secrets + off-register + lightness)
+        run: npm run guard
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact (pinned SHA · v7)
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: site
           path: dist/
           if-no-files-found: error
+          retention-days: 7
 
   # ── deploy (stubbed) ────────────────────────────────────────────────
   # Vercel: connect the repo in the Vercel dashboard — its Git integration
   # builds + deploys automatically, no workflow needed here.
   #
   # GitHub Pages: uncomment the job below and set Settings → Pages → Source:
-  # "GitHub Actions". Set BASE_PATH to "/<repo-name>" for a project page.
-  #
-  # deploy-pages:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     pages: write
-  #     id-token: write
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with: { node-version: 20, cache: npm }
-  #     - run: npm ci
-  #     - run: npm run build
-  #       env:
-  #         BASE_PATH: /enkakanopi-world
-  #     - uses: actions/configure-pages@v5
-  #     - uses: actions/upload-pages-artifact@v3
-  #       with: { path: dist }
-  #     - id: deployment
-  #       uses: actions/deploy-pages@v4
+  # "GitHub Actions". Pin any new action SHAs before uncommenting.

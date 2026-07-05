@@ -1,0 +1,9 @@
+# enkakanopi-world CODEOWNERS
+#
+# Solo-maintainer repo. The owner listed here is the fallback reviewer for
+# any pull request against any path. If GitHub branch protection ever adds
+# "require review", these lines are what tell it who to notify.
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @auralumi33
