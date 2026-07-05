@@ -52,7 +52,7 @@ const whatThisIs = [
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
   </section>
 
-<section class="page what" aria-label="What this is">
+  <section class="page what" aria-label="What this is">
     <p class="eyebrow">what this is</p>
     <ul class="cards">
       {whatThisIs.map((c) => (
@@ -64,7 +64,7 @@ const whatThisIs = [
     </ul>
   </section>
 
-<section class="page plan" aria-label="The floor plan — rooms under one roof">
+  <section class="page plan" aria-label="The floor plan — rooms under one roof">
     <div class="row" id="beginnings">
       <p class="eyebrow">where things begin</p>
       <ul class="grid begin">
@@ -113,7 +113,7 @@ const whatThisIs = [
     </div>
   </section>
 
-<section class="page grows" aria-label="How ideas grow">
+  <section class="page grows" aria-label="How ideas grow">
     <p class="eyebrow">ideas grow in public</p>
     <p class="grows-lede">
       Nothing here is filed by date. It&rsquo;s tended by maturity — a
@@ -169,18 +169,13 @@ const whatThisIs = [
       </li>
     </ul>
   </section>
-
 </Base>
 
 <style>
-  /* the hero — a centered vertical column, with the bloom, kicker, title,
-     lede, canopy scene and keystone quote stacked with a deliberate rhythm.
-     Every child forced center-aligned; margin: auto guarantees horizontal
-     centering inside the .page max-width. */
   /* the hero — indexed to the left, blooms sprouting from behind the h1.
-     LEFT alignment (per Rika's ask) keeps everything anchored at the page's
-     left gutter; the sprout SVG hugs the h1 via width: fit-content, so the
-     five crown blooms fall exactly where the text lands. */
+     LEFT alignment keeps everything anchored at the page's left gutter;
+     the sprout SVG hugs the h1 via width: fit-content, so the five crown
+     blooms fall exactly where the text lands. */
   .hero { padding-top: 2.6rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
   /* Text elements in the hero are optically nudged right ~1.4 rem so they
      align with the CARD CONTENT edge (card border + padding) in the
