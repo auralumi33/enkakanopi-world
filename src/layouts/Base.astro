@@ -10,13 +10,14 @@ interface Props {
 }
 const {
   title = "Enka Kanopi",
-  description = "A canopy for a self in motion — essays on identity, craft, and the slow work of becoming. Volume I · In Formation.",
+  description = "A quiet garden of writings, craft, and identity — essays kept by hand in the age of AI. Volume I · In Formation.",
 } = Astro.props;
-const fullTitle = title === "Enka Kanopi" ? title : `${title} · Enka Kanopi`;
+const homeTitle = "Enka Kanopi · a quiet garden of writings and musings in the age of AI";
+const fullTitle = title === "Enka Kanopi" ? homeTitle : `${title} · Enka Kanopi`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const ogImage = Astro.site ? new URL("/og/og-card.png", Astro.site).href : "/og/og-card.png";
 const ogImageAlt =
-  "Enka Kanopi — a hand-drawn canopy over the words 'a canopy for a self in motion'";
+  "Enka Kanopi — a hand-drawn canopy over the words 'a quiet garden of writings, craft, and identity in the age of AI'";
 
 // Site + author structured data — so answer engines can attribute the frameworks
 // to a named source (AEO/GEO). Person kept minimal + non-identifying by design.
@@ -29,14 +30,17 @@ const ldSite = {
       "@id": "https://www.enkakanopi.world/#website",
       name: "Enka Kanopi",
       url: Astro.site?.href,
-      description: "A canopy for a self in motion — essays on identity, craft, memory, and the body.",
+      description: "A quiet garden of writings, craft, and identity — essays kept by hand in the age of AI.",
       publisher: { "@id": "https://www.enkakanopi.world/#rika" },
       author: { "@id": "https://www.enkakanopi.world/#rika" },
     },
     {
       "@type": "Person",
       "@id": "https://www.enkakanopi.world/#rika",
-      name: "Rika Fang",
+      name: "Fang Rika",
+      alternateName: "Rika Fang",
+      givenName: "Rika",
+      familyName: "Fang",
       url: Astro.site ? new URL("/colophon", Astro.site).href : undefined,
       description: "Writer and maker. Essays on the container beneath the craft, the deflation of execution, and the canopy and the light.",
       knowsAbout: [
@@ -83,7 +87,7 @@ const ldSite = {
     />
     <link
       rel="icon"
-      href={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23f7f2e7'/%3E%3Cpath d='M3.4 15 C4 10 8 6.4 12 6.6 C16 6.8 19.6 10.3 20.4 15' fill='none' stroke='%236f7d5a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M12 16.6 L12 20.4' stroke='%232a251d' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E`}
+      href={`data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23f7f2e7'/%3E%3Cpath d='M4 12 C5 7 9 4 12 4.5 C15 4 19 7 20 12' fill='none' stroke='%236f7d5a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M8 10 C9 8 11 8 12 10 C13 8 15 8 16 10' fill='none' stroke='%236f7d5a' stroke-width='0.9' stroke-linecap='round' opacity='0.75'/%3E%3Ccircle cx='12' cy='12.2' r='0.85' fill='%23cf4a45'/%3E%3Cpath d='M12 14 L12 20' stroke='%232a251d' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E`}
     />
     <script type="application/ld+json" set:html={JSON.stringify(ldSite)} />
   </head>
