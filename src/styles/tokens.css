@@ -69,3 +69,40 @@
 /* Focus + selection carry the accent so keyboard users see the hand too. */
 ::selection { background: var(--poppy-wash); color: var(--ink); }
 :focus-visible { outline: 2px solid var(--poppy); outline-offset: 3px; border-radius: 2px; }
+
+/* ─────────────────────────────────────────────────────────────
+   The lamp-lit variant — dark mode that keeps the paper warmth.
+   Not an inversion: the same room after dusk. Cream becomes warm
+   lamplight ink on deep umber paper; the poppy lifts a step so it
+   still lands; the canopy greens go moonlit. The workshop strip
+   (--night tokens) is untouched — it was already the dark room.
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:        #221c14;   /* deep umber ground — warm, never grey */
+    --paper-deep:   #2b241a;   /* raised panels sit lighter after dusk */
+    --paper-edge:   #3d3527;   /* hairlines still whisper */
+    --grid:         #2a231a;   /* the graph-grid sinks almost away */
+    --ink:          #ece4d3;   /* lamplight cream */
+    --ink-soft:     #c6bba7;
+    --ink-faint:    #968b7a;
+
+    --poppy:        #e07a6e;   /* lifted a step so the one mark still lands */
+    --poppy-soft:   #b96257;
+    --poppy-wash:   #45291f;
+
+    --canopy:       #8fa075;   /* moonlit leaf */
+    --canopy-deep:  #adbc92;   /* the hand-notes must stay readable — deep flips lighter */
+    --canopy-soft:  #5c684a;
+
+    --seedling:     #a5b573;
+    --budding:      #d3a55f;
+    --evergreen:    #adbc92;
+
+    --bloom:        #e07a6e;
+    --bloom-deep:   #c1584e;
+    --stem:         #8fa075;
+
+    --paper-dim:    #1c1710;   /* the nursery keeps its lower light, even at night */
+  }
+}
