@@ -10,6 +10,24 @@ import GardenMedallion from "../components/GardenMedallion.astro";
 <Base title="Colophon" description="What this place is, and how it is made — by hand, with a little help from machines.">
   <article class="page colophon">
     <header class="head">
+      <div class="quiet-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 32" width="88" height="28">
+          <path d="M50 30 Q 50 20, 50 12" stroke="#4f5b3f" stroke-width="1" fill="none" opacity="0.55" stroke-linecap="round"/>
+          <g transform="translate(50 12)">
+            <g fill="#b899c9">
+              <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-30 -4 -2)"/>
+              <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(30 4 -2)"/>
+              <ellipse cx="0" cy="4" rx="4" ry="6"/>
+              <ellipse cx="-4" cy="3" rx="4" ry="6" transform="rotate(70 -4 3)"/>
+            </g>
+            <circle cx="0" cy="1" r="2" fill="#f7f2e7"/>
+          </g>
+          <circle cx="20" cy="26" r="0.9" fill="#e8c15a"/>
+          <circle cx="30" cy="28" r="0.7" fill="#e46b6b"/>
+          <circle cx="70" cy="28" r="0.7" fill="#a4b8c8"/>
+          <circle cx="80" cy="26" r="0.9" fill="#e8c15a"/>
+        </svg>
+      </div>
       <p class="eyebrow"><Glyph name="light" size={18} /> &nbsp;colophon</p>
       <h1>About this place</h1>
     </header>
@@ -83,6 +101,7 @@ import GardenMedallion from "../components/GardenMedallion.astro";
 <style>
   .colophon { max-width: 44rem; }
   .head { margin-bottom: 1.6rem; }
+  .head .quiet-mark { margin-bottom: 0.7rem; opacity: 0.9; display: flex; }
   .head .eyebrow { display: flex; align-items: center; }
   .head h1 { margin-top: 0.8rem; }
   .three { font-size: 1.22rem; color: var(--ink); }
