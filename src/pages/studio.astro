@@ -18,6 +18,33 @@ const pieces = await Promise.all(
   description="The studio wall — the making, shown with its working notes: material, constraint, tally. Process over product; the counts are honest."
 >
   <section class="page head">
+    <div class="scatter" aria-hidden="true">
+      <svg viewBox="0 0 130 26" width="120" height="24">
+        <g transform="translate(18 14)">
+          <g fill="#e8c15a">
+            <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25)"/>
+            <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25)"/>
+          </g>
+          <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
+        </g>
+        <g transform="translate(65 12)">
+          <g fill="#b899c9">
+            <ellipse cx="-3.5" cy="-1.5" rx="3.5" ry="5" transform="rotate(-25)"/>
+            <ellipse cx="3.5" cy="-1.5" rx="3.5" ry="5" transform="rotate(25)"/>
+            <ellipse cx="0" cy="4" rx="3.5" ry="5"/>
+          </g>
+          <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
+        </g>
+        <g transform="translate(112 14)">
+          <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z" fill="#a4b8c8"/>
+          <circle cx="0" cy="-0.5" r="1.4" fill="#f7f2e7"/>
+        </g>
+        <circle cx="40" cy="18" r="0.9" fill="#e46b6b"/>
+        <circle cx="90" cy="20" r="0.9" fill="#e8c15a"/>
+        <circle cx="8" cy="22" r="0.7" fill="#b899c9"/>
+        <circle cx="125" cy="22" r="0.7" fill="#a4b8c8"/>
+      </svg>
+    </div>
     <p class="eyebrow"><Glyph name="compass" size={18} /> &nbsp;the studio wall</p>
     <h1>The Studio</h1>
     <p class="lede">
@@ -61,6 +88,7 @@ const pieces = await Promise.all(
 </Base>
 <style>
   .head { max-width: 46rem; }
+  .head .scatter { margin-bottom: 0.7rem; opacity: 0.9; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }

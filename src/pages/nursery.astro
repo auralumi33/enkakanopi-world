@@ -13,10 +13,10 @@ const marks = { seed: "◦", seedling: "•", budding: "••", evergreen: "•
 
 // the ladder, extended downward to seed — mirrors the home page's stages list.
 const stages = [
-  { key: "seed",      mark: "◦",   d: "caught, not yet planted — a fragment in her own hand." },
-  { key: "seedling",  mark: "•",   d: "just planted — tender, unsure, thinking out loud." },
-  { key: "budding",   mark: "••",  d: "taking shape — the argument has a spine now." },
-  { key: "evergreen", mark: "•••", d: "stands on its own — as settled as this garden gets." },
+  { key: "seed",      d: "caught, not yet planted — a fragment in her own hand." },
+  { key: "seedling",  d: "just planted — tender, unsure, thinking out loud." },
+  { key: "budding",   d: "taking shape — the argument has a spine now." },
+  { key: "evergreen", d: "stands on its own — as settled as this garden gets." },
 ] as const;
 
 // the prepared beds — honestly empty, in the house's SLOT tradition.
@@ -46,7 +46,48 @@ const beds = [
       <ul class="stages">
         {stages.map((s) => (
           <li>
-            <span class={`dot ${s.key}`} aria-hidden="true">{s.mark}</span>
+            <span class="dot" aria-hidden="true">
+              {s.key === "seed" && (
+                <svg viewBox="0 0 24 24" width="26" height="26">
+                  <ellipse cx="12" cy="13" rx="3.2" ry="2.4" fill="#f7f2e7" stroke="#4f5b3f" stroke-width="0.7"/>
+                  <path d="M12 10.5 Q 11.6 9, 12 7.5 Q 12.4 9, 12 10.5 Z" fill="#4f5b3f" opacity="0.55"/>
+                </svg>
+              )}
+              {s.key === "seedling" && (
+                <svg viewBox="0 0 24 24" width="26" height="26">
+                  <path d="M12 21 L 12 12" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+                  <ellipse cx="9" cy="9" rx="3" ry="4.8" transform="rotate(-25 9 9)" fill="#e8c15a"/>
+                  <ellipse cx="15" cy="9" rx="3" ry="4.8" transform="rotate(25 15 9)" fill="#e8c15a"/>
+                  <path d="M10 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+                </svg>
+              )}
+              {s.key === "budding" && (
+                <svg viewBox="0 0 24 24" width="26" height="26">
+                  <path d="M12 21 L 12 11" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+                  <g fill="#b899c9">
+                    <ellipse cx="9" cy="8" rx="3" ry="4.8" transform="rotate(-25 9 8)"/>
+                    <ellipse cx="15" cy="8" rx="3" ry="4.8" transform="rotate(25 15 8)"/>
+                    <ellipse cx="12" cy="12" rx="3" ry="4.8"/>
+                  </g>
+                  <circle cx="12" cy="10" r="1.4" fill="#f7f2e7"/>
+                  <path d="M10 15 L 12 14 M14 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+                </svg>
+              )}
+              {s.key === "evergreen" && (
+                <svg viewBox="0 0 24 24" width="26" height="26">
+                  <path d="M12 21 L 12 14" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+                  <g fill="#e46b6b">
+                    <path d="M12 3 C 14.2 3.5, 14.6 7.4, 12 8.8 C 9.4 7.4, 9.8 3.5, 12 3 Z"/>
+                    <path d="M17.5 5.5 C 19.5 8, 17.5 11.5, 14 10.6 C 12.4 8.5, 14.9 5, 17.5 5.5 Z"/>
+                    <path d="M15.2 13 C 12.5 15.4, 8.8 14, 10 10.8 C 12.5 9.5, 15.7 10.5, 15.2 13 Z"/>
+                    <path d="M6.5 12.5 C 4.5 10.2, 5.8 7.4, 8.4 8 C 10.5 8.7, 10 12.9, 6.5 12.5 Z"/>
+                    <path d="M4.6 5.5 C 7.6 4.9, 10.4 7.3, 9 10.4 C 5.8 11, 3.4 7, 4.6 5.5 Z"/>
+                  </g>
+                  <path d="M12 8.5 C 11 7.5, 9 7.7, 9 9.3 C 9 10.8, 12 11.9, 12 11.9 C 12 11.9, 15 10.8, 15 9.3 C 15 7.7, 13 7.5, 12 8.5 Z" fill="#f7f2e7"/>
+                  <path d="M10 17 L 12 16 M14 17 L 12 16" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+                </svg>
+              )}
+            </span>
             <span class="s">{s.key}</span>
             <span class="d">{s.d}</span>
           </li>
@@ -95,22 +136,20 @@ const beds = [
   .head { max-width: 46rem; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
-  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+  .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
+  @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
 
   /* the ladder — matches the home page's stages idiom, extended to seed */
   .grows { margin-top: 3.2rem; max-width: 52rem; }
   .stages { list-style: none; padding: 0; margin: 1.1rem 0 0; }
   .stages li {
-    display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: baseline;
+    display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: center;
     gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge);
   }
-  .dot { font-size: 1rem; letter-spacing: 0.1em; }
-  .dot.seed      { color: var(--canopy-soft); }
-  .dot.seedling  { color: var(--seedling); }
-  .dot.budding   { color: var(--budding); }
-  .dot.evergreen { color: var(--evergreen); }
+  .stages .dot { line-height: 0; display: inline-flex; align-items: center; justify-content: flex-start; }
+  .stages .dot :global(svg) { display: block; }
   .stages .s { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-  .stages .d { color: var(--ink-soft); font-size: 0.98rem; }
+  .stages .d { color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55; }
   @media (max-width: 34rem) {
     .stages li { grid-template-columns: 2rem 1fr; }
     .stages .s { grid-column: 2; }

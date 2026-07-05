@@ -1,27 +1,43 @@
 ---
 /**
- * Bloom — the home hero mark, seen from above. A top-down bird's-eye of the
- * garden bed: lavender lily + pastel blue starflower on the north row, a
- * yellow bud at the heart of the plot (the nursery of dreams), a coral rose
- * in the south-east (Rika's mark, from the favicon), a pastel blue bud in
- * the south-west, a tender yellow sprout at the north-east. Curling stems,
- * a faint grid, dainty sprinkles between the blooms.
- * Marimekko lineage, hand-drawn wobble. Palette locked to the site family.
+ * Bloom — the home hero mark, seen from above. A small flower bed nurtured
+ * with quiet defiance: no rigid boundary, just a soft organic wash of soil,
+ * curling stems, hand-drawn foliage, and blooms in the site palette. The
+ * bed is IMPLIED, not fenced. Lavender lily + pastel blue starflower on the
+ * north row, a yellow bud at the heart (the nursery of dreams), a coral
+ * rose in the south-east (Rika's mark, echoes the favicon), a pastel blue
+ * bud in the south-west, a tender yellow sprout at the north-east. Marimekko
+ * lineage warmed toward Margiela Replica "From the Garden" — earthy, tended,
+ * loose.
  */
 interface Props { size?: number; }
 const { size = 220 } = Astro.props;
 ---
 <svg width={size} viewBox="0 0 260 200" class="bloom" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-  <rect x="18" y="18" width="224" height="164" rx="4" fill="#efe8d6" stroke="#4f5b3f" stroke-width="1.4"/>
-  <path d="M18 66 Q 130 67, 242 66" stroke="#4f5b3f" stroke-width="0.4" opacity="0.25" fill="none"/>
-  <path d="M18 118 Q 130 119, 242 118" stroke="#4f5b3f" stroke-width="0.4" opacity="0.25" fill="none"/>
-  <path d="M92 18 Q 93 100, 92 182" stroke="#4f5b3f" stroke-width="0.4" opacity="0.25" fill="none"/>
-  <path d="M168 18 Q 169 100, 168 182" stroke="#4f5b3f" stroke-width="0.4" opacity="0.25" fill="none"/>
+  <defs>
+    <radialGradient id="bloomSoil" cx="50%" cy="55%" r="55%">
+      <stop offset="0%" stop-color="#efe8d6" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#efe8d6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#efe8d6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 
-  <path d="M65 60 Q 95 90, 78 125 Q 68 150, 100 158" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.5"/>
-  <path d="M180 55 Q 158 90, 175 118 Q 190 148, 165 158" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.5"/>
+  <path d="M40 55 C 60 40, 100 34, 130 36 C 172 32, 210 42, 224 60 C 236 100, 232 140, 220 168 C 200 178, 160 182, 130 180 C 90 183, 55 176, 38 164 C 26 130, 22 90, 40 55 Z"
+        fill="url(#bloomSoil)"/>
 
-  <!-- lavender lily, north-west -->
+  <path d="M32 70 Q 130 72, 232 68" stroke="#4f5b3f" stroke-width="0.35" opacity="0.18" fill="none"/>
+  <path d="M30 128 Q 130 130, 232 126" stroke="#4f5b3f" stroke-width="0.35" opacity="0.18" fill="none"/>
+
+  <path d="M65 62 Q 92 92, 78 128 Q 68 152, 100 160" stroke="#4f5b3f" stroke-width="0.85" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M180 55 Q 158 92, 174 122 Q 190 150, 165 160" stroke="#4f5b3f" stroke-width="0.85" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M130 108 Q 128 130, 130 158" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.55" stroke-linecap="round"/>
+
+  <path d="M108 90 C 113 86, 121 86, 125 90 C 121 96, 113 96, 108 90 Z" fill="#4f5b3f" opacity="0.32"/>
+  <path d="M152 96 C 147 92, 139 92, 135 96 C 139 102, 147 102, 152 96 Z" fill="#4f5b3f" opacity="0.32"/>
+  <path d="M55 132 C 60 128, 68 128, 72 132 C 68 138, 60 138, 55 132 Z" fill="#4f5b3f" opacity="0.32"/>
+  <path d="M205 128 C 200 124, 192 124, 188 128 C 192 134, 200 134, 205 128 Z" fill="#4f5b3f" opacity="0.32"/>
+  <path d="M92 158 C 96 154, 103 154, 106 158 C 103 163, 96 163, 92 158 Z" fill="#4f5b3f" opacity="0.32"/>
+
   <g transform="translate(65 60)">
     <g fill="#b899c9">
       <ellipse cx="-7" cy="-3" rx="7" ry="10" transform="rotate(-30 -7 -3)"/>
@@ -32,7 +48,6 @@ const { size = 220 } = Astro.props;
     <circle cx="0" cy="1" r="3.4" fill="#f7f2e7"/>
   </g>
 
-  <!-- pastel blue starflower, north-east -->
   <g transform="translate(175 55)">
     <g fill="#a4b8c8">
       <path d="M0 -14 L 3 -5 L 12 -5 L 5 1 L 8 10 L 0 5 L -8 10 L -5 1 L -12 -5 L -3 -5 Z"/>
@@ -40,8 +55,7 @@ const { size = 220 } = Astro.props;
     <circle cx="0" cy="-1" r="3.2" fill="#f7f2e7"/>
   </g>
 
-  <!-- yellow tender bud, centre (the nursery of dreams) -->
-  <g transform="translate(130 100)">
+  <g transform="translate(130 102)">
     <g fill="#e8c15a">
       <ellipse cx="-4" cy="-2" rx="4.5" ry="7" transform="rotate(-25 -4 -2)"/>
       <ellipse cx="4" cy="-2" rx="4.5" ry="7" transform="rotate(25 4 -2)"/>
@@ -50,8 +64,7 @@ const { size = 220 } = Astro.props;
     <circle cx="0" cy="0" r="2.4" fill="#f7f2e7"/>
   </g>
 
-  <!-- pastel blue small bud, south-west -->
-  <g transform="translate(78 145)">
+  <g transform="translate(78 148)">
     <g fill="#a4b8c8">
       <ellipse cx="-4" cy="0" rx="4" ry="6" transform="rotate(-25)"/>
       <ellipse cx="4" cy="0" rx="4" ry="6" transform="rotate(25)"/>
@@ -60,8 +73,7 @@ const { size = 220 } = Astro.props;
     <circle cx="0" cy="0" r="2.2" fill="#f7f2e7"/>
   </g>
 
-  <!-- coral rose, south-east — the maker's mark (echoes favicon) -->
-  <g transform="translate(175 145)">
+  <g transform="translate(175 148)">
     <g fill="#e46b6b">
       <path d="M0 -14 C 5 -13, 6 -3, 0 1 C -6 -3, -5 -13, 0 -14 Z"/>
       <path d="M13 -6 C 15 1, 8 9, 2 6 C 0 -2, 7 -8, 13 -6 Z"/>
@@ -72,8 +84,7 @@ const { size = 220 } = Astro.props;
     <path d="M0 0 C -3 -3, -6 -1, -6 2 C -6 5, 0 8, 0 8 C 0 8, 6 5, 6 2 C 6 -1, 3 -3, 0 0 Z" fill="#f7f2e7"/>
   </g>
 
-  <!-- tender yellow sprout, top-right corner -->
-  <g transform="translate(210 32)">
+  <g transform="translate(210 34)">
     <g fill="#e8c15a">
       <ellipse cx="-3" cy="-1" rx="3" ry="5" transform="rotate(-25)"/>
       <ellipse cx="3" cy="-1" rx="3" ry="5" transform="rotate(25)"/>
@@ -81,16 +92,20 @@ const { size = 220 } = Astro.props;
     <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
   </g>
 
-  <circle cx="120" cy="42" r="1.1" fill="#b899c9"/>
-  <circle cx="128" cy="48" r="0.9" fill="#e8c15a"/>
-  <circle cx="115" cy="52" r="0.9" fill="#a4b8c8"/>
+  <g stroke="#4f5b3f" stroke-width="0.55" opacity="0.55" stroke-linecap="round">
+    <path d="M60 172 L 60 175 M67 173 L 67 176 M74 172 L 74 175"/>
+    <path d="M120 176 L 120 179 M127 175 L 127 178 M134 176 L 134 179 M141 175 L 141 178"/>
+    <path d="M170 172 L 170 175 M177 173 L 177 176 M184 172 L 184 175"/>
+  </g>
+
+  <circle cx="120" cy="44" r="1.1" fill="#b899c9"/>
+  <circle cx="128" cy="50" r="0.9" fill="#e8c15a"/>
+  <circle cx="115" cy="54" r="0.9" fill="#a4b8c8"/>
   <circle cx="45" cy="98" r="1" fill="#e46b6b"/>
   <circle cx="215" cy="100" r="1.1" fill="#b899c9"/>
   <circle cx="220" cy="105" r="0.8" fill="#e8c15a"/>
-  <circle cx="125" cy="150" r="1" fill="#b899c9"/>
-  <circle cx="132" cy="156" r="0.9" fill="#a4b8c8"/>
-  <circle cx="38" cy="160" r="0.9" fill="#e8c15a"/>
-  <circle cx="228" cy="170" r="0.9" fill="#e46b6b"/>
+  <circle cx="38" cy="164" r="0.9" fill="#e8c15a"/>
+  <circle cx="228" cy="172" r="0.9" fill="#e46b6b"/>
 
   <path d="M108 100 Q 103 97, 100 101 Q 104 105, 108 100 Z" fill="#4f5b3f" opacity="0.7"/>
   <path d="M152 100 Q 157 97, 160 101 Q 156 105, 152 100 Z" fill="#4f5b3f" opacity="0.7"/>
