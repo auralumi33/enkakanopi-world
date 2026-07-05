@@ -1,0 +1,104 @@
+---
+/**
+ * BotanicalScatter — a whispered horizontal scatter of the site's
+ * botanical vocabulary: bokeh halos, tendril vines, loose petals,
+ * character leaves, berry clusters, and sometimes a whisper sailboat.
+ * Placed between sections to weave the garden across the whole page
+ * without ever crowding the reading. Four `variant` compositions cycle
+ * so no two adjacent strips read as identical.
+ */
+interface Props { variant?: 1 | 2 | 3 | 4; }
+const { variant = 1 } = Astro.props;
+---
+<div class="scatter" aria-hidden="true" data-variant={variant}>
+  <svg viewBox="0 0 800 40" preserveAspectRatio="xMidYMid meet">
+    {variant === 1 && (
+      <>
+        <circle cx="80" cy="20" r="3" fill="#e8c15a" opacity="0.14"/>
+        <circle cx="80" cy="20" r="0.9" fill="#e8c15a"/>
+        <path d="M220 12 Q 225 7, 228 12 Q 230 18, 226 20" stroke="#4f5b3f" stroke-width="0.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+        <ellipse cx="360" cy="22" rx="2" ry="3.2" transform="rotate(20 360 22)" fill="#b899c9" opacity="0.5"/>
+        <g transform="translate(500 20)">
+          <path d="M-4 0 Q 0 -3, 4 0 Q 0 3, -4 0 Z" fill="#4f5b3f" opacity="0.35"/>
+          <path d="M-4 0 L 4 0" stroke="#4f5b3f" stroke-width="0.35" opacity="0.55"/>
+        </g>
+        <g opacity="0.55" transform="translate(640 20)">
+          <circle cx="0" cy="-2" r="1" fill="#e46b6b"/>
+          <circle cx="4" cy="0" r="0.9" fill="#e46b6b"/>
+          <circle cx="0" cy="3" r="1" fill="#e46b6b"/>
+        </g>
+        <circle cx="740" cy="22" r="0.7" fill="#a4b8c8"/>
+      </>
+    )}
+    {variant === 2 && (
+      <>
+        <g transform="translate(70 20)">
+          <path d="M-4 0 Q 0 -3, 4 0 Q 0 3, -4 0 Z" fill="#4f5b3f" opacity="0.35"/>
+          <path d="M-4 0 L 4 0" stroke="#4f5b3f" stroke-width="0.35" opacity="0.55"/>
+        </g>
+        <ellipse cx="200" cy="20" rx="2" ry="3.2" transform="rotate(-15 200 20)" fill="#e46b6b" opacity="0.5"/>
+        <g transform="translate(340 18)">
+          <path d="M-4 3 Q 0 4.3, 4 3" stroke="#4f5b3f" stroke-width="0.65" fill="none" opacity="0.55" stroke-linecap="round"/>
+          <path d="M0 3 L 0 -4" stroke="#4f5b3f" stroke-width="0.5" opacity="0.55"/>
+          <path d="M0 -4 L 0 1.6 L 3.5 1.6 Z" fill="#4f5b3f" opacity="0.36"/>
+        </g>
+        <circle cx="460" cy="20" r="2.6" fill="#a4b8c8" opacity="0.14"/>
+        <circle cx="460" cy="20" r="0.8" fill="#a4b8c8"/>
+        <path d="M580 12 Q 585 7, 588 12 Q 590 18, 586 20" stroke="#4f5b3f" stroke-width="0.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+        <ellipse cx="700" cy="22" rx="1.8" ry="3" transform="rotate(15 700 22)" fill="#e8c15a" opacity="0.5"/>
+      </>
+    )}
+    {variant === 3 && (
+      <>
+        <g opacity="0.55" transform="translate(70 20)">
+          <circle cx="0" cy="-2" r="1" fill="#e8c15a"/>
+          <circle cx="4" cy="0" r="0.9" fill="#e8c15a"/>
+          <circle cx="0" cy="3" r="1" fill="#e8c15a"/>
+        </g>
+        <ellipse cx="220" cy="22" rx="2" ry="3.2" transform="rotate(25 220 22)" fill="#b899c9" opacity="0.5"/>
+        <g transform="translate(360 20)">
+          <path d="M-4 0 Q 0 -3, 4 0 Q 0 3, -4 0 Z" fill="#4f5b3f" opacity="0.35"/>
+          <path d="M-4 0 L 4 0" stroke="#4f5b3f" stroke-width="0.35" opacity="0.55"/>
+        </g>
+        <circle cx="480" cy="20" r="3" fill="#e46b6b" opacity="0.14"/>
+        <circle cx="480" cy="20" r="0.9" fill="#e46b6b"/>
+        <path d="M600 12 Q 605 7, 608 12 Q 610 18, 606 20" stroke="#4f5b3f" stroke-width="0.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+        <ellipse cx="720" cy="22" rx="1.8" ry="3" transform="rotate(-20 720 22)" fill="#a4b8c8" opacity="0.5"/>
+      </>
+    )}
+    {variant === 4 && (
+      <>
+        <ellipse cx="80" cy="20" rx="2" ry="3.2" transform="rotate(-10 80 20)" fill="#e8c15a" opacity="0.5"/>
+        <g transform="translate(200 20)">
+          <path d="M-4 0 Q 0 -3, 4 0 Q 0 3, -4 0 Z" fill="#4f5b3f" opacity="0.35"/>
+          <path d="M-4 0 L 4 0" stroke="#4f5b3f" stroke-width="0.35" opacity="0.55"/>
+        </g>
+        <g opacity="0.55" transform="translate(320 20)">
+          <circle cx="0" cy="-2" r="1" fill="#b899c9"/>
+          <circle cx="4" cy="0" r="0.9" fill="#b899c9"/>
+          <circle cx="0" cy="3" r="1" fill="#b899c9"/>
+        </g>
+        <path d="M460 12 Q 465 7, 468 12 Q 470 18, 466 20" stroke="#4f5b3f" stroke-width="0.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+        <circle cx="580" cy="20" r="2.6" fill="#b899c9" opacity="0.14"/>
+        <circle cx="580" cy="20" r="0.8" fill="#b899c9"/>
+        <ellipse cx="700" cy="22" rx="2" ry="3.2" transform="rotate(20 700 22)" fill="#e46b6b" opacity="0.5"/>
+      </>
+    )}
+  </svg>
+</div>
+<style>
+  .scatter {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .scatter svg {
+    display: block;
+    width: 100%;
+    height: 32px;
+    max-width: 100%;
+    overflow: visible;
+  }
+</style>

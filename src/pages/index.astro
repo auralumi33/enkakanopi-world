@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import CanopyScene from "../components/CanopyScene.astro";
 import Glyph from "../components/Glyph.astro";
 import Bloom from "../components/Bloom.astro";
+import BotanicalScatter from "../components/BotanicalScatter.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // The floor plan (D2 placemaking, Rika 2026-07-05): the home wayfinding reads
@@ -52,6 +53,8 @@ const whatThisIs = [
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
   </section>
 
+  <div class="page band"><BotanicalScatter variant={1} /></div>
+
   <section class="page what" aria-label="What this is">
     <p class="eyebrow">what this is</p>
     <ul class="cards">
@@ -63,6 +66,8 @@ const whatThisIs = [
       ))}
     </ul>
   </section>
+
+  <div class="page band"><BotanicalScatter variant={2} /></div>
 
   <section class="page plan" aria-label="The floor plan — rooms under one roof">
     <div class="row" id="beginnings">
@@ -112,6 +117,8 @@ const whatThisIs = [
       </div>
     </div>
   </section>
+
+  <div class="page band"><BotanicalScatter variant={3} /></div>
 
   <section class="page grows" aria-label="How ideas grow">
     <p class="eyebrow">ideas grow in public</p>
@@ -169,6 +176,8 @@ const whatThisIs = [
       </li>
     </ul>
   </section>
+
+  <div class="page band"><BotanicalScatter variant={4} /></div>
 </Base>
 
 <style>
@@ -189,7 +198,15 @@ const whatThisIs = [
     width: fit-content;
     max-width: 100%;
     margin: 1.4rem 0 0;
-    padding: 3.1rem 0 2.3rem;
+    padding: 2rem 0 1.4rem;
+  }
+
+  /* botanical scatter bands between sections — page-level rhythm */
+  .band {
+    margin: 3rem auto 0;
+  }
+  @media (max-width: 46rem) {
+    .band { margin-top: 2rem; }
   }
   .signature-garden .sprout {
     position: absolute;
@@ -240,8 +257,10 @@ const whatThisIs = [
   .vol:hover { color: var(--ink); border-color: #e46b6b; }
 
   /* ── shared section rhythm — every section band gets the same eyebrow-to-
-        body cadence, so hierarchy is predictable across the page ────────── */
-  .what, .plan, .grows { margin-top: 5rem; }
+        body cadence, so hierarchy is predictable across the page.
+        Section top margins tightened (5 → 3 rem) because the botanical
+        scatter bands now provide most of the between-section rhythm. ── */
+  .what, .plan, .grows { margin-top: 3rem; }
   .what > .eyebrow, .plan .row > .eyebrow, .grows > .eyebrow { margin-bottom: 1rem; }
 
   /* what this is — candid cards */
