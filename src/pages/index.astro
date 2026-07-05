@@ -176,24 +176,26 @@ const whatThisIs = [
      lede, canopy scene and keystone quote stacked with a deliberate rhythm.
      Every child forced center-aligned; margin: auto guarantees horizontal
      centering inside the .page max-width. */
-  .hero { padding-top: 2.6rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .kicker { display: inline-flex; align-items: center; justify-content: center; margin: 0 auto; }
+  /* the hero — indexed to the left, blooms sprouting from behind the h1.
+     LEFT alignment (per Rika's ask) keeps everything anchored at the page's
+     left gutter; the sprout SVG hugs the h1 via width: fit-content, so the
+     five crown blooms fall exactly where the text lands. */
+  .hero { padding-top: 2.6rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+  .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
     position: relative;
     isolation: isolate;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.4rem auto 0;
-    width: 100%;
-    max-width: 44rem;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.4rem 0 0;
     padding: 2.6rem 0 1.4rem;
   }
   .signature-garden .sprout {
     position: absolute;
     inset: 0;
     z-index: -1;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: flex-start;
     opacity: 0.95;
     pointer-events: none;
   }
@@ -203,11 +205,11 @@ const whatThisIs = [
     z-index: 1;
     font-weight: 440; font-style: italic;
     font-size: clamp(1.55rem, 4.3vw, 2.7rem); line-height: 1.28;
-    letter-spacing: -0.02em; max-width: 22ch; margin: 0 auto;
-    text-wrap: balance; text-align: center;
+    letter-spacing: -0.02em; max-width: 22ch; margin: 0;
+    text-wrap: balance; text-align: left;
   }
   @media (max-width: 46rem) {
-    .signature-garden { padding: 2.1rem 0 1.1rem; max-width: 30rem; }
+    .signature-garden { padding: 2.1rem 0 1.1rem; }
   }
   @media (max-width: 30rem) {
     .signature-garden { padding: 1.7rem 0 0.9rem; }
@@ -217,20 +219,20 @@ const whatThisIs = [
     /* the aside breaks by hand after "old" — "growing old" is never split */
   }
   .sub {
-    max-width: 50ch; margin: 1.1rem auto 0; color: var(--ink-soft);
-    font-size: 1.02rem; text-align: center; line-height: 1.6;
+    max-width: 50ch; margin: 1.1rem 0 0; color: var(--ink-soft);
+    font-size: 1.02rem; text-align: left; line-height: 1.6;
   }
-  .scene { margin: 1.5rem auto 0; max-width: 60rem; width: 100%; }
+  .scene { margin: 1.8rem 0 0; max-width: 60rem; width: 100%; }
   .keystone {
     font-family: var(--serif); font-style: italic;
     font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.55;
-    max-width: 46ch; margin: 2rem auto 0; color: var(--ink); text-align: center;
+    max-width: 46ch; margin: 2rem 0 0; color: var(--ink); text-align: left;
   }
   .keystone .accent { color: #e46b6b; font-style: normal; }
   .vol {
-    display: inline-flex; align-items: center; justify-content: center;
+    display: inline-flex; align-items: center;
     font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--ink-faint); margin: 1.8rem auto 0;
+    text-transform: uppercase; color: var(--ink-faint); margin: 1.8rem 0 0;
     text-decoration: none; padding-bottom: 2px;
     border-bottom: 1.4px solid transparent;
     transition: border-color 0.15s ease, color 0.15s ease;
