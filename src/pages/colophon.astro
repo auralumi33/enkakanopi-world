@@ -2,6 +2,9 @@
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
 import CanopyScene from "../components/CanopyScene.astro";
+import Figure from "../components/Figure.astro";
+import DiaGardenPlot from "../components/diagrams/DiaGardenPlot.astro";
+import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
 ---
 <Base title="Colophon" description="What this place is, and how it is made — by hand, with a little help from machines.">
   <article class="page colophon">
@@ -17,6 +20,10 @@ import CanopyScene from "../components/CanopyScene.astro";
         learning us. Essays on identity, craft, and the body: for the few
         who read slowly, open to anyone who overhears. A place, not a funnel.
       </p>
+
+      <Figure idea="A quiet garden is small on purpose — a wall that keeps rhythm, not people.">
+        <DiaGardenPlot />
+      </Figure>
 
       <div class="rule"></div>
 
@@ -37,6 +44,11 @@ import CanopyScene from "../components/CanopyScene.astro";
         outrun what I know.
         <em>Assisted, never authored. Nothing is published without her yes.</em>
       </p>
+
+      <Figure idea="The age keeps learning; the hand keeps tending — the quiet is what makes the small work legible.">
+        <DiaTendingQuiet />
+      </Figure>
+
       <p>
         The name came before the thesis. <em>Kanopi</em> is a canopy — the
         thing that holds without fixing. Shelter, not a frame. A container,

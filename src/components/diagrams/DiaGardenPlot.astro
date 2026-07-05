@@ -1,0 +1,39 @@
+---
+// One idea: a quiet garden is small on purpose — a wall that keeps rhythm, not people.
+---
+<svg width="560" height="220" viewBox="0 0 560 220" role="img" aria-labelledby="gp-t">
+  <title id="gp-t">A small hand-drawn garden plot with a soft dashed wall around it. Inside: four tended stems with one poppy bud. Outside: faint scattered marks — noise from the wider world — kept gently at bay.</title>
+
+  <!-- the noise beyond the wall — faint, deliberately loose -->
+  <g class="ink hair" opacity="0.55" aria-hidden="true">
+    <path d="M40 40 l6 4 M55 55 l-4 6 M480 30 l4 -6 M500 60 l-6 -4 M40 180 l5 -4 M510 190 l-4 -5 M25 110 l6 3 M525 120 l-5 -3" />
+    <circle cx="70" cy="70" r="1.4" fill="var(--ink)" stroke="none"/>
+    <circle cx="490" cy="80" r="1.2" fill="var(--ink)" stroke="none"/>
+    <circle cx="50" cy="150" r="1.2" fill="var(--ink)" stroke="none"/>
+    <circle cx="500" cy="150" r="1.2" fill="var(--ink)" stroke="none"/>
+  </g>
+
+  <!-- the soft, porous wall — dashed hair-weight (open, not defensive) -->
+  <path class="ink hair" stroke-dasharray="3 4" opacity="0.6"
+        d="M130 60 C 220 52, 340 52, 430 62 C 442 100, 442 130, 430 168 C 340 178, 220 178, 130 168 C 118 130, 118 100, 130 60 Z" />
+
+  <!-- the tended plot: four stems, three leaves, one poppy bud -->
+  <g>
+    <path class="ink block" d="M200 168 C 202 148, 198 130, 200 112" />
+    <path class="leaf-fill" d="M200 130 C 190 124, 178 130, 178 138 C 186 142, 196 138, 200 130 Z" />
+    <path class="ink block" d="M260 168 C 260 145, 258 122, 262 100" />
+    <path class="leaf-fill" d="M262 118 C 274 112, 286 118, 286 128 C 276 132, 264 128, 262 118 Z" />
+    <path class="ink block" d="M320 168 C 322 148, 320 130, 322 116" />
+    <path class="leaf-fill" d="M322 130 C 310 124, 300 130, 300 138 C 308 142, 318 138, 322 130 Z" />
+    <path class="ink block" d="M380 168 C 380 150, 378 132, 382 118" />
+    <circle cx="382" cy="112" r="4.5" fill="var(--poppy)" />
+    <path class="ink hair" d="M382 108 q 3 -4 5 -1 M382 108 q -3 -4 -5 -1" stroke="var(--poppy)" opacity="0.85" />
+  </g>
+
+  <!-- the ground line, soft -->
+  <path class="ink hair" d="M180 172 h 220" opacity="0.7" />
+  <path class="ink hair" d="M170 176 h 240" opacity="0.4" />
+
+  <text class="hand-label" x="200" y="200" font-size="15">a plot, kept</text>
+  <text class="hand-label hand-label--accent" x="360" y="200" font-size="15">the noise stays out</text>
+</svg>

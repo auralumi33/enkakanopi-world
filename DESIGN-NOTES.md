@@ -67,6 +67,8 @@ The dark, starry garden was carried onto warm paper, not discarded:
 | Diagram | Where | The one sentence it carries |
 |---|---|---|
 | `CanopyScene` | home, colophon | Light reaches the ground only by passing through what holds it. |
+| `DiaGardenPlot` | Colophon · About this place | A quiet garden is small on purpose — a wall that keeps rhythm, not people. |
+| `DiaTendingQuiet` | Colophon · How it is made | The age keeps learning; the hand keeps tending — the quiet is what makes the small work legible. |
 | `DiaSeams` | Field Notes · The Seam | The truth is in the seam between versions, not the average of them. |
 | `DiaTrust` | Field Notes · The Room I Left | Letting go is the last craft — the work continues in a room you have left. |
 | `DiaCanopy` | Field Notes · Only in Motion | A self is legible only in motion — never in the still frame. |
