@@ -5,6 +5,7 @@ import CanopyScene from "../components/CanopyScene.astro";
 import Figure from "../components/Figure.astro";
 import DiaGardenPlot from "../components/diagrams/DiaGardenPlot.astro";
 import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
+import GardenMedallion from "../components/GardenMedallion.astro";
 ---
 <Base title="Colophon" description="What this place is, and how it is made — by hand, with a little help from machines.">
   <article class="page colophon">
@@ -66,6 +67,7 @@ import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
         <li><span class="k">State</span><span class="v"><span class="hand">Volume I · In Formation</span></span></li>
       </ul>
 
+      <div class="seal" aria-hidden="true"><GardenMedallion size={82} /></div>
       <p class="byline">
         Written and drawn by <span class="name">Fang Rika</span>
         <span class="alt-name" title="Western order">(Rika Fang)</span>.
@@ -93,7 +95,8 @@ import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
   .specs .k { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-top: 0.15rem; }
   .specs .v { color: var(--ink-soft); }
   .specs .hand { font-family: var(--hand); font-size: 1.1rem; color: var(--canopy-deep); }
-  .byline { font-size: 1.1rem; color: var(--ink-soft); margin-top: 2rem; }
+  .seal { display: flex; justify-content: center; margin-top: 2.4rem; opacity: 0.9; }
+  .byline { font-size: 1.1rem; color: var(--ink-soft); margin-top: 1rem; text-align: center; }
   .byline .name { color: var(--ink); }
   .byline .alt-name { color: var(--ink-faint); font-size: 0.88em; margin-left: 0.15rem; }
   .mail { font-size: 0.98rem; }

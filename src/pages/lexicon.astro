@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
-import Bloom from "../components/Bloom.astro";
+import GardenMedallion from "../components/GardenMedallion.astro";
 import { terms, slugify } from "../data/lexicon";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -29,7 +29,7 @@ const ldTerms = {
 <Base title="Lexicon" description="A small lexicon of the named frameworks this garden tends — the container beneath the craft, the deflation of execution, resonance architecture, form follows life, soft fascination, the canopy and the light.">
   <article class="page lex">
     <header class="head">
-      <div class="bloom"><Bloom size={44} tone="line" /></div>
+      <div class="bloom"><GardenMedallion size={72} /></div>
       <p class="eyebrow"><Glyph name="compass" size={17} /> &nbsp;a small lexicon</p>
       <h1>Words for It</h1>
       <p class="dek">

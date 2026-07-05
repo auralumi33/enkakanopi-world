@@ -4,12 +4,14 @@ import Base from "../../layouts/Base.astro";
 import EssayList from "../../components/EssayList.astro";
 import NotesFromMargin from "../../components/NotesFromMargin.astro";
 import Glyph from "../../components/Glyph.astro";
+import RowPlanter from "../../components/RowPlanter.astro";
 
 const entries = (await getCollection("fieldNotes")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
 ---
 <Base title="Field Notes" description="Short letters from the seams between versions of a self — on wabi-sabi, letting go, a self legible only in motion, and staying honestly unfinished.">
   <section class="page head">
+    <div class="planter"><RowPlanter lead="lavender" size={148} /></div>
     <p class="eyebrow"><Glyph name="seam" size={18} /> &nbsp;the diary</p>
     <h1>Field Notes</h1>
     <p class="lede">
@@ -27,6 +29,7 @@ const items = entries.map((e) => ({ slug: e.id, ...e.data }));
 </Base>
 <style>
   .head { max-width: 46rem; }
+  .head .planter { margin-bottom: 0.9rem; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
   .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
