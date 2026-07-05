@@ -76,10 +76,10 @@ MULTI-AGENT-FOUNDATION.md
 CHARTER-*.md
 implementation-notes.md
 
-# astrology / personal-OS filename patterns (P2)
+# P2 personal-workspace filename patterns
 HERMIT-*
 HERMIT-*.md
 
-# per-venture memory + lessons directories that live outside _repo
+# per-venture memory dirs that live outside _repo
 _memory/
 ../SUCCESSION.md
