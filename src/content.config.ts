@@ -14,6 +14,31 @@ const essay = z.object({
   stage: z.enum(["seedling", "budding", "evergreen"]).default("seedling"),
   tended: z.string().optional(),   // an honest, non-triangulating note on when it was last worked
   breath: z.string().optional(),   // "in one breath" — the liftable thesis, in the essay's own words
+  farewell: z.string().optional(), // a handwritten goodbye at the door — Rika's hand only, never generated
+});
+
+// The nursery — pre-essay fragments, caught before they are essays. The
+// maturity ladder extends downward to seed; a seed arrives in Rika's own
+// hand or not at all. Tended, never timestamped.
+const seed = z.object({
+  title: z.string(),
+  line: z.string().optional(),     // the fragment / one-liner, in her hand
+  stage: z.enum(["seed", "seedling", "budding", "evergreen"]).default("seed"),
+  glyph: z.enum(["leaf", "canopy", "seam", "spine", "compass", "light", "arrow"]).default("leaf"),
+  tended: z.string().optional(),   // an honest, non-triangulating note on when it was last held
+  bed: z.string().optional(),      // which prepared bed it belongs to, if any
+});
+
+// The studio wall — the making, shown with its working note:
+// material · constraint · tally. Counts are honest; the tally starts now.
+const piece = z.object({
+  title: z.string(),
+  kind: z.enum(["drawing", "object", "code", "craft"]).default("craft"),
+  material: z.string(),            // what it is made of, plainly
+  constraint: z.string(),          // the rule the piece was made under
+  tally: z.string().optional(),    // failure / revision count — never invented
+  note: z.string().optional(),     // a short aside, if one is true
+  stage: z.enum(["seed", "seedling", "budding", "evergreen"]).optional(),
 });
 
 const fieldNotes = defineCollection({
@@ -28,5 +53,13 @@ const bodySpine = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/body-spine" }),
   schema: essay,
 });
+const nursery = defineCollection({
+  loader: glob({ pattern: ["**/*.{md,mdx}", "!README.md"], base: "./src/content/nursery" }),
+  schema: seed,
+});
+const studio = defineCollection({
+  loader: glob({ pattern: ["**/*.{md,mdx}", "!README.md"], base: "./src/content/studio" }),
+  schema: piece,
+});
 
-export const collections = { fieldNotes, workbench, bodySpine };
+export const collections = { fieldNotes, workbench, bodySpine, nursery, studio };

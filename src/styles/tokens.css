@@ -8,6 +8,7 @@
   /* — paper & ink — */
   --paper:        #f7f2e7;   /* soft cream ground */
   --paper-deep:   #efe7d6;   /* recessed panels, cards */
+  --paper-dim:    #f3ecdd;   /* the nursery's lower light */
   --paper-edge:   #e7dcc6;   /* hairline dividers on paper */
   --grid:         #e5dcc8;   /* faint graph-grid line */
   --ink:          #2a251d;   /* body text — warm near-black */

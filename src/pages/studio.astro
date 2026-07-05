@@ -1,0 +1,108 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Glyph from "../components/Glyph.astro";
+
+// The wall's hanging order — flagship first; anything new hangs after.
+const hang = ["the-tension-sketches", "the-glyph-kit", "the-mechanical-mirror", "the-chain-strip"];
+const entries = (await getCollection("studio")).sort((a, b) => {
+  const ai = hang.indexOf(a.id), bi = hang.indexOf(b.id);
+  return (ai === -1 ? hang.length : ai) - (bi === -1 ? hang.length : bi) || a.data.title.localeCompare(b.data.title);
+});
+const pieces = await Promise.all(
+  entries.map(async (e) => ({ ...e.data, id: e.id, Content: (await render(e)).Content, hasBody: e.body?.trim().length > 0 })),
+);
+---
+<Base
+  title="Studio"
+  description="The studio wall — the making, shown with its working notes: material, constraint, tally. Process over product; the counts are honest."
+>
+  <section class="page head">
+    <p class="eyebrow"><Glyph name="compass" size={18} /> &nbsp;the studio wall</p>
+    <h1>The Studio</h1>
+    <p class="lede">
+      The making, shown — each piece hangs with its working note: material,
+      constraint, tally. Process over product; what you see is what was
+      actually made, counted as it happened.
+    </p>
+    <p class="handnote" aria-label="A note in the margin">the tally starts now — honest counts, no invented histories.</p>
+  </section>
+
+  <section class="page wallwrap" aria-label="Pieces on the wall">
+    <ul class="wall">
+      {pieces.map(({ Content, hasBody, ...p }) => (
+        <li class="piece" data-kind={p.kind}>
+          <article>
+            <header class="phead">
+              <span class="kind">{p.kind}</span>
+              <h2>{p.title}</h2>
+            </header>
+            {hasBody && (
+              <div class="pbody">
+                <Content />
+              </div>
+            )}
+            <dl class="process">
+              <div><dt>material</dt><dd>{p.material}</dd></div>
+              <div><dt>constraint</dt><dd>{p.constraint}</dd></div>
+              {p.tally && <div><dt>tally</dt><dd>{p.tally}</dd></div>}
+            </dl>
+            {p.note && <p class="aside">{p.note}</p>}
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <p class="slot">
+      <span class="dot" aria-hidden="true">◦</span>
+      clay, wood, thread, lens — when the objects are photographed, they hang here.
+    </p>
+  </section>
+</Base>
+<style>
+  .head { max-width: 46rem; }
+  .head .eyebrow { display: flex; align-items: center; }
+  h1 { margin-top: 0.8rem; }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+  .handnote { font-family: var(--hand); font-size: 1.3rem; color: var(--canopy-deep); margin-top: 1.2rem; }
+
+  /* the wall — card markup kept flat so a masonry layer can replace the
+     grid later without touching the content model */
+  .wallwrap { margin-top: 2.4rem; }
+  .wall { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 44rem) { .wall { grid-template-columns: 1fr 1fr; } }
+  .piece article {
+    height: 100%; box-sizing: border-box;
+    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
+    border-radius: 4px; padding: 1.3rem 1.25rem 1.2rem;
+  }
+  .kind {
+    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .phead h2 { font-size: 1.32rem; font-style: italic; letter-spacing: -0.01em; margin: 0.35rem 0 0; }
+  .pbody { margin-top: 0.7rem; }
+  .pbody :global(p) { font-size: 0.98rem; color: var(--ink-soft); max-width: none; margin: 0; }
+  .pbody :global(p + p) { margin-top: 0.6rem; }
+
+  /* the working note — hand voice, per the house's status idiom */
+  .process { margin: 1rem 0 0; padding-top: 0.8rem; border-top: 0.7px solid var(--paper-edge); }
+  .process > div { display: grid; grid-template-columns: 6.2rem 1fr; gap: 0.6rem; align-items: baseline; padding: 0.22rem 0; }
+  .process dt {
+    font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .process dd { margin: 0; font-family: var(--hand); font-size: 1.12rem; line-height: 1.3; color: var(--canopy-deep); }
+  .aside { font-family: var(--hand); font-size: 1.05rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  @media (max-width: 24rem) {
+    .process > div { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+
+  /* the one prepared slot — honestly empty */
+  .slot {
+    display: grid; grid-template-columns: 2rem 1fr; gap: 0.7rem; align-items: baseline;
+    margin-top: 2rem; padding: 1.2rem 0.2rem 0; border-top: 0.7px solid var(--paper-edge);
+    font-style: italic; color: var(--ink-soft); max-width: 46rem;
+  }
+  .slot .dot { color: var(--canopy-soft); font-size: 1rem; }
+</style>

@@ -1,0 +1,157 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Glyph from "../components/Glyph.astro";
+import StageTag from "../components/StageTag.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// The founding collection — every piece keeps its place (URLs unchanged).
+const [fieldNotes, workbench, bodySpine] = await Promise.all([
+  getCollection("fieldNotes"),
+  getCollection("workbench"),
+  getCollection("bodySpine"),
+]);
+
+type Piece = {
+  href: string;
+  title: string;
+  dek: string;
+  stage: "seedling" | "budding" | "evergreen";
+  tended?: string;
+};
+const pieces = new Map<string, Piece>();
+const shelve = (entries: typeof fieldNotes, path: string) => {
+  for (const e of entries)
+    pieces.set(e.id, {
+      href: `${path}/${e.id}`,
+      title: e.data.title,
+      dek: e.data.dek,
+      stage: e.data.stage,
+      tended: e.data.tended,
+    });
+};
+shelve(fieldNotes, "/field-notes");
+shelve(workbench, "/workbench");
+shelve(bodySpine, "/body-spine");
+
+// Hung by theme, not by collection — the wall is curated, not filed.
+const clusters = [
+  {
+    label: "home & the rebuild",
+    slugs: ["the-keel-not-the-harbour", "a-home-you-keep-rebuilding", "the-room-i-left", "in-formation"],
+  },
+  {
+    label: "the machines",
+    slugs: ["the-company-of-machines", "who-gets-to-write-to-you", "what-the-machine-remembers-of-me", "hallucinations-of-the-past"],
+  },
+  {
+    label: "the selves",
+    slugs: ["the-seam", "only-in-motion", "fragments-that-rhyme", "the-weather-and-the-sky", "the-detours-were-the-voyage"],
+  },
+  {
+    label: "the hands",
+    slugs: ["why-start-with-the-hands", "trust-the-little-kit", "the-shape-of-things"],
+  },
+  {
+    label: "the body",
+    slugs: ["relearning-to-fall", "articulation", "the-tide-knows-when"],
+  },
+].map((c) => ({
+  label: c.label,
+  items: c.slugs.map((s) => {
+    const p = pieces.get(s);
+    if (!p) throw new Error(`volume-i: no piece found for slug "${s}"`);
+    return p;
+  }),
+}));
+
+const hung = clusters.reduce((n, c) => n + c.items.length, 0);
+if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${pieces.size} in the collection`);
+---
+<Base
+  title="Volume I · In Formation"
+  description="The founding collection — nineteen pieces, hung by theme, every one still tended. A completed opening movement, not a backlog."
+>
+  <section class="page head">
+    <p class="eyebrow"><Glyph name="canopy" size={18} /> &nbsp;the archive wall</p>
+    <h1>Volume I · In Formation</h1>
+    <p class="lede">
+      A completed opening movement, not a backlog — the origin the studio grows
+      around. Nineteen pieces, hung with care, by theme rather than by shelf;
+      every piece keeps its place.
+    </p>
+  </section>
+
+  <section class="page wall" aria-label="The founding collection">
+    {clusters.map((c) => (
+      <div class="cluster">
+        <p class="cluster-label">{c.label}</p>
+        <ul class="frames">
+          {c.items.map((p) => (
+            <li class="frame">
+              <a href={base + p.href}>
+                <span class="title">{p.title}</span>
+                <span class="dek">{p.dek}</span>
+                <StageTag stage={p.stage} tended={p.tended} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <section class="page close">
+    <p class="close-line">
+      The founding collection stays open — each piece is still tended: a living
+      line you can return to and find changed. The
+      <a class="link" href={base + "/lexicon"}>lexicon</a> and the
+      <a class="link" href={base + "/colophon"}>colophon</a> hang in this room too.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .head { max-width: 46rem; }
+  .head .eyebrow { display: flex; align-items: center; }
+  h1 { margin-top: 0.8rem; }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+
+  /* ── the wall · clusters · frames ─────────────────────────────
+     Stable structure: .wall > .cluster > .frames > .frame — a later
+     "gallery hang" (varied frame heights) can be a pure CSS layer. */
+  .wall { margin-top: 2.5rem; }
+  .cluster + .cluster { margin-top: 3rem; }
+  .cluster-label {
+    font-family: var(--hand); font-size: 1.45rem; line-height: 1.2;
+    color: var(--canopy-deep); margin-bottom: 0.9rem;
+  }
+  .frames {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 1rem; grid-template-columns: 1fr;
+  }
+  @media (min-width: 44rem) { .frames { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 62rem) { .frames { grid-template-columns: repeat(3, 1fr); } }
+  .frame a {
+    display: flex; flex-direction: column; gap: 0.55rem; height: 100%;
+    box-sizing: border-box; text-decoration: none;
+    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
+    border-radius: 4px; padding: 1.15rem 1.25rem; min-height: 44px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .frame a:hover { border-color: var(--poppy-soft); transform: translateY(-2px); }
+  .frame .title { font-family: var(--serif); font-size: 1.22rem; letter-spacing: -0.01em; color: var(--ink); }
+  .frame .dek { font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); flex-grow: 1; }
+
+  /* ── the quiet close ─────────────────────────────────────────── */
+  .close { margin-top: 3.5rem; max-width: 46rem; }
+  .close-line {
+    border-top: 0.7px solid var(--paper-edge); padding-top: 1.4rem;
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.05rem; color: var(--ink-soft); max-width: 52ch;
+  }
+  /* comfortable tap areas for the small links, ink unmoved */
+  .close-line a { position: relative; }
+  .close-line a::after { content: ""; position: absolute; inset: -0.7rem -0.4rem; }
+</style>

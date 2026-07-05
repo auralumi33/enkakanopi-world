@@ -1,0 +1,137 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Glyph from "../components/Glyph.astro";
+
+// Seeds render above the beds when they exist. None do yet — they arrive
+// in Rika's hand, or not at all; nothing here is written for her.
+const stageOrder = { seed: 0, seedling: 1, budding: 2, evergreen: 3 } as const;
+const seeds = (await getCollection("nursery")).sort(
+  (a, b) => stageOrder[a.data.stage] - stageOrder[b.data.stage] || a.data.title.localeCompare(b.data.title),
+);
+const marks = { seed: "◦", seedling: "•", budding: "••", evergreen: "•••" } as const;
+
+// the ladder, extended downward to seed — mirrors the home page's stages list.
+const stages = [
+  { key: "seed",      mark: "◦",   d: "caught, not yet planted — a fragment in her own hand." },
+  { key: "seedling",  mark: "•",   d: "just planted — tender, unsure, thinking out loud." },
+  { key: "budding",   mark: "••",  d: "taking shape — the argument has a spine now." },
+  { key: "evergreen", mark: "•••", d: "stands on its own — as settled as this garden gets." },
+] as const;
+
+// the prepared beds — honestly empty, in the house's SLOT tradition.
+const beds = [
+  { title: "a bed for experimental voices",   note: "kept for voices not yet real — separation is earned, never assumed" },
+  { title: "a bed for the craft logs",        note: "what the hands are learning — mat, wheels, pen, code" },
+  { title: "a bed kept for the one true story", note: "planted only by hand, only when ready" },
+] as const;
+---
+<Base
+  title="Nursery"
+  description="The nursery of musings and dreams — where fragments land before they are essays. Seeds arrive in her own hand; tended, not timestamped."
+>
+  <div class="dim">
+    <section class="page head">
+      <p class="eyebrow"><Glyph name="leaf" size={18} /> &nbsp;the seed-bed</p>
+      <h1>Musings &amp; Dreams</h1>
+      <p class="lede">
+        Seeds land here first — fragments caught before they are essays, in her
+        hand only. Nothing is filed, nothing is promised; a seed is tended, not
+        timestamped, and most will stay exactly this small.
+      </p>
+    </section>
+
+    <section class="page grows" aria-label="How a seed grows">
+      <p class="eyebrow">the ladder, from the ground down</p>
+      <ul class="stages">
+        {stages.map((s) => (
+          <li>
+            <span class={`dot ${s.key}`} aria-hidden="true">{s.mark}</span>
+            <span class="s">{s.key}</span>
+            <span class="d">{s.d}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="page rows" aria-label="Seeds and prepared beds">
+      <ul class="bedlist">
+        {seeds.map((s) => (
+          <li class="row">
+            <span class={`dot ${s.data.stage}`} aria-hidden="true">{marks[s.data.stage]}</span>
+            <span class="txt">
+              <span class="t">{s.data.title}</span>
+              {s.data.line && <span class="frag">{s.data.line}</span>}
+              {(s.data.tended || s.data.bed) && (
+                <span class="note">{[s.data.bed, s.data.tended].filter(Boolean).join(" · ")}</span>
+              )}
+            </span>
+          </li>
+        ))}
+        {beds.map((b) => (
+          <li class="row row--empty">
+            <span class="dot seed" aria-hidden="true">◦</span>
+            <span class="txt">
+              <span class="t">{b.title}</span>
+              <span class="note">{b.note}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p class="close">seeds arrive in her hand, or not at all.</p>
+    </section>
+  </div>
+</Base>
+<style>
+  /* the nursery's lower light — a full-bleed wash; the paper stays warm */
+  .dim {
+    background: var(--paper-dim);
+    border-top: 0.7px solid var(--paper-edge);
+    border-bottom: 0.7px solid var(--paper-edge);
+    margin-top: -1px;
+    padding: 0.5rem 0 3.5rem;
+  }
+
+  .head { max-width: 46rem; }
+  .head .eyebrow { display: flex; align-items: center; }
+  h1 { margin-top: 0.8rem; }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+
+  /* the ladder — matches the home page's stages idiom, extended to seed */
+  .grows { margin-top: 3.2rem; max-width: 52rem; }
+  .stages { list-style: none; padding: 0; margin: 1.1rem 0 0; }
+  .stages li {
+    display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: baseline;
+    gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge);
+  }
+  .dot { font-size: 1rem; letter-spacing: 0.1em; }
+  .dot.seed      { color: var(--canopy-soft); }
+  .dot.seedling  { color: var(--seedling); }
+  .dot.budding   { color: var(--budding); }
+  .dot.evergreen { color: var(--evergreen); }
+  .stages .s { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+  .stages .d { color: var(--ink-soft); font-size: 0.98rem; }
+  @media (max-width: 34rem) {
+    .stages li { grid-template-columns: 2rem 1fr; }
+    .stages .s { grid-column: 2; }
+    .stages .d { grid-column: 2; }
+  }
+
+  /* seeds + beds — the quiet list idiom */
+  .rows { max-width: 46rem; margin-top: 3.2rem; }
+  .bedlist { list-style: none; padding: 0; margin: 0; }
+  .row {
+    display: grid; grid-template-columns: 2rem 1fr; gap: 0.7rem;
+    align-items: baseline; padding: 1.1rem 0.2rem;
+    border-top: 0.7px solid var(--paper-edge);
+  }
+  .row .t { display: block; font-size: 1.22rem; letter-spacing: -0.01em; }
+  .row--empty .t { color: var(--ink-soft); font-style: italic; }
+  .frag { display: block; font-family: var(--serif); font-style: italic; color: var(--ink-soft); margin-top: 0.25rem; max-width: 54ch; }
+  .note { display: block; font-family: var(--hand); font-size: 1.05rem; color: var(--canopy-deep); margin-top: 0.35rem; }
+
+  .close {
+    font-family: var(--hand); font-size: 1.35rem; color: var(--canopy-deep);
+    margin-top: 2.4rem; padding-top: 1.4rem; border-top: 0.7px solid var(--paper-edge);
+  }
+</style>

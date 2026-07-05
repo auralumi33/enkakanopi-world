@@ -10,6 +10,8 @@ const doorways = [
   { href: "/workbench",   glyph: "compass", name: "The Workbench", line: "relearning to think with my hands — clay, wood, paper, code." },
   { href: "/body-spine",  glyph: "spine",   name: "Body & Spine",  line: "the mind-body thread; movement as the ground truth." },
   { href: "/versions",    glyph: "leaf",    name: "Versions of Me", line: "a map of the selves that won't average into one." },
+  { href: "/nursery",     glyph: "leaf",    name: "The Nursery",    line: "musings & dreams — seeds before they are essays, tended in low light." },
+  { href: "/studio",      glyph: "compass", name: "The Studio",     line: "the wall of work-in-progress — material, constraint, and the honest tally." },
 ] as const;
 
 const whatThisIs = [
@@ -38,7 +40,7 @@ const whatThisIs = [
       legible thing — and the work of becoming turned out to be learning to hold
       the seams, <span class="accent">and to let go of the need to oversee what you&rsquo;ve made.</span>
     </p>
-    <p class="vol"><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</p>
+    <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
   </section>
 
   <section class="page what" aria-label="What this is">
@@ -54,7 +56,7 @@ const whatThisIs = [
   </section>
 
   <section class="page doors" aria-label="Ways in">
-    <p class="eyebrow doors-lede"><Glyph name="light" size={17} /> &nbsp;four ways in</p>
+    <p class="eyebrow doors-lede"><Glyph name="light" size={17} /> &nbsp;six ways in</p>
     <ul class="grid">
       {doorways.map((d) => (
         <li>
@@ -111,7 +113,11 @@ const whatThisIs = [
     display: inline-flex; align-items: center; justify-content: center;
     font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--ink-faint); margin: 1.8rem auto 0;
+    text-decoration: none; padding-bottom: 2px;
+    border-bottom: 1.4px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
   }
+  .vol:hover { color: var(--ink); border-color: var(--poppy-soft); }
 
   /* what this is — candid cards */
   .what { margin-top: 4.5rem; }

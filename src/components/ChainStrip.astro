@@ -1,10 +1,14 @@
 ---
 /**
- * ChainStrip — the multi-agent layer, and the ONLY place the dark, starry,
+ * ChainStrip — the workshop, and the ONLY place the dark, starry,
  * intimate skin lives (the rest of the site is warm Charts & Crafts paper).
- * This is the machine's room: night ground, a calligraphic hero, a human hand
- * keeping watch. Voice-locked — every piece starts from Rika's note and passes
- * the mirror before it grows. Assisted, never authored. Edges carry verbs (Law 2).
+ * This is the machine's room, v2-framed as a bench with apprentices: they
+ * fetch, steady, and time the furnace; the gaffer's hands shape the glass.
+ * Voice-locked — every piece starts from Rika's note and passes the mirror
+ * (the one apprentice with the right to refuse, on four grounds) before it
+ * grows. Assisted, never authored. Edges carry verbs (Law 2).
+ * Honesty rule: never animate or imply a live agent — this strip describes
+ * a practice, not a running process.
  */
 import Glyph from "./Glyph.astro";
 const chain = [
@@ -17,13 +21,14 @@ const chain = [
 // a few deterministic stars (no Math.random at build time)
 const stars = [[8,22],[19,64],[27,38],[36,80],[44,18],[53,58],[61,30],[70,72],[78,26],[86,54],[92,40],[14,44],[48,84],[66,14],[83,78]];
 ---
-<section class="night" aria-label="How a piece is tended — the multi-agent layer">
+<section class="night" aria-label="How a piece is tended — the workshop">
   <div class="stars" aria-hidden="true">
     {stars.map(([x, y]) => <span style={`left:${x}%;top:${y}%`}></span>)}
   </div>
   <div class="inner">
-    <p class="kick">the multi-agent layer</p>
+    <p class="kick">the workshop</p>
     <h2 class="hero">A garden kept by a human hand,<br />tended alongside the machines.</h2>
+    <p class="sub">The apprentices fetch, steady, and time the furnace; the hands that shape the glass are hers.</p>
 
     <ol class="flow">
       {chain.map((n) => (
@@ -40,7 +45,18 @@ const stars = [[8,22],[19,64],[27,38],[36,80],[44,18],[53,58],[61,30],[70,72],[7
 
     <p class="lock">
       Every piece starts from a note in Rika&rsquo;s own hand and passes the
-      <em>mirror</em> — a guard on voice and privacy — before it grows in public.
+      <em>mirror</em> — the one apprentice with the right to refuse — before it
+      grows in public. It will hold a piece back on four grounds only:
+    </p>
+    <ul class="refuse" aria-label="The four grounds on which the mirror refuses">
+      <li>a privacy leak</li>
+      <li>a voice that isn&rsquo;t hers</li>
+      <li>a wall that must hold — things this garden does not write about</li>
+      <li>a claim outrunning what is known</li>
+    </ul>
+    <p class="lock">
+      The machines keep the scaffold — the feeds, the plumbing, the link that
+      doesn&rsquo;t rot; the turn of an essay, the curation, and the yes stay in her hands.
       <span class="say">Assisted, never authored. Nothing is published without her yes.</span>
     </p>
   </div>
@@ -82,9 +98,16 @@ const stars = [[8,22],[19,64],[27,38],[36,80],[44,18],[53,58],[61,30],[70,72],[7
   .edge :global(svg) { opacity: 0.6; }
   .edge :global(svg path) { stroke: var(--night-dim); }
 
+  .sub { font-family: var(--hand); font-size: 1.2rem; color: var(--night-dim); margin: 0.8rem 0 0; max-width: 40ch; line-height: 1.4; }
+
   .lock { font-size: 0.92rem; color: var(--night-dim); margin-top: 1.4rem; max-width: 60ch; }
+  .lock + .refuse + .lock { margin-top: 1rem; }
   .lock em { font-style: normal; color: var(--bloom); }
   .lock .say { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--gold); margin-top: 0.3rem; }
+
+  .refuse { list-style: none; margin: 0.7rem 0 0; padding: 0; max-width: 60ch; }
+  .refuse li { font-family: var(--hand); font-size: 1.08rem; color: var(--night-dim); line-height: 1.55; padding-left: 0.9rem; }
+  .refuse li::before { content: "·"; color: var(--gold); opacity: 0.7; margin-left: -0.9rem; padding-right: 0.55rem; }
 
   @media (max-width: 46rem) {
     .flow { flex-direction: column; align-items: stretch; }

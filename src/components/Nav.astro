@@ -8,6 +8,8 @@ const links = [
   { href: "/workbench", label: "The Workbench", glyph: "compass" },
   { href: "/body-spine", label: "Body & Spine", glyph: "spine" },
   { href: "/versions", label: "Versions of Me", glyph: "leaf" },
+  { href: "/nursery", label: "Nursery", glyph: "leaf" },
+  { href: "/studio", label: "Studio", glyph: "compass" },
   { href: "/lexicon", label: "Lexicon", glyph: "compass" },
   { href: "/colophon", label: "Colophon", glyph: "light" },
 ] as const;
@@ -51,6 +53,13 @@ const isCurrent = (href: string) => {
     font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
     color: var(--ink-soft); padding-bottom: 2px;
     border-bottom: 1.4px solid transparent; transition: border-color 0.15s, color 0.15s;
+    /* comfortable hit area: the target grows, the ink stays put */
+    position: relative;
+  }
+  ul a::after { content: ""; position: absolute; inset: -0.6rem -0.5rem; }
+  @media (pointer: coarse) {
+    ul { row-gap: 0.9rem; }
+    ul a::after { inset: -0.85rem -0.55rem; } /* ≥44px effective target on touch */
   }
   ul a:hover { color: var(--ink); border-color: var(--poppy-soft); }
   ul a[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
