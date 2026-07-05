@@ -5,11 +5,13 @@ const here = Astro.url.pathname.replace(/\/$/, "");
 
 // Signposted clusters (Rika, 2026-07-05): the nav follows the home floor
 // plan exactly — where things begin, the reading rooms, the archive wall.
-// No dropdowns — every room stays one tap away. The D3 scenography layers
-// on later without changing this grammar.
+// Desktop shows the clusters open; mobile pins a single line and each
+// cluster becomes a small pocket (native <details>, no framework). The D3
+// scenography layers on later without changing this grammar.
 const groups = [
   {
     label: "beginnings",
+    short: "beginnings",
     labelHref: null,
     links: [
       { href: "/nursery", label: "Nursery" },
@@ -18,6 +20,7 @@ const groups = [
   },
   {
     label: "the reading rooms",
+    short: "reading rooms",
     labelHref: null,
     links: [
       { href: "/field-notes", label: "Field Notes" },
@@ -28,6 +31,7 @@ const groups = [
   },
   {
     label: "the archive wall",
+    short: "archive",
     labelHref: "/volume-i",
     links: [
       { href: "/volume-i", label: "Volume I" },
@@ -41,12 +45,14 @@ const isCurrent = (href: string) => {
   if (href === "/") return here === base || here === "";
   return here === h || here.startsWith(h + "/");
 };
+const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurrent(l.href));
 ---
 <nav class="nav" aria-label="Primary">
   <a class="mark" href={base + "/"} aria-label="Enka Kanopi — home">
     <Glyph name="canopy" size={26} />
-    <span>enka&nbsp;kanopi</span>
+    <span class="word">enka&nbsp;kanopi</span>
   </a>
+
   <div class="rooms">
     {groups.map((g) => (
       <div class="group">
@@ -71,7 +77,38 @@ const isCurrent = (href: string) => {
       </div>
     ))}
   </div>
+
+  <div class="pockets">
+    {groups.map((g) => (
+      <details class="pocket" class:list={[{ within: groupCurrent(g) }]}>
+        <summary>{g.short}<span class="chev" aria-hidden="true">▾</span></summary>
+        <ul>
+          {g.links.map((l) => (
+            <li>
+              <a href={base + l.href} aria-current={isCurrent(l.href) ? "page" : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+  </div>
 </nav>
+<script>
+  // One pocket open at a time; a tap outside folds them away.
+  const pockets = Array.from(document.querySelectorAll<HTMLDetailsElement>(".pocket"));
+  for (const p of pockets) {
+    p.addEventListener("toggle", () => {
+      if (p.open) for (const q of pockets) if (q !== p) q.open = false;
+    });
+  }
+  document.addEventListener("click", (e) => {
+    if (!(e.target instanceof Node)) return;
+    if (pockets.some((p) => p.contains(e.target as Node))) return;
+    for (const p of pockets) p.open = false;
+  });
+</script>
 <style>
   .nav {
     display: flex; flex-wrap: wrap; align-items: flex-start;
@@ -84,8 +121,9 @@ const isCurrent = (href: string) => {
     text-decoration: none; margin-right: auto;
     font-size: 1.15rem; letter-spacing: 0.01em;
   }
-  .mark span { font-variant: small-caps; letter-spacing: 0.06em; }
+  .mark .word { font-variant: small-caps; letter-spacing: 0.06em; }
 
+  /* ── desktop: the clusters, open ─────────────────────────────── */
   .rooms { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; }
   .group { display: flex; flex-direction: column; gap: 0.28rem; }
   .signpost {
@@ -104,19 +142,63 @@ const isCurrent = (href: string) => {
     font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.02em;
     color: var(--ink-soft); padding-bottom: 2px;
     border-bottom: 1.4px solid transparent; transition: border-color 0.15s, color 0.15s;
-    /* comfortable hit area: the target grows, the ink stays put */
     position: relative;
   }
   ul a::after { content: ""; position: absolute; inset: -0.5rem -0.5rem; }
   ul a:hover { color: var(--ink); border-color: var(--poppy-soft); }
   ul a[aria-current="page"] { color: var(--ink); border-color: var(--poppy); }
 
-  @media (pointer: coarse) {
+  /* ── mobile: pinned single line, cluster pockets ─────────────── */
+  .pockets { display: none; }
+  @media (max-width: 46rem) {
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--paper);
+      border-bottom: 0.7px solid var(--paper-edge);
+      flex-wrap: nowrap; align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem var(--gutter);
+    }
+    .rooms { display: none; }
+    .pockets { display: flex; gap: 0.15rem; margin-left: auto; }
+    .pocket { position: relative; }
+    .pocket summary {
+      list-style: none; cursor: pointer;
+      font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink-soft);
+      padding: 0.7rem 0.45rem; /* comfortable tap target on the pinned line */
+      border-bottom: 1.4px solid transparent;
+      white-space: nowrap;
+    }
+    .pocket summary::-webkit-details-marker { display: none; }
+    .pocket .chev { color: var(--ink-faint); margin-left: 0.25rem; font-size: 0.55rem; }
+    .pocket[open] summary { color: var(--ink); }
+    .pocket[open] .chev { color: var(--poppy); }
+    .pocket.within summary { color: var(--ink); border-bottom-color: var(--poppy); }
+    .pocket ul {
+      position: absolute; right: 0; top: 100%; margin-top: 0.4rem;
+      min-width: 11rem;
+      display: flex; flex-direction: column; gap: 0;
+      background: var(--paper);
+      border: 0.7px solid var(--paper-edge); border-radius: 4px;
+      padding: 0.35rem 0;
+    }
+    .pocket ul li + li { border-top: 0.7px solid var(--paper-edge); }
+    .pocket ul a {
+      display: block; padding: 0.72rem 1rem; /* ≥44px rows */
+      font-size: 0.82rem; border-bottom: none;
+    }
+    .pocket ul a::after { content: none; }
+    .pocket ul a[aria-current="page"] { color: var(--ink); }
+    .pocket ul a[aria-current="page"]::before { content: "• "; color: var(--poppy); }
+    .mark { flex: 0 0 auto; }
+  }
+  @media (max-width: 30rem) {
+    .mark .word { display: none; } /* the canopy glyph keeps the door */
+  }
+  @media (pointer: coarse) and (min-width: 46rem) {
     .rooms { row-gap: 1rem; }
     ul { row-gap: 0.8rem; }
-    ul a::after { inset: -0.75rem -0.55rem; } /* ≥44px effective target on touch */
-  }
-  @media (max-width: 46rem) {
-    .rooms { flex-direction: column; gap: 0.85rem; width: 100%; }
+    ul a::after { inset: -0.75rem -0.55rem; }
   }
 </style>
