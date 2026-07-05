@@ -170,30 +170,34 @@ const whatThisIs = [
 </Base>
 
 <style>
-  .hero { padding-top: 2.2rem; text-align: center; }
-  .bloom-top { display: flex; justify-content: center; margin-bottom: 0.6rem; }
-  .kicker { display: inline-flex; align-items: center; justify-content: center; }
+  /* the hero — a centered vertical column, with the bloom, kicker, title,
+     lede, canopy scene and keystone quote stacked with a deliberate rhythm.
+     Every child forced center-aligned; margin: auto guarantees horizontal
+     centering inside the .page max-width. */
+  .hero { padding-top: 2.2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .bloom-top { display: flex; justify-content: center; margin: 0 auto 0.7rem; width: 100%; }
+  .kicker { display: inline-flex; align-items: center; justify-content: center; margin: 0 auto; }
   .signature {
     font-weight: 440; font-style: italic;
-    font-size: clamp(1.55rem, 4.3vw, 2.75rem); line-height: 1.26;
-    letter-spacing: -0.02em; max-width: 22ch; margin: 0.9rem auto 0;
-    text-wrap: balance;
+    font-size: clamp(1.55rem, 4.3vw, 2.7rem); line-height: 1.26;
+    letter-spacing: -0.02em; max-width: 22ch; margin: 1rem auto 0;
+    text-wrap: balance; text-align: center;
   }
   .signature .paren {
-    color: var(--poppy); font-size: 0.82em;
+    color: #e46b6b; font-size: 0.82em;
     /* the aside breaks by hand after "old" — "growing old" is never split */
   }
   .sub {
     max-width: 50ch; margin: 1.1rem auto 0; color: var(--ink-soft);
-    font-size: 1.02rem;
+    font-size: 1.02rem; text-align: center; line-height: 1.6;
   }
-  .scene { margin: 1.4rem auto 0; max-width: 60rem; }
+  .scene { margin: 1.5rem auto 0; max-width: 60rem; width: 100%; }
   .keystone {
     font-family: var(--serif); font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.24rem); line-height: 1.5;
-    max-width: 46ch; margin: 2.2rem auto 0; color: var(--ink);
+    font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.55;
+    max-width: 46ch; margin: 2rem auto 0; color: var(--ink); text-align: center;
   }
-  .keystone .accent { color: var(--poppy); font-style: normal; }
+  .keystone .accent { color: #e46b6b; font-style: normal; }
   .vol {
     display: inline-flex; align-items: center; justify-content: center;
     font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.2em;
@@ -202,61 +206,88 @@ const whatThisIs = [
     border-bottom: 1.4px solid transparent;
     transition: border-color 0.15s ease, color 0.15s ease;
   }
-  .vol:hover { color: var(--ink); border-color: var(--poppy-soft); }
+  .vol:hover { color: var(--ink); border-color: #e46b6b; }
+
+  /* ── shared section rhythm — every section band gets the same eyebrow-to-
+        body cadence, so hierarchy is predictable across the page ────────── */
+  .what, .plan, .grows { margin-top: 5rem; }
+  .what > .eyebrow, .plan .row > .eyebrow, .grows > .eyebrow { margin-bottom: 1rem; }
 
   /* what this is — candid cards */
-  .what { margin-top: 4.5rem; }
-  .cards { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 52rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
-  .cards li { background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1.15rem 1.15rem; }
-  .cards h2 { font-size: 1.1rem; font-style: italic; margin: 0; letter-spacing: -0.01em; }
-  .cards p { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.6rem; max-width: none; line-height: 1.55; }
-  @media (max-width: 32rem) { .cards h2 { font-size: 1.14rem; } .cards p { font-size: 0.95rem; } }
-
-  /* the floor plan — rooms under one roof (D2; D3 scenography layers on later) */
-  .plan { margin-top: 4.5rem; }
-  .plan .row { margin-top: 1.8rem; }
-  .plan .row:first-child { margin-top: 0; }
-  .plan .eyebrow { margin-bottom: 0.8rem; }
-  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 44rem) { .grid.begin { grid-template-columns: 1fr 1fr; } .grid.read { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 62rem) { .grid.read { grid-template-columns: repeat(4, 1fr); } }
-  .grid a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.9rem; text-decoration: none; background: var(--paper-deep); border: 1.1px solid var(--paper-edge); border-radius: 4px; padding: 1rem 1.15rem; transition: border-color 0.15s ease, transform 0.15s ease; }
-  .grid a:hover { border-color: var(--poppy-soft); transform: translateY(-2px); }
-  .grid .g { line-height: 0; color: var(--canopy-deep); }
-  .grid .name { display: block; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--ink); }
-  .grid .seedmark { color: var(--canopy-soft); font-size: 0.85em; }
-  .grid .line { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.15rem; line-height: 1.5; }
-  .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; }
-  .grid a:hover .arr { opacity: 1; }
-  .grid.read a { grid-template-columns: auto 1fr; padding: 0.85rem 1.05rem; }
-  .grid.read .name { font-size: 0.98rem; }
-  @media (max-width: 32rem) { .grid .name { font-size: 1.14rem; } .grid .line { font-size: 0.95rem; } .grid.read .name { font-size: 1.02rem; } }
-
-  /* the archive wall band */
-  .band {
-    display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+  .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+  @media (min-width: 52rem) { .cards { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; } }
+  .cards li {
     background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
-    border-radius: 4px; padding: 1.05rem 1.25rem;
+    border-radius: 5px; padding: 1.25rem 1.35rem 1.3rem;
     transition: border-color 0.15s ease;
   }
-  .band:hover { border-color: var(--poppy-soft); }
-  .band-main { text-decoration: none; display: flex; align-items: baseline; gap: 0.85rem; flex-wrap: wrap; }
-  .band-title { font-family: var(--display); font-style: italic; font-weight: 460; font-size: 1.06rem; color: var(--ink); letter-spacing: -0.01em; }
-  .band-line { font-size: 0.88rem; color: var(--ink-soft); }
-  .band-side { margin-left: auto; font-family: var(--sans); font-size: 0.76rem; color: var(--ink-faint); display: inline-flex; gap: 0.5rem; align-items: baseline; }
-  .band-side a { color: var(--ink-faint); text-decoration: none; padding: 0.4rem 0.1rem; border-bottom: 1.4px solid transparent; transition: color 0.15s, border-color 0.15s; }
-  .band-side a:hover { color: var(--ink); border-color: var(--poppy-soft); }
-  .band-side .sep { color: var(--ink-faint); }
+  .cards li:hover { border-color: var(--paper-edge); }
+  .cards h2 { font-size: 1.1rem; font-style: italic; margin: 0 0 0.55rem; letter-spacing: -0.01em; line-height: 1.3; }
+  .cards p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; max-width: none; line-height: 1.62; }
+  @media (max-width: 32rem) { .cards h2 { font-size: 1.14rem; } .cards p { font-size: 0.96rem; } }
 
-  /* growth stages */
-  .grows { margin-top: 4.5rem; max-width: 52rem; }
-  .grows-lede { color: var(--ink-soft); margin-top: 0.8rem; font-size: 0.98rem; line-height: 1.6; }
-  .stages { list-style: none; padding: 0; margin: 1.4rem 0 0; }
-  .stages li { display: grid; grid-template-columns: 3rem 7rem 1fr; align-items: center; gap: 0.6rem; padding: 0.7rem 0; border-top: 0.7px solid var(--paper-edge); }
+  /* the floor plan — rooms under one roof.
+     All three rows (beginnings, reading rooms, archive wall) share one
+     consistent card treatment: paper-deep bg, hairline paper-edge border,
+     5px radius, hover lifts by 2px + border warms to coral-soft. */
+  .plan .row { margin-top: 2rem; }
+  .plan .row:first-child { margin-top: 0; }
+  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+  @media (min-width: 44rem) { .grid.begin { grid-template-columns: 1fr 1fr; gap: 1.2rem; } .grid.read { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
+  @media (min-width: 62rem) { .grid.read { grid-template-columns: repeat(4, 1fr); } }
+  .grid a {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    gap: 1rem; text-decoration: none;
+    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
+    border-radius: 5px; padding: 1.1rem 1.3rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .grid a:hover { border-color: #e46b6b; transform: translateY(-2px); }
+  .grid .g { line-height: 0; color: var(--canopy-deep); }
+  .grid .name { display: block; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
+  .grid .seedmark { color: var(--canopy-soft); font-size: 0.85em; }
+  .grid .line { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.25rem; line-height: 1.55; }
+  .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; color: #e46b6b; }
+  .grid a:hover .arr { opacity: 1; }
+  .grid.read a { grid-template-columns: auto 1fr; padding: 0.95rem 1.15rem; gap: 0.85rem; }
+  .grid.read .name { font-size: 1rem; }
+  @media (max-width: 32rem) { .grid .name { font-size: 1.14rem; } .grid .line { font-size: 0.95rem; } .grid.read .name { font-size: 1.02rem; } }
+
+  /* the archive wall band — same card grammar as .grid a (paper-deep +
+     paper-edge + 5px radius + coral hover) so the three plan rows read
+     as one visual family. */
+  .band {
+    display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap;
+    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
+    border-radius: 5px; padding: 1.1rem 1.3rem;
+    transition: border-color 0.15s ease;
+  }
+  .band:hover { border-color: #e46b6b; }
+  .band-main { text-decoration: none; display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; flex: 1 1 auto; }
+  .band-title { font-family: var(--display); font-style: italic; font-weight: 460; font-size: 1.08rem; color: var(--ink); letter-spacing: -0.01em; line-height: 1.3; }
+  .band-line { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.55; }
+  .band-side { margin-left: auto; font-family: var(--sans); font-size: 0.76rem; color: var(--ink-faint); display: inline-flex; gap: 0.6rem; align-items: baseline; }
+  .band-side a { color: var(--ink-faint); text-decoration: none; padding: 0.35rem 0.15rem; border-bottom: 1.4px solid transparent; transition: color 0.15s, border-color 0.15s; }
+  .band-side a:hover { color: var(--ink); border-color: #e46b6b; }
+  .band-side .sep { color: var(--ink-faint); opacity: 0.6; }
+
+  /* growth stages — the maturity ladder, one row per stage */
+  .grows { max-width: 52rem; }
+  .grows-lede { color: var(--ink-soft); margin-top: 0.5rem; font-size: 1rem; line-height: 1.62; max-width: 46rem; }
+  .stages { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  .stages li {
+    display: grid; grid-template-columns: 3rem 7.5rem 1fr; align-items: center;
+    gap: 1rem; padding: 0.9rem 0.25rem;
+    border-top: 0.7px solid var(--paper-edge);
+  }
+  .stages li:last-child { border-bottom: 0.7px solid var(--paper-edge); }
   .stages .dot { line-height: 0; display: inline-flex; align-items: center; justify-content: flex-start; }
   .stages .dot :global(svg) { display: block; }
   .stages .s { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-  .stages .d { color: var(--ink-soft); font-size: 0.98rem; }
-  @media (max-width: 34rem) { .stages li { grid-template-columns: 2rem 1fr; } .stages .s { grid-column: 2; } .stages .d { grid-column: 2; } }
+  .stages .d { color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; }
+  @media (max-width: 34rem) {
+    .stages li { grid-template-columns: 2.4rem 1fr; gap: 0.6rem 0.9rem; padding: 1rem 0.25rem; }
+    .stages .s { grid-column: 2; margin-bottom: 0.25rem; }
+    .stages .d { grid-column: 2; }
+  }
 </style>
