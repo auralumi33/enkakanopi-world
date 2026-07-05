@@ -63,7 +63,8 @@ const pieces = await Promise.all(
   .head { max-width: 46rem; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
-  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+  .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
+  @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
   .handnote { font-family: var(--hand); font-size: 1.3rem; color: var(--canopy-deep); margin-top: 1.2rem; }
 
   /* the wall — card markup kept flat so a masonry layer can replace the
@@ -77,23 +78,28 @@ const pieces = await Promise.all(
     border-radius: 4px; padding: 1.3rem 1.25rem 1.2rem;
   }
   .kind {
-    font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em;
+    font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--ink-faint);
   }
-  .phead h2 { font-size: 1.32rem; font-style: italic; letter-spacing: -0.01em; margin: 0.35rem 0 0; }
-  .pbody { margin-top: 0.7rem; }
-  .pbody :global(p) { font-size: 0.98rem; color: var(--ink-soft); max-width: none; margin: 0; }
-  .pbody :global(p + p) { margin-top: 0.6rem; }
+  .phead h2 { font-size: 1.14rem; font-style: italic; letter-spacing: -0.01em; margin: 0.35rem 0 0; }
+  .pbody { margin-top: 0.6rem; }
+  .pbody :global(p) { font-size: 0.9rem; color: var(--ink-soft); max-width: none; margin: 0; line-height: 1.55; }
+  .pbody :global(p + p) { margin-top: 0.55rem; }
 
   /* the working note — hand voice, per the house's status idiom */
-  .process { margin: 1rem 0 0; padding-top: 0.8rem; border-top: 0.7px solid var(--paper-edge); }
-  .process > div { display: grid; grid-template-columns: 6.2rem 1fr; gap: 0.6rem; align-items: baseline; padding: 0.22rem 0; }
+  .process { margin: 0.9rem 0 0; padding-top: 0.7rem; border-top: 0.7px solid var(--paper-edge); }
+  .process > div { display: grid; grid-template-columns: 5.8rem 1fr; gap: 0.55rem; align-items: baseline; padding: 0.2rem 0; }
   .process dt {
-    font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.16em;
+    font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--ink-faint);
   }
-  .process dd { margin: 0; font-family: var(--hand); font-size: 1.12rem; line-height: 1.3; color: var(--canopy-deep); }
-  .aside { font-family: var(--hand); font-size: 1.05rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  .process dd { margin: 0; font-family: var(--hand); font-size: 1rem; line-height: 1.3; color: var(--canopy-deep); }
+  .aside { font-family: var(--hand); font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.65rem; }
+  @media (max-width: 32rem) {
+    .phead h2 { font-size: 1.18rem; }
+    .pbody :global(p) { font-size: 0.95rem; }
+    .process dd { font-size: 1.05rem; }
+  }
   @media (max-width: 24rem) {
     .process > div { grid-template-columns: 1fr; gap: 0.1rem; }
   }
