@@ -19,7 +19,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@vercel/analytics": "^2.0.1",
-    "astro": "^5.6.1"
+    "astro": "^6.4.8"
   },
   "devDependencies": {
     "playwright-core": "^1.61.1"
