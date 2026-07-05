@@ -1,11 +1,12 @@
 ---
 /**
- * Bloom — the home hero mark as a delicate constellation.
- * Five tiny blooms mark the "stars" — three at the top of the h1's area
- * (lavender · coral · blue), two at the bottom (yellow · lavender). Between
- * them, eight small sprinkle-dots scattered evenly like faint stars. No
- * stems, no foliage. Composition breathes across the width Rika gives it.
- * Marimekko lineage warmed toward Margiela Replica "From the Garden".
+ * Bloom — the home hero mark as a constellation.
+ * Top crown: three blooms (lavender · coral · blue) at the h1 top edge.
+ * Bottom crown: two buds (yellow · lavender) at the h1 bottom edge.
+ * Between them, a mid-band filled with a delicate scatter — small bud
+ * clusters in the palette, three whisper sailboats (echoing the keystone's
+ * "small convoy of selves… sailing water"), tiny botanical leaves, and a
+ * dozen sprinkle-stars. Every element sized to whisper.
  */
 interface Props { size?: number; }
 const { size = 780 } = Astro.props;
@@ -39,6 +40,63 @@ const { size = 780 } = Astro.props;
     <circle cx="0" cy="0" r="2" fill="#f7f2e7"/>
   </g>
 
+  <g transform="translate(90 95)">
+    <g fill="#b899c9">
+      <ellipse cx="-2" cy="-1" rx="2" ry="3"/>
+      <ellipse cx="2" cy="-1" rx="2" ry="3"/>
+      <ellipse cx="0" cy="2" rx="2" ry="3"/>
+    </g>
+    <circle cx="0" cy="1" r="0.9" fill="#f7f2e7"/>
+  </g>
+
+  <g transform="translate(305 90)">
+    <g fill="#e8c15a">
+      <ellipse cx="-2" cy="-1" rx="2" ry="3"/>
+      <ellipse cx="2" cy="-1" rx="2" ry="3"/>
+    </g>
+    <circle cx="0" cy="0" r="0.85" fill="#f7f2e7"/>
+  </g>
+
+  <g transform="translate(505 100)">
+    <g fill="#e46b6b">
+      <ellipse cx="-2" cy="-1" rx="2" ry="3"/>
+      <ellipse cx="2" cy="-1" rx="2" ry="3"/>
+      <ellipse cx="0" cy="2" rx="2" ry="3"/>
+    </g>
+    <circle cx="0" cy="1" r="0.9" fill="#f7f2e7"/>
+  </g>
+
+  <g transform="translate(725 95)">
+    <g fill="#a4b8c8">
+      <path d="M0 -5 L 1 -1.5 L 4 -1.5 L 1.6 0.5 L 2.5 4 L 0 2 L -2.5 4 L -1.6 0.5 L -4 -1.5 L -1 -1.5 Z"/>
+    </g>
+    <circle cx="0" cy="0" r="0.85" fill="#f7f2e7"/>
+  </g>
+
+  <g transform="translate(200 130)">
+    <path d="M-4.5 2 Q 0 3.5, 4.5 2" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M0 2 L 0 -5.5" stroke="#4f5b3f" stroke-width="0.5" opacity="0.6"/>
+    <path d="M0 -5.5 L 0 0.8 L 4 0.8 Z" fill="#4f5b3f" opacity="0.38"/>
+  </g>
+
+  <g transform="translate(400 150)">
+    <path d="M-5 2 Q 0 3.8, 5 2" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.65" stroke-linecap="round"/>
+    <path d="M0 2 L 0 -6" stroke="#4f5b3f" stroke-width="0.55" opacity="0.65"/>
+    <path d="M0 -6 L 0 1 L 4.5 1 Z" fill="#4f5b3f" opacity="0.42"/>
+  </g>
+
+  <g transform="translate(620 128)">
+    <path d="M-4 2 Q 0 3.3, 4 2" stroke="#4f5b3f" stroke-width="0.7" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <path d="M0 2 L 0 -5" stroke="#4f5b3f" stroke-width="0.5" opacity="0.6"/>
+    <path d="M0 -5 L 0 0.5 L 3.5 0.5 Z" fill="#4f5b3f" opacity="0.38"/>
+  </g>
+
+  <path d="M60 165 Q 64 162, 68 165 Q 64 168, 60 165 Z" fill="#4f5b3f" opacity="0.35"/>
+  <path d="M245 170 Q 249 167, 253 170 Q 249 173, 245 170 Z" fill="#4f5b3f" opacity="0.35"/>
+  <path d="M460 168 Q 464 165, 468 168 Q 464 171, 460 168 Z" fill="#4f5b3f" opacity="0.35"/>
+  <path d="M570 170 Q 574 167, 578 170 Q 574 173, 570 170 Z" fill="#4f5b3f" opacity="0.35"/>
+  <path d="M735 168 Q 739 165, 743 168 Q 739 171, 735 168 Z" fill="#4f5b3f" opacity="0.35"/>
+
   <g transform="translate(280 214)">
     <g fill="#e8c15a">
       <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
@@ -57,14 +115,21 @@ const { size = 780 } = Astro.props;
     <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
   </g>
 
-  <circle cx="70" cy="100" r="0.9" fill="#e8c15a"/>
-  <circle cx="120" cy="150" r="0.8" fill="#a4b8c8"/>
-  <circle cx="240" cy="90" r="0.9" fill="#e46b6b"/>
-  <circle cx="310" cy="140" r="0.8" fill="#b899c9"/>
-  <circle cx="480" cy="95" r="0.9" fill="#e8c15a"/>
-  <circle cx="560" cy="140" r="0.8" fill="#e46b6b"/>
-  <circle cx="700" cy="100" r="0.9" fill="#b899c9"/>
-  <circle cx="740" cy="160" r="0.8" fill="#a4b8c8"/>
+  <circle cx="55" cy="60" r="0.9" fill="#e8c15a"/>
+  <circle cx="145" cy="70" r="0.7" fill="#e46b6b"/>
+  <circle cx="235" cy="60" r="0.8" fill="#a4b8c8"/>
+  <circle cx="365" cy="70" r="0.7" fill="#b899c9"/>
+  <circle cx="450" cy="60" r="0.9" fill="#e8c15a"/>
+  <circle cx="565" cy="70" r="0.8" fill="#e46b6b"/>
+  <circle cx="685" cy="60" r="0.7" fill="#b899c9"/>
+  <circle cx="775" cy="70" r="0.9" fill="#e8c15a"/>
+
+  <circle cx="130" cy="155" r="0.7" fill="#e46b6b"/>
+  <circle cx="355" cy="120" r="0.8" fill="#e8c15a"/>
+  <circle cx="440" cy="185" r="0.9" fill="#b899c9"/>
+  <circle cx="580" cy="105" r="0.7" fill="#a4b8c8"/>
+  <circle cx="675" cy="180" r="0.8" fill="#e46b6b"/>
+  <circle cx="750" cy="145" r="0.7" fill="#e8c15a"/>
 </svg>
 <style>
   .bloom { display: block; height: auto; overflow: visible; width: 100%; max-width: 100%; }
