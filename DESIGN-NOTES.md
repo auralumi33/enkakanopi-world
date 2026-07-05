@@ -28,6 +28,17 @@ one-sentence idea each diagram carries (Law 1: one chart, one load).
 10. **Warm surface, rigorous spine** — cream paper + hand + one poppy over a
     strict reading measure, semantic HTML, and a real argument in every essay.
 
+## The paper stays light (standing rule · 2026-07-05)
+The lightness of the paper is identity, not a preference. The garden renders on
+cream in **every** system setting — there is no dark mode, and none should be
+added: a warm-umber variant shipped briefly and was retired the same day
+(Rika's call — it cost the site its sense of lightness; git `f6ccf38` holds it
+if a dusk ever earns its way back). Dark skins are **rooms, deliberately
+entered** — the workshop strip's night tokens are the one dark room in the
+house — never defaults inherited from an OS toggle. Enforced mechanically:
+`npm run guard` fails on any `prefers-color-scheme: dark` in `src/`
+(reduced-motion queries are fine).
+
 ## Tokens (see `src/styles/tokens.css`)
 - **Paper** `#f7f2e7` with a graph-grid at ~0.7px line, very low contrast.
 - **Ink** warm near-black `#2a251d`; two softer greys for hierarchy.

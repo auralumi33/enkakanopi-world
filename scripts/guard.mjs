@@ -11,6 +11,10 @@
  *   2. off-register  — words the garden does not write in (a small, public list
  *                      in guard.words.txt; a private list may be added, untracked,
  *                      in guard.words.local.txt so sensitive terms never ship)
+ *   3. heaviness     — the paper stays light in every setting (LESSON 2,
+ *                      2026-07-05): no dark-mode media-query skins in src/.
+ *                      Dark rooms are deliberate rooms (the workshop strip's
+ *                      night tokens), never defaults inherited from an OS toggle.
  *
  * Exit 0 = clean. Exit 1 = something to look at. No dependencies.
  * Run: `npm run guard`   ·   wired into CI on every push + PR.
@@ -68,6 +72,9 @@ for (const file of walk(ROOT)) {
   text.split("\n").forEach((line, i) => {
     for (const s of SECRETS) if (s.re.test(line)) hits.push({ rel, ln: i + 1, kind: "secret", what: s.name, line: line.trim().slice(0, 100) });
     for (const w of wordRes) if (w.re.test(line)) hits.push({ rel, ln: i + 1, kind: "off-register", what: w.word, line: line.trim().slice(0, 100) });
+    // heaviness — the paper stays light (LESSON 2). Reduced-motion queries are fine.
+    if (rel.startsWith("src") && /prefers-color-scheme\s*:\s*dark/.test(line))
+      hits.push({ rel, ln: i + 1, kind: "heaviness", what: "dark-mode skin (the paper stays light — LESSON 2)", line: line.trim().slice(0, 100) });
   });
 }
 
