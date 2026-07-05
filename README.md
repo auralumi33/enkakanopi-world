@@ -19,4 +19,4 @@ Essays live in `src/content/` as Markdown/MDX, organised by growth stage — *se
 - Design reasoning — [`DESIGN-NOTES.md`](./DESIGN-NOTES.md)
 - How the garden is tended (the note → mirror → grow chain, and the guard) — [`ARCHITECTURE.md`](./ARCHITECTURE.md)
 
-Licensing is split: the **code** is MIT, the **writing and drawings** are CC BY-NC-ND 4.0. See [`LICENSE`](./LICENSE).
+Licensing is split: the **code** is MIT (borrow freely — components, layouts, tokens, build tooling), the **writing and drawings** are CC BY-NC-ND 4.0 (attribution required, non-commercial, no derivatives). See [`LICENSE`](./LICENSE) for the exact line between them, [`CONTRIBUTING.md`](./CONTRIBUTING.md) for what PRs are welcome, and [`SECURITY.md`](./.github/SECURITY.md) for how to report a vulnerability.
