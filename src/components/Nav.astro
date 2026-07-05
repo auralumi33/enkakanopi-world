@@ -1,5 +1,4 @@
 ---
-import Glyph from "./Glyph.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const here = Astro.url.pathname.replace(/\/$/, "");
 
@@ -48,9 +47,60 @@ const isCurrent = (href: string) => {
 const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurrent(l.href));
 ---
 <nav class="nav" aria-label="Primary">
-  <a class="mark" href={base + "/"} aria-label="Enka Kanopi — home">
-    <Glyph name="canopy" size={26} />
-    <span class="word">enka&nbsp;kanopi</span>
+  <a class="mark" href={base + "/"} aria-label="enkakanopi.world — home">
+    <svg class="mark-svg" width="52" height="38" viewBox="0 0 44 32" aria-hidden="true" focusable="false">
+      <path d="M2 8 C 6 3, 12 2, 22 2.5 C 32 2, 38 3, 42 8" fill="none" stroke="#4f5b3f" stroke-width="0.7" stroke-linecap="round"/>
+      <path d="M14 5 L 14.4 6.6 M14.4 4.6 L 14 6.2" stroke="#4f5b3f" stroke-width="0.4" stroke-linecap="round"/>
+      <path d="M30 5 L 30.4 6.6 M30.4 4.6 L 30 6.2" stroke="#4f5b3f" stroke-width="0.4" stroke-linecap="round"/>
+      <g fill="#b899c9">
+        <ellipse cx="8" cy="9.5" rx="1.6" ry="2.4" transform="rotate(-25 8 9.5)"/>
+        <ellipse cx="11" cy="10.5" rx="1.6" ry="2.4" transform="rotate(25 11 10.5)"/>
+        <ellipse cx="9.5" cy="13" rx="1.6" ry="2.4" transform="rotate(90 9.5 13)"/>
+        <ellipse cx="6.5" cy="11.5" rx="1.6" ry="2.4" transform="rotate(70 6.5 11.5)"/>
+      </g>
+      <circle cx="9.5" cy="11" r="0.85" fill="#f7f2e7"/>
+      <path d="M9.5 13.5 L 9.5 22" stroke="#4f5b3f" stroke-width="0.55"/>
+      <path d="M8 18 L 9.5 17 M11 18 L 9.5 17" stroke="#4f5b3f" stroke-width="0.4" fill="none"/>
+      <g fill="#e46b6b">
+        <path d="M22 6 C 23.4 6.1, 23.6 8.4, 22 9.2 C 20.4 8.4, 20.6 6.1, 22 6 Z"/>
+        <path d="M24.7 7 C 25.7 8.2, 24.7 9.8, 23 9.4 C 22.2 8.2, 23.5 6.5, 24.7 7 Z"/>
+        <path d="M23 10.5 C 22.2 11.7, 20.4 11.1, 20.4 9.6 C 21.4 8.8, 23 9.1, 23 10.5 Z"/>
+        <path d="M19.4 10 C 18.4 8.8, 19.2 7.3, 20.6 7.4 C 21.4 8.4, 20.4 10, 19.4 10 Z"/>
+        <path d="M19.2 7 C 20.4 6.5, 21.7 7.7, 21.2 9.3 C 19.7 9.7, 18.7 8.3, 19.2 7 Z"/>
+      </g>
+      <path d="M22 8.5 C 21.5 8, 20.7 8.1, 20.7 8.9 C 20.7 9.7, 22 10.4, 22 10.4 C 22 10.4, 23.3 9.7, 23.3 8.9 C 23.3 8.1, 22.5 8, 22 8.5 Z" fill="#f7f2e7"/>
+      <path d="M22 12 L 22 22" stroke="#4f5b3f" stroke-width="0.6"/>
+      <path d="M20 18 L 22 16.5 M24 18 L 22 16.5" stroke="#4f5b3f" stroke-width="0.4" fill="none"/>
+      <g fill="#a4b8c8">
+        <path d="M36 7 L 37 9.5 L 38.4 8.4 L 37.8 10.6 L 40 10.5 L 38 12 L 40 13.5 L 37.8 13.4 L 38.4 15.6 L 37 14.5 L 36 17 L 35 14.5 L 33.6 15.6 L 34.2 13.4 L 32 13.5 L 34 12 L 32 10.5 L 34.2 10.6 L 33.6 8.4 L 35 9.5 Z"/>
+      </g>
+      <circle cx="36" cy="12" r="0.85" fill="#f7f2e7"/>
+      <path d="M36 17 L 36 22" stroke="#4f5b3f" stroke-width="0.55"/>
+      <path d="M34.5 20 L 36 19 M37.5 20 L 36 19" stroke="#4f5b3f" stroke-width="0.4" fill="none"/>
+      <g fill="#e8c15a">
+        <ellipse cx="15" cy="16" rx="1.1" ry="1.6" transform="rotate(-15 15 16)"/>
+        <ellipse cx="17" cy="15.5" rx="1.1" ry="1.6" transform="rotate(20 17 15.5)"/>
+        <ellipse cx="16" cy="17.5" rx="1.1" ry="1.6" transform="rotate(85 16 17.5)"/>
+      </g>
+      <circle cx="16" cy="16.4" r="0.55" fill="#f7f2e7"/>
+      <path d="M16 18 L 16 22" stroke="#4f5b3f" stroke-width="0.45"/>
+      <g fill="#e8c15a">
+        <ellipse cx="28" cy="16" rx="1.1" ry="1.6" transform="rotate(-15 28 16)"/>
+        <ellipse cx="30" cy="15.5" rx="1.1" ry="1.6" transform="rotate(20 30 15.5)"/>
+        <ellipse cx="29" cy="17.5" rx="1.1" ry="1.6" transform="rotate(85 29 17.5)"/>
+      </g>
+      <circle cx="29" cy="16.4" r="0.55" fill="#f7f2e7"/>
+      <path d="M29 18 L 29 22" stroke="#4f5b3f" stroke-width="0.45"/>
+      <circle cx="5" cy="21" r="0.5" fill="#b899c9"/>
+      <circle cx="12" cy="20.8" r="0.4" fill="#e8c15a"/>
+      <circle cx="19" cy="20.5" r="0.5" fill="#a4b8c8"/>
+      <circle cx="25" cy="20.5" r="0.4" fill="#e8c15a"/>
+      <circle cx="33" cy="20.5" r="0.5" fill="#b899c9"/>
+      <circle cx="39" cy="21" r="0.5" fill="#e46b6b"/>
+      <path d="M3.5 22 C 3.3 24, 3.4 25.6, 3.7 26.5 L 40.3 26.5 C 40.6 25.6, 40.7 24, 40.5 22 C 30 21.5, 14 21.5, 3.5 22 Z" fill="#4f5b3f"/>
+      <path d="M4.5 24 L 39.5 24" stroke="#f7f2e7" stroke-width="0.3" opacity="0.4"/>
+    </svg>
+    <span class="word">enkakanopi.world</span>
   </a>
 
   <div class="rooms">
@@ -117,11 +167,13 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     padding: 1.4rem var(--gutter) 0.9rem;
   }
   .mark {
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    display: inline-flex; align-items: center; gap: 0.55rem;
     text-decoration: none; margin-right: auto;
     font-size: 1.15rem; letter-spacing: 0.01em;
+    color: var(--ink);
   }
-  .mark .word { font-variant: small-caps; letter-spacing: 0.06em; }
+  .mark-svg { flex: 0 0 auto; display: block; }
+  .mark .word { letter-spacing: 0; text-transform: lowercase; }
 
   /* ── desktop: the clusters, open ─────────────────────────────── */
   .rooms { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; }
