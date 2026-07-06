@@ -15,7 +15,7 @@
     "shots": "node scripts/shoot.mjs ./_shots http://localhost:4173"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.2.3",
+    "@astrojs/mdx": "^6.0.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@vercel/analytics": "^2.0.1",
