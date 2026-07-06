@@ -64,6 +64,39 @@ A dependency-free check any hand or assist must pass before a commit lands:
 It runs in CI on every push and PR ([`.github/workflows/build.yml`](./.github/workflows/build.yml)),
 and inside `npm run verify` (guard → type-check → build).
 
+## The pre-push guard — last line before GitHub
+
+A local git `pre-push` hook runs every time `git push` is invoked. It is the
+belt-and-braces layer under `.gitignore` + `guard.mjs`: authoring guards catch
+what's on disk right now; the pre-push hook catches what's in *history*.
+
+Two checks, both must pass:
+
+1. **`npm run guard`** on the working tree — same source of truth authoring uses.
+2. **Push-range commit scan** — every commit in `<remote>..<local>` is inspected;
+   if any file at any commit in the range contains a word from
+   [`guard.words.txt`](./guard.words.txt) or the untracked
+   `guard.words.local.txt`, the push is blocked with a `commit:file:line` report.
+
+The hook does not run on `git fetch` or `git commit` — pre-push only.
+
+Files:
+
+- [`tools/pre-push.sh`](./tools/pre-push.sh) — the committed mirror (source of truth).
+- [`scripts/install-hooks.sh`](./scripts/install-hooks.sh) — one-line installer that
+  copies the mirror into `.git/hooks/pre-push` and marks it executable.
+- `.git/hooks/pre-push` — the active hook (untracked; `.git/` is per-clone).
+
+Re-install after a fresh clone / worktree / hook-clear:
+
+```
+bash scripts/install-hooks.sh
+```
+
+Do **not** bypass with `--no-verify` — that's exactly what the layer exists to
+catch. If the hook flags a real historical exposure, follow the history-rewrite
+runbook in `.claude/skills/enka-airlock-firewall/SKILL.md`.
+
 ## Portability
 
 Each assist is meant to be a self-contained system prompt, so the tending layer
@@ -81,6 +114,8 @@ src/
   layouts/            Base + Essay
   pages/              the six surfaces
   styles/             tokens (Charts & Crafts) + global
-scripts/guard.mjs     the mechanical mirror
-notes/inbox/          raw notes (untracked) — the only origin of a piece
+scripts/guard.mjs           the mechanical mirror
+scripts/install-hooks.sh    installs .git/hooks/pre-push from tools/pre-push.sh
+tools/pre-push.sh           the committed pre-push hook (mirror + push-range scan)
+notes/inbox/                raw notes (untracked) — the only origin of a piece
 ```
