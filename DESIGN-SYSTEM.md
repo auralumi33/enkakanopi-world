@@ -70,6 +70,19 @@ language, use the names:
 - **The garden's growth stages** — `--seedling` · `--budding` ·
   `--evergreen` — the tokens for essay maturity (Maggie-Appleton lineage,
   re-tinted).
+- **The correspondence rail** — the one-door-two-anchors pattern
+  behind every essay. A foot-of-essay prose line (the voice, on the
+  earned spot) plus a persistent faint rail word in the site footer
+  (the findability, everywhere), both pointing at the same `mailto:`.
+  Canonical foot-line copy: *"If something here found you — the garden
+  keeps a line open — say hello@enkakanopi.world."* Canonical rail
+  word: `correspondence`.
+- **The maker's-mark seal** — a hand-pressed poppy-red wax mark
+  (subtly irregular; the irregularity is the handcraft) + a tiny
+  serif caption in the Margiela REPLICA provenance grammar (place ·
+  period · hand). Canonical form: *"the garden · summer 07/ 2026 ·
+  tended by Fang Rika ·"*. Opt-in per essay via frontmatter
+  `seal: boolean`.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
@@ -103,6 +116,8 @@ The tables below are the human-readable mirror; if there's a mismatch,
 | `--poppy-wash` | `#f4e0da` | The faintest fill (selection) |
 | `--bloom` | `#cf4a45` | Same as poppy — the botanical name for the accent |
 | `--bloom-deep` | `#a83731` | Its shadow petal |
+| `--seal` | `var(--poppy)` | Alias — the maker's-mark seal (essay-foot wax mark); held for provenance |
+| `--seal-size` | `1.15rem` | The seal's rendered size — a small pressed mark, never a badge |
 
 ### Canopy (the structural green)
 
