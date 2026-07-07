@@ -107,7 +107,10 @@ language, use the names:
   opacity, negative space is the star. Two ground variants: cream skin
   (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
   night skin (`--night-ink` + `--gold` accents, for the workshop dark
-  ground only). Vocabulary base (18 marks shipped, extensible per
+  ground only). Vocabulary base (18 marks shipped · plus a
+  scene-motif hybrid layer of 9 essay-specific scenes commissioned in
+  §26, blending Marimekko silhouettes with the fine-line register —
+  see the *Scene-motif hybrid layer* note below · extensible per
   essay): cream skin main register (hairline 0.85) — MoonCrescent ·
   VineTrail · ScriptHeart · Greenhouse · BenchTending · PlaceNotFunnel
   · InCompany · FictionFold · WorkspaceRoom · WhiteBear · MergingSeam.
@@ -124,6 +127,23 @@ language, use the names:
   concept illustrations that carry a paragraph-scale gesture (above
   or below the phrase anchor, centered wrapper, aria-hidden).
   Extend per essay as narratives require.
+- **Scene-motif hybrid layer** (SUCCESSION §26) — larger essay-scale
+  scene illustrations that BLEND the pastel Marimekko motif palette
+  (soft bloom silhouettes, ground-planes, canopy shapes at 0.68–0.75
+  opacity in the four canonical colours: lavender `#b899c9` · coral
+  `#e46b6b` · gold `#e8c15a` · slate `#a4b8c8`) with the fine-line
+  calligraphic + tattoo-flash register (hairline 0.55–0.85 stroke
+  overlays · dashed tangents · script-heart curves · sparkle glyphs
+  · Caveat hand-labels via the global `.hand-label` classes). Same
+  discipline as the home's `CanopyScene`, per-essay. Delivered as
+  reusable components in `src/components/motifs/Scene*.astro`, each
+  wrapped in a `.scene-hybrid` figure (max-width 40rem · svg
+  responsive · role="img" with title-element for a11y).
+  Nine shipped in §26: SceneShelfOfImpossible · SceneRearrangedRoom ·
+  SceneWarningAndMirror (Prologue); SceneRoomAtMiddleDepths ·
+  SceneInsideLife · SceneAsymptote (Silent Workspace); SceneBearAtEdge ·
+  SceneFourGrounds · SceneInBetweenRoom (White Bear). ≥3 per essay
+  is the shipping floor for load-bearing pieces; extend as needed.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
