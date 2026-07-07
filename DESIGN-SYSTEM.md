@@ -167,6 +167,36 @@ language, use the names:
   Louise Bourgeois's signed missing-piece card + wax seal, SiSi's
   laundry-tag micrographics, the internal Versions-of-Me node-and-
   edge + braided-current + verdict-vs-landings diagrams.
+- **The 円花 keystone mark** (`MotifEnkaEnso`, SUCCESSION §28) — the
+  definitive brand-voice motif. A hand-brushed ensō circle (the 円
+  of 円花) with the character 円 whispered at centre (serif, 0.38
+  opacity — a mark, not a label). Above the character, the 花 (flower)
+  is held on hairline stems + two canopy-soft leaves + a coral poppy
+  bloom — the flower held inside the circle. Four whispered orbit
+  dots at cardinal points in the site's canonical four colours mark
+  the four grounds/seasons/directions the circle holds. Reserved for
+  the Colophon (top + closing keystone) and the site's most load-
+  bearing brand surfaces. One gesture holding both halves of 円花.
+- **Scene-motif hybrid layer** now numbers **15 hybrid scenes**
+  (was 9, plus §28's six new Workbench + Body-spine scenes): the
+  original nine (redrawn in §27 with narrative object-poetry) plus
+  six new middleground-register scenes for the other rooms — Body-
+  spine's SceneSpineAsSentence (vertebrae as punctuation marks in a
+  calligraphic sentence-curve), SceneSafeFall (braced-vs-safe fall
+  side-by-side), SceneBodyTides (hairline horizon + tidal curves +
+  hand-drawn boats + shell); Workbench's SceneShapeAndCrack
+  (kintsugi bowl mended in gold, held in hairline hands),
+  SceneLittleKit (six primitives in a workbench tray + hand-caveat
+  ampersand), SceneHandsBegin (two hands cup unshaped clay, brain
+  told to wait, bloom beginning below). §28 also softened three
+  §27 scenes flagged as too rigid: SceneFourGrounds's mechanical ×
+  crosses became hand-drawn wobbly single-stroke slashes;
+  SceneRoomAtMiddleDepths's medical-diagnostic keyhole became a
+  hand-brushed ensō opening; SceneAsymptote's mechanical caliper
+  became a soft two-stroke hairline gesture. Middleground register
+  codified: dainty, feminine, hand-drawn organic craft; retain
+  colours + daintiness but with tenderness that amplifies the
+  garden rather than reading as messy haphazard sparkles.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
