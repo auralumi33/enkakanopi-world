@@ -1,0 +1,30 @@
+---
+/**
+ * The curve kept — memoria layer (cream skin peppering).
+ * A soft hairline curve with a tangent line kissing it at one point,
+ * a poppy-soft accent dot at the contact + small scatter dots along
+ * the divergence. Reads: "we arrive at legibility not by becoming
+ * linear, but by loving the curve enough to know where the tangent
+ * leaves it." SUCCESSION §25 · Nursery breather.
+ * Daintier tattoo-flash register — hairline 0.55, ornamental scatter.
+ */
+interface Props { size?: number; }
+const { size = 96 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 60" aria-hidden="true">
+  {/* the curve — a slow round rise then hold */}
+  <path d="M6 46 C 18 46, 32 40, 44 30 C 56 20, 72 14, 94 12"
+    stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.72"/>
+  {/* the tangent — a straight fine line that touches once and leaves */}
+  <path d="M18 50 L 70 12"
+    stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1.2 1.6" opacity="0.55"/>
+  {/* the kiss — where the tangent touches the curve */}
+  <circle cx="44" cy="30" r="1.1" fill="var(--poppy-soft)" opacity="0.9"/>
+  {/* the diverging scatter — the wobble the ruler couldn't hold */}
+  <circle cx="30" cy="42" r="0.35" fill="var(--ink-soft)" opacity="0.55"/>
+  <circle cx="58" cy="26" r="0.4" fill="var(--ink-soft)" opacity="0.6"/>
+  <circle cx="72" cy="22" r="0.3" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="86" cy="16" r="0.4" fill="var(--ink-soft)" opacity="0.6"/>
+  {/* a small hairline tick at the far kiss — the moment of divergence */}
+  <path d="M52 26 L 54 24" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.55"/>
+</svg>

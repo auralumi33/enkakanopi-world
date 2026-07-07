@@ -1,0 +1,27 @@
+---
+/**
+ * The fine-line star — memoria layer (cream skin peppering).
+ * A small 5-point fine-line star (tattoo-flash discipline) with a
+ * tiny gold accent, ornamental sparkle marks scattered nearby, and
+ * a poppy-soft satellite dot. Reads: "a small wish · a rearranged
+ * room." Used as an inter-paragraph breather across the field-notes.
+ * SUCCESSION §25 · essay breather (tattoo-flash register).
+ */
+interface Props { size?: number; }
+const { size = 60 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 60 60" aria-hidden="true">
+  {/* the star — 5 fine-line points, one continuous stroke */}
+  <path d="M30 12 L 33.5 24 L 46 24 L 36 31.5 L 39.5 43.5 L 30 36 L 20.5 43.5 L 24 31.5 L 14 24 L 26.5 24 Z"
+    stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linejoin="round" opacity="0.72"/>
+  {/* the gold center dot — a small wish */}
+  <circle cx="30" cy="29" r="0.8" fill="#e8c15a" opacity="0.85"/>
+  {/* tiny sparkle marks — small cross-plus glyphs */}
+  <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.55">
+    <path d="M10 14 L 12 14 M11 13 L 11 15"/>
+    <path d="M50 16 L 51.4 16 M50.7 15.3 L 50.7 16.7"/>
+    <path d="M48 46 L 49.6 46 M48.8 45.2 L 48.8 46.8"/>
+  </g>
+  {/* the poppy satellite dot */}
+  <circle cx="14" cy="46" r="0.9" fill="var(--poppy-soft)" opacity="0.85"/>
+</svg>

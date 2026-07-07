@@ -5,6 +5,10 @@ import Glyph from "../components/Glyph.astro";
 import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astro";
 import MotifWorkbench from "../components/motifs/MotifWorkbench.astro";
 import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
+import TheFirstApproximation from "../components/motifs/memoria/TheFirstApproximation.astro";
+import ScriptHeart from "../components/motifs/memoria/ScriptHeart.astro";
+import FineLineStar from "../components/motifs/memoria/FineLineStar.astro";
+import VineTrail from "../components/motifs/memoria/VineTrail.astro";
 
 // The wall's hanging order — flagship first; anything new hangs after.
 const hang = ["the-tension-sketches", "the-glyph-kit", "the-mechanical-mirror", "the-chain-strip"];
@@ -53,13 +57,42 @@ const pieces = await Promise.all(
     <h1>The Studio</h1>
     <p class="lede">
       The making, shown — each piece hangs with its working note: material,
-      constraint, tally. Every piece here is a first-order approximation of
-      what it was trying to be; the practice is to make the approximation and
-      then find its edge, to retrain the ruler by loving the curve. Process
-      over product; what you see is what was actually made, counted as it
-      happened.
+      constraint, tally.
     </p>
+
+    <div class="breather" aria-hidden="true">
+      <FineLineStar size={54} />
+    </div>
+
+    <p class="lede">
+      Every piece here is a first-order approximation of what it was trying
+      to be; the practice is to make the approximation and then find its
+      edge, to retrain the ruler by loving the curve.
+    </p>
+
+    <div class="breather" aria-hidden="true">
+      <TheFirstApproximation size={112} />
+    </div>
+
+    <p class="lede">
+      Process over product; what you see is what was actually made, counted
+      as it happened.
+    </p>
+
+    <p class="pull" aria-label="A phrase held apart">
+      make the approximation, then find its edge.<br/>
+      retrain the ruler by loving the curve.
+    </p>
+
+    <div class="breather" aria-hidden="true">
+      <ScriptHeart size={54} />
+    </div>
+
     <p class="handnote" aria-label="A note in the margin">the tally starts now — honest counts, no invented histories. the wobble is the truth the ruler couldn't hold.</p>
+
+    <div class="breather-wide" aria-hidden="true">
+      <VineTrail size={220} />
+    </div>
     <div class="apprentice" aria-hidden="true">
       <MotifApprenticeBench size={280} />
     </div>
@@ -114,6 +147,17 @@ const pieces = await Promise.all(
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
   .handnote { font-family: var(--hand); font-size: 1.3rem; color: var(--canopy-deep); margin-top: 1.2rem; }
+  /* memoria breathers — fine-line spacers between paragraphs (SUCCESSION §25) */
+  .breather { display: flex; justify-content: center; margin: 1.4rem 0; opacity: 0.88; }
+  .breather :global(svg) { max-width: 100%; height: auto; }
+  .breather-wide { display: flex; justify-content: center; margin: 1.8rem 0 0.4rem; opacity: 0.85; }
+  .breather-wide :global(svg) { max-width: 100%; height: auto; }
+  /* the pull — a phrase held apart, calligraphic */
+  .pull {
+    font-family: var(--hand); font-size: 1.4rem; color: var(--canopy-deep);
+    text-align: center; margin: 1.4rem auto 0.4rem; max-width: 42ch; line-height: 1.4;
+  }
+  @media (max-width: 32rem) { .pull { font-size: 1.5rem; } }
   /* apprentice bench — the co-creation register threaded through Studio (SUCCESSION §19) */
   .apprentice { display: flex; justify-content: center; margin: 1.2rem 0 0; opacity: 0.94; }
   .apprentice :global(svg) { max-width: 100%; height: auto; }

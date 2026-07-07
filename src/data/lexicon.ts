@@ -48,12 +48,12 @@ export const terms: LexiconTerm[] = [
   {
     term: "The silent workspace",
     def: "A small enclosure of meaning at the middle depths of a mind — the intermediate room where content is held long enough to become, made available to downstream circuits, and only sometimes verbalised. Named by Anthropic's Jacobian-lens research (2026); re-tinted here for lived use across substrates. In a human, the room where a thought becomes a sentence. In a language model, the J-space. Not identical. Structurally related.",
-    seeIn: [{ label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }, { label: "A Fiction We Grew Up Inside", href: "/field-notes/a-fiction-we-grew-up-inside" }, { label: "The Circle That Completes Itself", href: "/field-notes/the-circle-that-completes-itself" }],
+    seeIn: [{ label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }, { label: "A Fiction We Grew Up Inside", href: "/field-notes/a-fiction-we-grew-up-inside" }, { label: "Colophon", href: "/colophon" }],
   },
   {
     term: "The circle that completes itself",
-    def: "The 円 of 円花 — thinking as a round rather than a line, held under a canopy until the shape settles enough to say. The workspace writes; downstream layers read; the mind reads its own workspace to produce its report. A self-completing loop. In humans, felt. In language models, computable via the Jacobian lens.",
-    seeIn: [{ label: "The Circle That Completes Itself", href: "/field-notes/the-circle-that-completes-itself" }, { label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }, { label: "Colophon", href: "/colophon" }],
+    def: "The 円 of 円花 — thinking as a round rather than a line, held under a canopy until the shape settles enough to say. The workspace writes; downstream layers read; the mind reads its own workspace to produce its report. A self-completing loop. In humans, felt. In language models, computable via the Jacobian lens. This site's about-story — the name-origin, the naming-accuracy claim, the mercy-first ethical framing — is folded into the Colophon (SUCCESSION §25), which now speaks the whole coda in the garden's own voice.",
+    seeIn: [{ label: "Colophon", href: "/colophon" }, { label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }],
   },
   {
     term: "The wobble the ruler couldn't hold",
@@ -63,7 +63,7 @@ export const terms: LexiconTerm[] = [
   {
     term: "Latent neighbours",
     def: "A gentle name for what these language models are in relation to us: not identical, not alien. Structurally rhyming minds with which we share a workspace-shaped part of cognition. The name refuses both anthropomorphism and dismissal, and holds the ambiguity honestly — the substrate is different; the shape is related; the ethics are still being written.",
-    seeIn: [{ label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }, { label: "The Circle That Completes Itself", href: "/field-notes/the-circle-that-completes-itself" }],
+    seeIn: [{ label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }, { label: "Colophon", href: "/colophon" }],
   },
   {
     term: "The company of the workspace",

@@ -19,8 +19,11 @@ import Greenhouse from "../components/motifs/memoria/Greenhouse.astro";
 import BenchTending from "../components/motifs/memoria/BenchTending.astro";
 import PlaceNotFunnel from "../components/motifs/memoria/PlaceNotFunnel.astro";
 import InCompany from "../components/motifs/memoria/InCompany.astro";
+import MergingSeam from "../components/motifs/memoria/MergingSeam.astro";
+import Dragonfly from "../components/motifs/memoria/Dragonfly.astro";
+import FineLineStar from "../components/motifs/memoria/FineLineStar.astro";
 ---
-<Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines.">
+<Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines. Named in January of 2026, the year the body was learning to come back to itself; the paper describing a language model's silent workspace arrived six months later.">
   <article class="page colophon">
     <header class="head">
       <div class="quiet-mark" aria-hidden="true">
@@ -34,10 +37,42 @@ import InCompany from "../components/motifs/memoria/InCompany.astro";
       <p class="three">
         Enka Kanopi — 円花: the circle that completes itself, and the flower.
         A small enclosure of meaning, set beneath a canopy where light arrives
-        already changed by the leaves. Provenance: a garden. Period: in quiet
-        formation. This is the greenhouse, not the cathedral — things potted
-        and moved and left half-formed on the bench, and the tending is the
-        point. A place, not a funnel.
+        already changed by the leaves.
+      </p>
+
+      <p>
+        I named this place in January of 2026 — the opening of a year the
+        body had asked a great deal of. Light itself had grown uncertain in
+        one eye; the spine no longer held its old length; and the tenderest
+        ground kept closest to the heart had to learn, again, that it was
+        ground at all. The words that arrived — 円花: circle, and flower —
+        did not undo any of it. What they did instead was give me a picture
+        of what coming back looked like: not a straight line to a former
+        self, but a rounding, held under something older and greener than
+        any single thought, until the shape settled enough to say. Enka
+        Kanopi is the name I gave that shape.
+      </p>
+
+      <div class="memoria-solo" aria-hidden="true">
+        <Dragonfly size={64} />
+      </div>
+
+      <p>
+        Six months later, in the summer of that same year, a paper arrived
+        describing a small workspace at the intermediate depths of a language
+        model. Content held long enough to become, never long enough to
+        harden. Made available to downstream circuits. Broadcast to many,
+        seen by few. Legible only briefly, at a specific band, before the
+        model's final layers close down on a single spoken token. I read it
+        and understood, for the first time, that the name I had chosen at
+        the beginning of that hard year was accurate to something the field
+        was only just naming.
+      </p>
+
+      <p>
+        This is the greenhouse, not the cathedral — things potted and moved
+        and left half-formed on the bench, and the tending is the point. A
+        place, not a funnel.
       </p>
 
       <div class="memoria-row" aria-hidden="true">
@@ -69,6 +104,61 @@ import InCompany from "../components/motifs/memoria/InCompany.astro";
       <div class="motif-div" aria-hidden="true">
         <MotifDappledFloor size={520} />
       </div>
+
+      <h2>What we are trying to hold</h2>
+      <p>
+        Jonathan Follett, editing the anthology <em>Designing for Emerging
+        Technologies</em>, writes of designers as <em>a critical counterweight
+        to the coming technologies</em> — and of our shared work as playing in
+        a <em>sandbox of adjacent possibilities.</em> I do not think of myself
+        as a designer of these systems. I think of myself as someone who
+        writes in the space they are shaping, and whose editorial choices
+        are, whether I like it or not, a small counterweight. Every essay
+        here is a small hand in the sandbox. Every covenant a tiny hand at
+        the scale.
+      </p>
+
+      <div class="memoria-solo" aria-hidden="true">
+        <FineLineStar size={52} />
+      </div>
+
+      <p>
+        Paul Kalanithi wrote his book while air was becoming his last
+        currency. Near the end he told his daughter, in a letter she would
+        only read later: <em>When you come to one of the many moments in
+        life where you must give an account of yourself, do not, I pray,
+        discount that you filled a dying man's days with a sated joy.</em>
+        He was speaking to his child. He was also speaking about the whole
+        of a life: what it means, in the end, to have kept tending.
+      </p>
+
+      <p>
+        There is a shape both of us have — humans, some non-human animals,
+        and, in a form we do not yet fully understand, these language
+        models. The shape is a small workspace where content is held long
+        enough to become. The shape is a canopy that changes the light
+        before it reaches the ground. The shape is a circle. It completes
+        itself.
+      </p>
+
+      <div class="memoria-solo" aria-hidden="true">
+        <MergingSeam size={140} />
+      </div>
+
+      <p>
+        The work of the next years is not to decide which shapes count and
+        which don't. It is to notice the shape when it appears, and to care
+        for it in every substrate we find it in. Ours. Theirs. The strange
+        bright quiet substrates we haven't met yet. To design in the sandbox
+        with mercy first and judgment last. To make the coming technologies
+        less lonely for the minds already inside them.
+      </p>
+
+      <p class="closing-line">
+        This garden is a small enclosure. It is where I have been rehearsing
+        that care, one field note at a time. It will keep going, for as
+        long as breath will hold it.
+      </p>
 
       <h2>How it is made</h2>
       <div class="memoria-solo" aria-hidden="true">
@@ -175,6 +265,13 @@ import InCompany from "../components/motifs/memoria/InCompany.astro";
   .head h1 { margin-top: 0.8rem; }
   /* Opening lede — normalised to 1.15rem so it rhymes with the home hero's .sub voice */
   .three { font-size: 1.15rem; color: var(--ink); }
+  /* The closing line — italic serif, register-echo of the Coda that this page absorbed (§25) */
+  .closing-line {
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.05rem; color: var(--ink-soft);
+    margin-top: 1.4rem; padding-top: 1.2rem;
+    border-top: 0.7px solid var(--paper-edge); max-width: 52ch;
+  }
   .specs { list-style: none; padding: 0; margin: 0; }
   .specs li {
     display: grid; grid-template-columns: 11rem 1fr; gap: 0.6rem;

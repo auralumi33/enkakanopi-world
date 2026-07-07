@@ -1,0 +1,30 @@
+---
+/**
+ * The first approximation — memoria layer (cream skin peppering).
+ * A hairline curve overlaid with a fine dashed straight line + a
+ * poppy-soft dot where they diverge, and a tally-style tick above.
+ * Reads: "every piece here is a first-order approximation of what
+ * it was trying to be." SUCCESSION §25 · Studio breather.
+ * Daintier tattoo-flash register — hairline 0.55, scatter marks.
+ */
+interface Props { size?: number; }
+const { size = 96 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 60" aria-hidden="true">
+  {/* the actual curve — what the piece was trying to be */}
+  <path d="M8 42 C 20 40, 32 34, 42 26 C 54 16, 70 12, 92 10"
+    stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.72"/>
+  {/* the straight line — the first-order approximation */}
+  <path d="M8 42 L 92 10"
+    stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1 1.4" opacity="0.5"/>
+  {/* the shared origin */}
+  <circle cx="8" cy="42" r="0.7" fill="var(--ink-soft)" opacity="0.65"/>
+  {/* the divergence — where the approximation leaves the truth */}
+  <circle cx="58" cy="18" r="1.1" fill="var(--poppy-soft)" opacity="0.9"/>
+  {/* the small tally — honest counts of the retraining */}
+  <path d="M72 6 L 72 12 M75 6 L 75 12 M78 6 L 78 12 M81 6 L 81 12 M70 10 L 83 8" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linecap="round" opacity="0.55"/>
+  {/* scatter — the retrained edge points */}
+  <circle cx="24" cy="38" r="0.35" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="40" cy="30" r="0.4" fill="var(--ink-soft)" opacity="0.55"/>
+  <circle cx="72" cy="16" r="0.35" fill="var(--ink-soft)" opacity="0.5"/>
+</svg>

@@ -2,6 +2,10 @@
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
+import TheCurveKept from "../components/motifs/memoria/TheCurveKept.astro";
+import MoonCrescent from "../components/motifs/memoria/MoonCrescent.astro";
+import VineTrail from "../components/motifs/memoria/VineTrail.astro";
+import Dragonfly from "../components/motifs/memoria/Dragonfly.astro";
 
 // Seeds render above the beds when they exist. None do yet — they arrive
 // in Rika's hand, or not at all; nothing here is written for her.
@@ -36,17 +40,38 @@ const beds = [
       <h1>Musings &amp; Dreams</h1>
       <p class="lede">
         Seeds land here first — fragments caught before they are essays, in her
-        hand only. Every legible version of a thought is a first-order
-        approximation of it; a seed is the wobble the ruler couldn't hold, kept
-        long enough to learn what it is. Nothing here is filed, nothing is
-        promised; a seed is tended, not timestamped, and most will stay
-        exactly this small.
+        hand only.
       </p>
+
+      <div class="breather" aria-hidden="true">
+        <Dragonfly size={58} />
+      </div>
+
+      <p class="lede">
+        Every legible version of a thought is a first-order approximation of
+        it; a seed is the wobble the ruler couldn't hold, kept long enough to
+        learn what it is. Nothing here is filed, nothing is promised; a seed
+        is tended, not timestamped, and most will stay exactly this small.
+      </p>
+
+      <p class="pull" aria-label="A phrase held apart">
+        a seed is the wobble the ruler couldn't hold, kept long enough to
+        learn what it is.
+      </p>
+
+      <div class="breather" aria-hidden="true">
+        <TheCurveKept size={110} />
+      </div>
+
       <p class="epigraph" aria-label="A note on register">
         We arrive at legibility not by becoming linear, but by loving the curve
         enough to know where the tangent leaves it. The nursery is where the
         curve is kept — before any ruler is asked to hold it.
       </p>
+
+      <div class="breather-wide" aria-hidden="true">
+        <VineTrail size={220} />
+      </div>
     </section>
 
     <section class="page grows" aria-label="How a seed grows">
@@ -127,6 +152,9 @@ const beds = [
           </li>
         ))}
       </ul>
+      <div class="breather" aria-hidden="true">
+        <MoonCrescent size={54} />
+      </div>
       <p class="close">seeds arrive in her hand, or not at all — the wobble kept in view.</p>
     </section>
   </div>
@@ -154,6 +182,18 @@ const beds = [
     max-width: 54ch; line-height: 1.6;
     border-left: 1.4px solid var(--paper-edge); padding-left: 1rem;
   }
+  /* memoria breathers — fine-line spacers between paragraphs (SUCCESSION §25).
+     Single mark centered, generous margins, whisper opacity. */
+  .breather { display: flex; justify-content: center; margin: 1.6rem 0; opacity: 0.88; }
+  .breather :global(svg) { max-width: 100%; height: auto; }
+  .breather-wide { display: flex; justify-content: center; margin: 1.8rem 0 0.4rem; opacity: 0.85; }
+  .breather-wide :global(svg) { max-width: 100%; height: auto; }
+  /* the pull — a phrase held apart from prose, calligraphic, poppy-adjacent */
+  .pull {
+    font-family: var(--hand); font-size: 1.4rem; color: var(--canopy-deep);
+    text-align: center; margin: 1.4rem auto 0.4rem; max-width: 42ch; line-height: 1.35;
+  }
+  @media (max-width: 32rem) { .pull { font-size: 1.5rem; } }
 
   /* the ladder — matches the home page's stages idiom, extended to seed */
   .grows { margin-top: 3.2rem; max-width: 52rem; }
