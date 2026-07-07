@@ -1,0 +1,21 @@
+---
+/**
+ * The script heart — memoria layer (cream skin peppering).
+ * A calligraphic flowing curve that leads into a tiny poppy-soft heart
+ * and continues as a flourish tail. Reads: "a name signed quietly."
+ * From the fine-line calligraphic vocabulary (SUCCESSION §20 · the
+ * memoria layer). Small — designed to sit as a signature mark near the
+ * volume-i archive band.
+ */
+interface Props { size?: number; }
+const { size = 44 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 60 60" aria-hidden="true">
+  <path d="M8 34 C 14 32, 20 30, 24 28 C 30 26, 34 30, 32 34"
+    stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M32 34 C 30 32, 28 33, 28 35 C 28 37, 32 39, 32 39 C 32 39, 36 37, 36 35 C 36 33, 34 32, 32 34 Z"
+    fill="var(--poppy-soft)" opacity="0.85"/>
+  <path d="M36 36 C 42 36, 48 32, 52 26"
+    stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.65"/>
+  <path d="M48 32 C 50 30, 52 28, 52 26" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.55"/>
+</svg>

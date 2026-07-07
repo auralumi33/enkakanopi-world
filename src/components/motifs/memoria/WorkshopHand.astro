@@ -1,0 +1,35 @@
+---
+/**
+ * The tending hand — memoria layer (night skin variant).
+ * A fine-line hand holding a small sprig with a gold bud at the tip.
+ * Reads: "kept by a human hand." Sits in the workshop dark ground next
+ * to the display headline. Palette shifts to night-skin: --night-ink
+ * primary hairline, --gold accent. From the fine-line award-restraint
+ * vocabulary (SUCCESSION §20 · the memoria layer · night-skin variant).
+ */
+interface Props { size?: number; }
+const { size = 96 } = Astro.props;
+const h = Math.round(size * 100 / 120);
+---
+<svg width={size} height={h} viewBox="0 0 120 100" aria-hidden="true">
+  <!-- palm curve -->
+  <path d="M30 82 C 26 70, 30 58, 40 54" stroke="var(--night-ink)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.82"/>
+  <!-- fingers (open, holding) -->
+  <path d="M40 54 C 42 46, 46 42, 46 34" stroke="var(--night-ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M46 52 C 52 44, 54 38, 54 30" stroke="var(--night-ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M52 52 C 60 46, 62 40, 62 32" stroke="var(--night-ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M58 54 C 66 50, 68 46, 68 40" stroke="var(--night-ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <!-- palm heel -->
+  <path d="M30 82 C 40 84, 54 82, 60 78 C 66 74, 62 62, 58 54" stroke="var(--night-ink)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.82"/>
+  <!-- wrist -->
+  <path d="M28 82 C 28 88, 30 94, 34 96" stroke="var(--night-ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <!-- sprig held in the palm's space -->
+  <path d="M70 48 L70 26" stroke="var(--night-ink)" stroke-width="0.7" stroke-linecap="round" opacity="0.75"/>
+  <path d="M70 38 C 64 36, 62 38, 64 42 C 68 43, 70 40, 70 38 Z" stroke="var(--night-ink)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M70 30 C 76 28, 78 30, 76 34 C 72 35, 70 32, 70 30 Z" stroke="var(--night-ink)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <!-- gold bud at sprig tip -->
+  <circle cx="70" cy="22" r="1.6" fill="var(--gold)" opacity="0.92"/>
+  <!-- tiny breath dots -->
+  <circle cx="88" cy="26" r="0.6" fill="var(--night-ink)" opacity="0.6"/>
+  <circle cx="92" cy="34" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+</svg>

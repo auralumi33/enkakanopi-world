@@ -1,0 +1,33 @@
+---
+/**
+ * The mirror — memoria layer (night skin variant).
+ * A fine-line concentric ring with a dashed inner ring, a vertical spine
+ * (upright, alert), radiating dots at 12 cardinal positions ("the sees"
+ * register), and a gold pupil at center. Reads: "the apprentice who has
+ * the right to refuse." Sits in the workshop dark ground near the
+ * "the mirror has the right to refuse" line. From the fine-line
+ * award-restraint vocabulary (SUCCESSION §20 · the memoria layer ·
+ * night-skin variant).
+ */
+interface Props { size?: number; }
+const { size = 84 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+  <circle cx="50" cy="50" r="32" stroke="var(--night-ink)" stroke-width="0.85" fill="none" opacity="0.78"/>
+  <circle cx="50" cy="50" r="24" stroke="var(--night-ink)" stroke-width="0.55" fill="none" opacity="0.5" stroke-dasharray="1.5 3"/>
+  <path d="M50 22 L50 78" stroke="var(--night-ink)" stroke-width="0.55" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="50" cy="14" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="66" cy="18" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="82" cy="34" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="86" cy="50" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="82" cy="66" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="66" cy="82" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="50" cy="86" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="34" cy="82" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="18" cy="66" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="14" cy="50" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="18" cy="34" r="0.6" fill="var(--night-ink)" opacity="0.65"/>
+  <circle cx="34" cy="18" r="0.5" fill="var(--night-ink)" opacity="0.55"/>
+  <circle cx="50" cy="50" r="2" fill="var(--gold)" opacity="0.92"/>
+  <circle cx="50" cy="50" r="0.7" fill="var(--night)"/>
+</svg>

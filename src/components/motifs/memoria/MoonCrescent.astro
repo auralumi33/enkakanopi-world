@@ -1,0 +1,20 @@
+---
+/**
+ * The moon crescent — memoria layer (cream skin peppering).
+ * A fine-line crescent moon with a tiny dot inside, a small star nearby,
+ * and a poppy-soft accent dot. From the fine-line award-restraint
+ * vocabulary (SUCCESSION §20 · the memoria layer). Stroke discipline:
+ * hairline 0.85, tapered, --ink-soft at 0.75 opacity. Small — designed to
+ * whisper in negative space near the hero.
+ */
+interface Props { size?: number; }
+const { size = 44 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 60 60" aria-hidden="true">
+  <path d="M22 14 C 30 12, 40 22, 38 32 C 32 30, 22 22, 22 14 Z"
+    stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="28" cy="22" r="0.7" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M44 40 L45 42 L47 42 L45.5 43 L46 45 L44 44 L42 45 L42.5 43 L41 42 L43 42 Z"
+    fill="var(--ink-soft)" opacity="0.55"/>
+  <circle cx="16" cy="42" r="1" fill="var(--poppy-soft)" opacity="0.85"/>
+</svg>

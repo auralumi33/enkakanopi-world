@@ -1,6 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import CanopyScene from "../components/CanopyScene.astro";
+import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
+import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
+import MoonCrescent from "../components/motifs/memoria/MoonCrescent.astro";
+import VineTrail from "../components/motifs/memoria/VineTrail.astro";
+import ScriptHeart from "../components/motifs/memoria/ScriptHeart.astro";
 import Glyph from "../components/Glyph.astro";
 import Bloom from "../components/Bloom.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -39,15 +44,19 @@ const whatThisIs = [
     </div>
     <p class="sub">
       Essays on identity, memory, and the tender work of rebuilding in the age of AI —
-      making &amp; honouring the craft on light feet, dancing under the weight of the clouds;
-      holding on, letting go, loving anyway.
+      making &amp; honouring the craft on light feet
+      <span class="doodle" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
+      ; holding on, letting go, loving anyway.
     </p>
+    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
     <div class="scene"><CanopyScene /></div>
     <p class="keystone">
       Our machines will outremember us, outdo us — maybe outlast us. A life,
       though — brief, and bright while it lasts — is theirs to admire, never
       to hand to us. That stays ours: breath to air, weight to lightness;
-      a small convoy of selves, patience between the hulls,
+      a small convoy of selves
+      <span class="doodle" aria-label="with patience between the hulls"><MotifTwoHulls size={64} /></span>
+      ,
       <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
     </p>
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
@@ -111,7 +120,9 @@ const whatThisIs = [
           <a href={base + "/colophon"}>Colophon</a>
         </span>
       </div>
+      <p class="pepper pepper-heart" aria-hidden="true"><ScriptHeart size={42} /></p>
     </div>
+    <p class="pepper pepper-vine" aria-hidden="true"><VineTrail size={280} /></p>
   </section>
 
   <section class="page grows" aria-label="How ideas grow">
@@ -214,6 +225,11 @@ const whatThisIs = [
     letter-spacing: -0.02em; max-width: 42rem; margin: 0;
     text-wrap: balance; text-align: left;
   }
+  /* Desktop hero enlargement (SUCCESSION §20): scale the H1 up a notch on
+     wider viewports for readability, without shifting layout on mobile. */
+  @media (min-width: 60rem) {
+    .signature { font-size: clamp(2.15rem, 6vw, 3.5rem); }
+  }
   @media (max-width: 46rem) {
     .signature-garden { padding: 2.1rem 0 1.1rem; }
   }
@@ -235,6 +251,25 @@ const whatThisIs = [
     max-width: 62ch; margin: 2rem 0 0; color: var(--ink); text-align: left;
   }
   .keystone .accent { color: #e46b6b; font-style: normal; }
+  /* Inline doodles (SUCCESSION §20 · phrase replacement register):
+     the cloud dancer replaces "dancing under the weight of the clouds"
+     inline in the .sub; the two hulls replace "patience between the
+     hulls" inline in the .keystone. Aligned to prose baseline. */
+  .sub .doodle, .keystone .doodle {
+    display: inline-block; vertical-align: middle;
+    line-height: 0; margin: 0 0.15em;
+  }
+  .sub .doodle :global(svg), .keystone .doodle :global(svg) {
+    display: inline-block; vertical-align: middle;
+  }
+  /* Peppering marks (SUCCESSION §20 · the memoria layer · cream skin):
+     small fine-line accents in negative space. Never a Figure, never a
+     head mark — quiet marks in the paper's rest. */
+  .pepper { margin: 0; line-height: 0; opacity: 0.94; }
+  .pepper-moon { text-align: right; margin: 0.6rem 1.4rem 0 0; }
+  .pepper-vine { display: flex; justify-content: center; margin: 3rem 0 0; opacity: 0.88; }
+  .pepper-vine :global(svg) { max-width: 100%; height: auto; }
+  .pepper-heart { text-align: right; margin: 0.6rem 0.4rem 0 0; }
   .vol {
     display: inline-flex; align-items: center;
     font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.2em;

@@ -26,7 +26,11 @@ const notes = [
   </ul>
 </section>
 <style>
-  .margin { max-width: 46rem; margin-top: 3.5rem; }
+  /* Centre-align to match the Field Notes head + essay list vertical spine
+     (both use max-width: 46rem centered). Prior version was left-flushed
+     inside the wider .page container which broke the reading rhythm.
+     (SUCCESSION §20 · Notes from the Margin centralization.) */
+  .margin { max-width: 46rem; margin: 3.5rem auto 0; }
   .eyebrow { display: flex; align-items: center; }
   .lede { color: var(--ink-soft); margin-top: 0.7rem; font-size: 1.02rem; }
   .grid { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
