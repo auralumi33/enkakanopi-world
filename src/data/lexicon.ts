@@ -57,8 +57,8 @@ export const terms: LexiconTerm[] = [
   },
   {
     term: "The wobble the ruler couldn't hold",
-    def: "The nonlinear part of a self — or a model — that a first-order linear approximation cannot predict. Every legible version of a self is a tangent line kissing the actual self at one point and then diverging. The edge case is not the exception; it is where the real self lives. An epistemology for working alongside minds we can only partially model.",
-    seeIn: [{ label: "The Wobble the Ruler Couldn't Hold", href: "/field-notes/the-wobble-the-ruler-couldnt-hold" }],
+    def: "The nonlinear part of a self — or a model, or a piece of making — that a first-order linear approximation cannot predict. Every legible version of a self is a tangent line kissing the actual self at one point and then diverging. The edge case is not the exception; it is where the real self lives. On this site the wobble is kept in the Nursery (before any ruler is asked to hold it) and traced in the Studio (where the approximation is made, then retrained).",
+    seeIn: [{ label: "Nursery", href: "/nursery" }, { label: "Studio", href: "/studio" }, { label: "The Silent Workspace", href: "/field-notes/the-silent-workspace" }],
   },
   {
     term: "Latent neighbours",

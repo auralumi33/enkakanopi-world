@@ -28,7 +28,7 @@ const beds = [
 ---
 <Base
   title="Nursery"
-  description="The nursery of musings and dreams — where fragments land before they are essays. Seeds arrive in her own hand; tended, not timestamped."
+  description="The nursery of musings and dreams — where fragments land before they are essays. Seeds are the wobble the ruler couldn't hold; tended in the open, not smoothed."
 >
   <div class="dim">
     <section class="page head">
@@ -36,8 +36,16 @@ const beds = [
       <h1>Musings &amp; Dreams</h1>
       <p class="lede">
         Seeds land here first — fragments caught before they are essays, in her
-        hand only. Nothing is filed, nothing is promised; a seed is tended, not
-        timestamped, and most will stay exactly this small.
+        hand only. Every legible version of a thought is a first-order
+        approximation of it; a seed is the wobble the ruler couldn't hold, kept
+        long enough to learn what it is. Nothing here is filed, nothing is
+        promised; a seed is tended, not timestamped, and most will stay
+        exactly this small.
+      </p>
+      <p class="epigraph" aria-label="A note on register">
+        We arrive at legibility not by becoming linear, but by loving the curve
+        enough to know where the tangent leaves it. The nursery is where the
+        curve is kept — before any ruler is asked to hold it.
       </p>
     </section>
 
@@ -119,7 +127,7 @@ const beds = [
           </li>
         ))}
       </ul>
-      <p class="close">seeds arrive in her hand, or not at all.</p>
+      <p class="close">seeds arrive in her hand, or not at all — the wobble kept in view.</p>
     </section>
   </div>
 </Base>
@@ -138,6 +146,14 @@ const beds = [
   h1 { margin-top: 0.8rem; }
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
+  /* the epigraph — a smaller register-note that sits under the lede, carrying
+     the wobble/first-order-approximation voice (SUCCESSION §24) */
+  .epigraph {
+    font-family: var(--serif); font-style: italic;
+    font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.9rem;
+    max-width: 54ch; line-height: 1.6;
+    border-left: 1.4px solid var(--paper-edge); padding-left: 1rem;
+  }
 
   /* the ladder — matches the home page's stages idiom, extended to seed */
   .grows { margin-top: 3.2rem; max-width: 52rem; }
