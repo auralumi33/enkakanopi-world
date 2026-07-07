@@ -141,3 +141,135 @@ The dark, starry garden was carried onto warm paper, not discarded:
 Autobiographical specifics are left as marked slots, never invented — grep
 `SLOT` across the repo. The HUB identity essay is not built; `Versions of Me`
 holds the structure around its gap and ends inside the open question, by design.
+
+---
+
+## Evolving decisions log (2026-07 sessions §26 → §31)
+
+The section above is doctrine that has settled. What follows is the working
+record of decisions made across §26–§31 that reshape how visuals, prose and
+attributions co-exist in the garden. When a decision here has been proven
+across three sessions without reversal, promote it upward into the doctrine
+section (or into DESIGN-SYSTEM.md if it's a permanent principle for external
+readers).
+
+### The register — codified
+
+- **The middleground** (§28 · locked). Design work must sit between mechanical
+  diagrams (too clinical) and haphazard ornament (too messy). Retain the
+  canonical four colours + daintiness, but hold every mark in a tender
+  hand-drawn organic register that reads as *craft — the garden's own hand* —
+  not as scatter-sparkle noise. Applies to scene-scale illustrations AND to
+  breather motifs.
+- **The 円花 keystone** (§28 · brand-voice apex). The mark that holds both
+  halves of the name in one figure (`MotifEnkaEnso`) is the site's most
+  concentrated brand mark. Reserved for the Colophon (top of about + closing
+  keystone) and load-bearing brand surfaces. Rare enough to read as a keystone,
+  never as a repeated ornament.
+- **Scene-scale must be object-poetry, not ornament** (§27 · rule). A hybrid
+  scene must carry an image that only makes sense for THAT essay's argument.
+  Real named objects, real instruments, real gestures the prose actually
+  describes. Sparkle-star + dragonfly + cross-plus tick + generic scatter-dots
+  are NOT valid at scene-scale. They remain valid only at the small memoria
+  breather-scale — and only where a breather adds something a scene doesn't.
+
+### Attribution economy (§29 · §30)
+
+- **Keystones, not repeated citations.** A cited author is a KEYSTONE mark for
+  the site, not a repeated attribution across essays. Kalanithi appears named
+  in exactly one place — as a shape held by the register. Elsewhere, the
+  citable lines (*mercy trumps justice*, *filled a dying man's days with a
+  sated joy*) are quoted as citable text attributed to "a physician writing
+  near the end of his life" — the register is preserved, the wag is not.
+- **Companion citations widen the register.** Sizelle's *Unwords* now sits
+  alongside Karpathy / Reisman / Follett / Kalanithi / Wegner / Kaplan as
+  citable public thinkers/artists. Future essays can pull from the wider
+  list. The register doesn't need a single citation to hold it.
+- **The garden's own voice carries the register when attribution becomes
+  repetitive.** Rewriting a Kalanithi paragraph in the garden's voice does
+  not weaken the register — it strengthens it by refusing to lean on the
+  same shoulder every time. The register is the garden's now.
+
+### Text-visual de-duplication (§30 · §31 rule)
+
+- **Pull-quotes ≠ text.** A calligraphic pull-quote must NOT echo the lede
+  paragraph above it word-for-word. If the pull is doing its job, it names
+  the discipline from an adjacent angle. Nursery: *"tended, not timestamped.
+  / kept small, on purpose."* (not the lede's wobble-the-ruler phrase).
+  Studio: *"process over product. / counted as it happened."* (not the lede's
+  approximation-and-edge phrase).
+- **MarginNotes add angle, not echo.** A hand-voice MarginNote adjacent to a
+  paragraph must NOT quote or paraphrase the paragraph. It adds a small
+  turn — a rarity claim, an economy comparison, a smaller-claim discipline.
+  If the marginalia can be removed without losing meaning, remove it.
+- **Scene hand-labels don't triple with prose + MarginNote.** The
+  `SceneInsideLife` etymology whisper (*"διάγνωσις — to know apart from"*)
+  covers the same ground as the paragraph and the MarginNote — the MarginNote
+  now adds a rarity claim about tender diagnostic instruments instead of
+  re-echoing the etymology.
+
+### Scene-anchor discipline (§31 · rule)
+
+- **A scene sits with its concept anchor, not before it.** The Fresh-Eyes
+  paragraph and the kintsugi paragraph are 20 lines apart in
+  `the-shape-of-things`; the SceneShapeAndCrack bowl belongs with the
+  kintsugi paragraph, not two lines after the seeing-shape opening. Same
+  principle across the 6 rebalanced essays: SceneSpineAsSentence sits with
+  the spine-as-sentence paragraph, SceneSafeFall sits with the "it teaches
+  you how to fall" paragraph, SceneBodyTides sits with the body-keeps-tides
+  opening, SceneLittleKit sits after the "a line, a curve, a box, a leaf, a
+  fold, a dot" enumeration, SceneHandsBegin sits after "let them learn
+  ahead of you."
+- **The visual is the reader's picture of the sentence they just read.** If
+  the scene appears before the sentence names the concept, the reader has
+  nothing to attach it to and the visual reads as unmoored decoration.
+
+### The "unmoored squiggle" antipattern (§31 · retired)
+
+- Small standalone memoria breather divs (`MoonCrescent`, `ScriptHeart`,
+  `Dragonfly`, `FineLineStar`) rendered as centred blocks between
+  paragraphs when the essay ALREADY carries scene-scale hybrid scenes +
+  MarginNotes + a closing essay-specific memoria mark. Read as isolated
+  ornaments with no anchor — the "weird squiggle" pattern.
+- **Retired from all three trilogy essays.** Prologue's mid-essay
+  `MoonCrescent`, White Bear's mid-essay `MoonCrescent`, Silent Workspace's
+  mid-essay `ScriptHeart` — all removed in §31. The memoria vocabulary is
+  intact; the standalone-breather PLACEMENT is retired.
+- **When a breather earns its place.** A small memoria breather is still
+  valid when: (a) it closes an essay as its essay-specific mark (FictionFold
+  / WorkspaceRoom / WhiteBear); (b) it sits at a rare register-shift beat
+  that no scene covers and no MarginNote can carry; (c) it appears on tab
+  pages (Nursery / Studio) where the tab voice needs breathability without
+  a full scene. Never as decorative filler between text.
+
+### Rebalancing tweaks (session-level moves)
+
+- **§29** — Kalanithi footprint reduced 5 essays → 1 essay + Colophon; Sizelle
+  *Unwords* register woven into Silent Workspace's asymptote paragraph.
+- **§30** — Kalanithi NAME-drops removed entirely (register preserved as
+  attributed-to "a physician near the end of his life"); Nursery + Studio
+  pull-quotes rewritten to stop echoing the lede; three MarginNotes reworded
+  to add angle rather than echo.
+- **§31** — Small standalone MoonCrescent / ScriptHeart breathers retired
+  from the three trilogy essays; SceneShapeAndCrack moved to sit with the
+  kintsugi paragraph.
+
+### Updated vocabulary
+
+- **円花 keystone** — brand-voice apex mark (`MotifEnkaEnso`). Colophon-only.
+- **Middleground register** — the design language's tonal band between
+  mechanical and haphazard.
+- **Scene-anchor discipline** — visuals sit with their concept anchor.
+- **Attribution economy** — cited authors as keystones, not repeated citations.
+- **Text-visual de-duplication** — pulls and marginalia add angle, don't echo.
+- **The unmoored squiggle** — antipattern name for standalone breathers with
+  no narrative anchor.
+
+### Notes-vs-System boundary
+
+If a decision here appears in three consecutive sessions without reversal,
+promote it. Candidates for promotion to DESIGN-SYSTEM.md (external doctrine):
+- Scene-anchor discipline (§31 — proved once).
+- Attribution economy (§29–§30 — proved twice).
+- Middleground register (§28 — proved once).
+Attribution economy is closest to promotion; watch across the next session.

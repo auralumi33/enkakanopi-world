@@ -28,6 +28,28 @@ interface Props {
   backHref: string;
   backLabel: string;
   description?: string;
+  // ─── Editorial anchor discipline (codified 2026-07-08 · SUCCESSION §31,
+  //     applies to every essay authored via this layout; enforced at
+  //     authorship time, no build-time linter exists yet):
+  //
+  //   1. Scene-anchor rule — a hybrid <Scene*/> visual sits WITH the
+  //      paragraph that names the concept it illustrates, never before it.
+  //      The visual is the reader's picture of the sentence they just read;
+  //      placing it earlier reads as unmoored.
+  //   2. No unmoored breathers — when an essay carries scene-scale hybrid
+  //      scenes + MarginNotes + a closing memoria mark, small standalone
+  //      memoria breather divs (MoonCrescent/ScriptHeart/Dragonfly/
+  //      FineLineStar in a centred div between paragraphs) become
+  //      decorative filler and read as the "weird squiggle" antipattern.
+  //   3. Text-visual de-duplication — any pull-quote or MarginNote adjacent
+  //      to a Scene or Figure must add angle from a different lens, not
+  //      paraphrase the surrounding paragraph or the scene's hand-labels.
+  //   4. Attribution economy — cited authors (Kalanithi, Reisman, Follett,
+  //      Wegner, Kaplan, Sizelle …) are KEYSTONE marks for the site, not
+  //      repeated attributions. Register can appear anywhere; the specific
+  //      attribution is bounded — one place per author, plus the Colophon.
+  //
+  //   Full rationale + evolving-decisions log lives in DESIGN-NOTES.md.
 }
 const { title, dek, status = "in formation · v0", glyph = "seam", stage = "seedling", tended, breath, farewell, seal = false, backHref, backLabel, description } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
