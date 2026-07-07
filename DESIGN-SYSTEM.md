@@ -139,11 +139,34 @@ language, use the names:
   reusable components in `src/components/motifs/Scene*.astro`, each
   wrapped in a `.scene-hybrid` figure (max-width 40rem · svg
   responsive · role="img" with title-element for a11y).
-  Nine shipped in §26: SceneShelfOfImpossible · SceneRearrangedRoom ·
-  SceneWarningAndMirror (Prologue); SceneRoomAtMiddleDepths ·
-  SceneInsideLife · SceneAsymptote (Silent Workspace); SceneBearAtEdge ·
-  SceneFourGrounds · SceneInBetweenRoom (White Bear). ≥3 per essay
-  is the shipping floor for load-bearing pieces; extend as needed.
+  Nine shipped in §26 · redrawn in §27 with narrative-specific
+  object-poetry (no transferable sparkle-star or dragonfly filler;
+  each scene now carries an essay-specific device that only makes
+  sense for THAT idea): SceneShelfOfImpossible (rolled carpet · book
+  spine · 1980 TV · terminal) · SceneRearrangedRoom (floor plan with
+  named furniture in ghost + crisp positions) · SceneWarningAndMirror
+  (triangular hazard sign + hand-mirror + figure standing in the
+  overlap) (Prologue); SceneRoomAtMiddleDepths (layer stack + keyhole
+  aperture + directional flow-arrow + ∂ mark) · SceneInsideLife (body
+  silhouette + hairline stethoscope + Greek etymology whisper) ·
+  SceneAsymptote (walking figure + hairline calipers measuring the
+  never-closing gap) (Silent Workspace); SceneBearAtEdge (page +
+  edge-bear + hand-caveat "damn." smoke-curl + ghost mirror-bear
+  inside blooms) · SceneFourGrounds (keyhole · speech-quotes · brick
+  wall · question-mark bloom + central hand-mirror + Bourgeois-style
+  × marks) · SceneInBetweenRoom (two hands reaching + mercy as gold
+  bloom in the gap) (White Bear). ≥3 per essay is the shipping floor
+  for load-bearing pieces; extend as needed.
+
+  **Rule:** scenes must carry essay-specific object-poetry (real
+  named objects, real instruments, real gestures the essay actually
+  describes) — not transferable ornamentation. Sparkle-star,
+  dragonfly, and cross-plus tick are NOT valid at scene-scale; they
+  remain valid only at the small memoria breather-scale on non-load-
+  bearing surfaces. Reference altitude: JW Anderson's tote-on-stool,
+  Louise Bourgeois's signed missing-piece card + wax seal, SiSi's
+  laundry-tag micrographics, the internal Versions-of-Me node-and-
+  edge + braided-current + verdict-vs-landings diagrams.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
