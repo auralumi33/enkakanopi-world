@@ -1,37 +1,38 @@
 ---
 /**
  * SceneBearAtEdge — Marimekko × fine-line hybrid scene.
- * "In the middle band, where the model coordinates what it will say, a
- * small bear is at the edge of the page." A Marimekko-style page silhouette
- * with a small hairline bear-outline at the edge, soft bloom clusters
- * centre-page (the things the model is trying to focus on), and a tiny
- * fine-line ripple emanating from the bear (the ironic-process suppression
- * becoming summoning).
- * For: field-notes/the-white-bear · SUCCESSION §26.
+ * "A small bear is at the edge of the page." The page + centre
+ * blooms + edge-bear stay. The "damn" register is now the actual
+ * hand-caveat word curling as a small smoke-trail from the bear's
+ * mouth. A GHOST mirror-bear appears inside the page's blooms —
+ * Wegner's ironic process: the thing you tell yourself not to
+ * think grows louder in the middle of the room. §27 redraw —
+ * no sparkle-star, no cross-plus tick.
+ * For: field-notes/the-white-bear.
  */
 ---
 <figure class="scene scene-hybrid">
-  <svg viewBox="0 0 640 320" role="img" aria-labelledby="bear-t" preserveAspectRatio="xMidYMid meet">
-    <title id="bear-t">A page silhouette with a small hairline bear at the right edge and soft blooms in the centre; a fine-line ripple emanates from the bear.</title>
+  <svg viewBox="0 0 640 340" role="img" aria-labelledby="bear-t" preserveAspectRatio="xMidYMid meet">
+    <title id="bear-t">A hand-drawn page with soft blooms in the centre; a small hairline bear at the right edge sends the word "damn" curling as smoke, while a ghost mirror-bear appears among the blooms.</title>
 
-    {/* the page — Marimekko soft rectangle silhouette */}
-    <rect x="60" y="40" width="440" height="252" fill="#f2ede0" opacity="0.55" stroke="var(--ink-soft)" stroke-width="0.6" rx="2"/>
+    {/* the page — Marimekko soft rectangle */}
+    <rect x="60" y="60" width="440" height="252" fill="#f2ede0" opacity="0.6" stroke="var(--ink-soft)" stroke-width="0.7" rx="2"/>
 
-    {/* fine calligraphic "text" lines — hairline horizontal marks suggesting written body */}
+    {/* fine calligraphic text-lines — the written prose the page holds */}
     <g stroke="var(--ink-soft)" stroke-width="0.4" stroke-linecap="round" opacity="0.4">
-      <path d="M92 74 L 320 74"/>
-      <path d="M92 90 L 400 90"/>
-      <path d="M92 106 L 360 106"/>
-      <path d="M92 122 L 380 122"/>
-      <path d="M92 138 L 320 138"/>
-      <path d="M92 208 L 360 208"/>
-      <path d="M92 224 L 400 224"/>
-      <path d="M92 240 L 340 240"/>
-      <path d="M92 256 L 380 256"/>
+      <path d="M92 94 L 320 94"/>
+      <path d="M92 110 L 400 110"/>
+      <path d="M92 126 L 360 126"/>
+      <path d="M92 142 L 380 142"/>
+      <path d="M92 158 L 320 158"/>
+      <path d="M92 228 L 360 228"/>
+      <path d="M92 244 L 400 244"/>
+      <path d="M92 260 L 340 260"/>
+      <path d="M92 276 L 380 276"/>
     </g>
 
     {/* the centre blooms — the things the model is TRYING to focus on */}
-    <g transform="translate(220 170)">
+    <g transform="translate(210 194)">
       <g fill="#b899c9" opacity="0.75">
         <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
         <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
@@ -39,14 +40,14 @@
       </g>
       <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(300 168)">
+    <g transform="translate(302 192)">
       <g fill="#e8c15a" opacity="0.72">
         <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
         <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
       </g>
       <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(360 170)">
+    <g transform="translate(380 194)">
       <g fill="#a4b8c8" opacity="0.72">
         <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
         <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
@@ -54,47 +55,54 @@
       <circle cx="0" cy="0" r="1.2" fill="#f7f2e7"/>
     </g>
 
+    {/* the GHOST mirror-bear — Wegner's ironic process, inside the page's blooms */}
+    <g transform="translate(296 194)" opacity="0.28">
+      {/* smaller mirror-bear, faded, drawn among the centre blooms */}
+      <ellipse cx="0" cy="4" rx="14" ry="10" stroke="var(--ink-soft)" stroke-width="0.45" fill="none"/>
+      <circle cx="-9" cy="-6" r="7" stroke="var(--ink-soft)" stroke-width="0.45" fill="none"/>
+      <circle cx="-13" cy="-14" r="2" stroke="var(--ink-soft)" stroke-width="0.35" fill="none"/>
+      <circle cx="-5" cy="-14" r="2" stroke="var(--ink-soft)" stroke-width="0.35" fill="none"/>
+      <ellipse cx="-11" cy="-3" rx="3" ry="2.4" stroke="var(--ink-soft)" stroke-width="0.35" fill="none"/>
+    </g>
+
     {/* the bear at the edge — a small hairline bear outline just outside the page */}
-    <g transform="translate(550 176)">
+    <g transform="translate(560 196)">
       {/* body */}
-      <ellipse cx="0" cy="4" rx="22" ry="16" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.65"/>
+      <ellipse cx="0" cy="4" rx="22" ry="16" stroke="var(--ink-soft)" stroke-width="0.65" fill="#f7f2e7" opacity="0.85"/>
       {/* head */}
-      <circle cx="-14" cy="-12" r="12" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.65"/>
-      {/* ears — two tiny half-circles */}
-      <circle cx="-20" cy="-22" r="3" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.6"/>
-      <circle cx="-8" cy="-22" r="3" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.6"/>
-      {/* muzzle + eye dot */}
-      <ellipse cx="-18" cy="-8" rx="4" ry="3" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.55"/>
-      <circle cx="-19" cy="-14" r="0.7" fill="var(--ink-soft)" opacity="0.7"/>
-      {/* legs — hairline ticks below body */}
+      <circle cx="-14" cy="-12" r="12" stroke="var(--ink-soft)" stroke-width="0.65" fill="#f7f2e7" opacity="0.85"/>
+      {/* ears */}
+      <circle cx="-20" cy="-22" r="3" stroke="var(--ink-soft)" stroke-width="0.55" fill="#f7f2e7" opacity="0.85"/>
+      <circle cx="-8" cy="-22" r="3" stroke="var(--ink-soft)" stroke-width="0.55" fill="#f7f2e7" opacity="0.85"/>
+      {/* muzzle + eye */}
+      <ellipse cx="-18" cy="-8" rx="4" ry="3" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.6"/>
+      <circle cx="-19" cy="-14" r="0.7" fill="var(--ink-soft)" opacity="0.75"/>
+      {/* legs */}
       <path d="M-14 20 L -14 26 M-4 22 L -4 28 M4 22 L 4 28 M14 20 L 14 26"
-        stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.6"/>
+        stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
     </g>
 
-    {/* the ripple — a fine-line arc emanating from the bear toward the page */}
-    <path d="M520 176 C 480 174, 440 170, 400 170"
-      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1 2" opacity="0.55"/>
-    <path d="M528 190 C 490 194, 450 198, 410 202"
-      stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" stroke-dasharray="1 2.5" opacity="0.45"/>
-    <path d="M534 160 C 494 154, 456 148, 420 148"
-      stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" stroke-dasharray="1 2.5" opacity="0.45"/>
+    {/* the "damn" as smoke — hand-caveat script curling up from the bear's mouth */}
+    <path d="M540 178 C 536 168, 542 158, 546 148 C 550 138, 544 128, 548 118"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+    <path d="M544 120 C 540 118, 538 120, 540 124 C 546 120, 544 118, 544 120 Z"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.55"/>
+    <text class="hand-label hand-label--accent" x="512" y="106" font-size="19" font-style="italic">damn.</text>
 
-    {/* the "damn" mark — small tattoo-flash tick above the page, near the bear */}
-    <g transform="translate(500 60)">
-      <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z"
-        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.7"/>
-      <circle cx="0" cy="0" r="0.8" fill="#e8c15a" opacity="0.9"/>
-    </g>
-
-    {/* scatter */}
-    <circle cx="80" cy="70" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
-    <circle cx="470" cy="290" r="0.5" fill="var(--ink-soft)" opacity="0.55"/>
+    {/* the ripple — a fine-line arc from the bear toward the page's blooms (the priming) */}
+    <path d="M528 196 C 480 194, 440 194, 400 194"
+      stroke="var(--ink-soft)" stroke-width="0.45" fill="none" stroke-linecap="round" stroke-dasharray="1 2" opacity="0.55"/>
+    <path d="M536 210 C 490 214, 450 218, 410 220"
+      stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" stroke-dasharray="1 2.5" opacity="0.45"/>
+    <path d="M542 180 C 494 174, 456 168, 420 168"
+      stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" stroke-dasharray="1 2.5" opacity="0.45"/>
 
     {/* hand captions */}
-    <text class="hand-label" x="180" y="200" font-size="15">what we tried</text>
-    <text class="hand-label" x="180" y="216" font-size="15">to hold in mind</text>
-    <text class="hand-label" x="520" y="240" font-size="16">the bear at the edge</text>
-    <text class="hand-label hand-label--accent" x="480" y="52" font-size="15">damn.</text>
+    <text class="hand-label" x="94" y="192" font-size="14">what we tried</text>
+    <text class="hand-label" x="94" y="208" font-size="14">to hold in mind</text>
+    <text class="hand-label" x="94" y="224" font-size="12" opacity="0.65">— and the shape</text>
+    <text class="hand-label" x="94" y="238" font-size="12" opacity="0.65">of what we did not</text>
+    <text class="hand-label" x="516" y="252" font-size="15">at the edge</text>
   </svg>
 </figure>
 <style>

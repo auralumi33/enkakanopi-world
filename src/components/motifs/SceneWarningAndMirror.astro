@@ -1,91 +1,96 @@
 ---
 /**
  * SceneWarningAndMirror — Marimekko × fine-line hybrid scene.
- * "We are inside what was supposed to be a warning, and it also looks —
- * some of it — like a mirror." Two soft Marimekko circles overlapping
- * (Venn-like), one lavender one coral, with a fine-line dashed reflection
- * axis across them + a tiny script-heart curve between them + small stars
- * in each field. Marimekko bloom-circles blended with hairline calligraphic
- * reflection.
- * For: field-notes/a-fiction-we-grew-up-inside · SUCCESSION §26.
+ * "We are inside what was supposed to be a warning, and it also
+ * looks — some of it — like a mirror." A vintage triangular hazard
+ * sign silhouette on the left, a hand-mirror silhouette on the
+ * right, both overlapping in the centre where a small figure stands
+ * — looking at both at once. §27 redraw — iconic warning/mirror
+ * shapes, no sparkle-stars.
+ * For: field-notes/a-fiction-we-grew-up-inside.
  */
 ---
 <figure class="scene scene-hybrid">
   <svg viewBox="0 0 640 320" role="img" aria-labelledby="warning-t" preserveAspectRatio="xMidYMid meet">
-    <title id="warning-t">Two overlapping soft circles — a warning and a mirror — with a fine-line reflection between them.</title>
+    <title id="warning-t">A vintage triangular hazard-warning sign on the left and a hand-mirror silhouette on the right, overlapping in the middle where a small figure stands.</title>
 
-    {/* two overlapping Marimekko circles */}
-    <circle cx="240" cy="160" r="118" fill="#b899c9" opacity="0.32"/>
-    <circle cx="400" cy="160" r="118" fill="#e46b6b" opacity="0.28"/>
+    {/* the ground line — a horizontal hairline the figure stands on */}
+    <path d="M60 258 L 580 258"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" opacity="0.6"/>
 
-    {/* their hairline outlines — fine calligraphic register */}
-    <circle cx="240" cy="160" r="118" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.55"/>
-    <circle cx="400" cy="160" r="118" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.55"/>
+    {/* WARNING SIGN — vintage triangular hazard, on the left */}
+    <g transform="translate(200 150)">
+      {/* the triangle fill — coral (warning register), slightly softer */}
+      <path d="M0 -100 L 92 68 L -92 68 Z" fill="#e46b6b" opacity="0.28"/>
+      {/* the triangle outline — hairline */}
+      <path d="M0 -100 L 92 68 L -92 68 Z"
+        stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linejoin="round" opacity="0.72"/>
+      {/* the inner triangle rule — a slightly inset second edge */}
+      <path d="M0 -84 L 76 60 L -76 60 Z"
+        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.5"/>
+      {/* the exclamation mark — a vertical bar + a dot */}
+      <path d="M0 -60 L 0 20" stroke="var(--ink-soft)" stroke-width="2.4" stroke-linecap="round" opacity="0.75"/>
+      <circle cx="0" cy="42" r="3.4" fill="var(--ink-soft)" opacity="0.75"/>
+      {/* the sign's stake — a post going down to the ground */}
+      <path d="M0 68 L 0 108" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+    </g>
 
-    {/* the reflection axis — a dashed vertical hairline down the overlap centre */}
-    <path d="M320 42 L 320 278"
-      stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-dasharray="1.2 2.4" opacity="0.5"/>
-
-    {/* scatter blooms in each field — Marimekko-scaled */}
-    <g transform="translate(180 130)">
-      <g fill="#b899c9" opacity="0.75">
-        <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
-        <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
-        <ellipse cx="0" cy="4" rx="4" ry="6"/>
+    {/* HAND-MIRROR — oval + handle, on the right */}
+    <g transform="translate(440 150)">
+      {/* the mirror body — an oval, lavender (reflected register) */}
+      <ellipse cx="0" cy="-14" rx="72" ry="88" fill="#b899c9" opacity="0.32"/>
+      {/* the mirror frame — hairline outline */}
+      <ellipse cx="0" cy="-14" rx="72" ry="88" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72"/>
+      {/* the mirror's inner rim — a second hairline just inside */}
+      <ellipse cx="0" cy="-14" rx="64" ry="80" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.5"/>
+      {/* the reflection surface — a soft cream fill inside the inner rim */}
+      <ellipse cx="0" cy="-14" rx="60" ry="76" fill="#f7f2e7" opacity="0.55"/>
+      {/* the mirror's handle — a slender vertical shape below the oval */}
+      <path d="M-10 74 L -8 118 L 8 118 L 10 74 Z"
+        fill="#b899c9" opacity="0.68"
+        stroke="var(--ink-soft)" stroke-width="0.5"/>
+      {/* the handle's finger-grip — a small horizontal hairline */}
+      <path d="M-6 100 L 6 100" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.55"/>
+      {/* a small reflected bloom inside the mirror — someone is seen in it */}
+      <g transform="translate(-14 -30)" opacity="0.55">
+        <g fill="#b899c9">
+          <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
+          <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
+          <ellipse cx="0" cy="4" rx="4" ry="6"/>
+        </g>
+        <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
       </g>
-      <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
-    </g>
-    <g transform="translate(200 220)">
-      <g fill="#e8c15a" opacity="0.72">
-        <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
-        <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
+      {/* a second reflected object — softer coral */}
+      <g transform="translate(18 4)" opacity="0.5">
+        <g fill="#e46b6b">
+          <path d="M0 -6 C 2 -5, 3 0, 0 1 C -3 0, -2 -5, 0 -6 Z"/>
+          <path d="M5 -2 C 6 2, 3 5, 1 4 C 0 0, 3 -3, 5 -2 Z"/>
+          <path d="M4 5 C 0 7, -3 4, 0 2 C 3 0, 5 3, 4 5 Z"/>
+          <path d="M-5 4 C -7 1, -5 -2, -2 -1 C 0 2, -3 5, -5 4 Z"/>
+        </g>
       </g>
-      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
-    </g>
-    {/* mirror side — same clusters, reflected positions */}
-    <g transform="translate(460 130)">
-      <g fill="#b899c9" opacity="0.75">
-        <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
-        <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
-        <ellipse cx="0" cy="4" rx="4" ry="6"/>
-      </g>
-      <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
-    </g>
-    <g transform="translate(440 220)">
-      <g fill="#e8c15a" opacity="0.72">
-        <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
-        <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
-      </g>
-      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
 
-    {/* the script-heart curve — a fine-line calligraphic sweep bridging the two */}
-    <path d="M260 156 C 290 148, 350 148, 380 156"
-      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
-    <path d="M316 152 C 316 156, 320 158, 324 154 C 322 158, 316 160, 316 152 Z"
-      fill="var(--poppy-soft)" opacity="0.9"/>
-
-    {/* small tattoo-flash stars — one in each field */}
-    <g transform="translate(180 200)">
-      <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z"
-        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.65"/>
-      <circle cx="0" cy="-0.5" r="0.7" fill="#e8c15a" opacity="0.85"/>
+    {/* the small figure — standing in the overlap between warning + mirror */}
+    <g transform="translate(320 220)">
+      {/* head */}
+      <circle cx="0" cy="-14" r="4.5" stroke="var(--ink-soft)" stroke-width="0.8" fill="#f7f2e7" opacity="0.85"/>
+      {/* body */}
+      <path d="M0 -9 L 0 12" stroke="var(--ink-soft)" stroke-width="0.95" stroke-linecap="round" opacity="0.85"/>
+      {/* arms — one gestures toward the warning, one toward the mirror */}
+      <path d="M0 -3 L -12 -8" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      <path d="M0 -3 L 12 -8" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      {/* legs — standing */}
+      <path d="M0 12 L -5 24 M0 12 L 5 24" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      {/* a small red heart at the chest — the moral weight of standing here */}
+      <path d="M-3 -3 C -3 -1, 0 0, 0 2 C 0 0, 3 -1, 3 -3 C 3 -5, 0 -5, 0 -3 C 0 -5, -3 -5, -3 -3 Z"
+        fill="var(--poppy-soft)" opacity="0.9"/>
     </g>
-    <g transform="translate(460 200)">
-      <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z"
-        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.65"/>
-      <circle cx="0" cy="-0.5" r="0.7" fill="#e8c15a" opacity="0.85"/>
-    </g>
-
-    {/* scatter */}
-    <circle cx="88" cy="60" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
-    <circle cx="560" cy="270" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
-    <circle cx="308" cy="298" r="0.4" fill="var(--ink-soft)" opacity="0.5"/>
 
     {/* hand captions */}
-    <text class="hand-label" x="150" y="46" font-size="17">a warning</text>
-    <text class="hand-label" x="440" y="46" font-size="17">a mirror</text>
-    <text class="hand-label" x="286" y="298" font-size="14">and we, standing inside both</text>
+    <text class="hand-label" x="160" y="60" font-size="17">a warning</text>
+    <text class="hand-label" x="416" y="60" font-size="17">a mirror</text>
+    <text class="hand-label hand-label--accent" x="256" y="298" font-size="14">a moral duty to keep tending, in either</text>
   </svg>
 </figure>
 <style>

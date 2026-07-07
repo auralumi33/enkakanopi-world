@@ -6,8 +6,8 @@ import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astr
 import MotifWorkbench from "../components/motifs/MotifWorkbench.astro";
 import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
 import TheFirstApproximation from "../components/motifs/memoria/TheFirstApproximation.astro";
-import ScriptHeart from "../components/motifs/memoria/ScriptHeart.astro";
-import FineLineStar from "../components/motifs/memoria/FineLineStar.astro";
+import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
+import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astro";
 import VineTrail from "../components/motifs/memoria/VineTrail.astro";
 
 // The wall's hanging order — flagship first; anything new hangs after.
@@ -61,7 +61,7 @@ const pieces = await Promise.all(
     </p>
 
     <div class="breather" aria-hidden="true">
-      <FineLineStar size={54} />
+      <MotifApprenticeBench size={140} />
     </div>
 
     <p class="lede">
@@ -85,7 +85,7 @@ const pieces = await Promise.all(
     </p>
 
     <div class="breather" aria-hidden="true">
-      <ScriptHeart size={54} />
+      <MotifTallyMark size={140} />
     </div>
 
     <p class="handnote" aria-label="A note in the margin">the tally starts now — honest counts, no invented histories. the wobble is the truth the ruler couldn't hold.</p>

@@ -2,28 +2,29 @@
 /**
  * SceneInsideLife — Marimekko × fine-line hybrid scene.
  * Reisman: "Our outside lives begin on the skin's surface... medical
- * training necessarily centers on the body's inside life." A Marimekko
- * silhouette of a body-like curve — the skin surface hairline-drawn as
- * a diagnostic outline — with a soft bloom scatter INSIDE the silhouette
- * (the inside life). A dragonfly hovers outside brushing the skin, a
- * hairline "diagnosis" tick above.
- * For: field-notes/the-silent-workspace · SUCCESSION §26.
+ * training necessarily centers on the body's inside life." A soft
+ * body silhouette with an inside life of blooms + a hairline
+ * *stethoscope* hovering outside the skin (the real diagnostic
+ * instrument). The etymology of *diagnosis* — διά + γνῶσις, to
+ * know apart from — sits as a whispered hand-label near the
+ * instrument. §27 redraw — no dragonfly, no cross-plus tick.
+ * For: field-notes/the-silent-workspace.
  */
 ---
 <figure class="scene scene-hybrid">
-  <svg viewBox="0 0 640 320" role="img" aria-labelledby="inside-t" preserveAspectRatio="xMidYMid meet">
-    <title id="inside-t">A hand-drawn body silhouette with an inside life of soft blooms; a dragonfly hovers outside the skin.</title>
+  <svg viewBox="0 0 640 340" role="img" aria-labelledby="inside-t" preserveAspectRatio="xMidYMid meet">
+    <title id="inside-t">A hand-drawn body silhouette with an inside life of soft blooms; a hairline stethoscope hovers outside the skin as the diagnostic instrument.</title>
 
-    {/* the body silhouette — Marimekko-scale soft oval, canopy-soft fill */}
-    <path d="M320 44 C 400 44, 430 100, 428 160 C 426 220, 410 264, 372 280 C 342 292, 296 292, 268 280 C 230 264, 214 220, 212 160 C 210 100, 240 44, 320 44 Z"
-      fill="#a4b8c8" opacity="0.2"/>
+    {/* the body silhouette — Marimekko canopy-soft oval */}
+    <path d="M340 44 C 420 44, 450 100, 448 168 C 446 232, 428 280, 388 296 C 356 308, 310 308, 280 296 C 240 280, 224 232, 222 168 C 220 100, 260 44, 340 44 Z"
+      fill="#a4b8c8" opacity="0.22"/>
 
     {/* the skin — hairline diagnostic outline */}
-    <path d="M320 44 C 400 44, 430 100, 428 160 C 426 220, 410 264, 372 280 C 342 292, 296 292, 268 280 C 230 264, 214 220, 212 160 C 210 100, 240 44, 320 44 Z"
-      stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.7"/>
+    <path d="M340 44 C 420 44, 450 100, 448 168 C 446 232, 428 280, 388 296 C 356 308, 310 308, 280 296 C 240 280, 224 232, 222 168 C 220 100, 260 44, 340 44 Z"
+      stroke="var(--ink-soft)" stroke-width="0.75" fill="none" opacity="0.72"/>
 
-    {/* the inside life — soft bloom scatter inside the silhouette */}
-    <g transform="translate(280 130)">
+    {/* the inside life — a small cluster of soft blooms suggesting the body's inner rooms */}
+    <g transform="translate(300 130)">
       <g fill="#b899c9" opacity="0.72">
         <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
         <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
@@ -31,7 +32,7 @@
       </g>
       <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(360 180)">
+    <g transform="translate(378 188)">
       <g fill="#e46b6b" opacity="0.75">
         <path d="M0 -8 C 3 -7, 4 -1, 0 1 C -4 -1, -3 -7, 0 -8 Z"/>
         <path d="M8 -3 C 9 2, 4 7, 1 5 C 0 -1, 5 -5, 8 -3 Z"/>
@@ -41,7 +42,7 @@
       </g>
       <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(302 224)">
+    <g transform="translate(320 236)">
       <g fill="#e8c15a" opacity="0.72">
         <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
         <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
@@ -49,45 +50,40 @@
       <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
 
-    {/* faint interior ticks — the intermediate signals only sometimes verbalised */}
-    <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.5">
-      <path d="M340 90 L 342 92"/>
-      <path d="M256 160 L 258 162"/>
-      <path d="M400 200 L 402 202"/>
-      <path d="M330 250 L 332 252"/>
+    {/* the STETHOSCOPE — the real diagnostic instrument, hairline */}
+    <g transform="translate(128 130)">
+      {/* the earpieces — two tiny circles at the top */}
+      <circle cx="-14" cy="-56" r="4" stroke="var(--ink-soft)" stroke-width="0.75" fill="#f7f2e7" opacity="0.8"/>
+      <circle cx="14" cy="-56" r="4" stroke="var(--ink-soft)" stroke-width="0.75" fill="#f7f2e7" opacity="0.8"/>
+      {/* the two tubes — hairline curves that meet in the middle */}
+      <path d="M-14 -52 C -14 -30, -10 -20, -4 -8" stroke="var(--ink-soft)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.72"/>
+      <path d="M14 -52 C 14 -30, 10 -20, 4 -8" stroke="var(--ink-soft)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.72"/>
+      {/* the junction — hairline node */}
+      <circle cx="0" cy="-4" r="1.4" fill="var(--ink-soft)" opacity="0.72"/>
+      {/* the main tube — from junction curving down to the chestpiece */}
+      <path d="M0 -4 C 4 12, 30 24, 58 34" stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.75"/>
+      {/* the chestpiece — a small disk with hairline diaphragm circle */}
+      <circle cx="66" cy="40" r="10" fill="#e8c15a" opacity="0.5"/>
+      <circle cx="66" cy="40" r="10" stroke="var(--ink-soft)" stroke-width="0.75" fill="none" opacity="0.75"/>
+      <circle cx="66" cy="40" r="6" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.6"/>
+      {/* a tiny poppy at the diaphragm centre — the tender contact point */}
+      <circle cx="66" cy="40" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
     </g>
 
-    {/* the dragonfly — outside the skin, delicate visitor */}
-    <g transform="translate(148 130)">
-      <path d="M0 -8 L 0 12" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
-      <ellipse cx="-11" cy="-2" rx="11" ry="3.4" transform="rotate(-22 -11 -2)" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.65"/>
-      <ellipse cx="11" cy="-2" rx="11" ry="3.4" transform="rotate(22 11 -2)" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.65"/>
-      <ellipse cx="-8" cy="6" rx="8" ry="2.6" transform="rotate(18 -8 6)" stroke="var(--ink-soft)" stroke-width="0.45" fill="none" opacity="0.6"/>
-      <ellipse cx="8" cy="6" rx="8" ry="2.6" transform="rotate(-18 8 6)" stroke="var(--ink-soft)" stroke-width="0.45" fill="none" opacity="0.6"/>
-      <circle cx="0" cy="0" r="1" fill="var(--poppy-soft)" opacity="0.9"/>
-    </g>
-
-    {/* the diagnosis tick — a small fine-line cross-plus above the body */}
-    <g transform="translate(530 60)" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.7">
-      <path d="M0 -6 L 0 6"/>
-      <path d="M-6 0 L 6 0"/>
-    </g>
-    <circle cx="530" cy="60" r="0.9" fill="#e8c15a" opacity="0.9"/>
-
-    {/* fine-line "reading axis" — from dragonfly toward the middle inside */}
-    <path d="M168 128 C 200 128, 240 130, 268 132"
+    {/* a hairline listening-line — from stethoscope chestpiece to the body */}
+    <path d="M198 170 C 208 168, 214 168, 222 168"
       stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1.2 2" opacity="0.55"/>
 
-    {/* scatter */}
-    <circle cx="90" cy="60" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
-    <circle cx="560" cy="270" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
-    <circle cx="500" cy="290" r="0.4" fill="var(--ink-soft)" opacity="0.5"/>
+    {/* the etymology whisper — διάγνωσις in hand-caveat script */}
+    <text class="hand-label" x="118" y="220" font-size="16" font-style="italic" fill="var(--ink-soft)" opacity="0.72">διάγνωσις</text>
+    <text class="hand-label" x="118" y="238" font-size="12" fill="var(--ink-faint)" opacity="0.7">to know apart from</text>
 
     {/* hand captions */}
-    <text class="hand-label" x="88" y="152" font-size="15">the outside life</text>
-    <text class="hand-label" x="88" y="170" font-size="15" opacity="0.65">begins on the skin</text>
-    <text class="hand-label" x="454" y="180" font-size="15">the inside life —</text>
-    <text class="hand-label hand-label--accent" x="454" y="200" font-size="15">held long enough to become</text>
+    <text class="hand-label" x="486" y="126" font-size="14">the outside life —</text>
+    <text class="hand-label" x="486" y="142" font-size="14" opacity="0.7">begins on the skin</text>
+    <text class="hand-label hand-label--accent" x="486" y="196" font-size="14">the inside life</text>
+    <text class="hand-label hand-label--accent" x="486" y="212" font-size="14">held long enough</text>
+    <text class="hand-label hand-label--accent" x="486" y="228" font-size="14">to become</text>
   </svg>
 </figure>
 <style>

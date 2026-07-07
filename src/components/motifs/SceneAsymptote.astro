@@ -1,56 +1,53 @@
 ---
 /**
  * SceneAsymptote — Marimekko × fine-line hybrid scene.
- * Kalanithi: "You can't ever reach perfection, but you can believe in an
- * asymptote toward which you are ceaselessly striving." A soft Marimekko
- * curve rising toward a horizontal line it never touches, with poppy bloom
- * silhouettes trailing along it + a fine-line tangent from below + a tiny
- * gold star ahead as the beckoning perfection.
- * For: field-notes/the-silent-workspace · SUCCESSION §26.
+ * Kalanithi: "You can't ever reach perfection, but you can believe
+ * in an asymptote toward which you are ceaselessly striving." A
+ * soft canopy-green curve rising toward a horizontal it never
+ * touches, with soft blooms trailing along the curve as milestones.
+ * A small hand-drawn figure walks the curve; a pair of hairline
+ * calipers measure the gap between the curve's crest and the
+ * unreachable perfection-line. §27 redraw — no star, no sparkle.
+ * For: field-notes/the-silent-workspace.
  */
 ---
 <figure class="scene scene-hybrid">
-  <svg viewBox="0 0 640 300" role="img" aria-labelledby="asymptote-t" preserveAspectRatio="xMidYMid meet">
-    <title id="asymptote-t">A curve rising toward a line it never touches, with soft blooms trailing along it and a small gold star ahead.</title>
+  <svg viewBox="0 0 640 320" role="img" aria-labelledby="asymptote-t" preserveAspectRatio="xMidYMid meet">
+    <title id="asymptote-t">A curve rising toward a horizontal line it never touches; a small figure walks the curve, and hairline calipers measure the gap between the curve's crest and the unreachable line.</title>
 
     {/* the horizontal — the unreachable perfection */}
-    <path d="M60 60 L 600 60"
+    <path d="M60 56 L 600 56"
       stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" stroke-dasharray="1.5 3" opacity="0.55"/>
 
-    {/* the asymptotic curve — Marimekko-scale soft canopy-green fill under the curve */}
+    {/* the asymptotic curve — soft canopy-soft fill under */}
     <path d="M60 268 C 180 268, 280 240, 360 180 C 440 118, 500 84, 600 68 L 600 268 Z"
       fill="#a4b8c8" opacity="0.22"/>
 
     {/* the curve — hairline calligraphic */}
     <path d="M60 268 C 180 268, 280 240, 360 180 C 440 118, 500 84, 600 68"
-      stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
-    {/* second finer trace, offset — the ceaseless striving mark */}
+      stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.75"/>
+    {/* a second finer trace — the ceaseless striving second-pass */}
     <path d="M62 272 C 182 272, 282 244, 362 184 C 442 122, 502 88, 598 72"
       stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.5"/>
 
-    {/* the tangent from below — a fine-line dashed line kissing the curve */}
-    <path d="M120 290 L 420 132"
-      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1.2 2" opacity="0.5"/>
-    <circle cx="360" cy="180" r="1.2" fill="var(--poppy-soft)" opacity="0.9"/>
-
-    {/* the trailing blooms along the curve — Marimekko clusters at increasing altitude */}
+    {/* trailing blooms along the curve — milestones of what has been reached */}
     <g transform="translate(150 244)">
-      <g fill="#b899c9" opacity="0.72">
+      <g fill="#b899c9" opacity="0.7">
         <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
         <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
       </g>
       <circle cx="0" cy="0" r="1.2" fill="#f7f2e7"/>
     </g>
     <g transform="translate(240 220)">
-      <g fill="#e8c15a" opacity="0.72">
+      <g fill="#e8c15a" opacity="0.7">
         <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
         <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
         <ellipse cx="0" cy="4" rx="3" ry="4.5"/>
       </g>
       <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(360 172)">
-      <g fill="#e46b6b" opacity="0.75">
+    <g transform="translate(340 174)">
+      <g fill="#e46b6b" opacity="0.72">
         <path d="M0 -8 C 3 -7, 4 -1, 0 1 C -4 -1, -3 -7, 0 -8 Z"/>
         <path d="M8 -3 C 9 2, 4 7, 1 5 C 0 -1, 5 -5, 8 -3 Z"/>
         <path d="M5 7 C 0 9, -4 6, -1 3 C 3 0, 7 2, 5 7 Z"/>
@@ -59,33 +56,40 @@
       </g>
       <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
     </g>
-    <g transform="translate(470 108)">
-      <g fill="#b899c9" opacity="0.72">
-        <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
-        <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
-      </g>
-      <circle cx="0" cy="0" r="1.2" fill="#f7f2e7"/>
+
+    {/* the walking figure — a small hairline person walking the curve */}
+    <g transform="translate(438 118)">
+      <circle cx="0" cy="-14" r="4" stroke="var(--ink-soft)" stroke-width="0.75" fill="#f7f2e7" opacity="0.85"/>
+      <path d="M0 -10 L 0 10" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      <path d="M-6 -4 L 5 -6" stroke="var(--ink-soft)" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/>
+      <path d="M0 10 L -4 20 M0 10 L 6 18" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      {/* a small tender knot at the chest — the striving is the point */}
+      <circle cx="0" cy="-3" r="1.1" fill="var(--poppy-soft)" opacity="0.85"/>
     </g>
 
-    {/* the beckoning star — a fine-line star just above the asymptote */}
-    <g transform="translate(580 40)">
-      <path d="M0 -10 L 2.4 -3 L 10 -3 L 4 1.5 L 6.5 9 L 0 4 L -6.5 9 L -4 1.5 L -10 -3 L -2.4 -3 Z"
-        stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linejoin="round" opacity="0.72"/>
-      <circle cx="0" cy="-1" r="1" fill="#e8c15a" opacity="0.9"/>
-      <g stroke="var(--ink-soft)" stroke-width="0.3" stroke-linecap="round" opacity="0.55">
-        <path d="M-18 6 L -16 6 M-17 5 L -17 7"/>
-      </g>
+    {/* the CALIPERS — hairline instruments measuring the gap between the curve and the horizontal */}
+    <g transform="translate(500 82)">
+      {/* the caliper's pivot */}
+      <circle cx="0" cy="0" r="1.4" fill="var(--ink-soft)" opacity="0.72"/>
+      {/* the two arms — hairline lines from the pivot down to the curve and up to the horizontal */}
+      <path d="M0 0 L -4 -26" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+      <path d="M0 0 L 4 24" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+      {/* the caliper's measuring feet — tiny horizontal ticks */}
+      <path d="M-7 -26 L -1 -26" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+      <path d="M1 24 L 7 24" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+      {/* the caliper's measurement — a small numeral hint (the never-closed gap) */}
+      <text class="hand-label" x="12" y="4" font-size="12" fill="var(--ink-faint)" opacity="0.75">the gap that never closes</text>
     </g>
 
-    {/* scatter */}
-    <circle cx="82" cy="94" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
-    <circle cx="90" cy="290" r="0.5" fill="var(--ink-soft)" opacity="0.55"/>
+    {/* the ceaseless-striving marker at the walking figure's back — a small motion mark */}
+    <g transform="translate(420 128)">
+      <path d="M0 0 C -6 -2, -10 -6, -12 -12" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="0.8 1.5" opacity="0.5"/>
+    </g>
 
     {/* hand captions */}
-    <text class="hand-label hand-label--accent" x="466" y="52" font-size="15">perfection</text>
-    <text class="hand-label" x="72" y="290" font-size="15">ceaselessly striving</text>
-    <text class="hand-label" x="356" y="216" font-size="14" opacity="0.7">the tangent kisses,</text>
-    <text class="hand-label" x="356" y="232" font-size="14" opacity="0.7">and leaves again</text>
+    <text class="hand-label hand-label--accent" x="60" y="46" font-size="15">the perfection you cannot reach</text>
+    <text class="hand-label" x="72" y="304" font-size="15">the ceaseless striving</text>
+    <text class="hand-label" x="336" y="216" font-size="13" opacity="0.65">each bloom, a landing</text>
   </svg>
 </figure>
 <style>

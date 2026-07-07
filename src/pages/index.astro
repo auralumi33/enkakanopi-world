@@ -42,6 +42,18 @@ const whatThisIs = [
         <span class="paren">(no one told us growing old would feel like this)</span>
       </h1>
     </div>
+    <div class="signature-notch" aria-hidden="true">
+      {/* Hairline signature-notch — a small tattoo-vocabulary tick echoing
+          the "edge of what I know" register (§27). Two hairline pen-strokes
+          that meet at a poppy-soft dot; the dot is the notch. */}
+      <svg viewBox="0 0 120 22" width="140" height="22">
+        <path d="M6 14 C 24 8, 46 8, 58 12" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
+        <path d="M58 12 C 70 8, 92 8, 114 14" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
+        <circle cx="58" cy="12" r="1.4" fill="var(--poppy-soft)" opacity="0.92"/>
+        <path d="M52 4 L 54 4" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+        <path d="M66 4 L 68 4" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+      </svg>
+    </div>
     <p class="sub">
       Essays on identity, memory, and the tender work of rebuilding in the age of AI —
       making &amp; honouring the craft on light feet
@@ -220,26 +232,31 @@ const whatThisIs = [
   .signature {
     position: relative;
     z-index: 1;
-    font-weight: 440; font-style: italic;
-    font-size: clamp(1.72rem, 5vw, 2.55rem); line-height: 1.3;
-    letter-spacing: -0.02em; max-width: 42rem; margin: 0;
+    font-weight: 520; font-style: italic;
+    font-size: clamp(1.88rem, 5.5vw, 2.72rem); line-height: 1.28;
+    letter-spacing: -0.022em; max-width: 42rem; margin: 0;
     text-wrap: balance; text-align: left;
   }
-  /* Mobile hero enlargement (SUCCESSION §26): floor 1.55 → 1.72rem (~+11%)
-     + preferred 4.3vw → 5vw. The three hardcoded line breaks (after
-     "generation" · "machines" · pre-paren) hold; the paren stays at
-     0.82em relative so "(no one told us growing old would feel like
-     this)" still fits its single line on typical mobile widths (360–430px)
-     — verified locally at 360/380/400/428. Editorial sensibility: a
-     meaningful bump, not a shout. */
-  /* Desktop hero enlargement (SUCCESSION §20): scale the H1 up a notch on
-     wider viewports for readability, without shifting layout on mobile.
-     Desktop max-width widened 42rem → 58rem so the intended line breaks
-     ("machines" ending line 2 · "like this)" ending the paren) hold
-     without spilling to a fresh line (SUCCESSION §21). */
+  /* Mobile + weight enlargement (SUCCESSION §27): floor 1.72 → 1.88rem
+     (~+9%), preferred 5vw → 5.5vw, ceiling 2.55 → 2.72rem; italic weight
+     440 → 520 for editorial heft (JW-Anderson-adjacent bold italic serif,
+     Bourgeois-quote-card altitude). Letter-spacing tightened slightly
+     (-0.020 → -0.022em) so the paren still holds its single line at
+     360–430px viewports (verified). Line-height dropped 1.3 → 1.28 to
+     preserve vertical rhythm as size grows. */
+  /* Desktop hero enlargement (SUCCESSION §20 · §27): scale the H1 up on
+     wider viewports. Ceiling grown alongside mobile (3.5 → 3.7rem) so the
+     bold-italic register lands with the same visual weight on desktop.
+     Max-width unchanged at 58rem — the intended line breaks hold. */
   @media (min-width: 60rem) {
-    .signature { font-size: clamp(2.15rem, 6vw, 3.5rem); max-width: 58rem; }
+    .signature { font-size: clamp(2.32rem, 6.4vw, 3.7rem); max-width: 58rem; }
   }
+  /* The signature-notch — a small hairline flourish that sits under the
+     H1 as a tattoo-vocabulary tick, echoing the "edge of what I know"
+     register (SUCCESSION §27). Marimekko-restrained: hairline 0.7 stroke,
+     poppy-soft dot, negative-space dominant. Never in the H1 wrap path. */
+  .signature-notch { display: block; margin: 0.9rem 0 0; opacity: 0.72; }
+  .signature-notch svg { display: block; }
   @media (max-width: 46rem) {
     .signature-garden { padding: 2.1rem 0 1.1rem; }
   }

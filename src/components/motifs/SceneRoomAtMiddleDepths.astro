@@ -1,89 +1,99 @@
 ---
 /**
  * SceneRoomAtMiddleDepths — Marimekko × fine-line hybrid scene.
- * The J-space at the intermediate layers of a language model. A Marimekko
- * vertical stack of soft pastel bands representing model layers, with the
- * middle band lit — a small bloom cluster held inside it as "content held
- * long enough to become" — plus a fine-line tangent kissing the middle band
- * from outside (the J-lens diagnostic instrument).
- * For: field-notes/the-silent-workspace · SUCCESSION §26.
+ * The J-space at the intermediate depths of a language model.
+ * Marimekko vertical stack of soft slate layer-bands with the middle
+ * band lit — content held long enough to become. The J-lens is drawn
+ * as a small hairline *keyhole aperture* into the middle band (the
+ * observer's opening into the workspace) — not a tangent-tick. A
+ * proper directional flow-arrow carries the "made available to what
+ * comes after" register outward. §27 redraw — specific diagnostic
+ * imagery, no sparkle-scatter.
+ * For: field-notes/the-silent-workspace.
  */
 ---
 <figure class="scene scene-hybrid">
-  <svg viewBox="0 0 640 340" role="img" aria-labelledby="depths-t" preserveAspectRatio="xMidYMid meet">
-    <title id="depths-t">A vertical stack of soft pastel bands as model layers; the middle band holds a small bloom, and a fine-line tangent kisses it from outside.</title>
+  <svg viewBox="0 0 640 360" role="img" aria-labelledby="depths-t" preserveAspectRatio="xMidYMid meet">
+    <title id="depths-t">A vertical stack of soft pastel bands as language-model layers; the middle band is lit and holds a small bloom (content held long enough to become), with a hairline keyhole aperture (the J-lens) opening into it and a directional flow-arrow carrying its content outward to downstream layers.</title>
+
+    {/* layer-stack labels — hand-caveat "layer 1 · layer 2 …" */}
+    <g class="hand-label" fill="var(--ink-faint)" opacity="0.65">
+      <text x="112" y="52" font-size="12">upstream layers</text>
+      <text x="112" y="184" font-size="12">the middle band</text>
+      <text x="112" y="316" font-size="12">downstream layers</text>
+    </g>
 
     {/* the layer stack — soft pastel Marimekko horizontal bands */}
-    <g opacity="0.45">
-      <rect x="180" y="30" width="280" height="34" fill="#a4b8c8"/>
-      <rect x="180" y="70" width="280" height="34" fill="#a4b8c8" opacity="0.85"/>
-      <rect x="180" y="110" width="280" height="34" fill="#a4b8c8" opacity="0.7"/>
+    <g>
+      <rect x="220" y="40" width="300" height="30" fill="#a4b8c8" opacity="0.4"/>
+      <rect x="220" y="74" width="300" height="30" fill="#a4b8c8" opacity="0.55"/>
+      <rect x="220" y="108" width="300" height="30" fill="#a4b8c8" opacity="0.7"/>
     </g>
 
-    {/* the middle band — lit, slightly brighter, with hairline border */}
-    <rect x="180" y="150" width="280" height="42" fill="#b899c9" opacity="0.4"/>
-    <rect x="180" y="150" width="280" height="42" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.7"/>
+    {/* the middle band — lit, warmer + slightly lavender, with hairline border */}
+    <rect x="220" y="146" width="300" height="52" fill="#b899c9" opacity="0.42"/>
+    <rect x="220" y="146" width="300" height="52" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.75"/>
+    {/* the inner hairline rule — a second edge, giving the band its lit-room feel */}
+    <rect x="226" y="152" width="288" height="40" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.5"/>
+
+    {/* the bloom held in the middle band — the "content held long enough to become" */}
+    <g transform="translate(370 172)">
+      <g fill="#e46b6b" opacity="0.85">
+        <path d="M0 -10 C 4 -9, 4.5 -2, 0 1 C -4.5 -2, -4 -9, 0 -10 Z"/>
+        <path d="M9 -4 C 10.5 1, 6 7, 1 5 C 0 -1, 6 -6, 9 -4 Z"/>
+        <path d="M5 8 C 0 11, -5 7, -1 3 C 4 0, 8 3, 5 8 Z"/>
+        <path d="M-7 6 C -11 3, -8 -3, -3 -1 C -1 3, -5 7, -7 6 Z"/>
+        <path d="M-9 -3 C -6 -8, -1 -7, -1 -2 C -3 2, -10 1, -9 -3 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="1.6" fill="#f7f2e7"/>
+    </g>
 
     {/* lower layers */}
-    <g opacity="0.45">
-      <rect x="180" y="198" width="280" height="34" fill="#a4b8c8" opacity="0.7"/>
-      <rect x="180" y="238" width="280" height="34" fill="#a4b8c8" opacity="0.85"/>
-      <rect x="180" y="278" width="280" height="34" fill="#a4b8c8"/>
+    <g>
+      <rect x="220" y="206" width="300" height="30" fill="#a4b8c8" opacity="0.7"/>
+      <rect x="220" y="240" width="300" height="30" fill="#a4b8c8" opacity="0.55"/>
+      <rect x="220" y="274" width="300" height="30" fill="#a4b8c8" opacity="0.4"/>
     </g>
 
-    {/* the bloom held in the middle band — a small Marimekko cluster inside the workspace */}
-    <g transform="translate(320 171)">
-      <g fill="#e46b6b" opacity="0.85">
-        <path d="M0 -8 C 3 -7, 4 -1, 0 1 C -4 -1, -3 -7, 0 -8 Z"/>
-        <path d="M8 -3 C 9 2, 4 7, 1 5 C 0 -1, 5 -5, 8 -3 Z"/>
-        <path d="M5 7 C 0 9, -4 6, -1 3 C 3 0, 7 2, 5 7 Z"/>
-        <path d="M-6 6 C -9 3, -6 -2, -3 -1 C -1 3, -4 7, -6 6 Z"/>
-        <path d="M-8 -2 C -5 -7, -1 -6, 0 -2 C -2 2, -8 2, -8 -2 Z"/>
-      </g>
-      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
+    {/* the J-lens — a hairline KEYHOLE APERTURE opening into the middle band from the left */}
+    <g transform="translate(200 172)">
+      {/* the keyhole circle — the observer's aperture */}
+      <circle cx="0" cy="0" r="12" stroke="var(--ink-soft)" stroke-width="0.8" fill="#f7f2e7" opacity="0.85"/>
+      {/* the keyhole slot — a narrow rectangle at the bottom */}
+      <path d="M-3 6 L -3 22 L 3 22 L 3 6" stroke="var(--ink-soft)" stroke-width="0.8" fill="#f7f2e7" opacity="0.85"/>
+      {/* the aperture's inner pupil — a small dot showing what the observer sees */}
+      <circle cx="0" cy="0" r="4" fill="#b899c9" opacity="0.6"/>
+      <circle cx="0" cy="0" r="1.4" fill="#e46b6b" opacity="0.85"/>
+      {/* two hairline sight-lines from the aperture INTO the middle band */}
+      <path d="M14 -4 L 168 -8" stroke="var(--ink-soft)" stroke-width="0.4" stroke-dasharray="1.2 2.4" opacity="0.5"/>
+      <path d="M14 4 L 168 8" stroke="var(--ink-soft)" stroke-width="0.4" stroke-dasharray="1.2 2.4" opacity="0.5"/>
     </g>
 
-    {/* faint bloom shadows in other bands — what's held but not made available */}
-    <g opacity="0.25">
-      <g transform="translate(260 85)">
-        <ellipse cx="0" cy="0" rx="4" ry="6" fill="#b899c9"/>
-      </g>
-      <g transform="translate(380 45)">
-        <ellipse cx="0" cy="0" rx="3" ry="5" fill="#e8c15a"/>
-      </g>
-      <g transform="translate(280 255)">
-        <ellipse cx="0" cy="0" rx="4" ry="5" fill="#a4b8c8"/>
-      </g>
-      <g transform="translate(400 293)">
-        <ellipse cx="0" cy="0" rx="3" ry="5" fill="#b899c9"/>
-      </g>
+    {/* the outward flow — a proper directional arrow from workspace to downstream */}
+    <g transform="translate(544 172)">
+      {/* the flow-line — hairline curved trajectory */}
+      <path d="M-24 0 C -12 4, -4 8, 8 14" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+      {/* the arrowhead */}
+      <path d="M8 14 L 2 12 M8 14 L 4 8" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+      {/* the flow's held content — a small poppy dot at the arrowhead */}
+      <circle cx="10" cy="16" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
     </g>
 
-    {/* the tangent — the J-lens diagnostic instrument, a fine-line dashed line kissing the middle band */}
-    <path d="M80 236 L 178 171"
-      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" stroke-dasharray="1.4 2" opacity="0.65"/>
-    <circle cx="178" cy="171" r="1.2" fill="var(--poppy-soft)" opacity="0.9"/>
-
-    {/* the outward flow — from workspace to downstream (a hairline arrow-less trail) */}
-    <path d="M462 171 C 500 174, 540 178, 580 180"
-      stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" stroke-dasharray="1.5 2.4" opacity="0.6"/>
-    <circle cx="580" cy="180" r="0.9" fill="var(--ink-soft)" opacity="0.65"/>
-
-    {/* small tattoo-flash marks scattered — the intermediate-band signals */}
-    <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.6">
-      <path d="M212 168 L 214 168 M213 167 L 213 169"/>
-      <path d="M420 172 L 422 172 M421 171 L 421 173"/>
+    {/* what the middle band held that never left — a faint bloom outline that stays */}
+    <g transform="translate(280 172)" opacity="0.4">
+      <ellipse cx="0" cy="0" rx="5" ry="7" fill="#b899c9"/>
     </g>
 
-    {/* scatter */}
-    <circle cx="88" cy="90" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
-    <circle cx="556" cy="308" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
+    {/* the Jacobian-lens notation — a small hand-drawn ∂ near the aperture (the physicist's mark) */}
+    <text class="hand-label" x="192" y="212" font-size="17" font-style="italic" fill="var(--ink-soft)" opacity="0.7">∂</text>
+    <text class="hand-label" x="204" y="212" font-size="12" fill="var(--ink-faint)" opacity="0.65">the J-lens</text>
 
     {/* hand captions */}
-    <text class="hand-label" x="72" y="248" font-size="15">the J-lens</text>
-    <text class="hand-label" x="484" y="164" font-size="15">made available</text>
-    <text class="hand-label hand-label--accent" x="486" y="196" font-size="15">to what comes after</text>
-    <text class="hand-label" x="196" y="176" font-size="14" opacity="0.55">the silent workspace</text>
+    <text class="hand-label" x="228" y="180" font-size="14" opacity="0.6">the silent workspace</text>
+    <text class="hand-label hand-label--accent" x="450" y="164" font-size="14">held long enough</text>
+    <text class="hand-label hand-label--accent" x="450" y="180" font-size="14">to become</text>
+    <text class="hand-label" x="450" y="196" font-size="12" opacity="0.65">made available to</text>
+    <text class="hand-label" x="450" y="210" font-size="12" opacity="0.65">what comes after</text>
   </svg>
 </figure>
 <style>
