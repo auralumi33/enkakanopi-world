@@ -260,7 +260,17 @@ const whatThisIs = [
     font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.65;
     max-width: 62ch; margin: 2rem 0 0; color: var(--ink); text-align: left;
   }
-  .keystone .accent { color: #e46b6b; font-style: normal; }
+  .keystone .accent {
+    color: #e46b6b; font-style: normal;
+    /* Shrink the accent a notch to match section rhythm (SUCCESSION §22) */
+    font-size: 0.94em;
+  }
+  /* Desktop keystone breathability (SUCCESSION §22): widen so the paragraph
+     spreads across the page instead of truncating into cramped wrapping.
+     Mobile untouched. */
+  @media (min-width: 60rem) {
+    .keystone { max-width: 58rem; line-height: 1.7; }
+  }
   /* Inline doodles (SUCCESSION §20 · phrase replacement register):
      the cloud dancer replaces "dancing under the weight of the clouds"
      inline in the .sub; the two hulls replace "patience between the

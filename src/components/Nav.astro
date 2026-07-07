@@ -185,13 +185,14 @@ const groupCurrent = (g: (typeof groups)[number]) => g.links.some((l) => isCurre
     line-height: 1; text-align: center; color: var(--canopy);
     padding-bottom: 2px;
     border-bottom: 1.4px solid transparent;
-    /* Sub-pixel visual alignment (SUCCESSION §20): Fraunces variable serif
-       has a slightly deeper descender space than the sans-serif nav labels
-       at the same DOM baseline. A 2px optical lift brings the glyph
-       baseline into visual alignment with the nav labels. DOM baseline
-       shifts by 2px (from 85.47 → 83.47) but visual alignment is what
-       reads; nav-alignment SKILL contract updated to match. */
-    transform: translateY(-2px);
+    /* Wordmark eyeline alignment (SUCCESSION §22 · supersedes §20 lift):
+       align the wordmark's visual bottom with the coral aria-current
+       underline under nav links (the "Studio" underline is the eyeline).
+       The prior -2px lift went the wrong direction visually and was
+       disjointed; +4px pushes the wordmark down so its glyph bottom
+       sits at the coral-underline Y. Only .word shifts visually; the
+       .mark flex box stays put, so layout is unchanged. */
+    transform: translateY(4px);
   }
   @media (max-width: 60rem) { .mark { width: 128px; } .mark .word { font-size: 0.74rem; } }
 
