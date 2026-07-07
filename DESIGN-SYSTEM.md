@@ -107,9 +107,10 @@ language, use the names:
   opacity, negative space is the star. Two ground variants: cream skin
   (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
   night skin (`--night-ink` + `--gold` accents, for the workshop dark
-  ground only). Vocabulary base (10 marks shipped, extensible per
+  ground only). Vocabulary base (15 marks shipped, extensible per
   essay): cream skin — MoonCrescent · VineTrail · ScriptHeart ·
-  Greenhouse · BenchTending · PlaceNotFunnel · InCompany. Night skin
+  Greenhouse · BenchTending · PlaceNotFunnel · InCompany · FictionFold
+  · WorkspaceRoom · WhiteBear · TangentEdge · MergingSeam. Night skin
   — WorkshopHand · WorkshopMirror · WorkshopSign. Delivered as
   reusable components under
   [`src/components/motifs/memoria/`](./src/components/motifs/memoria/).
