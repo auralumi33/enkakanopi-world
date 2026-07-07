@@ -83,18 +83,24 @@ language, use the names:
   period · hand). Canonical form: *"the garden · summer 07/ 2026 ·
   tended by Fang Rika ·"*. Opt-in per essay via frontmatter
   `seal: boolean`.
-- **The garden's motif set** — ten hand-drawn Marimekko × Japanese-ma
-  marks carrying the 円花 (circle + flower) + canopy name-thesis:
-  the sheltered bloom · the ensō 円 · the seasonal round · the
-  nursery pot · the canopy round · the nested rounds · the three
-  arches · the three pots · the dappled floor · the hand-inked seam.
-  Delivered as reusable components under
+- **The garden's motif set** — twenty hand-drawn Marimekko × Japanese-ma
+  marks carrying the 円花 (circle + flower) + canopy name-thesis
+  across the site. Extended from 10 → 20 on 2026-07-07 (tab pass).
+  The colophon ten: *the sheltered bloom · the ensō 円 · the seasonal
+  round · the nursery pot · the canopy round · the nested rounds ·
+  the three arches · the three pots · the dappled floor · the
+  hand-inked seam*. The tab ten: *the pinned cluster · the pressed
+  nineteen · the archive gate* (Volume I) · *the word plot · the
+  term tick · the citation seed* (Lexicon) · *the apprentice bench ·
+  the workbench · the tally mark* (Studio) · *the braided seam*
+  (Versions of Me). Delivered as reusable components under
   [`src/components/motifs/`](./src/components/motifs/). Pastel
   palette: `--canopy-soft` primary leaves, `--poppy-soft` held blooms,
   bloom-family sprinkles (lavender · pastel blue · Marimekko yellow ·
   cream heart) at whisper opacity. Each motif is `aria-hidden`,
   reduced-motion safe (no motion). Extend the set only when a new
-  name-thesis beat is unaccounted for.
+  name-thesis beat is unaccounted for. Restraint is per-surface, not
+  per-page (Law 6 measured at zone level: head · body · foot).
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
