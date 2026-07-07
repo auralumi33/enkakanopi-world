@@ -107,10 +107,14 @@ language, use the names:
   opacity, negative space is the star. Two ground variants: cream skin
   (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
   night skin (`--night-ink` + `--gold` accents, for the workshop dark
-  ground only). Vocabulary base (14 marks shipped, extensible per
-  essay): cream skin — MoonCrescent · VineTrail · ScriptHeart ·
-  Greenhouse · BenchTending · PlaceNotFunnel · InCompany · FictionFold
-  · WorkspaceRoom · WhiteBear · MergingSeam. Night skin
+  ground only). Vocabulary base (18 marks shipped, extensible per
+  essay): cream skin main register (hairline 0.85) — MoonCrescent ·
+  VineTrail · ScriptHeart · Greenhouse · BenchTending · PlaceNotFunnel
+  · InCompany · FictionFold · WorkspaceRoom · WhiteBear · MergingSeam.
+  Cream skin tattoo-flash register (hairline 0.55 · ornamental scatter
+  · sparkle glyphs · poppy-soft accent preserved · SUCCESSION §25) —
+  TheCurveKept · TheFirstApproximation · FineLineStar · Dragonfly.
+  Night skin
   — WorkshopHand · WorkshopMirror · WorkshopSign. Delivered as
   reusable components under
   [`src/components/motifs/memoria/`](./src/components/motifs/memoria/).
