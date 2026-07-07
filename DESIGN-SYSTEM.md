@@ -101,6 +101,19 @@ language, use the names:
   reduced-motion safe (no motion). Extend the set only when a new
   name-thesis beat is unaccounted for. Restraint is per-surface, not
   per-page (Law 6 measured at zone level: head · body · foot).
+- **The memoria layer** — a fine-line calligraphic register that runs
+  alongside the pastel v3 motif set. Named for the *body/webpage as a
+  site of memory* framing. Hairline weight 0.6–0.9, tapered ends, low
+  opacity, negative space is the star. Two ground variants: cream skin
+  (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
+  night skin (`--night-ink` + `--gold` accents, for the workshop dark
+  ground only). Vocabulary base: MoonCrescent · VineTrail · ScriptHeart
+  · WorkshopHand · WorkshopMirror · WorkshopSign. Delivered as reusable
+  components under
+  [`src/components/motifs/memoria/`](./src/components/motifs/memoria/).
+  Phrase-replacement pattern is canonical: pull the phrase into an
+  `aria-label` on a `<span>`, inline the doodle as `aria-hidden`.
+  Extend per essay as narratives require.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
