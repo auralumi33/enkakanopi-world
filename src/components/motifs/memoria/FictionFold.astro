@@ -1,0 +1,20 @@
+---
+/**
+ * FictionFold — memoria layer · cream skin · essay mark for the prologue.
+ * A small hand-drawn page-fold: lower rectangle, upper triangular flap
+ * creased down to a center point with a poppy-soft dot at the crease
+ * peak. Reads: the page turned. Used on "A Fiction We Grew Up Inside"
+ * (Prologue to the merging-frontier trilogy). SUCCESSION §23.
+ */
+interface Props { size?: number; }
+const { size = 76 } = Astro.props;
+const h = Math.round(size * 60 / 80);
+---
+<svg width={size} height={h} viewBox="0 0 80 60" aria-hidden="true">
+  <path d="M8 12 L 72 12 L 72 52 L 8 52 Z" stroke="var(--ink-soft)" stroke-width="0.85" fill="var(--paper-deep)" opacity="0.4"/>
+  <path d="M8 12 L 72 12 L 72 52 L 8 52 Z" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72"/>
+  <path d="M8 12 L 40 32 L 72 12" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M8 12 C 20 20, 34 26, 40 32" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M72 12 C 60 20, 46 26, 40 32" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="40" cy="32" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
+</svg>

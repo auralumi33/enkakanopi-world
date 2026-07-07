@@ -41,6 +41,10 @@ shelve(bodySpine, "/body-spine");
 // Hung by theme, not by collection — the wall is curated, not filed.
 const clusters = [
   {
+    label: "the merging frontier",
+    slugs: ["a-fiction-we-grew-up-inside", "the-silent-workspace", "the-white-bear", "the-wobble-the-ruler-couldnt-hold", "the-circle-that-completes-itself"],
+  },
+  {
     label: "home & the rebuild",
     slugs: ["the-keel-not-the-harbour", "a-home-you-keep-rebuilding", "the-room-i-left", "in-formation"],
   },
@@ -74,7 +78,7 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
 ---
 <Base
   title="Volume I · In Formation"
-  description="The founding collection — nineteen pieces, hung by theme, every one still tended. A completed opening movement, not a backlog."
+  description="The founding collection and the merging-frontier trilogy — twenty-four pieces, hung by theme, every one still tended. A completed opening movement plus notes from inside the current turn."
 >
   <section class="page head">
     <div class="hung" aria-hidden="true">
@@ -125,9 +129,9 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
     <p class="eyebrow"><Glyph name="canopy" size={18} /> &nbsp;the archive wall</p>
     <h1>Volume I · In Formation</h1>
     <p class="lede">
-      A completed opening movement, not a backlog — the origin the studio grows
-      around. Nineteen pieces, hung with care, by theme rather than by shelf;
-      every piece keeps its place.
+      A completed opening movement, plus notes from inside the current turn —
+      twenty-four pieces, hung with care, by theme rather than by shelf; every
+      piece keeps its place.
     </p>
     <div class="nineteen" aria-hidden="true">
       <MotifPressedNineteen size={340} />

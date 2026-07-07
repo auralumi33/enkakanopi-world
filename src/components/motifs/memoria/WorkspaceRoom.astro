@@ -1,0 +1,25 @@
+---
+/**
+ * WorkspaceRoom — memoria layer · cream skin · essay mark for
+ * "The Silent Workspace." A small fine-line room outline with a soft
+ * paper-deep interior fill, a subtle vertical dashed divider (the room
+ * partitioned), and one poppy-soft thought at the center surrounded by
+ * four whisper dots (the small warmth of a thought forming, breath
+ * around it). Reads: the room where thought becomes a sentence.
+ * SUCCESSION §23.
+ */
+interface Props { size?: number; }
+const { size = 84 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 80 80" aria-hidden="true">
+  <path d="M10 18 L70 18 L70 62 L10 62 Z" stroke="var(--ink-soft)" stroke-width="0.85" fill="var(--paper-deep)" opacity="0.35"/>
+  <path d="M10 18 L70 18 L70 62 L10 62 Z" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72"/>
+  <path d="M14 22 L66 22" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.4"/>
+  <path d="M40 22 L40 58" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.35" stroke-dasharray="1 2"/>
+  <circle cx="40" cy="40" r="3" fill="var(--poppy-soft)" opacity="0.9"/>
+  <circle cx="40" cy="40" r="1" fill="var(--paper)"/>
+  <circle cx="26" cy="34" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="54" cy="34" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="26" cy="46" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="54" cy="46" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+</svg>

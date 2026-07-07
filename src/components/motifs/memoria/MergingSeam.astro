@@ -1,0 +1,23 @@
+---
+/**
+ * MergingSeam — memoria layer · cream skin · essay mark for the coda
+ * "The Circle That Completes Itself." Two hand-drawn hairlines
+ * converging into one, then continuing as one line to the right — the
+ * shape the site has been rehearsing all along, made visible. A
+ * poppy-soft dot at the merge and a tiny whisper dot at the end.
+ * SUCCESSION §23.
+ */
+interface Props { size?: number; }
+const { size = 180 } = Astro.props;
+const h = Math.round(size * 40 / 160);
+---
+<svg width={size} height={h} viewBox="0 0 160 40" aria-hidden="true">
+  <path d="M 10 12 C 40 12, 60 20, 80 20"
+    stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M 10 28 C 40 28, 60 20, 80 20"
+    stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M 80 20 C 100 20, 130 20, 150 20"
+    stroke="var(--ink-soft)" stroke-width="0.95" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="80" cy="20" r="1.6" fill="var(--poppy-soft)" opacity="0.9"/>
+  <circle cx="150" cy="20" r="0.7" fill="var(--ink-soft)" opacity="0.6"/>
+</svg>
