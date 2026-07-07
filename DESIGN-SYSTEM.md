@@ -83,6 +83,18 @@ language, use the names:
   period · hand). Canonical form: *"the garden · summer 07/ 2026 ·
   tended by Fang Rika ·"*. Opt-in per essay via frontmatter
   `seal: boolean`.
+- **The garden's motif set** — ten hand-drawn Marimekko × Japanese-ma
+  marks carrying the 円花 (circle + flower) + canopy name-thesis:
+  the sheltered bloom · the ensō 円 · the seasonal round · the
+  nursery pot · the canopy round · the nested rounds · the three
+  arches · the three pots · the dappled floor · the hand-inked seam.
+  Delivered as reusable components under
+  [`src/components/motifs/`](./src/components/motifs/). Pastel
+  palette: `--canopy-soft` primary leaves, `--poppy-soft` held blooms,
+  bloom-family sprinkles (lavender · pastel blue · Marimekko yellow ·
+  cream heart) at whisper opacity. Each motif is `aria-hidden`,
+  reduced-motion safe (no motion). Extend the set only when a new
+  name-thesis beat is unaccounted for.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
