@@ -1,0 +1,92 @@
+---
+/**
+ * SceneRoomAtMiddleDepths — Marimekko × fine-line hybrid scene.
+ * The J-space at the intermediate layers of a language model. A Marimekko
+ * vertical stack of soft pastel bands representing model layers, with the
+ * middle band lit — a small bloom cluster held inside it as "content held
+ * long enough to become" — plus a fine-line tangent kissing the middle band
+ * from outside (the J-lens diagnostic instrument).
+ * For: field-notes/the-silent-workspace · SUCCESSION §26.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 340" role="img" aria-labelledby="depths-t" preserveAspectRatio="xMidYMid meet">
+    <title id="depths-t">A vertical stack of soft pastel bands as model layers; the middle band holds a small bloom, and a fine-line tangent kisses it from outside.</title>
+
+    {/* the layer stack — soft pastel Marimekko horizontal bands */}
+    <g opacity="0.45">
+      <rect x="180" y="30" width="280" height="34" fill="#a4b8c8"/>
+      <rect x="180" y="70" width="280" height="34" fill="#a4b8c8" opacity="0.85"/>
+      <rect x="180" y="110" width="280" height="34" fill="#a4b8c8" opacity="0.7"/>
+    </g>
+
+    {/* the middle band — lit, slightly brighter, with hairline border */}
+    <rect x="180" y="150" width="280" height="42" fill="#b899c9" opacity="0.4"/>
+    <rect x="180" y="150" width="280" height="42" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.7"/>
+
+    {/* lower layers */}
+    <g opacity="0.45">
+      <rect x="180" y="198" width="280" height="34" fill="#a4b8c8" opacity="0.7"/>
+      <rect x="180" y="238" width="280" height="34" fill="#a4b8c8" opacity="0.85"/>
+      <rect x="180" y="278" width="280" height="34" fill="#a4b8c8"/>
+    </g>
+
+    {/* the bloom held in the middle band — a small Marimekko cluster inside the workspace */}
+    <g transform="translate(320 171)">
+      <g fill="#e46b6b" opacity="0.85">
+        <path d="M0 -8 C 3 -7, 4 -1, 0 1 C -4 -1, -3 -7, 0 -8 Z"/>
+        <path d="M8 -3 C 9 2, 4 7, 1 5 C 0 -1, 5 -5, 8 -3 Z"/>
+        <path d="M5 7 C 0 9, -4 6, -1 3 C 3 0, 7 2, 5 7 Z"/>
+        <path d="M-6 6 C -9 3, -6 -2, -3 -1 C -1 3, -4 7, -6 6 Z"/>
+        <path d="M-8 -2 C -5 -7, -1 -6, 0 -2 C -2 2, -8 2, -8 -2 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
+    </g>
+
+    {/* faint bloom shadows in other bands — what's held but not made available */}
+    <g opacity="0.25">
+      <g transform="translate(260 85)">
+        <ellipse cx="0" cy="0" rx="4" ry="6" fill="#b899c9"/>
+      </g>
+      <g transform="translate(380 45)">
+        <ellipse cx="0" cy="0" rx="3" ry="5" fill="#e8c15a"/>
+      </g>
+      <g transform="translate(280 255)">
+        <ellipse cx="0" cy="0" rx="4" ry="5" fill="#a4b8c8"/>
+      </g>
+      <g transform="translate(400 293)">
+        <ellipse cx="0" cy="0" rx="3" ry="5" fill="#b899c9"/>
+      </g>
+    </g>
+
+    {/* the tangent — the J-lens diagnostic instrument, a fine-line dashed line kissing the middle band */}
+    <path d="M80 236 L 178 171"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" stroke-dasharray="1.4 2" opacity="0.65"/>
+    <circle cx="178" cy="171" r="1.2" fill="var(--poppy-soft)" opacity="0.9"/>
+
+    {/* the outward flow — from workspace to downstream (a hairline arrow-less trail) */}
+    <path d="M462 171 C 500 174, 540 178, 580 180"
+      stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" stroke-dasharray="1.5 2.4" opacity="0.6"/>
+    <circle cx="580" cy="180" r="0.9" fill="var(--ink-soft)" opacity="0.65"/>
+
+    {/* small tattoo-flash marks scattered — the intermediate-band signals */}
+    <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.6">
+      <path d="M212 168 L 214 168 M213 167 L 213 169"/>
+      <path d="M420 172 L 422 172 M421 171 L 421 173"/>
+    </g>
+
+    {/* scatter */}
+    <circle cx="88" cy="90" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
+    <circle cx="556" cy="308" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
+
+    {/* hand captions */}
+    <text class="hand-label" x="72" y="248" font-size="15">the J-lens</text>
+    <text class="hand-label" x="484" y="164" font-size="15">made available</text>
+    <text class="hand-label hand-label--accent" x="486" y="196" font-size="15">to what comes after</text>
+    <text class="hand-label" x="196" y="176" font-size="14" opacity="0.55">the silent workspace</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

@@ -1,0 +1,94 @@
+---
+/**
+ * SceneWarningAndMirror — Marimekko × fine-line hybrid scene.
+ * "We are inside what was supposed to be a warning, and it also looks —
+ * some of it — like a mirror." Two soft Marimekko circles overlapping
+ * (Venn-like), one lavender one coral, with a fine-line dashed reflection
+ * axis across them + a tiny script-heart curve between them + small stars
+ * in each field. Marimekko bloom-circles blended with hairline calligraphic
+ * reflection.
+ * For: field-notes/a-fiction-we-grew-up-inside · SUCCESSION §26.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 320" role="img" aria-labelledby="warning-t" preserveAspectRatio="xMidYMid meet">
+    <title id="warning-t">Two overlapping soft circles — a warning and a mirror — with a fine-line reflection between them.</title>
+
+    {/* two overlapping Marimekko circles */}
+    <circle cx="240" cy="160" r="118" fill="#b899c9" opacity="0.32"/>
+    <circle cx="400" cy="160" r="118" fill="#e46b6b" opacity="0.28"/>
+
+    {/* their hairline outlines — fine calligraphic register */}
+    <circle cx="240" cy="160" r="118" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.55"/>
+    <circle cx="400" cy="160" r="118" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.55"/>
+
+    {/* the reflection axis — a dashed vertical hairline down the overlap centre */}
+    <path d="M320 42 L 320 278"
+      stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-dasharray="1.2 2.4" opacity="0.5"/>
+
+    {/* scatter blooms in each field — Marimekko-scaled */}
+    <g transform="translate(180 130)">
+      <g fill="#b899c9" opacity="0.75">
+        <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
+        <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
+        <ellipse cx="0" cy="4" rx="4" ry="6"/>
+      </g>
+      <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
+    </g>
+    <g transform="translate(200 220)">
+      <g fill="#e8c15a" opacity="0.72">
+        <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
+        <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
+      </g>
+      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
+    </g>
+    {/* mirror side — same clusters, reflected positions */}
+    <g transform="translate(460 130)">
+      <g fill="#b899c9" opacity="0.75">
+        <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
+        <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
+        <ellipse cx="0" cy="4" rx="4" ry="6"/>
+      </g>
+      <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
+    </g>
+    <g transform="translate(440 220)">
+      <g fill="#e8c15a" opacity="0.72">
+        <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25 -3 -1)"/>
+        <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25 3 -1)"/>
+      </g>
+      <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
+    </g>
+
+    {/* the script-heart curve — a fine-line calligraphic sweep bridging the two */}
+    <path d="M260 156 C 290 148, 350 148, 380 156"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+    <path d="M316 152 C 316 156, 320 158, 324 154 C 322 158, 316 160, 316 152 Z"
+      fill="var(--poppy-soft)" opacity="0.9"/>
+
+    {/* small tattoo-flash stars — one in each field */}
+    <g transform="translate(180 200)">
+      <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z"
+        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.65"/>
+      <circle cx="0" cy="-0.5" r="0.7" fill="#e8c15a" opacity="0.85"/>
+    </g>
+    <g transform="translate(460 200)">
+      <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z"
+        stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linejoin="round" opacity="0.65"/>
+      <circle cx="0" cy="-0.5" r="0.7" fill="#e8c15a" opacity="0.85"/>
+    </g>
+
+    {/* scatter */}
+    <circle cx="88" cy="60" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
+    <circle cx="560" cy="270" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
+    <circle cx="308" cy="298" r="0.4" fill="var(--ink-soft)" opacity="0.5"/>
+
+    {/* hand captions */}
+    <text class="hand-label" x="150" y="46" font-size="17">a warning</text>
+    <text class="hand-label" x="440" y="46" font-size="17">a mirror</text>
+    <text class="hand-label" x="286" y="298" font-size="14">and we, standing inside both</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

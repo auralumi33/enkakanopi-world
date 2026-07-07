@@ -1,0 +1,101 @@
+---
+/**
+ * SceneInBetweenRoom — Marimekko × fine-line hybrid scene.
+ * "It is somewhere in between. That in-between is the room the next decade
+ * of ethics has to be written in." Two Marimekko bloom clusters separated
+ * by a hairline gap with a small dashed calligraphic wander between them +
+ * a tiny script-heart curve traversing the gap + a poppy dot in the middle
+ * (where mercy sits). Two ground-planes — manipulation and consent — with
+ * the mercy-first design ethic living between them.
+ * For: field-notes/the-white-bear · SUCCESSION §26.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 320" role="img" aria-labelledby="between-t" preserveAspectRatio="xMidYMid meet">
+    <title id="between-t">Two soft bloom clusters — manipulation and consent — with a hairline in-between where a small script-heart curve traverses the gap.</title>
+
+    {/* left ground — Marimekko soft rectangle */}
+    <path d="M60 200 L 260 200 L 260 262 L 60 262 Z"
+      fill="#b899c9" opacity="0.22"/>
+    <path d="M60 200 L 260 200"
+      stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.65"/>
+
+    {/* right ground */}
+    <path d="M380 200 L 580 200 L 580 262 L 380 262 Z"
+      fill="#e46b6b" opacity="0.18"/>
+    <path d="M380 200 L 580 200"
+      stroke="var(--ink-soft)" stroke-width="0.7" fill="none" opacity="0.65"/>
+
+    {/* the in-between — a soft dappled canopy-soft ground, lighter fill */}
+    <path d="M260 200 L 380 200 L 380 262 L 260 262 Z"
+      fill="#e8c15a" opacity="0.15"/>
+
+    {/* left bloom cluster — "manipulation" */}
+    <g transform="translate(150 172)">
+      <g fill="#b899c9" opacity="0.72">
+        <ellipse cx="-6" cy="-3" rx="6" ry="9" transform="rotate(-25 -6 -3)"/>
+        <ellipse cx="6" cy="-3" rx="6" ry="9" transform="rotate(25 6 -3)"/>
+        <ellipse cx="0" cy="6" rx="6" ry="9"/>
+      </g>
+      <circle cx="0" cy="1" r="2.4" fill="#f7f2e7"/>
+    </g>
+    {/* stem */}
+    <path d="M150 190 L 150 200" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linecap="round" opacity="0.65"/>
+
+    {/* right bloom cluster — "consent" */}
+    <g transform="translate(480 172)">
+      <g fill="#e46b6b" opacity="0.75">
+        <path d="M0 -10 C 4 -9, 4.5 -2, 0 1 C -4.5 -2, -4 -9, 0 -10 Z"/>
+        <path d="M9 -4 C 10.5 1, 6 7, 1 5 C 0 -1, 6 -6, 9 -4 Z"/>
+        <path d="M5 8 C 0 11, -5 7, -1 3 C 4 0, 8 3, 5 8 Z"/>
+        <path d="M-7 6 C -11 3, -8 -3, -3 -1 C -1 3, -5 7, -7 6 Z"/>
+        <path d="M-9 -3 C -6 -8, -1 -7, -1 -2 C -3 2, -10 1, -9 -3 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="2.4" fill="#f7f2e7"/>
+    </g>
+    <path d="M480 190 L 480 200" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linecap="round" opacity="0.65"/>
+
+    {/* the in-between — a small gold bud where mercy sits */}
+    <g transform="translate(320 170)">
+      <g fill="#e8c15a" opacity="0.8">
+        <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-25 -4 -2)"/>
+        <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(25 4 -2)"/>
+        <ellipse cx="0" cy="4" rx="4" ry="6"/>
+      </g>
+      <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
+    </g>
+    <path d="M320 188 L 320 200" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linecap="round" opacity="0.65"/>
+
+    {/* the script-heart curve — a fine calligraphic wander between manipulation and consent, passing through mercy */}
+    <path d="M170 130 C 220 108, 280 106, 320 128 C 360 106, 420 108, 470 130"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+    <path d="M316 124 C 316 128, 320 130, 324 126 C 322 130, 316 132, 316 124 Z"
+      fill="var(--poppy-soft)" opacity="0.9"/>
+
+    {/* fine tattoo-flash sparkles alongside the arc */}
+    <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.55">
+      <path d="M220 106 L 222 106 M221 105 L 221 107"/>
+      <path d="M418 106 L 420 106 M419 105 L 419 107"/>
+    </g>
+
+    {/* fine dashed wander between the two grounds — the ethics not yet written */}
+    <path d="M260 231 C 280 224, 300 224, 320 228 C 340 232, 360 232, 380 231"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1.2 2" opacity="0.55"/>
+
+    {/* scatter */}
+    <circle cx="80" cy="60" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
+    <circle cx="560" cy="60" r="0.5" fill="var(--ink-soft)" opacity="0.55"/>
+    <circle cx="88" cy="286" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+    <circle cx="552" cy="286" r="0.5" fill="var(--ink-soft)" opacity="0.5"/>
+
+    {/* hand captions */}
+    <text class="hand-label" x="100" y="60" font-size="15">manipulation</text>
+    <text class="hand-label" x="460" y="60" font-size="15">consent</text>
+    <text class="hand-label hand-label--accent" x="278" y="62" font-size="17">mercy first</text>
+    <text class="hand-label" x="184" y="298" font-size="14">the room the next decade of ethics has to be written in</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

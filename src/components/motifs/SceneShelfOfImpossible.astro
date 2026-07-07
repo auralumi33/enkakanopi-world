@@ -1,0 +1,79 @@
+---
+/**
+ * SceneShelfOfImpossible — Marimekko × fine-line hybrid scene.
+ * The shelf where the impossible things lived — magic carpets, Neuromancer's
+ * console cowboys, Brave New World — with a fine-line calligraphic sweep
+ * across it and a small tattoo-flash star hovering just above where the
+ * impossible thing has walked into the room. Marimekko bloom-silhouettes
+ * stand in for the books; hairline calligraphic register carries the
+ * "shelf tilting" gesture.
+ * For: field-notes/a-fiction-we-grew-up-inside · SUCCESSION §26.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 300" role="img" aria-labelledby="shelf-t" preserveAspectRatio="xMidYMid meet">
+    <title id="shelf-t">A hand-drawn shelf where the impossible things lived, tilting; a fine-line star hovers above.</title>
+
+    {/* the shelf plank — hairline calligraphic, slightly tilted right */}
+    <path d="M40 200 L 600 178"
+      stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.72"/>
+    <path d="M42 204 L 600 182"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+    {/* the books · Marimekko silhouettes as upright rectangles, soft palette */}
+    <g opacity="0.68">
+      <rect x="88" y="140" width="18" height="58" fill="#b899c9" transform="rotate(-2 97 168)"/>
+      <rect x="112" y="132" width="14" height="66" fill="#e8c15a" transform="rotate(-2 119 165)"/>
+      <rect x="130" y="146" width="20" height="52" fill="#a4b8c8" transform="rotate(-2 140 172)"/>
+      <rect x="156" y="138" width="12" height="60" fill="#e46b6b" opacity="0.85" transform="rotate(-2 162 168)"/>
+      <rect x="174" y="150" width="16" height="48" fill="#b899c9" transform="rotate(-2 182 174)"/>
+
+      <rect x="222" y="128" width="18" height="70" fill="#a4b8c8" transform="rotate(-2.3 231 163)"/>
+      <rect x="246" y="142" width="14" height="56" fill="#e8c15a" transform="rotate(-2.3 253 170)"/>
+      <rect x="264" y="132" width="22" height="66" fill="#e46b6b" opacity="0.82" transform="rotate(-2.3 275 165)"/>
+
+      <rect x="322" y="146" width="16" height="52" fill="#b899c9" transform="rotate(-2.5 330 172)"/>
+      <rect x="344" y="130" width="20" height="68" fill="#e8c15a" transform="rotate(-2.5 354 164)"/>
+      <rect x="370" y="140" width="14" height="58" fill="#a4b8c8" transform="rotate(-2.5 377 169)"/>
+
+      <rect x="428" y="134" width="18" height="64" fill="#e46b6b" opacity="0.82" transform="rotate(-2.8 437 166)"/>
+      <rect x="452" y="146" width="14" height="52" fill="#b899c9" transform="rotate(-2.8 459 172)"/>
+      <rect x="472" y="128" width="22" height="70" fill="#a4b8c8" transform="rotate(-2.8 483 163)"/>
+      <rect x="500" y="142" width="16" height="56" fill="#e8c15a" transform="rotate(-2.8 508 170)"/>
+    </g>
+
+    {/* fine-line calligraphic sweep — a hand catching the shelf-tilt gesture */}
+    <path d="M60 226 C 200 232, 380 218, 540 210 C 580 208, 600 214, 610 220"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    {/* the star — the impossible thing has walked into the room */}
+    <g transform="translate(490 90)">
+      <path d="M0 -18 L 4 -6 L 16 -6 L 6 2 L 10 14 L 0 6 L -10 14 L -6 2 L -16 -6 L -4 -6 Z"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linejoin="round" opacity="0.72"/>
+      <circle cx="0" cy="-2" r="1.2" fill="#e8c15a" opacity="0.9"/>
+      <g stroke="var(--ink-soft)" stroke-width="0.35" stroke-linecap="round" opacity="0.55">
+        <path d="M-24 -18 L -22 -18 M-23 -19 L -23 -17"/>
+        <path d="M22 -22 L 24 -22 M23 -23 L 23 -21"/>
+      </g>
+    </g>
+
+    {/* the walk-in trail — a fine-line dashed path from star toward centre-shelf */}
+    <path d="M490 110 C 470 130, 430 150, 400 170"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" stroke-dasharray="1.5 3" opacity="0.55"/>
+
+    {/* the scatter — small tattoo-flash marks around the shelf */}
+    <circle cx="72" cy="72" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
+    <circle cx="580" cy="264" r="0.9" fill="var(--poppy-soft)" opacity="0.85"/>
+    <circle cx="120" cy="266" r="0.5" fill="var(--ink-soft)" opacity="0.55"/>
+    <circle cx="322" cy="254" r="0.6" fill="var(--ink-soft)" opacity="0.6"/>
+    <circle cx="546" cy="90" r="0.4" fill="var(--ink-soft)" opacity="0.5"/>
+
+    {/* small hand caption */}
+    <text class="hand-label" x="516" y="112" font-size="16">has walked in</text>
+    <text class="hand-label" x="152" y="256" font-size="16">the impossible shelf</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>
