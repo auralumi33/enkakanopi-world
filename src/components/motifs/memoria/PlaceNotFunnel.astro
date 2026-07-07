@@ -1,0 +1,33 @@
+---
+/**
+ * The place · not · funnel — memoria layer · cream skin · concept
+ * illustration. A wide banner: on the left an enclosed oval "place"
+ * with three tiny plants (one budding poppy-soft flower) resting on a
+ * quiet ground line; a small hand-drawn cross in the middle; on the
+ * right a funnel (V-form, dashed, sparse drips falling out) with a
+ * delicate strikethrough. The choice architecture drawn. Sits
+ * block-level below the opening lede on the colophon. SUCCESSION §21.
+ */
+interface Props { size?: number; }
+const { size = 260 } = Astro.props;
+const h = Math.round(size * 80 / 200);
+---
+<svg width={size} height={h} viewBox="0 0 200 80" aria-hidden="true">
+  <ellipse cx="50" cy="46" rx="34" ry="22" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M42 54 L42 42" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M42 46 C 38 44, 36 45, 38 48 C 40 49, 42 47, 42 46 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M52 54 L52 40" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M52 46 C 56 44, 58 45, 56 48 C 54 49, 52 47, 52 46 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <circle cx="52" cy="36" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
+  <path d="M62 54 L62 46" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M62 50 C 58 48, 56 49, 58 52 C 60 53, 62 51, 62 50 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M16 60 C 34 58, 66 60, 84 58" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path d="M100 40 L114 54" stroke="var(--ink-soft)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M114 40 L100 54" stroke="var(--ink-soft)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M132 26 L152 26 L146 54 L138 54 Z" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.55" stroke-dasharray="1.5 1.5"/>
+  <circle cx="140" cy="60" r="0.7" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="143" cy="66" r="0.7" fill="var(--ink-soft)" opacity="0.5"/>
+  <circle cx="141" cy="72" r="0.7" fill="var(--ink-soft)" opacity="0.5"/>
+  <path d="M126 22 C 148 40, 158 42, 160 56"
+    stroke="var(--ink-soft)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+</svg>

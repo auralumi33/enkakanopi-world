@@ -1,0 +1,42 @@
+---
+/**
+ * In company (hand + machines) — memoria layer · cream skin · concept
+ * illustration. A wide banner: on the left a fine-line hand holding a
+ * pen, drawing a flowing curve trail (ending in a poppy-soft dot); a
+ * dashed seam in the middle; on the right a small crew of three
+ * machine marks (chip outlines with bloom-family accent dots —
+ * lavender, yellow, pastel blue). A shared line arcs from the machines
+ * back to the same drawn curve. Visualises the co-creation register:
+ * words are hers, drawings are made in company. Sits block-level
+ * below the co-creation paragraph on the colophon. SUCCESSION §21.
+ */
+interface Props { size?: number; }
+const { size = 300 } = Astro.props;
+const h = Math.round(size * 90 / 240);
+---
+<svg width={size} height={h} viewBox="0 0 240 90" aria-hidden="true">
+  <path d="M20 68 C 18 58, 22 48, 32 44" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M20 68 C 30 70, 44 68, 48 62 C 52 56, 46 46, 42 44" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M32 44 C 34 38, 38 34, 38 28" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M38 42 C 44 34, 46 30, 46 24" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M44 42 C 52 36, 54 32, 54 26" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M48 44 C 56 40, 58 36, 58 32" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M50 46 L60 60" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.8"/>
+  <path d="M60 60 C 70 64, 82 62, 92 66 C 102 68, 112 66, 118 62"
+    stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.62"/>
+  <circle cx="118" cy="62" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
+  <path d="M124 54 C 140 50, 152 58, 160 56" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="1.5 2"/>
+  <rect x="170" y="42" width="16" height="12" fill="none" stroke="var(--ink-soft)" stroke-width="0.7" opacity="0.72"/>
+  <circle cx="178" cy="48" r="1.8" fill="#b899c9" opacity="0.85"/>
+  <path d="M178 42 L178 38" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M178 54 L178 58" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M170 48 L166 48" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M186 48 L190 48" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
+  <rect x="196" y="30" width="12" height="10" fill="none" stroke="var(--ink-soft)" stroke-width="0.7" opacity="0.65"/>
+  <circle cx="202" cy="35" r="1.4" fill="#e8c15a" opacity="0.85"/>
+  <rect x="200" y="58" width="12" height="10" fill="none" stroke="var(--ink-soft)" stroke-width="0.7" opacity="0.65"/>
+  <circle cx="206" cy="63" r="1.4" fill="#a4b8c8" opacity="0.85"/>
+  <path d="M170 48 C 158 52, 148 58, 138 62" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="222" cy="24" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
+  <circle cx="228" cy="70" r="0.6" fill="var(--ink-soft)" opacity="0.55"/>
+</svg>

@@ -226,9 +226,12 @@ const whatThisIs = [
     text-wrap: balance; text-align: left;
   }
   /* Desktop hero enlargement (SUCCESSION §20): scale the H1 up a notch on
-     wider viewports for readability, without shifting layout on mobile. */
+     wider viewports for readability, without shifting layout on mobile.
+     Desktop max-width widened 42rem → 58rem so the intended line breaks
+     ("machines" ending line 2 · "like this)" ending the paren) hold
+     without spilling to a fresh line (SUCCESSION §21). */
   @media (min-width: 60rem) {
-    .signature { font-size: clamp(2.15rem, 6vw, 3.5rem); }
+    .signature { font-size: clamp(2.15rem, 6vw, 3.5rem); max-width: 58rem; }
   }
   @media (max-width: 46rem) {
     .signature-garden { padding: 2.1rem 0 1.1rem; }
@@ -243,6 +246,13 @@ const whatThisIs = [
   .sub {
     max-width: 62ch; margin: 1.4rem 0 0; color: var(--ink-soft);
     font-size: 1.02rem; text-align: left; line-height: 1.65;
+  }
+  /* Desktop sub breathability (SUCCESSION §21): widen + slightly enlarge
+     so the sub reads across the page with ~2/5 whitespace on the right,
+     never truncated into cramped wrapping. Mobile line-height + size
+     preserved. */
+  @media (min-width: 60rem) {
+    .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
   }
   .scene { margin: 2rem 0 0; max-width: 60rem; width: 100%; }
   .keystone {

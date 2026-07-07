@@ -1,0 +1,33 @@
+---
+/**
+ * The bench tending — memoria layer · cream skin · concept illustration.
+ * A small bench with 4 pots on it (a mix of seedlings and one budding
+ * poppy-soft flower) and a fine-line hand reaching in from top-right to
+ * tend one of them. One pot is half-formed (dashed) — the tending is
+ * the point, not the finished shape. Sits block-level below the
+ * covenant paragraph on the colophon. SUCCESSION §21.
+ */
+interface Props { size?: number; }
+const { size = 110 } = Astro.props;
+const h = Math.round(size * 80 / 100);
+---
+<svg width={size} height={h} viewBox="0 0 100 80" aria-hidden="true">
+  <path d="M8 46 C 40 44, 70 46, 92 44" stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M20 46 L20 66" stroke="var(--ink-soft)" stroke-width="0.75" stroke-linecap="round" opacity="0.68"/>
+  <path d="M80 46 L80 66" stroke="var(--ink-soft)" stroke-width="0.75" stroke-linecap="round" opacity="0.68"/>
+  <path d="M30 42 L38 42 L37 46 L31 46 Z" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M34 42 L34 34" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.68"/>
+  <path d="M34 38 C 31 36, 30 37, 31 39 C 33 40, 34 39, 34 38 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M46 42 L54 42 L53 46 L47 46 Z" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M50 42 L50 30" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.68"/>
+  <path d="M50 34 C 47 32, 45 33, 46 36 C 49 37, 50 35, 50 34 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M50 30 C 53 28, 55 30, 54 32 C 52 33, 50 31, 50 30 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <circle cx="50" cy="26" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
+  <path d="M62 42 L70 42 L69 46 L63 46 Z" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M66 42 L66 36" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.68"/>
+  <path d="M76 42 L84 42 L83 46 L77 46 Z" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.65" stroke-dasharray="1.5 1.5"/>
+  <path d="M74 20 C 74 24, 76 28, 78 30" stroke="var(--ink-soft)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M78 30 C 74 32, 72 36, 72 38" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.68"/>
+  <path d="M78 30 C 82 32, 84 34, 82 38" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.68"/>
+  <path d="M78 30 C 78 34, 80 36, 80 40" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.68"/>
+</svg>

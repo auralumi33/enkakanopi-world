@@ -1,0 +1,33 @@
+---
+/**
+ * The greenhouse (not the cathedral) — memoria layer · cream skin ·
+ * concept illustration for the colophon.
+ * A small greenhouse: rounded roof arch + vertical glass panels + three
+ * tiny plants inside (one with a poppy-soft bud). Beside it, a small
+ * dashed cathedral silhouette with a delicate strike — the choice made
+ * visible without extra words. Sits block-level below the opening lede.
+ * SUCCESSION §21 · memoria layer per-essay extension pattern.
+ */
+interface Props { size?: number; }
+const { size = 110 } = Astro.props;
+const h = Math.round(size * 80 / 100);
+---
+<svg width={size} height={h} viewBox="0 0 100 80" aria-hidden="true">
+  <path d="M12 34 C 20 20, 80 20, 88 34" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M50 22 L50 34" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.5"/>
+  <path d="M12 34 L12 68" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M88 34 L88 68" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M8 68 C 30 66, 70 66, 92 68" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.78"/>
+  <path d="M28 34 L28 66" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M50 34 L50 66" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M72 34 L72 66" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+  <path d="M22 66 L22 58" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M22 62 C 18 60, 16 61, 18 64 C 20 65, 22 63, 22 62 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M42 66 L42 54" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M42 58 C 46 56, 48 58, 46 61 C 44 62, 42 60, 42 58 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <circle cx="42" cy="50" r="1.4" fill="var(--poppy-soft)" opacity="0.9"/>
+  <path d="M62 66 L62 56" stroke="var(--ink-soft)" stroke-width="0.65" stroke-linecap="round" opacity="0.72"/>
+  <path d="M62 60 C 58 58, 56 59, 58 62 C 60 63, 62 61, 62 60 Z" fill="var(--ink-soft)" opacity="0.6"/>
+  <path d="M78 6 C 82 2, 84 2, 84 6 L 84 14 L 78 14 Z" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.35" stroke-dasharray="1 1.5"/>
+  <path d="M76 4 L86 14" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.4"/>
+</svg>
