@@ -107,12 +107,17 @@ language, use the names:
   opacity, negative space is the star. Two ground variants: cream skin
   (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
   night skin (`--night-ink` + `--gold` accents, for the workshop dark
-  ground only). Vocabulary base: MoonCrescent · VineTrail · ScriptHeart
-  · WorkshopHand · WorkshopMirror · WorkshopSign. Delivered as reusable
-  components under
+  ground only). Vocabulary base (10 marks shipped, extensible per
+  essay): cream skin — MoonCrescent · VineTrail · ScriptHeart ·
+  Greenhouse · BenchTending · PlaceNotFunnel · InCompany. Night skin
+  — WorkshopHand · WorkshopMirror · WorkshopSign. Delivered as
+  reusable components under
   [`src/components/motifs/memoria/`](./src/components/motifs/memoria/).
-  Phrase-replacement pattern is canonical: pull the phrase into an
-  `aria-label` on a `<span>`, inline the doodle as `aria-hidden`.
+  Two placement patterns: **inline** for small doodles that carry a
+  phrase within a text line (phrase-replacement register, with
+  `aria-label` on the wrapping span), and **block-level** for larger
+  concept illustrations that carry a paragraph-scale gesture (above
+  or below the phrase anchor, centered wrapper, aria-hidden).
   Extend per essay as narratives require.
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
