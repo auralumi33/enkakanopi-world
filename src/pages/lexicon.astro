@@ -2,6 +2,9 @@
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
 import GardenMedallion from "../components/GardenMedallion.astro";
+import MotifWordPlot from "../components/motifs/MotifWordPlot.astro";
+import MotifTermTick from "../components/motifs/MotifTermTick.astro";
+import MotifCitationSeed from "../components/motifs/MotifCitationSeed.astro";
 import { terms, slugify } from "../data/lexicon";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -37,12 +40,18 @@ const ldTerms = {
         this one tends — defined here, and left where anyone (or anything) can
         find the source. Each links to the essays that carry it.
       </p>
+      <div class="plot" aria-hidden="true">
+        <MotifWordPlot size={320} />
+      </div>
     </header>
 
     <dl class="terms">
       {terms.map((t) => (
         <div class="entry" id={slugify(t.term)}>
-          <dt>{t.term}</dt>
+          <dt>
+            <span class="tick" aria-hidden="true"><MotifTermTick size={18} /></span>
+            <span class="term-name">{t.term}</span>
+          </dt>
           <dd>
             <p>{t.def}</p>
             <p class="see">
@@ -55,6 +64,10 @@ const ldTerms = {
         </div>
       ))}
     </dl>
+
+    <div class="seed" aria-hidden="true">
+      <MotifCitationSeed size={420} />
+    </div>
   </article>
   <script type="application/ld+json" set:html={JSON.stringify(ldTerms)} />
 </Base>
@@ -65,9 +78,19 @@ const ldTerms = {
   .head .eyebrow { display: flex; align-items: center; }
   .head h1 { margin-top: 0.6rem; }
   .dek { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
+  /* word-plot intro visual (SUCCESSION §19) — the vocabulary as a plot of plants */
+  .plot { display: flex; justify-content: center; margin: 1.4rem 0 0; opacity: 0.94; }
+  .plot :global(svg) { max-width: 100%; height: auto; }
   .terms { margin: 0; }
   .entry { padding: 1.5rem 0; border-top: 1.1px solid var(--paper-edge); }
-  dt { font-family: var(--serif); font-style: italic; font-size: 1.4rem; letter-spacing: -0.01em; color: var(--ink); }
+  dt {
+    font-family: var(--serif); font-style: italic; font-size: 1.4rem;
+    letter-spacing: -0.01em; color: var(--ink);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  /* term tick — tiny marginal sprout beside each entry title */
+  dt .tick { line-height: 0; opacity: 0.94; flex-shrink: 0; }
+  dt .term-name { display: inline-block; }
   dd { margin: 0.7rem 0 0; }
   dd p { color: var(--ink-soft); max-width: var(--measure); }
   .see { font-size: 0.9rem; margin-top: 0.8rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
@@ -75,4 +98,7 @@ const ldTerms = {
   .see a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--poppy-soft); text-underline-offset: 3px; }
   .see a:hover { text-decoration-color: var(--poppy); }
   .see .sep { color: var(--ink-faint); }
+  /* citation seed — closing foot motif; the seeds carry the source outward */
+  .seed { display: flex; justify-content: center; margin: 3rem 0 0; opacity: 0.94; }
+  .seed :global(svg) { max-width: 100%; height: auto; }
 </style>

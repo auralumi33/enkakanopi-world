@@ -1,0 +1,22 @@
+---
+/**
+ * The tally mark — Studio · honest tally register.
+ * A hand-drawn tally of five (four upright + a diagonal fifth) followed by
+ * a smaller group of two, with a poppy-soft bud beside. Sits near the
+ * "the tally starts now — honest counts, no invented histories" line.
+ * Part of the garden's motif set (SUCCESSION §19). Pastel palette.
+ */
+interface Props { size?: number; }
+const { size = 240 } = Astro.props;
+const h = Math.round(size * 50 / 200);
+---
+<svg width={size} height={h} viewBox="0 0 200 50" aria-hidden="true">
+  <path d="M22 6 L22 40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+  <path d="M32 8 L31 42" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+  <path d="M42 6 L43 40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+  <path d="M52 8 L52 40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+  <path d="M16 36 C 32 24, 46 18, 58 8" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.75"/>
+  <path d="M74 14 L74 40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M84 16 L84 40" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="100" cy="34" r="2" fill="var(--poppy-soft)" opacity="0.9"/>
+</svg>

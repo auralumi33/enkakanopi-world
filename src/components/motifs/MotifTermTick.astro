@@ -1,0 +1,19 @@
+---
+/**
+ * The term tick — Lexicon · marginal marker beside each <dt>.
+ * A tiny sprout with a poppy-soft tip. Makes each term feel individually
+ * tended, not just enumerated. Part of the garden's motif set
+ * (SUCCESSION §19). Pastel palette. Very small — designed to whisper
+ * beside a term title, never compete with it.
+ */
+interface Props { size?: number; }
+const { size = 22 } = Astro.props;
+const h = Math.round(size * 60 / 40);
+---
+<svg width={size} height={h} viewBox="0 0 40 60" aria-hidden="true">
+  <path d="M20 46 L20 26" stroke="var(--canopy)" stroke-width="1" stroke-linecap="round" opacity="0.85"/>
+  <path d="M20 34 C 15 32, 12 33, 14 37 C 17 38, 20 36, 20 34 Z" fill="var(--canopy-soft)" opacity="0.9"/>
+  <path d="M20 28 C 25 26, 27 28, 26 32 C 23 33, 20 31, 20 28 Z" fill="var(--canopy-soft)" opacity="0.9"/>
+  <circle cx="20" cy="22" r="1.8" fill="var(--poppy-soft)" opacity="0.92"/>
+  <circle cx="20" cy="22" r="0.6" fill="var(--paper)"/>
+</svg>

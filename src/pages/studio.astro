@@ -2,6 +2,9 @@
 import { getCollection, render } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
+import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astro";
+import MotifWorkbench from "../components/motifs/MotifWorkbench.astro";
+import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
 
 // The wall's hanging order — flagship first; anything new hangs after.
 const hang = ["the-tension-sketches", "the-glyph-kit", "the-mechanical-mirror", "the-chain-strip"];
@@ -19,15 +22,16 @@ const pieces = await Promise.all(
 >
   <section class="page head">
     <div class="scatter" aria-hidden="true">
+      {/* Pastel-refined scatter — coral → poppy-soft, softer opacities (SUCCESSION §19). */}
       <svg viewBox="0 0 130 26" width="120" height="24">
-        <g transform="translate(18 14)">
+        <g transform="translate(18 14)" opacity="0.78">
           <g fill="#e8c15a">
             <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-25)"/>
             <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(25)"/>
           </g>
           <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
         </g>
-        <g transform="translate(65 12)">
+        <g transform="translate(65 12)" opacity="0.78">
           <g fill="#b899c9">
             <ellipse cx="-3.5" cy="-1.5" rx="3.5" ry="5" transform="rotate(-25)"/>
             <ellipse cx="3.5" cy="-1.5" rx="3.5" ry="5" transform="rotate(25)"/>
@@ -35,14 +39,14 @@ const pieces = await Promise.all(
           </g>
           <circle cx="0" cy="1" r="1.6" fill="#f7f2e7"/>
         </g>
-        <g transform="translate(112 14)">
+        <g transform="translate(112 14)" opacity="0.78">
           <path d="M0 -6 L 1.4 -2 L 5 -2 L 2 0.5 L 3.5 5 L 0 2 L -3.5 5 L -2 0.5 L -5 -2 L -1.4 -2 Z" fill="#a4b8c8"/>
           <circle cx="0" cy="-0.5" r="1.4" fill="#f7f2e7"/>
         </g>
-        <circle cx="40" cy="18" r="0.9" fill="#e46b6b"/>
-        <circle cx="90" cy="20" r="0.9" fill="#e8c15a"/>
-        <circle cx="8" cy="22" r="0.7" fill="#b899c9"/>
-        <circle cx="125" cy="22" r="0.7" fill="#a4b8c8"/>
+        <circle cx="40" cy="18" r="0.9" fill="var(--poppy-soft)" opacity="0.85"/>
+        <circle cx="90" cy="20" r="0.9" fill="#e8c15a" opacity="0.7"/>
+        <circle cx="8" cy="22" r="0.7" fill="#b899c9" opacity="0.7"/>
+        <circle cx="125" cy="22" r="0.7" fill="#a4b8c8" opacity="0.7"/>
       </svg>
     </div>
     <p class="eyebrow"><Glyph name="compass" size={18} /> &nbsp;the studio wall</p>
@@ -53,6 +57,15 @@ const pieces = await Promise.all(
       actually made, counted as it happened.
     </p>
     <p class="handnote" aria-label="A note in the margin">the tally starts now — honest counts, no invented histories.</p>
+    <div class="apprentice" aria-hidden="true">
+      <MotifApprenticeBench size={280} />
+    </div>
+  </section>
+
+  <section class="page bench-anchor" aria-label="The making surface">
+    <div class="bench" aria-hidden="true">
+      <MotifWorkbench size={420} />
+    </div>
   </section>
 
   <section class="page wallwrap" aria-label="Pieces on the wall">
@@ -84,16 +97,30 @@ const pieces = await Promise.all(
       <span class="dot" aria-hidden="true">◦</span>
       clay, wood, thread, lens — when the objects are photographed, they hang here.
     </p>
+
+    <div class="tally" aria-hidden="true">
+      <MotifTallyMark size={260} />
+    </div>
   </section>
 </Base>
 <style>
   .head { max-width: 46rem; }
-  .head .scatter { margin-bottom: 0.7rem; opacity: 0.9; }
+  .head .scatter { margin-bottom: 0.7rem; opacity: 0.94; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
   .handnote { font-family: var(--hand); font-size: 1.3rem; color: var(--canopy-deep); margin-top: 1.2rem; }
+  /* apprentice bench — the co-creation register threaded through Studio (SUCCESSION §19) */
+  .apprentice { display: flex; justify-content: center; margin: 1.2rem 0 0; opacity: 0.94; }
+  .apprentice :global(svg) { max-width: 100%; height: auto; }
+  /* the workbench — mid-page anchor, this IS the working surface */
+  .bench-anchor { max-width: 46rem; }
+  .bench { display: flex; justify-content: center; margin: 2.4rem 0 0; opacity: 0.94; }
+  .bench :global(svg) { max-width: 100%; height: auto; }
+  /* the tally mark — beside the honest-counts slot */
+  .tally { display: flex; justify-content: center; margin: 1.6rem 0 0; opacity: 0.94; }
+  .tally :global(svg) { max-width: 100%; height: auto; }
 
   /* the wall — card markup kept flat so a masonry layer can replace the
      grid later without touching the content model */

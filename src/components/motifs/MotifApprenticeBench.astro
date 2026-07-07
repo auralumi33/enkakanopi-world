@@ -1,0 +1,25 @@
+---
+/**
+ * The apprentice bench — Studio · co-creation register.
+ * A small bench segment with a hand's mark (a brush) on the left, a
+ * dashed-seam connector in the middle, and a machine's mark (a chip / node
+ * outline with a lavender dot) on the right. Threads the co-creation
+ * register that landed on the colophon (SUCCESSION §18) into the Studio
+ * surface: the hand + the crew, one bench. Part of the garden's motif set
+ * (SUCCESSION §19). Pastel palette.
+ */
+interface Props { size?: number; }
+const { size = 240 } = Astro.props;
+const h = Math.round(size * 60 / 140);
+---
+<svg width={size} height={h} viewBox="0 0 140 60" aria-hidden="true">
+  <path d="M10 40 C 40 38, 100 40, 130 38" stroke="var(--ink-soft)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M35 36 L45 26" stroke="var(--canopy)" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M45 26 L50 24 L48 30 Z" fill="var(--poppy-soft)" opacity="0.9"/>
+  <path d="M60 34 C 68 32, 76 32, 84 34" stroke="var(--ink-faint)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.55" stroke-dasharray="1.5 2"/>
+  <rect x="94" y="30" width="10" height="8" fill="none" stroke="var(--ink-soft)" stroke-width="0.7" opacity="0.7"/>
+  <circle cx="99" cy="34" r="1.6" fill="#b899c9" opacity="0.85"/>
+  <path d="M99 30 L99 26" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.6"/>
+  <path d="M99 38 L99 42" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="72" cy="50" r="0.8" fill="var(--canopy-soft)" opacity="0.75"/>
+</svg>

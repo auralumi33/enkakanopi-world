@@ -1,0 +1,29 @@
+---
+/**
+ * The workbench — Studio · mid-page anchor.
+ * A hand-drawn bench top on two legs with five small tools scattered
+ * across it: a brush · a stone · a small tag · a spool of thread · a leaf
+ * (plus one yellow bud sprinkle above). Says: "this is where things are
+ * actually made." Part of the garden's motif set (SUCCESSION §19). Pastel
+ * palette. Wide-banner motif.
+ */
+interface Props { size?: number; }
+const { size = 340 } = Astro.props;
+const h = Math.round(size * 68 / 240);
+---
+<svg width={size} height={h} viewBox="0 0 240 68" aria-hidden="true">
+  <path d="M14 42 C 100 40, 180 42, 226 42" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M40 42 L40 58" stroke="var(--ink-soft)" stroke-width="0.9" stroke-linecap="round" opacity="0.6"/>
+  <path d="M200 42 L200 58" stroke="var(--ink-soft)" stroke-width="0.9" stroke-linecap="round" opacity="0.6"/>
+  <path d="M56 38 L72 30" stroke="var(--canopy)" stroke-width="1" stroke-linecap="round" opacity="0.85"/>
+  <path d="M72 30 L78 28 L76 34 Z" fill="var(--poppy-soft)" opacity="0.9"/>
+  <ellipse cx="102" cy="38" rx="4" ry="3" fill="var(--canopy-soft)" opacity="0.9"/>
+  <circle cx="102" cy="38" r="0.9" fill="var(--paper)" opacity="0.9"/>
+  <path d="M126 26 L146 26 L146 40 L136 46 L126 40 Z" fill="var(--paper-deep)" stroke="var(--ink-faint)" stroke-width="0.6" opacity="0.85"/>
+  <path d="M136 46 L136 40 L146 40" stroke="var(--ink-faint)" stroke-width="0.6" fill="none" opacity="0.6"/>
+  <circle cx="136" cy="30" r="0.8" fill="var(--ink-faint)" opacity="0.75"/>
+  <ellipse cx="168" cy="38" rx="5" ry="2.4" fill="#b899c9" opacity="0.85"/>
+  <path d="M163 38 L168 34 L173 38" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" opacity="0.7"/>
+  <path d="M190 38 C 194 34, 200 36, 198 40 C 194 42, 188 41, 190 38 Z" fill="var(--canopy-soft)" opacity="0.9"/>
+  <circle cx="86" cy="30" r="1.4" fill="#e8c15a" opacity="0.8"/>
+</svg>

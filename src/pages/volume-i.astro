@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
 import StageTag from "../components/StageTag.astro";
+import MotifPressedNineteen from "../components/motifs/MotifPressedNineteen.astro";
+import MotifPinnedCluster from "../components/motifs/MotifPinnedCluster.astro";
+import MotifArchiveGate from "../components/motifs/MotifArchiveGate.astro";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -75,13 +78,14 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
 >
   <section class="page head">
     <div class="hung" aria-hidden="true">
+      {/* Pastel-refined hanging wire — coral → poppy-soft, softer opacities (SUCCESSION §19). */}
       <svg viewBox="0 0 240 42" width="200" height="35">
-        <path d="M8 4 L 232 4" stroke="#4f5b3f" stroke-width="0.5" opacity="0.35" stroke-dasharray="1 3"/>
-        <path d="M40 4 L 40 12" stroke="#4f5b3f" stroke-width="0.5" opacity="0.4"/>
-        <path d="M100 4 L 100 12" stroke="#4f5b3f" stroke-width="0.5" opacity="0.4"/>
-        <path d="M160 4 L 160 12" stroke="#4f5b3f" stroke-width="0.5" opacity="0.4"/>
-        <path d="M215 4 L 215 12" stroke="#4f5b3f" stroke-width="0.5" opacity="0.4"/>
-        <g transform="translate(40 20)">
+        <path d="M8 4 L 232 4" stroke="var(--canopy)" stroke-width="0.5" opacity="0.28" stroke-dasharray="1 3"/>
+        <path d="M40 4 L 40 12" stroke="var(--canopy)" stroke-width="0.5" opacity="0.32"/>
+        <path d="M100 4 L 100 12" stroke="var(--canopy)" stroke-width="0.5" opacity="0.32"/>
+        <path d="M160 4 L 160 12" stroke="var(--canopy)" stroke-width="0.5" opacity="0.32"/>
+        <path d="M215 4 L 215 12" stroke="var(--canopy)" stroke-width="0.5" opacity="0.32"/>
+        <g transform="translate(40 20)" opacity="0.82">
           <g fill="#b899c9">
             <ellipse cx="-4" cy="-2" rx="4" ry="6" transform="rotate(-30 -4 -2)"/>
             <ellipse cx="4" cy="-2" rx="4" ry="6" transform="rotate(30 4 -2)"/>
@@ -89,8 +93,8 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
           </g>
           <circle cx="0" cy="1" r="1.8" fill="#f7f2e7"/>
         </g>
-        <g transform="translate(100 20)">
-          <g fill="#e46b6b">
+        <g transform="translate(100 20)" opacity="0.92">
+          <g fill="var(--poppy-soft)">
             <path d="M0 -8 C 3 -7, 4 -1, 0 1 C -4 -1, -3 -7, 0 -8 Z"/>
             <path d="M8 -3 C 9 2, 4 7, 1 5 C 0 -1, 5 -5, 8 -3 Z"/>
             <path d="M5 7 C 0 9, -4 6, -1 3 C 3 0, 7 2, 5 7 Z"/>
@@ -99,13 +103,13 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
           </g>
           <path d="M0 0 C -1.5 -2, -4 -1, -4 1 C -4 3, 0 5, 0 5 C 0 5, 4 3, 4 1 C 4 -1, 1.5 -2, 0 0 Z" fill="#f7f2e7"/>
         </g>
-        <g transform="translate(160 20)">
+        <g transform="translate(160 20)" opacity="0.78">
           <g fill="#a4b8c8">
             <path d="M0 -8 L 1.7 -2.5 L 6 -2.5 L 2.5 0.5 L 4 6 L 0 3 L -4 6 L -2.5 0.5 L -6 -2.5 L -1.7 -2.5 Z"/>
           </g>
           <circle cx="0" cy="0" r="1.7" fill="#f7f2e7"/>
         </g>
-        <g transform="translate(215 20)">
+        <g transform="translate(215 20)" opacity="0.78">
           <g fill="#e8c15a">
             <ellipse cx="-3" cy="-1" rx="3" ry="4.5" transform="rotate(-30 -3 -1)"/>
             <ellipse cx="3" cy="-1" rx="3" ry="4.5" transform="rotate(30 3 -1)"/>
@@ -113,9 +117,9 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
           </g>
           <circle cx="0" cy="0" r="1.4" fill="#f7f2e7"/>
         </g>
-        <circle cx="70" cy="36" r="0.8" fill="#e8c15a"/>
-        <circle cx="130" cy="36" r="0.8" fill="#a4b8c8"/>
-        <circle cx="188" cy="36" r="0.8" fill="#e46b6b"/>
+        <circle cx="70" cy="36" r="0.8" fill="#e8c15a" opacity="0.7"/>
+        <circle cx="130" cy="36" r="0.8" fill="#a4b8c8" opacity="0.7"/>
+        <circle cx="188" cy="36" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
       </svg>
     </div>
     <p class="eyebrow"><Glyph name="canopy" size={18} /> &nbsp;the archive wall</p>
@@ -125,11 +129,19 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
       around. Nineteen pieces, hung with care, by theme rather than by shelf;
       every piece keeps its place.
     </p>
+    <div class="nineteen" aria-hidden="true">
+      <MotifPressedNineteen size={340} />
+    </div>
   </section>
 
   <section class="page wall" aria-label="The founding collection">
-    {clusters.map((c) => (
+    {clusters.map((c, i) => (
       <div class="cluster">
+        {i > 0 && (
+          <div class="cluster-pin" aria-hidden="true">
+            <MotifPinnedCluster size={72} />
+          </div>
+        )}
         <p class="cluster-label">{c.label}</p>
         <ul class="frames">
           {c.items.map((p) => (
@@ -153,16 +165,27 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
       <a class="link" href={base + "/lexicon"}>lexicon</a> and the
       <a class="link" href={base + "/colophon"}>colophon</a> hang in this room too.
     </p>
+    <div class="gate" aria-hidden="true">
+      <MotifArchiveGate size={420} />
+    </div>
   </section>
 </Base>
 
 <style>
   .head { max-width: 46rem; }
-  .head .hung { margin-bottom: 0.7rem; opacity: 0.9; }
+  .head .hung { margin-bottom: 0.7rem; opacity: 0.94; }
   .head .eyebrow { display: flex; align-items: center; }
   h1 { margin-top: 0.8rem; }
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 54ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
+  /* the pressed nineteen — intro visual under the lede (SUCCESSION §19) */
+  .nineteen { display: flex; justify-content: center; margin: 1.4rem 0 0.4rem; opacity: 0.94; }
+  .nineteen :global(svg) { max-width: 100%; height: auto; }
+  /* the pinned cluster — marks each theme cluster after the first */
+  .cluster-pin { display: flex; justify-content: center; margin: 0.4rem 0 0.6rem; opacity: 0.94; }
+  /* the archive gate — closes the room */
+  .gate { display: flex; justify-content: center; margin: 2.4rem 0 0; opacity: 0.94; }
+  .gate :global(svg) { max-width: 100%; height: auto; }
 
   /* ── the wall · clusters · frames ─────────────────────────────
      Stable structure: .wall > .cluster > .frames > .frame — a later

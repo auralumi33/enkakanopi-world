@@ -1,0 +1,20 @@
+---
+/**
+ * The braided seam — Versions of Me · restrained foot mark.
+ * Two hand-drawn seams braiding and diverging across the width, with tiny
+ * bloom-family buds at the two anchor points and one poppy-soft heart at
+ * the centre. Reads: "the traffic between the versions." The tab's ONE
+ * added mark — restraint held per surface (Law 6). Part of the garden's
+ * motif set (SUCCESSION §19). Pastel palette.
+ */
+interface Props { size?: number; }
+const { size = 280 } = Astro.props;
+const h = Math.round(size * 60 / 200);
+---
+<svg width={size} height={h} viewBox="0 0 200 60" aria-hidden="true">
+  <path d="M14 30 C 44 12, 74 48, 100 30 C 126 12, 156 48, 186 30" stroke="var(--canopy)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M14 30 C 44 48, 74 12, 100 30 C 126 48, 156 12, 186 30" stroke="var(--ink-faint)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="1.5 2"/>
+  <circle cx="14" cy="30" r="1.6" fill="#b899c9" opacity="0.85"/>
+  <circle cx="100" cy="30" r="1.8" fill="var(--poppy-soft)" opacity="0.9"/>
+  <circle cx="186" cy="30" r="1.6" fill="#a4b8c8" opacity="0.85"/>
+</svg>

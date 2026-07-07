@@ -1,0 +1,32 @@
+---
+/**
+ * The citation seed — Lexicon · closing foot motif.
+ * A central seed with eight radiating pollen-rays and eight tiny floating
+ * bloom-family seed-dots being carried outward. Says: "left where anyone
+ * (or anything) can find the source." Makes the citable thesis visual.
+ * Part of the garden's motif set (SUCCESSION §19). Pastel palette.
+ */
+interface Props { size?: number; }
+const { size = 340 } = Astro.props;
+const h = Math.round(size * 90 / 220);
+---
+<svg width={size} height={h} viewBox="0 0 220 90" aria-hidden="true">
+  <ellipse cx="110" cy="45" rx="6" ry="8" fill="var(--canopy)" opacity="0.85"/>
+  <ellipse cx="110" cy="45" rx="2.4" ry="3.4" fill="var(--paper)" opacity="0.85"/>
+  <path d="M110 30 L110 14" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M124 34 L138 22" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M131 45 L150 45" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M124 56 L138 68" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M110 60 L110 76" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M96 56 L82 68" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M89 45 L70 45" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <path d="M96 34 L82 22" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="110" cy="10" r="1.4" fill="#e8c15a" opacity="0.85"/>
+  <circle cx="142" cy="18" r="1.4" fill="#b899c9" opacity="0.85"/>
+  <circle cx="156" cy="45" r="1.4" fill="var(--canopy-soft)" opacity="0.85"/>
+  <circle cx="142" cy="72" r="1.4" fill="var(--poppy-soft)" opacity="0.85"/>
+  <circle cx="110" cy="80" r="1.4" fill="#a4b8c8" opacity="0.85"/>
+  <circle cx="78" cy="72" r="1.4" fill="#b899c9" opacity="0.85"/>
+  <circle cx="64" cy="45" r="1.4" fill="#e8c15a" opacity="0.85"/>
+  <circle cx="78" cy="18" r="1.4" fill="var(--canopy-soft)" opacity="0.85"/>
+</svg>
