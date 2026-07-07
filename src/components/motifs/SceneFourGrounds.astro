@@ -96,20 +96,14 @@
       <circle cx="0" cy="-6" r="1.6" fill="var(--poppy-soft)" opacity="0.9"/>
     </g>
 
-    {/* ─── Bourgeois-style crossed-through × marks at each panel corner (refusal) */}
-    <g stroke="var(--ink-soft)" stroke-width="0.8" stroke-linecap="round" opacity="0.72">
-      {/* top-left panel corner (bottom-right of panel 1) */}
-      <path d="M300 158 L 314 172"/>
-      <path d="M300 172 L 314 158"/>
-      {/* top-right panel corner (bottom-left of panel 2) */}
-      <path d="M326 158 L 340 172"/>
-      <path d="M326 172 L 340 158"/>
-      {/* bottom-left panel corner (top-right of panel 3) */}
-      <path d="M300 188 L 314 202"/>
-      <path d="M300 202 L 314 188"/>
-      {/* bottom-right panel corner (top-left of panel 4) */}
-      <path d="M326 188 L 340 202"/>
-      <path d="M326 202 L 340 188"/>
+    {/* ─── the refusal marks — hand-drawn wobbly hairline slashes at the four
+        panel-corners nearest the mirror; softer than mechanical Bourgeois ×,
+        each drawn as one uncertain hand-stroke rather than two crisp lines */}
+    <g stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" fill="none" opacity="0.65">
+      <path d="M300 158 C 306 163, 310 168, 314 172"/>
+      <path d="M340 158 C 335 164, 331 168, 326 172"/>
+      <path d="M300 202 C 305 197, 310 193, 314 188"/>
+      <path d="M340 202 C 336 197, 331 192, 326 188"/>
     </g>
 
     {/* hand captions — one per ground */}

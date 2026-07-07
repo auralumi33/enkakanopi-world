@@ -1,0 +1,96 @@
+---
+/**
+ * SceneSpineAsSentence — Marimekko × fine-line hybrid scene.
+ * "A spine is not a rod. It is closer to a sentence: a long line of small
+ * parts, and the meaning lives in the punctuation between them."
+ * A hairline curving spine drawn as a soft calligraphic S-curve, with the
+ * vertebrae rendered as small hand-drawn punctuation marks — commas, a
+ * semicolon, a colon, a dash, a period — nestled into the curve. Small
+ * Marimekko bloom-notes rise from the sentence like breath-marks.
+ * §28 · Body-spine · Articulation.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 320" role="img" aria-labelledby="spine-t" preserveAspectRatio="xMidYMid meet">
+    <title id="spine-t">A hairline curving spine drawn as a soft calligraphic sentence; each vertebra a small punctuation mark, small blooms rising as breath.</title>
+
+    {/* the spine — one long soft calligraphic S-curve */}
+    <path d="M100 50 C 160 90, 200 140, 260 170 C 320 200, 380 220, 460 250 C 500 264, 540 274, 580 280"
+      stroke="var(--ink-soft)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.62"/>
+
+    {/* the vertebrae — small hand-drawn punctuation marks along the curve */}
+
+    {/* comma at the neck */}
+    <g transform="translate(140 76)" opacity="0.75">
+      <path d="M0 0 C 2 2, 3 5, 1 7 C 0 6, -1 5, 0 3 Z" fill="var(--ink-soft)"/>
+      <circle cx="0" cy="-1" r="1.3" fill="var(--ink-soft)"/>
+    </g>
+
+    {/* semicolon at upper thoracic */}
+    <g transform="translate(200 118)" opacity="0.75">
+      <circle cx="0" cy="-3" r="1.3" fill="var(--ink-soft)"/>
+      <circle cx="0" cy="4" r="1.3" fill="var(--ink-soft)"/>
+      <path d="M0 5 C 2 7, 3 10, 1 12 C 0 11, -1 10, 0 8 Z" fill="var(--ink-soft)"/>
+    </g>
+
+    {/* colon at mid-thoracic */}
+    <g transform="translate(268 158)" opacity="0.75">
+      <circle cx="0" cy="-4" r="1.4" fill="var(--ink-soft)"/>
+      <circle cx="0" cy="4" r="1.4" fill="var(--ink-soft)"/>
+    </g>
+
+    {/* em-dash at lower-thoracic (a hairline horizontal — the pause where the sentence catches breath) */}
+    <path d="M328 190 L 348 188" stroke="var(--ink-soft)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+    {/* comma at lumbar */}
+    <g transform="translate(400 214)" opacity="0.75">
+      <path d="M0 0 C 2 2, 3 5, 1 7 C 0 6, -1 5, 0 3 Z" fill="var(--ink-soft)"/>
+      <circle cx="0" cy="-1" r="1.3" fill="var(--ink-soft)"/>
+    </g>
+
+    {/* period at the sacrum — the sentence's rest */}
+    <circle cx="470" cy="252" r="2" fill="var(--ink-soft)" opacity="0.72"/>
+
+    {/* three small hand-drawn breath-marks rising above the spine — the meaning between the parts */}
+    <g transform="translate(180 46)" opacity="0.8">
+      <g fill="#b899c9" opacity="0.72">
+        <ellipse cx="-3" cy="-1" rx="3" ry="4.2" transform="rotate(-25 -3 -1)"/>
+        <ellipse cx="3" cy="-1" rx="3" ry="4.2" transform="rotate(25 3 -1)"/>
+        <ellipse cx="0" cy="3" rx="3" ry="4.2"/>
+      </g>
+      <circle cx="0" cy="1" r="1.2" fill="#f7f2e7"/>
+    </g>
+    <g transform="translate(300 100)" opacity="0.8">
+      <g fill="#e8c15a" opacity="0.7">
+        <ellipse cx="-2.5" cy="-1" rx="2.5" ry="3.8" transform="rotate(-25 -2.5 -1)"/>
+        <ellipse cx="2.5" cy="-1" rx="2.5" ry="3.8" transform="rotate(25 2.5 -1)"/>
+      </g>
+      <circle cx="0" cy="0" r="1" fill="#f7f2e7"/>
+    </g>
+    <g transform="translate(438 178)" opacity="0.8">
+      <g fill="#e46b6b" opacity="0.7">
+        <path d="M0 -5 C 2 -4, 3 0, 0 1 C -2 0, -3 -4, 0 -5 Z"/>
+        <path d="M4 -1 C 5 2, 3 4, 1 3 C 0 0, 3 -3, 4 -1 Z"/>
+        <path d="M3 4 C 0 5, -3 3, -1 1 C 2 -1, 4 2, 3 4 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="1" fill="#f7f2e7"/>
+    </g>
+
+    {/* two soft hairline breath-line arcs — the meaning lives between the parts */}
+    <path d="M170 62 C 180 52, 200 46, 220 44"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-dasharray="1.2 2" stroke-linecap="round" opacity="0.5"/>
+    <path d="M290 120 C 300 104, 320 96, 340 96"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-dasharray="1.2 2" stroke-linecap="round" opacity="0.5"/>
+
+    {/* hand captions */}
+    <text class="hand-label" x="60" y="46" font-size="15">a spine —</text>
+    <text class="hand-label hand-label--accent" x="60" y="64" font-size="15">a sentence</text>
+    <text class="hand-label" x="490" y="252" font-size="14" opacity="0.7">and the meaning</text>
+    <text class="hand-label hand-label--accent" x="490" y="268" font-size="14">lives between</text>
+    <text class="hand-label hand-label--accent" x="490" y="284" font-size="14">the parts</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

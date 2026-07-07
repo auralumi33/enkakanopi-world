@@ -1,0 +1,41 @@
+---
+/**
+ * The 円花 mark — the definitive brand-voice motif (SUCCESSION §28).
+ * A hand-brushed ensō circle (the 円 of 円花) with the character 円 sitting
+ * softly at its centre — barely visible, whispered, a mark rather than a
+ * label. Two tiny hairline stems and a small poppy dot at the top gesture
+ * toward the 花 (flower). This is the site's most concentrated 円花 mark —
+ * one gesture that holds both halves of the name in a single figure.
+ *
+ * Reserved for the Colophon and the site's most load-bearing surfaces.
+ * Register: dainty · hand-drawn · organic craft · not diagrammatic ·
+ * middleground between the mechanical and the ornamental.
+ */
+interface Props { size?: number; }
+const { size = 120 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+  {/* the ensō 円 — a hand-brushed circle, opening at ~1 o'clock, drawn as
+     one uncertain but deliberate stroke */}
+  <path d="M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66 C 88 54, 88 38, 78 26"
+    stroke="var(--ink-soft)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55"/>
+  {/* the character 円 — sitting softly at the centre, whispered, at 0.32 opacity */}
+  <text x="50" y="58" text-anchor="middle" font-size="22" font-family="serif" fill="var(--ink-soft)" opacity="0.38">円</text>
+  {/* the 花 — a small flower/bloom hovering just above the character, held on
+     two hairline stems (the flower held inside the circle) */}
+  <path d="M50 40 L 50 30" stroke="var(--canopy)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+  <path d="M48 34 L 44 30" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.6"/>
+  <path d="M52 34 L 56 30" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.6"/>
+  {/* two tiny leaves */}
+  <path d="M44 30 C 42 28, 42 26, 44 27 C 45 28, 45 30, 44 30 Z" fill="var(--canopy-soft)" opacity="0.7"/>
+  <path d="M56 30 C 58 28, 58 26, 56 27 C 55 28, 55 30, 56 30 Z" fill="var(--canopy-soft)" opacity="0.7"/>
+  {/* the poppy bloom — small, held at the top of the stem, the 花 of 円花 */}
+  <circle cx="50" cy="26" r="2.4" fill="var(--poppy-soft)" opacity="0.92"/>
+  <circle cx="50" cy="26" r="0.9" fill="var(--paper)"/>
+  {/* four whispered orbit dots — the four grounds of the garden's covenants,
+     the four seasons, the four directions the circle holds */}
+  <circle cx="50" cy="8" r="0.9" fill="#b899c9" opacity="0.7"/>
+  <circle cx="88" cy="46" r="0.9" fill="#e8c15a" opacity="0.7"/>
+  <circle cx="50" cy="90" r="0.9" fill="#a4b8c8" opacity="0.7"/>
+  <circle cx="12" cy="46" r="0.9" fill="var(--poppy-soft)" opacity="0.7"/>
+</svg>

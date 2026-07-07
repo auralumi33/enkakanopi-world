@@ -1,0 +1,98 @@
+---
+/**
+ * SceneBodyTides — Marimekko × fine-line hybrid scene.
+ * "The body stops being a machine that keeps breaking and becomes a sea
+ * you're learning to sail." A soft hairline horizon with two long tidal
+ * curves rising and falling below it — the body's own tides — and a small
+ * hand-drawn boat sitting at the crest of a wave. Small tide-marks along
+ * the shoreline mark high and low. Dainty, organic, hand-drawn tender.
+ * §28 · Body-spine · The Tide Knows When.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 300" role="img" aria-labelledby="tides-t" preserveAspectRatio="xMidYMid meet">
+    <title id="tides-t">A hairline horizon over two soft tidal curves; a small hand-drawn boat sits at the crest of a wave, and gentle tide-marks pattern the shoreline.</title>
+
+    {/* the horizon — hairline calligraphic, softly wavering */}
+    <path d="M60 80 C 200 78, 400 82, 580 80"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    {/* three soft cloud silhouettes — the sky the body sails under */}
+    <g opacity="0.45">
+      <path d="M120 44 C 130 34, 152 34, 158 42 C 168 40, 178 46, 174 54 C 180 58, 176 66, 168 66 C 158 68, 144 66, 138 60 C 128 60, 118 54, 120 44 Z"
+        fill="#a4b8c8" opacity="0.6"/>
+      <path d="M340 50 C 348 42, 366 42, 372 50 C 384 48, 392 56, 386 62 C 380 64, 362 64, 354 60 C 344 60, 336 56, 340 50 Z"
+        fill="#a4b8c8" opacity="0.5"/>
+      <path d="M480 40 C 488 32, 504 32, 510 40 C 516 46, 512 52, 504 52 C 494 54, 480 50, 480 40 Z"
+        fill="#a4b8c8" opacity="0.55"/>
+    </g>
+
+    {/* the first tidal curve — the high tide, rising */}
+    <path d="M60 200 C 140 156, 220 156, 300 200 C 380 244, 460 244, 540 200 C 560 188, 570 184, 580 184"
+      stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.68"/>
+
+    {/* the second tidal curve — the low tide, offset (drawn softer) */}
+    <path d="M60 240 C 140 220, 220 220, 300 240 C 380 260, 460 260, 540 240"
+      stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+    {/* the small boat — sits at the crest of the first wave, hand-drawn hull */}
+    <g transform="translate(220 148)">
+      {/* the hull — a soft coral silhouette */}
+      <path d="M-24 0 C -20 10, 20 10, 24 0 Z" fill="#e46b6b" opacity="0.7"/>
+      <path d="M-24 0 C -20 10, 20 10, 24 0" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      {/* the mast — a small vertical hairline */}
+      <path d="M0 0 L 0 -22" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
+      {/* the sail — a soft lavender triangle */}
+      <path d="M0 -22 L 12 -8 L 0 -6 Z" fill="#b899c9" opacity="0.75"/>
+      <path d="M0 -22 L 12 -8 L 0 -6 Z" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.65"/>
+      {/* a small poppy at the mast-top — the body's held knowing */}
+      <circle cx="0" cy="-22" r="1.5" fill="var(--poppy-soft)" opacity="0.92"/>
+    </g>
+
+    {/* a second smaller boat further along the horizon — a companion */}
+    <g transform="translate(444 174)" opacity="0.62">
+      <path d="M-16 0 C -13 6, 13 6, 16 0 Z" fill="#e8c15a" opacity="0.65"/>
+      <path d="M-16 0 C -13 6, 13 6, 16 0" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.65"/>
+      <path d="M0 0 L 0 -14" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linecap="round" opacity="0.65"/>
+      <path d="M0 -14 L 8 -4 L 0 -3 Z" fill="#a4b8c8" opacity="0.7"/>
+    </g>
+
+    {/* the shoreline — a soft hand-drawn strand with tide-marks */}
+    <path d="M60 280 C 200 278, 400 282, 580 280"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+
+    {/* small tide-marks — the hand-drawn punctuation of the shore */}
+    <g stroke="var(--ink-soft)" stroke-width="0.4" stroke-linecap="round" opacity="0.55">
+      <path d="M96 274 L 100 278"/>
+      <path d="M132 274 L 136 278"/>
+      <path d="M172 274 L 176 278"/>
+      <path d="M216 274 L 220 278"/>
+      <path d="M258 274 L 262 278"/>
+      <path d="M304 274 L 308 278"/>
+      <path d="M348 274 L 352 278"/>
+      <path d="M392 274 L 396 278"/>
+      <path d="M438 274 L 442 278"/>
+      <path d="M484 274 L 488 278"/>
+      <path d="M528 274 L 532 278"/>
+    </g>
+
+    {/* a small shell on the shore — the body's held keepsake */}
+    <g transform="translate(360 288)" opacity="0.75">
+      <path d="M0 -6 C 6 -6, 8 -2, 6 4 C 2 6, -6 4, -8 -2 C -8 -5, -4 -6, 0 -6 Z"
+        fill="#e8c15a" opacity="0.55"/>
+      <path d="M-6 -2 L 4 2 M-4 0 L 4 -2 M-2 -4 L 4 -0"
+        stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.55"/>
+    </g>
+
+    {/* hand captions */}
+    <text class="hand-label" x="60" y="46" font-size="15">a sea the body</text>
+    <text class="hand-label hand-label--accent" x="60" y="62" font-size="15">is learning to sail</text>
+    <text class="hand-label" x="196" y="130" font-size="14" opacity="0.7">high tide</text>
+    <text class="hand-label" x="290" y="262" font-size="13" opacity="0.65">low tide</text>
+    <text class="hand-label hand-label--accent" x="474" y="196" font-size="13">a small companion</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

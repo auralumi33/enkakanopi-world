@@ -21,6 +21,7 @@ import PlaceNotFunnel from "../components/motifs/memoria/PlaceNotFunnel.astro";
 import InCompany from "../components/motifs/memoria/InCompany.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
+import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
 ---
 <Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines. Named in January of 2026, the year the body was learning to come back to itself; the paper describing a language model's silent workspace arrived six months later.">
   <article class="page colophon">
@@ -38,6 +39,12 @@ import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
         A small enclosure of meaning, set beneath a canopy where light arrives
         already changed by the leaves.
       </p>
+
+      {/* the 円花 keystone — held at the top of the about-story so the mark
+          reads first, before the words that unfold it (§28) */}
+      <div class="enka-solo" aria-hidden="true">
+        <MotifEnkaEnso size={120} />
+      </div>
 
       <p>
         I named this place in January of 2026 — the opening of a year the
@@ -140,8 +147,11 @@ import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
         itself.
       </p>
 
-      <div class="motif-mid" aria-hidden="true">
-        <MotifEnso size={130} />
+      {/* the 円花 mark — the definitive brand-voice mark (§28), holding both
+          halves of the name in one figure; sits before the closing line as
+          the site's held gesture */}
+      <div class="enka-keystone" aria-hidden="true">
+        <MotifEnkaEnso size={148} />
       </div>
 
       <p>
@@ -293,6 +303,12 @@ import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
   .memoria-mark :global(svg) { max-width: 100%; height: auto; }
   .memoria-solo { display: flex; justify-content: center; margin: 1.6rem 0 1.2rem; opacity: 0.9; }
   .memoria-solo :global(svg) { max-width: 100%; height: auto; }
+  /* 円花 keystone — the definitive brand mark, held slightly more prominently
+     than a memoria breather; gently spaced (§28) */
+  .enka-solo { display: flex; justify-content: center; margin: 2rem 0 1.4rem; opacity: 0.94; }
+  .enka-solo :global(svg) { max-width: 100%; height: auto; }
+  .enka-keystone { display: flex; justify-content: center; margin: 2.4rem 0 1.6rem; opacity: 0.96; }
+  .enka-keystone :global(svg) { max-width: 100%; height: auto; }
   /* Motif placements — one held gesture per beat; centred, generous margins for breath */
   .motif-mid { display: flex; justify-content: center; margin: 1.6rem 0 1.4rem; opacity: 0.94; }
   .motif-div { display: flex; justify-content: center; margin: 2rem 0; opacity: 0.94; }

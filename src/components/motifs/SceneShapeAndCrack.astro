@@ -1,0 +1,88 @@
+---
+/**
+ * SceneShapeAndCrack — Marimekko × fine-line hybrid scene.
+ * "The wobble taught me not to fear the crack — the breakage, the tension,
+ * the visible weakness." A hand-drawn kintsugi bowl silhouette: a soft
+ * pastel bowl-shape with a visible crack running through it, mended by
+ * a hand-drawn gold seam (the Japanese kintsugi register — mending as
+ * the making). A small hand cups the bowl from below. The crack is not
+ * hidden; it is made honest by the gold.
+ * §28 · Workbench · The Shape of Things.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 300" role="img" aria-labelledby="crack-t" preserveAspectRatio="xMidYMid meet">
+    <title id="crack-t">A hand-drawn bowl with a kintsugi crack mended in gold, held gently in a small pair of hairline hands.</title>
+
+    {/* the surface — a soft table-line the bowl rests on */}
+    <path d="M120 220 C 240 218, 400 218, 520 220"
+      stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+    {/* the bowl body — a soft lavender silhouette */}
+    <path d="M220 128 C 220 200, 260 220, 320 220 C 380 220, 420 200, 420 128"
+      fill="#b899c9" opacity="0.34"/>
+    {/* the bowl outline — hand-brushed hairline */}
+    <path d="M220 128 C 220 200, 260 220, 320 220 C 380 220, 420 200, 420 128"
+      stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.72"/>
+
+    {/* the bowl rim — an ellipse at the top */}
+    <ellipse cx="320" cy="128" rx="100" ry="12" fill="#b899c9" opacity="0.5"/>
+    <ellipse cx="320" cy="128" rx="100" ry="12" stroke="var(--ink-soft)" stroke-width="0.75" fill="none" opacity="0.72"/>
+    {/* the inner rim — a soft interior shadow */}
+    <ellipse cx="320" cy="128" rx="92" ry="8" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" opacity="0.45"/>
+
+    {/* the CRACK — a hand-drawn jagged line running through the bowl body */}
+    <path d="M300 140 C 296 158, 306 172, 302 188 C 298 200, 308 210, 306 218"
+      stroke="#e8c15a" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.85"/>
+    {/* the crack's echo — a hairline shadow beside it */}
+    <path d="M300 140 C 296 158, 306 172, 302 188 C 298 200, 308 210, 306 218"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+    {/* a smaller side-crack — softer, ending in a tender dot */}
+    <path d="M306 176 C 316 176, 324 180, 332 186"
+      stroke="#e8c15a" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="332" cy="186" r="1.2" fill="#e8c15a" opacity="0.9"/>
+
+    {/* a tiny bloom on the rim — the bowl still holds something tender */}
+    <g transform="translate(346 116)">
+      <g fill="#e46b6b" opacity="0.75">
+        <path d="M0 -5 C 2 -4, 3 0, 0 1 C -2 0, -3 -4, 0 -5 Z"/>
+        <path d="M4 -1 C 5 2, 3 4, 1 3 C 0 0, 3 -3, 4 -1 Z"/>
+        <path d="M3 4 C 0 5, -3 3, -1 1 C 2 -1, 4 2, 3 4 Z"/>
+      </g>
+    </g>
+
+    {/* THE HANDS — small hairline hands cupping the bowl from below */}
+    <g transform="translate(240 220)">
+      {/* palm — hand-drawn oval */}
+      <ellipse cx="0" cy="16" rx="30" ry="12" transform="rotate(-16 0 16)"
+        fill="#f2e0d0" opacity="0.62" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      {/* thumb curled up toward the bowl */}
+      <path d="M22 8 C 30 4, 36 6, 34 14 C 32 18, 26 20, 22 18"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="#f2e0d0" fill-opacity="0.62" opacity="0.72"/>
+      {/* wrist trailing off-frame */}
+      <path d="M-28 22 C -34 28, -38 34, -40 44"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+    </g>
+    <g transform="translate(400 220)">
+      <ellipse cx="0" cy="16" rx="30" ry="12" transform="rotate(16 0 16)"
+        fill="#f2e0d0" opacity="0.62" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      <path d="M-22 8 C -30 4, -36 6, -34 14 C -32 18, -26 20, -22 18"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="#f2e0d0" fill-opacity="0.62" opacity="0.72"/>
+      <path d="M28 22 C 34 28, 38 34, 40 44"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+    </g>
+
+    {/* hand captions */}
+    <text class="hand-label" x="80" y="80" font-size="15">the wobble,</text>
+    <text class="hand-label hand-label--accent" x="80" y="98" font-size="15">the crack,</text>
+    <text class="hand-label" x="80" y="116" font-size="14" opacity="0.7">the rebuild</text>
+    <text class="hand-label hand-label--accent" x="460" y="140" font-size="15">the crack</text>
+    <text class="hand-label hand-label--accent" x="460" y="158" font-size="15">is the seam</text>
+    <text class="hand-label" x="460" y="176" font-size="14" opacity="0.7">gold, held honestly</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
 import StageTag from "../components/StageTag.astro";
 import MotifPressedNineteen from "../components/motifs/MotifPressedNineteen.astro";
-import MotifPinnedCluster from "../components/motifs/MotifPinnedCluster.astro";
+import MotifEnso from "../components/motifs/MotifEnso.astro";
 import MotifArchiveGate from "../components/motifs/MotifArchiveGate.astro";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -146,7 +146,7 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
       <div class="cluster">
         {i > 0 && (
           <div class="cluster-pin" aria-hidden="true">
-            <MotifPinnedCluster size={72} />
+            <MotifEnso size={62} />
           </div>
         )}
         <p class="cluster-label">{c.label}</p>

@@ -67,18 +67,19 @@
       <circle cx="0" cy="-3" r="1.1" fill="var(--poppy-soft)" opacity="0.85"/>
     </g>
 
-    {/* the CALIPERS — hairline instruments measuring the gap between the curve and the horizontal */}
+    {/* the gap — a tender hand-drawn brace-line between the curve's crest and the
+        horizontal, showing what will always remain uncrossed. Softened from a
+        mechanical caliper to a gentle two-stroke gesture with a small blush at each end */}
     <g transform="translate(500 82)">
-      {/* the caliper's pivot */}
-      <circle cx="0" cy="0" r="1.4" fill="var(--ink-soft)" opacity="0.72"/>
-      {/* the two arms — hairline lines from the pivot down to the curve and up to the horizontal */}
-      <path d="M0 0 L -4 -26" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
-      <path d="M0 0 L 4 24" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
-      {/* the caliper's measuring feet — tiny horizontal ticks */}
-      <path d="M-7 -26 L -1 -26" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
-      <path d="M1 24 L 7 24" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.72"/>
-      {/* the caliper's measurement — a small numeral hint (the never-closed gap) */}
-      <text class="hand-label" x="12" y="4" font-size="12" fill="var(--ink-faint)" opacity="0.75">the gap that never closes</text>
+      {/* the upper end — reaches toward the horizontal but does not touch */}
+      <path d="M0 -26 C -2 -22, -3 -18, -1 -14" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+      {/* the lower end — reaches toward the curve */}
+      <path d="M-1 -14 C 0 -6, 2 8, 4 24" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+      {/* two soft dots — where the reach ends */}
+      <circle cx="0" cy="-26" r="1.1" fill="var(--poppy-soft)" opacity="0.85"/>
+      <circle cx="4" cy="24" r="1.1" fill="var(--canopy)" opacity="0.7"/>
+      {/* the tender caption */}
+      <text class="hand-label" x="14" y="4" font-size="12" fill="var(--ink-faint)" opacity="0.75">the gap that never closes</text>
     </g>
 
     {/* the ceaseless-striving marker at the walking figure's back — a small motion mark */}

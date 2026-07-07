@@ -55,18 +55,17 @@
       <rect x="220" y="274" width="300" height="30" fill="#a4b8c8" opacity="0.4"/>
     </g>
 
-    {/* the J-lens — a hairline KEYHOLE APERTURE opening into the middle band from the left */}
+    {/* the J-lens — a hairline aperture opening into the middle band, drawn as
+        a soft brush-stroke ensō-circle rather than a medical keyhole; a tender
+        opening, not an instrument */}
     <g transform="translate(200 172)">
-      {/* the keyhole circle — the observer's aperture */}
-      <circle cx="0" cy="0" r="12" stroke="var(--ink-soft)" stroke-width="0.8" fill="#f7f2e7" opacity="0.85"/>
-      {/* the keyhole slot — a narrow rectangle at the bottom */}
-      <path d="M-3 6 L -3 22 L 3 22 L 3 6" stroke="var(--ink-soft)" stroke-width="0.8" fill="#f7f2e7" opacity="0.85"/>
-      {/* the aperture's inner pupil — a small dot showing what the observer sees */}
-      <circle cx="0" cy="0" r="4" fill="#b899c9" opacity="0.6"/>
-      <circle cx="0" cy="0" r="1.4" fill="#e46b6b" opacity="0.85"/>
-      {/* two hairline sight-lines from the aperture INTO the middle band */}
-      <path d="M14 -4 L 168 -8" stroke="var(--ink-soft)" stroke-width="0.4" stroke-dasharray="1.2 2.4" opacity="0.5"/>
-      <path d="M14 4 L 168 8" stroke="var(--ink-soft)" stroke-width="0.4" stroke-dasharray="1.2 2.4" opacity="0.5"/>
+      {/* the aperture — an unclosed ensō-style hairline circle (the observer's soft opening) */}
+      <path d="M 8 -10 C -4 -12, -14 -4, -12 6 C -10 14, -2 14, 6 10 C 12 6, 14 -2, 10 -8"
+        stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.72"/>
+      {/* a whispered inner circle — the seen thing, held quietly */}
+      <circle cx="-1" cy="0" r="1.2" fill="var(--poppy-soft)" opacity="0.9"/>
+      {/* one hairline sight-line from the aperture INTO the middle band */}
+      <path d="M14 0 L 168 0" stroke="var(--ink-soft)" stroke-width="0.4" stroke-dasharray="1.2 2.4" opacity="0.5"/>
     </g>
 
     {/* the outward flow — a proper directional arrow from workspace to downstream */}

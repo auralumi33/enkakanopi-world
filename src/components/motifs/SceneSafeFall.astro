@@ -1,0 +1,95 @@
+---
+/**
+ * SceneSafeFall — Marimekko × fine-line hybrid scene.
+ * "The body's first lesson is not the graceful stand; it is the safe fall
+ * — the braced drop redrawn as a roll."
+ * On the left, the braced fall — a hairline vertical drop with a small
+ * figure landing rigid. On the right, the safe fall — the same figure
+ * caught mid-roll, the drop redrawn as a soft curve, with a coral bloom
+ * where the roll finds its ground. Middleground dainty register — hand-
+ * drawn organic curves, not diagrammatic.
+ * §28 · Body-spine · Relearning to Fall.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 320" role="img" aria-labelledby="fall-t" preserveAspectRatio="xMidYMid meet">
+    <title id="fall-t">On the left, the braced fall — a rigid vertical drop; on the right, the safe fall — the drop redrawn as a soft rolling curve, with a small bloom at the landing.</title>
+
+    {/* the ground line — a hairline horizontal running the full width */}
+    <path d="M60 260 C 200 258, 400 258, 580 260"
+      stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.62"/>
+
+    {/* ─── LEFT · the braced fall ─── */}
+    {/* the dashed vertical — the fall as a straight line */}
+    <path d="M180 100 L 180 240"
+      stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round"
+      stroke-dasharray="2 3" opacity="0.55"/>
+
+    {/* the small figure landing rigid — arms tucked, legs braced */}
+    <g transform="translate(180 100)">
+      <circle cx="0" cy="0" r="5" stroke="var(--ink-soft)" stroke-width="0.85" fill="#f7f2e7" opacity="0.85"/>
+      {/* body — rigid vertical */}
+      <path d="M0 5 L 0 32" stroke="var(--ink-soft)" stroke-width="0.95" stroke-linecap="round" opacity="0.85"/>
+      {/* arms tucked */}
+      <path d="M0 12 L -5 22" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      <path d="M0 12 L 5 22" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      {/* legs braced apart */}
+      <path d="M0 32 L -6 44" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+      <path d="M0 32 L 6 44" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linecap="round" opacity="0.85"/>
+    </g>
+
+    {/* the impact — a small hairline burst at the ground where the braced fall hits */}
+    <g transform="translate(180 244)" opacity="0.75">
+      <path d="M-14 0 C -12 -4, -10 -6, -6 -8" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.65"/>
+      <path d="M14 0 C 12 -4, 10 -6, 6 -8" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.65"/>
+      <path d="M0 -4 L 0 -10" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round" opacity="0.65"/>
+    </g>
+
+    {/* ─── RIGHT · the safe fall ─── */}
+    {/* the soft rolling curve — the drop redrawn as a gentle organic arc */}
+    <path d="M400 100 C 400 130, 410 158, 434 180 C 462 204, 500 220, 560 234"
+      stroke="var(--ink-soft)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.72"/>
+
+    {/* the figure at the start of the roll — head down, body arced */}
+    <g transform="translate(400 100)">
+      <circle cx="0" cy="0" r="5" stroke="var(--ink-soft)" stroke-width="0.85" fill="#f7f2e7" opacity="0.85"/>
+      {/* a small poppy at the crown — the "roll, don't brace" marker */}
+      <circle cx="0" cy="0" r="1.6" fill="var(--poppy-soft)" opacity="0.9"/>
+    </g>
+
+    {/* the figure mid-roll — a soft rounded body-shape */}
+    <g transform="translate(478 202)" opacity="0.65">
+      <ellipse cx="0" cy="0" rx="14" ry="8" transform="rotate(-25 0 0)" fill="#f7f2e7" opacity="0.85"/>
+      <ellipse cx="0" cy="0" rx="14" ry="8" transform="rotate(-25 0 0)" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" opacity="0.55"/>
+    </g>
+
+    {/* the ground at the roll's landing — a small bloom where the body finds
+       the ground (coral, tender) */}
+    <g transform="translate(560 244)">
+      <g fill="#e46b6b" opacity="0.75">
+        <path d="M0 -6 C 2 -5, 3 0, 0 1 C -2 0, -3 -5, 0 -6 Z"/>
+        <path d="M5 -2 C 6 2, 3 4, 1 3 C 0 0, 3 -3, 5 -2 Z"/>
+        <path d="M3 4 C 0 5, -3 3, -1 1 C 2 -1, 4 2, 3 4 Z"/>
+        <path d="M-4 3 C -5 1, -3 -2, -1 -1 C 0 1, -3 4, -4 3 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="1.2" fill="#f7f2e7"/>
+    </g>
+
+    {/* two small hand-drawn motion-arcs along the roll (softer than dashes) */}
+    <path d="M420 122 C 428 118, 436 116, 442 116"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <path d="M488 190 C 496 184, 508 182, 516 182"
+      stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+    {/* hand captions */}
+    <text class="hand-label" x="140" y="72" font-size="15">the braced fall</text>
+    <text class="hand-label" x="130" y="286" font-size="12" opacity="0.6">the head's strategy</text>
+    <text class="hand-label" x="380" y="72" font-size="15">the safe fall —</text>
+    <text class="hand-label hand-label--accent" x="380" y="90" font-size="15">roll, don't brace</text>
+    <text class="hand-label" x="450" y="286" font-size="12" opacity="0.7">the body knows to go soft</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>

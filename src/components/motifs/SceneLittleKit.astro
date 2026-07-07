@@ -1,0 +1,88 @@
+---
+/**
+ * SceneLittleKit — Marimekko × fine-line hybrid scene.
+ * "A tiny kit: a line, a curve, a box, a leaf, a fold, a dot. Six little
+ * primitives and a few honest rules for how they join."
+ * A hand-drawn workbench tray with six labelled little compartments —
+ * one primitive per slot, drawn in the site's four canonical colours,
+ * each held tenderly on its own square of soft paper. A hand-caveat
+ * ampersand between them ("&") reads as "and how they join." No
+ * sparkles, no scatter — just the six primitives in a tender row.
+ * §28 · Workbench · Trust the Little Kit.
+ */
+---
+<figure class="scene scene-hybrid">
+  <svg viewBox="0 0 640 260" role="img" aria-labelledby="kit-t" preserveAspectRatio="xMidYMid meet">
+    <title id="kit-t">A hand-drawn workbench tray of six little primitives — a line, a curve, a box, a leaf, a fold, a dot — each in its own compartment.</title>
+
+    {/* the tray — a soft rounded rectangle */}
+    <rect x="60" y="66" width="520" height="140" rx="4"
+      fill="#f2ede0" opacity="0.55"
+      stroke="var(--ink-soft)" stroke-width="0.7"/>
+    {/* five hairline verticals dividing the tray into six compartments */}
+    <g stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.55">
+      <path d="M147 66 L 147 206"/>
+      <path d="M233 66 L 233 206"/>
+      <path d="M320 66 L 320 206"/>
+      <path d="M407 66 L 407 206"/>
+      <path d="M493 66 L 493 206"/>
+    </g>
+
+    {/* 1 · A LINE — a hand-drawn straight hairline (ink-soft) */}
+    <g transform="translate(103 136)">
+      <path d="M-24 0 L 24 0" stroke="var(--ink-soft)" stroke-width="1" stroke-linecap="round" opacity="0.8"/>
+    </g>
+    <text class="hand-label" x="82" y="192" font-size="14">a line</text>
+
+    {/* 2 · A CURVE — a soft calligraphic S-curve (lavender-inflected) */}
+    <g transform="translate(190 136)">
+      <path d="M-24 12 C -12 -8, 12 8, 24 -12"
+        stroke="#b899c9" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.85"/>
+    </g>
+    <text class="hand-label" x="164" y="192" font-size="14">a curve</text>
+
+    {/* 3 · A BOX — a hand-drawn square, slightly imperfect (slate) */}
+    <g transform="translate(276 136)">
+      <path d="M-16 -14 L 16 -14 L 16 14 L -16 14 Z"
+        stroke="#a4b8c8" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    </g>
+    <text class="hand-label" x="256" y="192" font-size="14">a box</text>
+
+    {/* 4 · A LEAF — a small canopy-soft leaf */}
+    <g transform="translate(363 136)">
+      <path d="M-14 4 C -8 -14, 8 -14, 14 4 C 8 12, -8 12, -14 4 Z"
+        fill="var(--canopy-soft)" opacity="0.68"
+        stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      <path d="M0 8 L 0 -6" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linecap="round" opacity="0.55"/>
+    </g>
+    <text class="hand-label" x="346" y="192" font-size="14">a leaf</text>
+
+    {/* 5 · A FOLD — a hand-drawn hairline paper-fold (gold-inflected) */}
+    <g transform="translate(450 136)">
+      <path d="M-16 12 L -4 -12 L 16 -8 L 8 14 Z"
+        fill="#e8c15a" opacity="0.5"
+        stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      {/* the fold crease — hairline */}
+      <path d="M-4 -12 L 4 8" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
+    </g>
+    <text class="hand-label" x="432" y="192" font-size="14">a fold</text>
+
+    {/* 6 · A DOT — the poppy, held quietly */}
+    <g transform="translate(537 136)">
+      <circle cx="0" cy="0" r="6" fill="var(--poppy-soft)" opacity="0.9"/>
+      <circle cx="0" cy="0" r="6" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" opacity="0.55"/>
+    </g>
+    <text class="hand-label" x="520" y="192" font-size="14">a dot</text>
+
+    {/* the hand-caveat ampersand — sitting above the tray as "and how they join" */}
+    <text class="hand-label hand-label--accent" x="316" y="46" font-size="26" text-anchor="middle" font-style="italic">&amp;</text>
+
+    {/* soft framing captions */}
+    <text class="hand-label" x="60" y="240" font-size="14">six primitives</text>
+    <text class="hand-label hand-label--accent" x="454" y="240" font-size="14">a few honest rules</text>
+  </svg>
+</figure>
+<style>
+  .scene-hybrid { margin: 2rem auto; max-width: 40rem; }
+  .scene-hybrid svg { width: 100%; height: auto; display: block; }
+</style>
