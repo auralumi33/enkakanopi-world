@@ -1,0 +1,21 @@
+---
+/**
+ * The hand-inked seam — divider device.
+ * A brushed hairline with subtle wobble + brush-taper at each end, plus
+ * tiny bloom-family sprigs (yellow left, lavender right) and small
+ * whispers along the seam. Replaces the plain <div class="rule"> hairline
+ * as a *drawn* seam. Part of the garden's motif set (SUCCESSION §18).
+ * Pastel palette. Wide-banner motif.
+ */
+interface Props { size?: number; }
+const { size = 340 } = Astro.props;
+const h = Math.round(size * 22 / 260);
+---
+<svg width={size} height={h} viewBox="0 0 260 22" aria-hidden="true">
+  <circle cx="6" cy="11" r="2" fill="#e8c15a" opacity="0.8"/>
+  <path d="M8 11 C 40 9, 80 13, 120 10 C 160 8, 200 13, 246 11"
+    stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="252" cy="11" r="2" fill="#b899c9" opacity="0.8"/>
+  <circle cx="90" cy="15" r="1" fill="#a4b8c8" opacity="0.75"/>
+  <circle cx="170" cy="14" r="1" fill="#e8c15a" opacity="0.75"/>
+</svg>

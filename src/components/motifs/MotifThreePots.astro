@@ -1,0 +1,41 @@
+---
+/**
+ * The three pots — growth stages made literal.
+ * seedling • / budding •• / evergreen ••• on a bench line. Each pot carries
+ * a different bloom-family accent (yellow / lavender / dappled canopy).
+ * Part of the garden's motif set (SUCCESSION §18). Pastel palette. Wide-
+ * banner motif; a strong candidate for the home 'growing beds' zone.
+ */
+interface Props { size?: number; }
+const { size = 340 } = Astro.props;
+const h = Math.round(size * 88 / 240);
+---
+<svg width={size} height={h} viewBox="0 0 240 88" aria-hidden="true">
+  <path d="M8 76 C 100 74, 180 76, 232 76" stroke="var(--ink-faint)" stroke-width="0.7" fill="none" opacity="0.45"/>
+
+  <path d="M40 60 L64 60 L61 76 L43 76 Z" fill="var(--canopy)" opacity="0.72"/>
+  <path d="M52 60 L52 46" stroke="var(--canopy)" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+  <path d="M52 50 C 49 48, 47 49, 48 52 C 50 53, 52 51, 52 50 Z" fill="var(--canopy-soft)" opacity="0.92"/>
+  <circle cx="52" cy="44" r="1.8" fill="#e8c15a" opacity="0.8"/>
+  <circle cx="52" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+
+  <path d="M108 58 L132 58 L129 76 L111 76 Z" fill="var(--canopy)" opacity="0.72"/>
+  <path d="M120 58 L120 38" stroke="var(--canopy)" stroke-width="1" stroke-linecap="round" opacity="0.85"/>
+  <path d="M120 48 C 115 46, 113 47, 114 51 C 118 52, 120 50, 120 48 Z" fill="var(--canopy-soft)" opacity="0.92"/>
+  <path d="M120 42 C 125 40, 127 42, 126 46 C 122 47, 120 45, 120 42 Z" fill="#b899c9" opacity="0.78"/>
+  <circle cx="120" cy="36" r="2.5" fill="var(--poppy-soft)" opacity="0.92"/>
+  <circle cx="117" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+  <circle cx="123" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+
+  <path d="M176 56 L204 56 L200 76 L180 76 Z" fill="var(--canopy)" opacity="0.72"/>
+  <path d="M190 24 C 174 24, 168 42, 174 52 C 180 60, 200 60, 206 52 C 212 42, 206 24, 190 24 Z" fill="var(--canopy)" opacity="0.72"/>
+  <circle cx="182" cy="34" r="2" fill="var(--paper)" opacity="0.94"/>
+  <circle cx="196" cy="30" r="1.7" fill="#e8c15a" opacity="0.78"/>
+  <circle cx="190" cy="44" r="1.7" fill="#a4b8c8" opacity="0.78"/>
+  <path d="M190 56 L190 60" stroke="var(--canopy)" stroke-width="1.1" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="200" cy="66" r="2" fill="var(--poppy-soft)" opacity="0.92"/>
+  <circle cx="186" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+  <circle cx="190" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+  <circle cx="194" cy="82" r="1.2" fill="var(--ink-faint)" opacity="0.85"/>
+  <circle cx="220" cy="76" r="1.4" fill="#a4b8c8" opacity="0.8"/>
+</svg>

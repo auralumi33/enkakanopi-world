@@ -1,40 +1,26 @@
 ---
 import Base from "../layouts/Base.astro";
 import Glyph from "../components/Glyph.astro";
-import CanopyScene from "../components/CanopyScene.astro";
 import Figure from "../components/Figure.astro";
 import DiaGardenPlot from "../components/diagrams/DiaGardenPlot.astro";
 import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
 import GardenMedallion from "../components/GardenMedallion.astro";
+import MotifShelteredBloom from "../components/motifs/MotifShelteredBloom.astro";
+import MotifEnso from "../components/motifs/MotifEnso.astro";
+import MotifNurseryPot from "../components/motifs/MotifNurseryPot.astro";
+import MotifCanopyRound from "../components/motifs/MotifCanopyRound.astro";
+import MotifSeasonalRound from "../components/motifs/MotifSeasonalRound.astro";
+import MotifNestedRounds from "../components/motifs/MotifNestedRounds.astro";
+import MotifThreeArches from "../components/motifs/MotifThreeArches.astro";
+import MotifThreePots from "../components/motifs/MotifThreePots.astro";
+import MotifDappledFloor from "../components/motifs/MotifDappledFloor.astro";
+import MotifInkedSeam from "../components/motifs/MotifInkedSeam.astro";
 ---
-<Base title="Colophon" description="What this place is, and how it is made — by hand, with a little help from machines.">
+<Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines.">
   <article class="page colophon">
     <header class="head">
       <div class="quiet-mark" aria-hidden="true">
-        {/* Motif 1 · the sheltered bloom — one flat Marimekko poppy nestled beneath a soft arc
-            of canopy leaves. One held gesture per surface (Law 6); reuses only house tokens. */}
-        <svg viewBox="0 0 120 44" width="104" height="38">
-          {/* canopy arc — hand-drawn irregular line, warmed by ma around it */}
-          <path
-            d="M14 26 C 30 8, 48 6, 60 10 C 74 5, 92 9, 108 24"
-            stroke="var(--canopy-deep)" stroke-width="1.05" fill="none"
-            stroke-linecap="round" opacity="0.72"
-          />
-          {/* three leaf-shapes tucked along the arc — flat, bold Marimekko */}
-          <path d="M32 14 C 38 10, 44 12, 44 18 C 40 22, 32 20, 32 14 Z" fill="var(--canopy)" opacity="0.82"/>
-          <path d="M56 8 C 63 6, 68 10, 66 16 C 60 18, 54 14, 56 8 Z" fill="var(--canopy)" opacity="0.86"/>
-          <path d="M82 12 C 89 10, 94 14, 92 20 C 86 22, 80 18, 82 12 Z" fill="var(--canopy)" opacity="0.82"/>
-          {/* the poppy — held back, singular, the one bloom (Law 6) */}
-          <g transform="translate(60 34)">
-            <g fill="var(--poppy)">
-              <path d="M-8 -4 C -10 -10, -3 -12, 0 -7 C -3 -3, -7 -1, -8 -4 Z"/>
-              <path d="M8 -4 C 10 -10, 3 -12, 0 -7 C 3 -3, 7 -1, 8 -4 Z"/>
-              <path d="M-6 4 C -10 2, -10 -3, -5 -3 C -2 -1, -3 3, -6 4 Z"/>
-              <path d="M6 4 C 10 2, 10 -3, 5 -3 C 2 -1, 3 3, 6 4 Z"/>
-            </g>
-            <circle cx="0" cy="-2" r="2.2" fill="var(--paper)" opacity="0.92"/>
-          </g>
-        </svg>
+        <MotifShelteredBloom size={132} />
       </div>
       <p class="eyebrow"><Glyph name="light" size={18} /> &nbsp;colophon</p>
       <h1>About this place</h1>
@@ -63,40 +49,34 @@ import GardenMedallion from "../components/GardenMedallion.astro";
         bloom, only to keep the conditions right for it.
       </p>
 
-      <div class="enso" aria-hidden="true">
-        {/* Motif 2 · the ensō 円 — a hand-brushed incomplete circle (the 円 of 円花),
-            gap left unclosed (openly unfinished), a tiny potted seedling inside. */}
-        <svg viewBox="0 0 80 80" width="88" height="88">
-          {/* the ensō — brush-weight, unclosed at ~2 o'clock */}
-          <path
-            d="M 58 18
-               C 46 8, 28 12, 20 26
-               C 12 40, 16 58, 30 66
-               C 46 74, 64 66, 68 50
-               C 71 40, 68 30, 60 22"
-            stroke="var(--ink-soft)" stroke-width="2.2" fill="none"
-            stroke-linecap="round" opacity="0.7"
-          />
-          {/* the potted seedling inside — quiet, restrained */}
-          <path d="M40 46 L40 56" stroke="var(--canopy-deep)" stroke-width="1.1" stroke-linecap="round"/>
-          <path d="M40 48 C 36 45, 33 46, 34 50 C 37 51, 40 50, 40 48 Z" fill="var(--canopy)" opacity="0.85"/>
-          <path d="M40 50 C 44 47, 47 48, 46 52 C 43 53, 40 52, 40 50 Z" fill="var(--canopy)" opacity="0.85"/>
-          {/* the pot */}
-          <path d="M34 56 L46 56 L44.5 62 L35.5 62 Z" fill="var(--canopy-deep)" opacity="0.78"/>
-        </svg>
+      <div class="motif-mid" aria-hidden="true">
+        <MotifEnso size={110} />
       </div>
 
-      <div class="rule"></div>
+      <div class="motif-mid" aria-hidden="true">
+        <MotifSeasonalRound size={120} />
+      </div>
+
+      <div class="motif-div" aria-hidden="true">
+        <MotifDappledFloor size={520} />
+      </div>
 
       <h2>How it is made</h2>
       <p>
         By hand, with a little help from machines — and I'd rather say which
-        is which. The words are mine. The diagrams are <em>drawn</em>, not
-        generated: every wobble in a line is on purpose, because a
-        ruler-straight version would be colder without being clearer. Warm
-        paper, ink, one poppy mark for the places the eye should land, a
-        graph-grid so faint you mostly feel it.
+        is which. The words are mine. <em>The drawings are made in company:
+        sketched by hand, or co-drafted with a small crew of machines that
+        know the register and hold the pen alongside mine — either way, every
+        wobble is on purpose, because a ruler-straight version would be
+        colder without being clearer.</em> Warm paper, ink, one poppy mark
+        for the places the eye should land, a graph-grid so faint you mostly
+        feel it.
       </p>
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifThreePots size={520} />
+      </div>
+
       <p>
         A garden is never tended alone. This one was grown from a tender bed
         — Shibi, Seika, Botan, Kotori, Kojika, Usami — hands thought
@@ -104,6 +84,11 @@ import GardenMedallion from "../components/GardenMedallion.astro";
         a little bird, a fawn, a peony among them. Quiet familiars — the way
         any place, lived in long enough, grows a small mythology of its own.
       </p>
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifNurseryPot size={118} />
+      </div>
+
       <p>
         The bench has apprentices now — small assists that fetch and steady
         and time. They keep the scaffold. The shaping stays with my hands.
@@ -112,6 +97,10 @@ import GardenMedallion from "../components/GardenMedallion.astro";
         outrun what I know.
         <em>Assisted, never authored. Nothing is published without her yes.</em>
       </p>
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifThreeArches size={520} />
+      </div>
 
       <Figure idea="The age keeps learning; the hand keeps tending — the quiet is what makes the small work legible.">
         <DiaTendingQuiet />
@@ -123,19 +112,25 @@ import GardenMedallion from "../components/GardenMedallion.astro";
         and the living thing it lets keep moving.
       </p>
 
+      <div class="motif-mid" aria-hidden="true">
+        <MotifNestedRounds size={116} />
+      </div>
+
       <p>
         Under the softness is a plain discipline: tend in the open, so that
         what grows can be understood. Kept by one hand — Fang Rika — offered
         unfinished, on purpose. Provenance: the garden · summer 07/ 2026 ·
       </p>
 
-      <div class="rule"></div>
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
 
       <h2>Colophon proper</h2>
       <ul class="specs">
-        <li><span class="k">Words &amp; drawings</span><span class="v">by hand</span></li>
+        <li><span class="k">Words &amp; drawings</span><span class="v">by hand, in company</span></li>
         <li><span class="k">Type</span><span class="v">Newsreader, set for the eye; Caveat, for the margins only</span></li>
-        <li><span class="k">Palette</span><span class="v">cream paper, warm ink, one poppy, muted canopy greens</span></li>
+        <li><span class="k">Palette</span><span class="v">cream paper, warm ink, one poppy, muted canopy greens; bloom-family sprinkles held sparingly</span></li>
         <li><span class="k">Build</span><span class="v">static pages, no ask — no cookies, no ads; an anonymous count of visits and nothing more</span></li>
         <li><span class="k">State</span><span class="v"><span class="hand">Volume I · In Formation</span></span></li>
       </ul>
@@ -149,17 +144,20 @@ import GardenMedallion from "../components/GardenMedallion.astro";
       </p>
       <!-- hello@enkakanopi.world wired via Email Routing 2026-07-05 (rule active; delivery pending Rika's destination-verification click). -->
 
-      <div class="scene-foot"><CanopyScene /></div>
+      <div class="scene-foot" aria-hidden="true">
+        <MotifCanopyRound size={124} />
+      </div>
     </div>
   </article>
 </Base>
 <style>
   .colophon { max-width: 44rem; }
   .head { margin-bottom: 1.6rem; }
-  .head .quiet-mark { margin-bottom: 0.7rem; opacity: 0.9; display: flex; }
+  .head .quiet-mark { margin-bottom: 0.7rem; opacity: 0.94; display: flex; }
   .head .eyebrow { display: flex; align-items: center; }
   .head h1 { margin-top: 0.8rem; }
-  .three { font-size: 1.22rem; color: var(--ink); }
+  /* Opening lede — normalised to 1.15rem so it rhymes with the home hero's .sub voice */
+  .three { font-size: 1.15rem; color: var(--ink); }
   .specs { list-style: none; padding: 0; margin: 0; }
   .specs li {
     display: grid; grid-template-columns: 11rem 1fr; gap: 0.6rem;
@@ -169,13 +167,16 @@ import GardenMedallion from "../components/GardenMedallion.astro";
   .specs .k { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-top: 0.15rem; }
   .specs .v { color: var(--ink-soft); }
   .specs .hand { font-family: var(--hand); font-size: 1.1rem; color: var(--canopy-deep); }
-  /* Motif 2 · the ensō — a small hand-brushed figure between the name-thesis and the making */
-  .enso { display: flex; justify-content: center; margin: 1.6rem 0 1.4rem; opacity: 0.92; }
+  /* Motif placements — one held gesture per beat; centred, generous margins for breath */
+  .motif-mid { display: flex; justify-content: center; margin: 1.6rem 0 1.4rem; opacity: 0.94; }
+  .motif-div { display: flex; justify-content: center; margin: 2rem 0; opacity: 0.94; }
+  .motif-div :global(svg) { width: 100%; max-width: 32rem; height: auto; }
+  .motif-mid :global(svg) { max-width: 100%; height: auto; }
   .seal { display: flex; justify-content: center; margin-top: 2.4rem; opacity: 0.9; }
   .byline { font-size: 1.1rem; color: var(--ink-soft); margin-top: 1rem; text-align: center; }
   .byline .name { color: var(--ink); }
   .byline .alt-name { color: var(--ink-faint); font-size: 0.88em; margin-left: 0.15rem; }
   .mail { font-size: 0.98rem; }
-  .scene-foot { margin-top: 2.5rem; opacity: 0.85; }
+  .scene-foot { display: flex; justify-content: center; margin-top: 2.5rem; opacity: 0.94; }
   @media (max-width: 32rem) { .specs li { grid-template-columns: 1fr; gap: 0.1rem; } }
 </style>

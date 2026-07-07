@@ -1,0 +1,32 @@
+---
+/**
+ * The dappled floor — divider device.
+ * A Marimekko scatter of soft canopy leaves + bloom-family sprinkles
+ * (yellow · lavender · blue), with one whispered poppy-soft bloom hidden
+ * among them. Replaces the plain <div class="rule"> hairline as a warmer
+ * section-break. Part of the garden's motif set (SUCCESSION §18). Pastel
+ * palette. Wide-banner motif.
+ */
+interface Props { size?: number; }
+const { size = 340 } = Astro.props;
+const h = Math.round(size * 50 / 260);
+---
+<svg width={size} height={h} viewBox="0 0 260 50" aria-hidden="true">
+  <path d="M14 24 C 20 20, 26 24, 22 30 C 16 32, 10 28, 14 24 Z" fill="var(--canopy-soft)" opacity="0.85"/>
+  <circle cx="36" cy="30" r="1.8" fill="#e8c15a" opacity="0.8"/>
+  <path d="M52 22 C 58 18, 64 22, 60 28 C 54 30, 48 26, 52 22 Z" fill="var(--canopy-soft)" opacity="0.9"/>
+  <circle cx="76" cy="28" r="1.6" fill="#b899c9" opacity="0.8"/>
+  <path d="M96 24 C 102 20, 108 24, 104 30 C 98 32, 92 28, 96 24 Z" fill="var(--canopy-soft)" opacity="0.85"/>
+  <circle cx="120" cy="26" r="1.6" fill="#a4b8c8" opacity="0.8"/>
+  <g transform="translate(140 26)">
+    <path d="M-4 -1 C -6 -5, -1 -6, 0 -3 C -2 -1, -4 -1, -4 -1 Z" fill="var(--poppy-soft)" opacity="0.92"/>
+    <path d="M4 -1 C 6 -5, 1 -6, 0 -3 C 2 -1, 4 -1, 4 -1 Z" fill="var(--poppy-soft)" opacity="0.92"/>
+    <path d="M-3 3 C -5 1, -5 -1, -2 -1 C -1 0, -1 2, -3 3 Z" fill="var(--poppy-soft)" opacity="0.92"/>
+    <path d="M3 3 C 5 1, 5 -1, 2 -1 C 1 0, 1 2, 3 3 Z" fill="var(--poppy-soft)" opacity="0.92"/>
+  </g>
+  <circle cx="160" cy="28" r="1.4" fill="#b899c9" opacity="0.8"/>
+  <path d="M176 22 C 182 18, 188 22, 184 28 C 178 30, 172 26, 176 22 Z" fill="var(--canopy-soft)" opacity="0.85"/>
+  <circle cx="200" cy="28" r="1.6" fill="#e8c15a" opacity="0.8"/>
+  <path d="M216 24 C 222 20, 228 24, 224 30 C 218 32, 212 28, 216 24 Z" fill="var(--canopy-soft)" opacity="0.85"/>
+  <circle cx="240" cy="28" r="1.4" fill="#a4b8c8" opacity="0.8"/>
+</svg>

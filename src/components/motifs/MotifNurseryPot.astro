@@ -1,0 +1,28 @@
+---
+/**
+ * The nursery pot — bloom + growth.
+ * A canopy-soft seedling in a soft-sage pot on a paper-edge bench line;
+ * poppy-soft tip at the seedling's apex. Yellow + lavender bud siblings
+ * to either side. Budding stage dot beside (••). Part of the garden's
+ * motif set (SUCCESSION §18). Pastel palette.
+ */
+interface Props { size?: number; }
+const { size = 128 } = Astro.props;
+const h = Math.round(size * 118 / 128);
+---
+<svg width={size} height={h} viewBox="0 0 120 110" aria-hidden="true">
+  <path d="M8 92 C 40 90, 80 92, 112 92" stroke="var(--ink-faint)" stroke-width="0.6" fill="none" opacity="0.45"/>
+  <path d="M22 88 L22 78" stroke="var(--canopy)" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="22" cy="76" r="2.4" fill="#e8c15a" opacity="0.78"/>
+  <path d="M44 66 L76 66 L71 90 L49 90 Z" fill="var(--canopy)" opacity="0.72"/>
+  <path d="M42 66 L78 66" stroke="var(--canopy)" stroke-width="1" opacity="0.78"/>
+  <path d="M60 66 L60 32" stroke="var(--canopy)" stroke-width="1.1" stroke-linecap="round" opacity="0.9"/>
+  <path d="M60 48 C 54 44, 50 46, 52 52 C 56 54, 60 52, 60 48 Z" fill="var(--canopy-soft)" opacity="0.95"/>
+  <path d="M60 40 C 66 36, 70 38, 68 44 C 64 46, 60 44, 60 40 Z" fill="var(--canopy-soft)" opacity="0.95"/>
+  <circle cx="60" cy="30" r="3.2" fill="var(--poppy-soft)" opacity="0.92"/>
+  <circle cx="60" cy="30" r="1" fill="var(--paper)"/>
+  <circle cx="86" cy="82" r="1.4" fill="var(--ink-faint)" opacity="0.85"/>
+  <circle cx="91" cy="82" r="1.4" fill="var(--ink-faint)" opacity="0.85"/>
+  <path d="M100 90 L100 80" stroke="var(--canopy)" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="100" cy="78" r="2.4" fill="#b899c9" opacity="0.78"/>
+</svg>
