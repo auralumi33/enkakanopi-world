@@ -25,6 +25,17 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    # Hold astro-ecosystem majors from Dependabot — astro + @astrojs/mdx are
+    # peer-locked in lockstep (mdx@N peer-requires astro@^N.x), so filing them
+    # as separate individual PRs cannot merge cleanly. When a major bump is
+    # warranted, remove the ignore entry and update both packages in one local
+    # commit, following the astro upgrade guide. See SUCCESSION §12.3 + §Dependency
+    # triage discipline in enka-airlock-firewall.
+    ignore:
+      - dependency-name: "astro"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@astrojs/mdx"
+        update-types: ["version-update:semver-major"]
     commit-message:
       prefix: "deps"
       include: "scope"
