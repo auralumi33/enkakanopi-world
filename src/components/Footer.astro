@@ -13,6 +13,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       a canopy for a self in motion.
       <span class="dim">Volume I · In Formation.</span>
     </p>
+    <a
+      class="corresp"
+      href="mailto:hello@enkakanopi.world"
+      aria-label="write to the garden"
+    >correspondence</a>
     <a class="col" href={base + "/colophon"}>Colophon</a>
   </div>
 </footer>
@@ -23,8 +28,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .line { font-size: 0.95rem; color: var(--ink-soft); margin: 0; max-width: none; }
   .line .hand { font-family: var(--hand); font-size: 1.25rem; color: var(--canopy-deep); }
   .line .dim { color: var(--ink-faint); }
+  /* G3 · persistent faint rail — the always-locatable door, never pulls focus */
+  .corresp {
+    margin-left: auto; font-family: var(--serif); font-size: 0.82rem;
+    letter-spacing: 0.02em; color: var(--ink-faint); text-decoration: none;
+    transition: color 220ms ease;
+  }
+  .corresp:hover, .corresp:focus-visible { color: var(--ink-soft); }
+  @media (prefers-reduced-motion: reduce) { .corresp { transition: none; } }
   .col {
-    margin-left: auto; font-family: var(--sans); font-size: 0.78rem;
+    font-family: var(--sans); font-size: 0.78rem;
     letter-spacing: 0.02em; color: var(--ink-faint); text-decoration: none;
     border-bottom: 1.4px solid var(--paper-edge); padding-bottom: 2px;
   }

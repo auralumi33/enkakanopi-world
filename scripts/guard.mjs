@@ -23,7 +23,11 @@ import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, extname, relative } from "node:path";
 
 const ROOT = process.cwd();
-const IGNORE_DIRS = new Set(["node_modules", "dist", ".git", ".astro", ".vercel", "_archive"]);
+// notes/redlines/ holds working drafts that ENUMERATE the very words the guard
+// checks for (firewall grep recipes, deny-list examples). They are untracked
+// working scratch, never shipped. Same rationale as _archive: their job is to
+// preserve/enumerate history, not to pass today's checks.
+const IGNORE_DIRS = new Set(["node_modules", "dist", ".git", ".astro", ".vercel", "_archive", "redlines"]);
 const IGNORE_FILES = new Set(["package-lock.json", "guard.words.txt", "guard.words.local.txt"]);
 const SKIP_EXT = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".woff", ".woff2", ".ico", ".mov", ".mp4", ".pdf"]);
 

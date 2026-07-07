@@ -20,6 +20,10 @@
   --poppy-soft:   #e08d84;   /* tints, underlines */
   --poppy-wash:   #f4e0da;   /* the faintest fill */
 
+  /* — the seal (maker's mark · wax-red · reused not new) — */
+  --seal:         var(--poppy);   /* alias — the seal IS the poppy, held for provenance */
+  --seal-size:    1.15rem;        /* a small pressed mark, never a badge */
+
   /* — muted botanical greens (the canopy motif) — */
   --canopy:       #6f7d5a;   /* leaf / sage */
   --canopy-deep:  #4f5b3f;   /* shadow side of a leaf */

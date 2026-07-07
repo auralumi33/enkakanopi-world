@@ -15,6 +15,7 @@ const essay = z.object({
   tended: z.string().optional(),   // an honest, non-triangulating note on when it was last worked
   breath: z.string().optional(),   // "in one breath" — the liftable thesis, in the essay's own words
   farewell: z.string().optional(), // a handwritten goodbye at the door — Rika's hand only, never generated
+  seal: z.boolean().optional(),    // maker's-mark seal at essay foot — opt-in, one piece at a time
 });
 
 // The nursery — pre-essay fragments, caught before they are essays. The

@@ -19,11 +19,17 @@ interface Props {
   // keys, so the field must be added there before pages can thread it through).
   // Rika hand-writes the farewells — never generate one.
   farewell?: string;
+  // seal — the maker's-mark closing (G4). Off by default; one piece at a time
+  // earns the mark. When true, the essay foot renders the poppy-red wax press
+  // + a tiny serif caption ("the garden · summer 07/ 2026 · tended by Fang
+  // Rika ·") above the correspondence line. Both the seal and the line are
+  // additive; nothing else in the layout changes.
+  seal?: boolean;
   backHref: string;
   backLabel: string;
   description?: string;
 }
-const { title, dek, status = "in formation · v0", glyph = "seam", stage = "seedling", tended, breath, farewell, backHref, backLabel, description } = Astro.props;
+const { title, dek, status = "in formation · v0", glyph = "seam", stage = "seedling", tended, breath, farewell, seal = false, backHref, backLabel, description } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 
@@ -81,6 +87,30 @@ const ldArticle = {
     </div>
     <footer class="end">
       {farewell && <p class="farewell">{farewell}</p>}
+      {seal && (
+        <div class="maker" aria-labelledby="maker-caption">
+          <svg class="seal-mark" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+            {/* hand-pressed wax mark — subtly irregular; the irregularity IS the handcraft */}
+            <path
+              d="M20 3.4
+                 C 27.6 3.1, 36.9 8.2, 36.6 18.8
+                 C 36.3 27.4, 30.4 36.2, 20.4 36.4
+                 C 12.1 36.7, 3.6 30.9, 3.4 20.6
+                 C 3.2 12.5, 8.9 4.6, 20 3.4 Z"
+              fill="var(--seal)" opacity="0.92"
+            />
+            <path
+              d="M14 12 C 17 10.8, 21 11.2, 23 13"
+              stroke="var(--paper)" stroke-width="0.9" fill="none" opacity="0.28" stroke-linecap="round"
+            />
+          </svg>
+          <p class="maker-caption" id="maker-caption">the garden · summer 07/ 2026 · tended by Fang Rika ·</p>
+        </div>
+      )}
+      <p class="correspond">
+        If something here found you — the garden keeps a line open — say{" "}
+        <a href="mailto:hello@enkakanopi.world">hello@enkakanopi.world</a>.
+      </p>
       <div class="endrow">
         <Glyph name="light" size={22} />
         <a class="more" href={base + backHref}>more from {backLabel.toLowerCase()}</a>
@@ -107,6 +137,14 @@ const ldArticle = {
   .breath-echo { font-family: var(--hand); font-size: 1rem; color: var(--ink-faint); margin-top: 0.4rem; }
   .end { margin-top: 3rem; padding-top: 1.4rem; border-top: 1.1px solid var(--paper-edge); }
   .farewell { font-family: var(--hand); font-size: 1.3rem; color: var(--canopy-deep); line-height: 1.45; max-width: 42ch; margin: 0 0 1.1rem; }
+  /* G4 · maker's-mark seal — one held gesture at essay foot, above the correspondence line */
+  .maker { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; margin: 0.4rem 0 1.4rem; }
+  .seal-mark { display: block; line-height: 0; }
+  .maker-caption { font-family: var(--serif); font-size: 0.82rem; letter-spacing: 0.02em; color: var(--ink-soft); margin: 0; text-align: center; max-width: 42ch; }
+  /* G3 · foot-of-essay correspondence line — prose, not a button */
+  .correspond { font-family: var(--serif); font-size: 1rem; color: var(--ink-soft); line-height: 1.55; max-width: 46ch; margin: 0 0 1.2rem; }
+  .correspond a { color: var(--ink-soft); text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--poppy-soft); }
+  .correspond a:hover { color: var(--poppy); text-decoration-color: var(--poppy); }
   .endrow { display: flex; align-items: center; gap: 0.7rem; }
   .more { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-faint); text-decoration: none; }
   .more:hover { color: var(--poppy); }
