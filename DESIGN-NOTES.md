@@ -347,4 +347,131 @@ promote it. Candidates for promotion to DESIGN-SYSTEM.md (external doctrine):
 - Scene-anchor discipline (§31 — proved once).
 - Attribution economy (§29–§30 — proved twice).
 - Middleground register (§28 — proved once).
+- The Isson × Murakami paradox (§35 — proved once · shipped in slice-2.4
+  and re-used in slice-2.5's `CanopyScene`; already promoted to
+  DESIGN-SYSTEM.md as a named idiom because two slices used it).
+- The row-prop distribution pattern (§36 — proved once · promoted to
+  DESIGN-SYSTEM.md alongside the paradox because the two components using
+  it — Nursery + Colophon botanical panels — are both public API surfaces).
 Attribution economy is closest to promotion; watch across the next session.
+
+## §35 — Set 3 slice-2.1 · daintier restraint (site commit `cbed58d` · 2026-07-09)
+
+**What Rika saw:** the shipped tiled trellis + boldly-scaled ginkgo
+scattered paper read as "super messy" on live. **What we changed:**
+halved grain-arrival opacities, retired the tiled trellis clutter,
+shifted `--paper-washi` from `#fbf7ea` → `#fbf8ee` (cooler, cleaner
+cream), and promoted a new `.grain-seedbed` register for the Nursery so
+it sits on its own middle paper. Pastel accent dots at low opacity
+appeared in the grain overlays — the four canonical pastels the panels
+would later draw from — letting the paper *whisper botanical* without
+carrying a full print.
+
+**Working principle proved:** softer accent + fewer marks reads richer
+than more accent + more marks. Density is a tax the eye pays. The paper
+should feel *waiting*, not full.
+
+## §35 — Set 3 slice-2.4 · the Isson × Murakami paradox lands (site commit `d58bdee` · 2026-07-09)
+
+**What landed:** `ChapterOrnament` on seven core openers · three
+botanical panel sets (home 4 · nursery 8 · colophon 12) · arrival
+register dial-up (feminine softened, pastels visible) · seed-bed
+textural aging (fiber inclusions + patina dots) · and — the doctrinal
+move of the session — the **Isson × Murakami paradox** as a named idiom
+baked into every panel. Contemplative botanical soul (Tanaka Isson ·
+hairline, still, patient) held next to playful hidden joy (Takashi
+Murakami · closed-eye smile marks tucked inside the drawing, visible
+only on close look). One paradox mark per panel; on the seed-bed
+register, the paradox even lives in the paper itself (a Murakami
+smile-flower at 0.20 opacity + an Isson magpie at 0.18).
+
+**Voice-guard held:** panel captions used only Rika's shipped
+hand-labels; no new prose composed by machine except intent descriptors.
+Slice-2.5b later trimmed the descriptor phrase "· hidden smile" from
+the four home captions on Rika's yes — the smile itself can't be read
+at browser zoom levels, so textual signposting became clutter (an
+antipattern; see below).
+
+## §36 — Set 3 slice-2.5 · distribute the triptych (site commit `847cf2f` · 2026-07-09)
+
+**What Rika saw:** the 12 colophon panels clustered at the top and the
+8 nursery panels clustered at the bottom read as **catalogue**, not as
+narrative. The homepage hero didn't reflect the new panel-theme and
+its periphery felt "dirty" against the daintier register.
+
+**What we changed:** introduced the **row-prop distribution pattern** —
+each multi-row panel component (`Nursery-` / `ColophonBotanicalPanels`)
+accepts a `row` prop (`1 | 2 | 3 | "all"`) and renders only the
+requested row. The colophon triptych was interleaved: Row 1 (What holds
+the garden) as visual overture before `<h2>What we are trying to hold</h2>`;
+Row 2 (How it's made) after the "by hand, in company" prose; Row 3
+(The retraining) before `<h2>Colophon proper</h2>` closes the arc.
+Nursery split Row 1 between head and grows; Row 2 between the
+grows-ladder and seed-rows.
+
+The homepage `CanopyScene` gained Murakami paradox smile marks on its
+three ground blooms (tying the hero back to the panel signature). A
+`.hero::before` washi radial-gradient wash quieted the arrival grain in
+the hero zone only, and the `.signature-garden .sprout` opacity was
+dialled 0.8 → 0.58 so the giant `<Bloom size={780}>` behind the h1
+whispers instead of shouts.
+
+**Working principle proved:** a triptych *catalogued* reads as index; a
+triptych *distributed* reads as arc. When a component authors a
+three-act story, its rows should be author-placed near the prose beats
+they belong to, not stacked at either end. Corollary: a background
+element at parity opacity with the hero copy makes the paper feel
+"dirty" — dial to whisper.
+
+### Updated vocabulary (slice-2.1 through 2.5)
+
+- **The seed-bed paper** (§35 · slice-2.1/2.4) — the fourth grain
+  register, on `--paper-seedbed`. Aged mulberry washi via textural aging
+  (fiber dashes + patina dots), not just hue. Nursery only.
+- **The four canonical pastels** (§35 · slice-2.4) — lavender `#b899c9`
+  · coral `#e46b6b` · gold `#e8c15a` · slate `#a4b8c8`. Registered as a
+  set with kanji + English labels; every Set 3 slice-2.4+ panel draws
+  from this palette.
+- **The Isson × Murakami paradox** (§35 · slice-2.4) — the panel
+  doctrine and the hidden-joy mark (closed-eye smile). Named after the
+  pairing: Tanaka Isson's contemplative botanical soul × Takashi
+  Murakami's playful joy tucked inside the composition. Promoted to
+  DESIGN-SYSTEM.md.
+- **The ChapterOrnament** (§35 · slice-2.4) — the single delicate
+  trellis arch (four hanging blooms in the four canonical pastels)
+  rendered on seven core openers only. The named restraint pattern:
+  *signal a chapter without shouting.*
+- **The paradox smile mark** (§35 · slice-2.4+) — the tiny closed-eye
+  smile signature (two ink-soft eye-dots + a hairline smile curve, at
+  opacity ~0.6-0.7). Portable — extended to the `CanopyScene` ground
+  blooms in slice-2.5.
+- **The Isson × Murakami paradox panels** (§35 · slice-2.4+) — the
+  distributable panel-set family (`HomeBotanicalPanels`,
+  `NurseryBotanicalPanels`, `ColophonBotanicalPanels`). Unified
+  grammar: hairline ink-soft strokes 0.55-0.7, kanji + English label +
+  italic caption, one paradox mark per panel.
+- **The row-prop distribution pattern** (§36 · slice-2.5) — the refactor
+  pattern for multi-row panel components: a `row` prop with
+  `1 | 2 | 3 | "all"` gating. Ships a triptych as three positioned
+  visual overtures instead of one clustered index. Drops internal
+  row-title text — surrounding prose does the introducing. Figcaption
+  only renders with the last row (or `"all"`). Promoted to
+  DESIGN-SYSTEM.md.
+- **The washi wash under the hero** (§36 · slice-2.5) —
+  `.hero::before` radial-gradient of `--paper-washi` at 100% fading to
+  transparent, zoning the arrival grain to whisper around the scene
+  without hiding it elsewhere on the page. Portable to any hero-heavy
+  route that needs a clean bloom-room around a central visual.
+
+### Antipatterns named (slice-2.5)
+
+- **Catalogued triptych** — a three-act panel set clustered at one end
+  of the page, reading as index rather than arc. Fix: distribute per
+  the row-prop pattern; place each row near its prose beat.
+- **Shouting sprout** — a decorative background element at parity
+  opacity with the hero copy, making the paper feel "dirty." Fix: dial
+  opacity to ~0.55-0.60 so it recedes to whisper.
+- **Textual signposting for what the eye can't read** — captioning a
+  mark that doesn't survive browser zoom (e.g. "· hidden smile in the
+  lavender heart" for a 0.35r stroke). Fix: let the mark be discovered;
+  don't lampshade it. (Slice-2.5b trim on the home panel captions.)

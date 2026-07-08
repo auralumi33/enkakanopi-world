@@ -256,6 +256,37 @@ language, use the names:
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
+- **The Isson × Murakami paradox** (Set 3 · slice-2.4) — the panel doctrine
+  landed in the homepage / nursery / colophon botanical panels. Named for
+  the pairing of Tanaka Isson's contemplative botanical soul (still,
+  hairline, patient) with Takashi Murakami's playful hidden joy (a tiny
+  closed-eye smile mark tucked inside the composition, only visible on
+  close look). Every Set 3 slice-2.4+ panel carries one paradox mark
+  somewhere in the drawing — hidden joy, not shouted. Slice-2.5 extended
+  the paradox to the homepage `CanopyScene`'s three ground blooms.
+- **The ChapterOrnament** (Set 3 · slice-2.4) — a single delicate trellis
+  arch under 90px tall with four hanging blooms (lavender, gold,
+  poppy-soft, slate bell). Rendered by `Base.astro` on seven core opener
+  routes only (`/`, `/volume-i`, `/field-notes`, `/workbench`,
+  `/body-spine`, `/versions`, `/colophon`) — restraint is the rule.
+- **The Isson × Murakami paradox panels** (Set 3 · slice-2.4+) — the
+  distributable panel-set family: `HomeBotanicalPanels` (4 panels — the
+  branch · the chrysanthemum · the bird · the magpie),
+  `NurseryBotanicalPanels` (8 panels in two rows — scrap · germination ·
+  wobble · cracked seed // closed bud · pressed leaf · tangent · small
+  vessel), `ColophonBotanicalPanels` (12 panels in three-act triptych —
+  What holds the garden // How it's made // The retraining). Unified
+  grammar: hairline ink-soft strokes 0.55-0.7, kanji + English label +
+  italic caption, one paradox smile per panel. Rendered on the four
+  canonical pastels.
+- **The row-prop distribution pattern** (Set 3 · slice-2.5) — the multi-row
+  panel components (`Nursery-` and `ColophonBotanicalPanels`) each accept
+  a `row` prop (`1 | 2 | 3 | "all"`) so a single triptych/pair can be
+  interleaved across a page's prose instead of clustered at one end.
+  Surrounding prose does the row-introducing; internal `row-title` text
+  is dropped in the split placement. Figcaption only renders with the
+  last row (or `"all"`). See `pages/colophon.astro` +
+  `pages/nursery.astro` for the reference wiring.
 
 ## Tokens (canonical values)
 
@@ -337,15 +368,31 @@ contrast for body text verified safe on all three tiers.
 
 | Token | Value | Role |
 |---|---|---|
-| `--paper-washi` | `#fbf7ea` | The washi ground — whiter than `--paper`, still warm. Base for the silk-on-washi register. |
+| `--paper-washi` | `#fbf8ee` | The washi ground — whiter than `--paper`, still warm. Base for the silk-on-washi register. (Slice-2.1 shifted from `#fbf7ea` to a cooler cream after the daintier restraint pass.) |
+| `--paper-seedbed` | `#f8f3e6` | **Slice-2.4** · aged mulberry washi middle — nourishing warm cream between `--paper-washi` and the shipped `#f4ecda`. Nursery only. |
+| `--skin` | `#f2e0d0` | **Slice-2.4** · warm skin ink-wash for hands + covenant panels (Colophon triptych). |
+| `--skin-deep` | `#e5c9a8` | **Slice-2.4** · deeper skin for the covenant's guiding hand (v4 hand-over-hand teacher-student transmission). |
+| `--bamboo` | `#c9b088` | **Slice-2.4** · warm bamboo for brush handles in Colophon panels. |
 
-Three body classes, applied per-route from `src/layouts/Base.astro`:
+**The four canonical pastels** (slice-2.4 · registered as a set):
+
+| Kanji | Name | Hex | Role |
+|---|---|---|---|
+| 紫 | lavender | `#b899c9` | Bloom accent · panel-1 register |
+| 珊瑚 | coral | `#e46b6b` | Bloom accent · panel-3 register · softer twin lives at `--poppy-soft` `#e08d84` |
+| 金 | gold | `#e8c15a` | Bloom accent · panel-2 register (chrysanthemum sun) |
+| 青 | slate | `#a4b8c8` | Bloom accent · panel-4 register (magpie mountain) |
+
+The four pastels appear across every Set 3 slice-2.4 panel set (home · nursery · colophon), as accent dots in the grain overlays, and as the ground-bloom palette in the homepage `CanopyScene`. Each pastel is anchored to a kanji + English label so future panels stay legible to the same grammar.
+
+Four body classes (slice-2.4 promoted `.grain-seedbed`), applied per-route from `src/layouts/Base.astro`:
 
 | Class | Applied to | Motif |
 |---|---|---|
-| `.grain-arrival` | home · volume-i · section hubs (field-notes, workbench, body-spine) | **The ginkgo-scattered paper** — scattered ginkgo leaves (`--gold` + `--canopy-soft`) + trellis in `--canopy` with hanging `--gold` and `--canopy-soft` blooms overhead. The register of arrival. |
+| `.grain-arrival` | home · volume-i · section hubs (field-notes, workbench, body-spine) | **The ginkgo-scattered paper** — scattered ginkgo leaves (`--gold` + `--canopy-soft`) + trellis in `--canopy` with hanging `--gold` and `--canopy-soft` blooms overhead + slice-2.4 four-pastel accent dots (radii 2.1-2.5, opacity 0.62-0.65). Slice-2.5: dial-down handled locally in `.hero::before` washi wash. |
 | `.grain-dwell` | individual essays · colophon · versions | **The veranda-vine paper** — three vertical vines hanging FROM a trellis crossbar (structural), small `--canopy` leaves along the vines. The register of deep dwell. |
-| `.grain-reference` | nursery · studio · lexicon | **The meadow-line paper** — fine-line open blossoms (`--slate` + `--lavender`) + trellis in `--canopy` with hanging `--slate` and `--lavender` line-blooms overhead. The register of reference / catalog. |
+| `.grain-reference` | studio · lexicon | **The meadow-line paper** — fine-line open blossoms (`--slate` + `--lavender`) + trellis in `--canopy` with hanging `--slate` and `--lavender` line-blooms overhead. |
+| `.grain-seedbed` | nursery ONLY | **Slice-2.4 · the seed-bed paper** — aged mulberry washi on `--paper-seedbed` with textural aging (fiber dashes + patina dots), tree-friend at 0.22, sakura petals 0.22-0.30, sumi-e brush dashes 0.30-0.34, plus a hidden Murakami smile-flower (0.20) and Isson magpie (0.18) baked into the register. |
 
 ### Type
 
