@@ -1,0 +1,49 @@
+---
+/**
+ * WeaveSeam — memoria layer (cream skin) · Set 3 · v3 · 2026-07-09.
+ * Carries the 円花 keystone lineage: the same hand-brushed ensō circle as
+ * MotifEnkaEnso, with the same four cardinal orbit dots (lavender · gold ·
+ * slate · poppy-soft). The fragile thing held inside the container is
+ * Set 3's soft/hard note — a woven cross of --canopy thread over-and-under
+ * a ruled --ink-soft spine, resting on a soft --skin cloth. One --poppy-soft
+ * press doubled at the meeting (spine) and the crest (thread wave).
+ *
+ * The mark reads as: *the container beneath the craft, holding the raw
+ * human weave.* One gesture — designer form × creative-tech rigor × the
+ * four grounds × return to essentials — at memoria scale.
+ * Doctrine: DESIGN-SYSTEM.md · the memoria layer · Set 3.
+ */
+interface Props { size?: number; }
+const { size = 56 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+  {/* the soft --skin cloth inside the ensō — the fabric the weave sits on */}
+  <ellipse cx="50" cy="52" rx="28" ry="7" fill="#f2e0d0" opacity="0.42"/>
+
+  {/* the ensō — same hand-brushed geometry as MotifEnkaEnso, at memoria weight */}
+  <path d="M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66 C 88 54, 88 38, 78 26"
+    stroke="var(--ink-soft)" stroke-width="0.9" fill="none"
+    stroke-linecap="round" opacity="0.65"/>
+
+  {/* the ruled --ink-soft spine across the cloth — subtle hand-wobble */}
+  <path d="M 22 52.2 C 34 51.8, 50 52.4, 66 51.9 C 74 52.1, 78 52.0, 78 52.3"
+    stroke="var(--ink-soft)" stroke-width="0.55" fill="none"
+    stroke-linecap="round" opacity="0.72"/>
+
+  {/* the woven --canopy thread — over-under, hand-drawn wobble */}
+  <path d="M 22 52 C 26 52, 30 42, 36 42 C 42 42, 44 52, 50 52 C 56 52, 58 62, 64 62 C 70 62, 72 52, 78 52"
+    stroke="var(--canopy)" stroke-width="0.55" fill="none"
+    stroke-linecap="round" opacity="0.55"/>
+
+  {/* doubled --poppy-soft press: one at the crest, one at the meeting */}
+  <circle cx="64" cy="62" r="1.2" fill="var(--poppy-soft)" opacity="0.9"/>
+  <circle cx="50" cy="52" r="1.8" fill="var(--poppy-soft)" opacity="0.88"/>
+  <circle cx="50" cy="52" r="0.6" fill="var(--paper)"/>
+
+  {/* four cardinal orbit dots — SAME positions/colours as MotifEnkaEnso
+      (lavender · gold · slate · poppy-soft — the four grounds/covenants the circle holds) */}
+  <circle cx="50" cy="8" r="0.9" fill="#b899c9" opacity="0.7"/>
+  <circle cx="88" cy="46" r="0.9" fill="#e8c15a" opacity="0.7"/>
+  <circle cx="50" cy="90" r="0.9" fill="#a4b8c8" opacity="0.7"/>
+  <circle cx="12" cy="46" r="0.9" fill="var(--poppy-soft)" opacity="0.7"/>
+</svg>

@@ -107,13 +107,27 @@ language, use the names:
   opacity, negative space is the star. Two ground variants: cream skin
   (`--ink-soft` + `--poppy-soft` accents, for reader-facing paper) and
   night skin (`--night-ink` + `--gold` accents, for the workshop dark
-  ground only). Vocabulary base (18 marks shipped · plus a
+  ground only). Vocabulary base (19 marks shipped · plus a
   scene-motif hybrid layer of 9 essay-specific scenes commissioned in
   §26, blending Marimekko silhouettes with the fine-line register —
   see the *Scene-motif hybrid layer* note below · extensible per
   essay): cream skin main register (hairline 0.85) — MoonCrescent ·
   VineTrail · ScriptHeart · Greenhouse · BenchTending · PlaceNotFunnel
   · InCompany · FictionFold · WorkspaceRoom · WhiteBear · MergingSeam.
+  Set 3 addition — WeaveSeam (2026-07-09) — carries the **円花 keystone
+  lineage**: the same hand-brushed ensō circle as `MotifEnkaEnso`, the
+  same four cardinal orbit dots (lavender · gold · slate · poppy-soft),
+  with the fragile thing held inside the container replaced by Set 3's
+  soft/hard note — a woven cross of `--canopy` thread over-and-under a
+  ruled `--ink-soft` spine, resting on a soft `--skin` cloth, with a
+  doubled `--poppy-soft` press at the meeting and the crest. The mark
+  reads as *the container beneath the craft, holding the raw human weave*
+  — one gesture for the container/craft thesis at memoria scale. Sits
+  per-essay where the soft/hard note earns a mark, opt-in like the
+  other memoria breathers. Also — MoonCrescent reworked (2026-07-09) to
+  a proper waxing crescent (outer arc bulges right, inner arc creates
+  the "bite"); hand-inked four-line star swapped in for the polygon; the
+  interior mote dropped (Law 8).
   Cream skin tattoo-flash register (hairline 0.55 · ornamental scatter
   · sparkle glyphs · poppy-soft accent preserved · SUCCESSION §25) —
   TheCurveKept · TheFirstApproximation · FineLineStar · Dragonfly.
@@ -177,7 +191,7 @@ language, use the names:
   the four grounds/seasons/directions the circle holds. Reserved for
   the Colophon (top + closing keystone) and the site's most load-
   bearing brand surfaces. One gesture holding both halves of 円花.
-- **Scene-motif hybrid layer** now numbers **15 hybrid scenes**
+- **Scene-motif hybrid layer** now numbers **16 hybrid scenes**
   (was 9, plus §28's six new Workbench + Body-spine scenes): the
   original nine (redrawn in §27 with narrative object-poetry) plus
   six new middleground-register scenes for the other rooms — Body-
@@ -197,6 +211,48 @@ language, use the names:
   codified: dainty, feminine, hand-drawn organic craft; retain
   colours + daintiness but with tenderness that amplifies the
   garden rather than reading as messy haphazard sparkles.
+  Set 3 addition (2026-07-09) — SceneWeaveSeam — the container
+  beneath the craft rendered whole: hand-brushed ensō container,
+  soft `--skin` fabric panel inside with faint silk-moiré vertical
+  stripes, ruled `--ink-soft` spine across the cloth, `--canopy`
+  thread woven over-and-under, three tall-stem-and-bloom botanicals
+  growing on the cloth (`--lavender` bloom + `--coral` marigold +
+  `--slate` bell, all with `--gold` centres), fern frond at base,
+  two embroidery needles piercing the cloth from either side with
+  `--canopy` trailing threads, four cardinal orbit dots around the
+  ensō (lineage from MotifEnkaEnso), a trellis-canopy above the
+  ensō with four hanging blooms (one per canonical pastel: lavender
+  · gold · coral · slate bell) + whisper vine curls. Hand-labels all
+  from Rika's own voice ("what looks carved was always soft thread"
+  · "warm surface, rigorous spine" — Law 3, made tactile · "held long
+  enough to become"). Reads as: designer form × creative-tech rigor
+  × the four grounds × return to essentials. Companion mark for the
+  Set 3 workbench/spine surfaces; opt-in per essay.
+- **Set 3 · the garden-canopy moodboard** (softly-titled — the gestures
+  the house makes, not fixed furniture; per the worldbuilder-not-title
+  note carried over from Set 1). A moodboard of four registers that
+  deepen the *garden / canopy / 円花* keystone; each is a gesture, not a
+  named component, and each can be shipped in its own slice:
+  - **the soft/hard note** — *what looks carved was always soft thread.*
+    The couture translation of Law 3 (warm surface, rigorous spine) made
+    tactile: the weave (soft, the visible medium) held by the loom (hard,
+    the structure that appreciates). Shipped 2026-07-09 as `WeaveSeam` +
+    the woven grain tokens.
+  - **the dappled hour** — sun through leaves as *still* restraint, never
+    a spotlight. The already-named *canopy and the light* (Voice Spine §6)
+    given a filtered, sub-perceptual paper drift. *Fold pending.*
+  - **the person holding the camera** — the container-beneath-the-craft
+    thesis said by a photographer's hand: the gear commoditises, the
+    seeing appreciates; conviction over applause; patience across time;
+    curiosity across disciplines. *Spoke seed pending — Rika-authored.*
+  - **the migration and the fragile canopy** — hand-cut wings massing into
+    a quiet, elegiac drift. The utopia/dystopia soul held without
+    resolving; the openly-unfinished at scale; the canopy holds what is
+    fragile as it passes through. *Motif family + scene-hybrid pending.*
+  Through-line: *the woven surface is the paper the garden is printed
+  on; the sun-through-leaves is the light that makes it a place; the
+  hand is whose garden it is; the migration is what the canopy shelters
+  as it passes through — the 円花 holds all of it.*
 - **Charts & Crafts** — the whole system's name. Sits at the intersection
   of Tufte's ink-density discipline and the Marimekko-print botanical
   register.
@@ -268,6 +324,28 @@ The tables below are the human-readable mirror; if there's a mismatch,
 | `--w-spine` | `1.5` | The load-bearing stroke |
 | `--w-block` | `1.1` | Box / node edges |
 | `--w-hair` | `0.7` | Annotation hairlines |
+
+### Texture (Set 3 · the silk-on-washi register)
+
+The paper reads as *made*, not printed. A whiter washi ground carries three
+named paper variants keyed to the reader's walk through the garden. The
+**trellis-canopy** is the shared overhead register — same arch shape in all
+three papers, palette shifts per tier — a single thread of continuity that
+the reader glimpses in every room of the garden. All hand-drawn in Enka's
+palette (four canonical pastels + `--canopy-soft`), at whisper opacity;
+contrast for body text verified safe on all three tiers.
+
+| Token | Value | Role |
+|---|---|---|
+| `--paper-washi` | `#fbf7ea` | The washi ground — whiter than `--paper`, still warm. Base for the silk-on-washi register. |
+
+Three body classes, applied per-route from `src/layouts/Base.astro`:
+
+| Class | Applied to | Motif |
+|---|---|---|
+| `.grain-arrival` | home · volume-i · section hubs (field-notes, workbench, body-spine) | **The ginkgo-scattered paper** — scattered ginkgo leaves (`--gold` + `--canopy-soft`) + trellis in `--canopy` with hanging `--gold` and `--canopy-soft` blooms overhead. The register of arrival. |
+| `.grain-dwell` | individual essays · colophon · versions | **The veranda-vine paper** — three vertical vines hanging FROM a trellis crossbar (structural), small `--canopy` leaves along the vines. The register of deep dwell. |
+| `.grain-reference` | nursery · studio · lexicon | **The meadow-line paper** — fine-line open blossoms (`--slate` + `--lavender`) + trellis in `--canopy` with hanging `--slate` and `--lavender` line-blooms overhead. The register of reference / catalog. |
 
 ### Type
 

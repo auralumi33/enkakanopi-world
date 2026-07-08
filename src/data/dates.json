@@ -1,27 +1,19 @@
 {
-  "field-notes/a-fiction-we-grew-up-inside": {
-    "published": "2026-07-07",
-    "modified": "2026-07-08"
-  },
-  "field-notes/the-silent-workspace": {
-    "published": "2026-07-07",
-    "modified": "2026-07-08"
-  },
-  "field-notes/the-white-bear": {
-    "published": "2026-07-07",
-    "modified": "2026-07-08"
-  },
   "body-spine/articulation": {
     "published": "2026-07-04",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   },
   "body-spine/relearning-to-fall": {
     "published": "2026-07-04",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   },
   "body-spine/the-tide-knows-when": {
     "published": "2026-07-05",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
+  },
+  "field-notes/a-fiction-we-grew-up-inside": {
+    "published": "2026-07-07",
+    "modified": "2026-07-08"
   },
   "field-notes/a-home-you-keep-rebuilding": {
     "published": "2026-07-05",
@@ -33,7 +25,7 @@
   },
   "field-notes/hallucinations-of-the-past": {
     "published": "2026-07-04",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   },
   "field-notes/in-formation": {
     "published": "2026-07-04",
@@ -45,7 +37,7 @@
   },
   "field-notes/the-company-of-machines": {
     "published": "2026-07-05",
-    "modified": "2026-07-05"
+    "modified": "2026-07-07"
   },
   "field-notes/the-detours-were-the-voyage": {
     "published": "2026-07-05",
@@ -63,9 +55,17 @@
     "published": "2026-07-04",
     "modified": "2026-07-05"
   },
+  "field-notes/the-silent-workspace": {
+    "published": "2026-07-07",
+    "modified": "2026-07-08"
+  },
   "field-notes/the-weather-and-the-sky": {
     "published": "2026-07-05",
     "modified": "2026-07-05"
+  },
+  "field-notes/the-white-bear": {
+    "published": "2026-07-07",
+    "modified": "2026-07-08"
   },
   "field-notes/what-the-machine-remembers-of-me": {
     "published": "2026-07-05",
@@ -97,14 +97,14 @@
   },
   "workbench/the-shape-of-things": {
     "published": "2026-07-05",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   },
   "workbench/trust-the-little-kit": {
     "published": "2026-07-05",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   },
   "workbench/why-start-with-the-hands": {
     "published": "2026-07-04",
-    "modified": "2026-07-05"
+    "modified": "2026-07-08"
   }
 }

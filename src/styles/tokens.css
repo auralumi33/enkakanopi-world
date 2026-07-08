@@ -34,6 +34,15 @@
   --w-block:      1.1;       /* box / node edges */
   --w-hair:       0.7;       /* annotation hairlines */
 
+  /* — the silk-on-washi register (Set 3 · Rika Fang, 2026-07-09) —
+     a whiter paper ground for grain-carrying surfaces, toward a Japanese
+     washi aesthetic. The three grain classes in global.css (.grain-arrival,
+     .grain-dwell, .grain-reference) apply on top of this via per-route
+     body class from Base.astro. Reader walks arrival → dwell → reference
+     through the garden; the paper's grain and overhead trellis shift with
+     them. Doctrine: DESIGN-SYSTEM.md · the silk-on-washi register. */
+  --paper-washi:   #fbf7ea;   /* the washi ground — whiter than --paper, still warm */
+
   /* — type — */
   --display: "Fraunces", "Newsreader", Georgia, serif;                /* the wonky-soft display voice */
   --serif:  "Newsreader", Iowan Old Style, "Palatino Linotype", Palatino, Georgia, serif;

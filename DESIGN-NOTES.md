@@ -224,6 +224,45 @@ readers).
   the scene appears before the sentence names the concept, the reader has
   nothing to attach it to and the visual reads as unmoored decoration.
 
+### Set 3 · the garden-canopy moodboard (§33 · naming + first fold, 2026-07-09)
+
+- **What Set 3 is.** A moodboard-named umbrella for four registers that
+  deepen the *garden / canopy / 円花* keystone: the soft/hard note (the
+  couture translation of Law 3), the dappled hour (canopy + light, still
+  restraint), the person holding the camera (the container thesis said by
+  a photographer's hand), and the migration and the fragile canopy (the
+  utopia/dystopia soul held as elegy). The four are gestures the house
+  makes, not fixed components — softly-titled per the Björk
+  worldbuilder-not-title note carried from Set 1.
+- **What shipped this session.** Only the soft/hard note lands as code
+  now: the woven grain tokens (`--grain-warp` · `--grain-weft` ·
+  `--grain-opacity` — aliased to `--paper-edge`, no new colour, Law 8
+  preserved) and one new memoria mark (`WeaveSeam` — hairline 0.70
+  over-under thread in `--canopy` meeting one ruled spine in `--ink-soft`
+  at 0.85, single `--poppy-soft` press at the meeting). Grain tokens are
+  values only; application to `--paper-deep` surfaces is deferred to a
+  component slice so the first paper to carry the grain is a deliberate
+  Rika call, not a blanket sweep.
+- **The through-line to obey.** Every future Set 3 addition must answer
+  *"does this deepen the canopy's holding, or is it decoration beside it?"*
+  If decoration, cut it (Law 8). The 円花 keystone is the north star; the
+  woven surface is the paper the garden is printed on; the sun-through-
+  leaves is the light that makes it a place; the hand is whose garden it
+  is; the migration is what the canopy shelters as it passes through.
+- **What's deferred.** The dappled light-wash + endrow glyph, the
+  `MigrationDrift` / `WingMark` motif family, `SceneFragileCanopy`, the
+  spoke essay *"The Cameras Are All the Same"* (Rika-authored — the HUB
+  ships first, then a raw note in `notes/inbox/`), and the three-plane
+  hero + winding-path grids (IA — its own proposal round). Nothing IA
+  moved this slice.
+- **Firewall notes carried through.** The distilled tender register that
+  crossed from the private authorial source (§1a of the kickoff) is
+  already Enka canon at the essence level — film-grain-into-digital ·
+  resonance-not-novelty · the openly-unfinished · the 円花 holds it — and
+  no proper nouns, dates, or private coordinates crossed. LESSON 3
+  discipline held: flagged the two nodes that couldn't safely ship in
+  this slice (spoke essay + IA) before touching any file.
+
 ### The "unmoored squiggle" antipattern (§31 · retired)
 
 - Small standalone memoria breather divs (`MoonCrescent`, `ScriptHeart`,
@@ -253,6 +292,23 @@ readers).
 - **§31** — Small standalone MoonCrescent / ScriptHeart breathers retired
   from the three trilogy essays; SceneShapeAndCrack moved to sit with the
   kintsugi paragraph.
+- **§33** — Set 3 · the garden-canopy moodboard named across doctrine.
+  Soft/hard note code deferred to §34 (superseded by the elevation pass).
+- **§34** — Set 3 slice-2 (2026-07-09) — the silk-on-washi register lands
+  in full. New `--paper-washi` token · three named papers (arrival ·
+  dwell · reference) applied per-route via `<body>` class in Base.astro
+  · shared **trellis-canopy** motif carried across all three tiers for
+  theme continuation (same arch, palette shifts per tier — principal-
+  designer restraint) · WeaveSeam rewritten to v3 (carries the 円花
+  keystone lineage) · MoonCrescent reworked to a proper waxing crescent
+  · new SceneWeaveSeam scene-hybrid (scene count 15 → 16) with the
+  garden growing on the cloth, embroidery needles stitching from either
+  side, trellis-canopy overhead. Hand-labels all from Rika's own voice.
+  Slice-1's abstract grain tokens (`--grain-warp` / `--grain-weft` /
+  `--grain-opacity`) retired — superseded by the three-tier grain
+  classes on `<body>`. Registered as one journey: reader walks arrival
+  → dwell → reference through the garden; the paper's grain and overhead
+  trellis shift with them.
 
 ### Updated vocabulary
 
@@ -264,6 +320,25 @@ readers).
 - **Text-visual de-duplication** — pulls and marginalia add angle, don't echo.
 - **The unmoored squiggle** — antipattern name for standalone breathers with
   no narrative anchor.
+- **Set 3 · the garden-canopy moodboard** (§33) — the umbrella name for the
+  four gestures added on 2026-07-09: the soft/hard note · the dappled hour
+  · the person holding the camera · the migration and the fragile canopy.
+- **The soft/hard note** (§33) — the couture translation of Law 3: warm
+  surface, rigorous spine made tactile. Carried by `WeaveSeam` + the woven
+  grain tokens.
+- **The silk-on-washi register** (§34) — the whole paper doctrine for Set 3.
+  A `--paper-washi` ground carrying three named papers (arrival · dwell ·
+  reference), each with the trellis-canopy overhead as the shared thread.
+- **The trellis-canopy** (§34) — same arch shape in all three papers, palette
+  shifts per tier; the shared overhead register the reader sees in every
+  room. Principal-designer restraint: one arch per tile.
+- **The ginkgo-scattered paper** (§34) — arrival tier's paper. Scattered ginkgo
+  leaves in `--gold` + `--canopy-soft`. Trellis with `--gold` + `--canopy-soft`
+  hanging blooms.
+- **The veranda-vine paper** (§34) — dwell tier's paper. Three vertical vines
+  hanging FROM a trellis crossbar; `--canopy` leaves along `--canopy-soft` vines.
+- **The meadow-line paper** (§34) — reference tier's paper. Fine-line open blossoms
+  in `--slate` + `--lavender`. Trellis with matching line-blooms overhead.
 
 ### Notes-vs-System boundary
 

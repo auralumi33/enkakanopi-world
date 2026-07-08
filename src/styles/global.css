@@ -122,6 +122,58 @@ hr, .rule {
 .hand-label { font-family: var(--hand); fill: var(--ink-soft); }
 .hand-label--accent { fill: var(--poppy); }
 
+/* ── the silk-on-washi register (Set 3 · 2026-07-09) ─────────
+   Three named papers, keyed to the reader's walk through the garden:
+     · .grain-arrival   → home · volume-i · section overviews
+     · .grain-dwell     → essays · colophon · versions
+     · .grain-reference → nursery · studio · lexicon
+   Applied to <body> via Base.astro per-route logic. All layers are
+   background-image only (no DOM, no motion, aria-safe). Ground shifts
+   from --paper to --paper-washi (a whiter cream, closer to washi).
+   Each tier carries a shared TRELLIS-CANOPY motif at whisper opacity
+   (theme continuation) + a tier-specific botanical (ginkgo / vines /
+   meadow-line blossoms). Every mark is Enka's hand, in the four
+   canonical pastels + --canopy-soft. Contrast for body text verified
+   safe on all three tiers. */
+
+body.grain-arrival,
+body.grain-dwell,
+body.grain-reference {
+  background-color: var(--paper-washi);
+}
+
+/* Tier 1 · the ginkgo-scattered paper — arrival tier
+   trellis in --canopy · hanging --gold + --canopy-soft blooms · scattered ginkgo leaves in --gold + --canopy-soft */
+body.grain-arrival {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 280' width='280' height='280'><g stroke-linecap='round'><g transform='translate(115 44)' opacity='0.5'><path d='M 0 0 C 12 -7, 38 -7, 50 0' stroke='%236f7d5a' stroke-width='0.7' fill='none'/><path d='M 15 -2 L 15 5' stroke='%23aeb896' stroke-width='0.35'/><g transform='translate(15 8)'><g fill='%23e8c15a' opacity='0.85' stroke='%23575049' stroke-width='0.22' stroke-linejoin='round'><path d='M0 -2.5 C 1.3 -2.2, 1.7 -0.7, 0 -0.2 C -1.7 -0.7, -1.3 -2.2, 0 -2.5 Z'/><path d='M2 -0.5 C 2.5 0.8, 1.3 1.8, 0.3 1 C 0 -0.2, 1.2 -1.3, 2 -0.5 Z'/><path d='M1.3 1.8 C 0 2.2, -1.7 1, -0.5 0 C 1 -0.7, 2 0.5, 1.3 1.8 Z'/><path d='M-2 0.8 C -2.5 -0.7, -1.7 -1.5, -0.5 -0.8 C 0 0, -1 1.8, -2 0.8 Z'/></g><circle cx='0' cy='0' r='0.4' fill='%23575049' opacity='0.6'/></g><path d='M 35 -2 L 35 4' stroke='%23aeb896' stroke-width='0.35'/><g transform='translate(35 6)'><g fill='%23aeb896' opacity='0.85' stroke='%23575049' stroke-width='0.22' stroke-linejoin='round'><path d='M0 -2.2 C 1.2 -1.9, 1.5 -0.6, 0 -0.2 C -1.5 -0.6, -1.2 -1.9, 0 -2.2 Z'/><path d='M1.8 -0.4 C 2.2 0.7, 1.2 1.6, 0.3 0.9 C 0 -0.2, 1 -1.2, 1.8 -0.4 Z'/><path d='M1.2 1.6 C 0 2, -1.5 0.9, -0.4 0 C 0.9 -0.6, 1.8 0.4, 1.2 1.6 Z'/><path d='M-1.8 0.7 C -2.2 -0.6, -1.5 -1.4, -0.4 -0.7 C 0 0, -0.9 1.6, -1.8 0.7 Z'/></g></g></g><g transform='translate(42 158) rotate(-18)' opacity='0.26'><path d='M 0 0 C -10 -2, -14 -12, -10 -20 C -6 -22, -3 -22, -1 -19 L 0 -17 L 1 -19 C 3 -22, 6 -22, 10 -20 C 14 -12, 10 -2, 0 0 Z' fill='%23e8c15a'/><g stroke='%23e8c15a' stroke-width='0.35' opacity='0.55' fill='none'><line x1='0' y1='0' x2='-6' y2='-16'/><line x1='0' y1='0' x2='6' y2='-16'/></g><line x1='0' y1='0' x2='0' y2='7' stroke='%23e8c15a' stroke-width='0.5' opacity='0.55'/></g><g transform='translate(220 210) rotate(12)' opacity='0.24'><path d='M 0 0 C -10 -2, -14 -12, -10 -20 C -6 -22, -3 -22, -1 -19 L 0 -17 L 1 -19 C 3 -22, 6 -22, 10 -20 C 14 -12, 10 -2, 0 0 Z' fill='%23aeb896'/><line x1='0' y1='0' x2='0' y2='7' stroke='%23aeb896' stroke-width='0.5' opacity='0.55'/></g><g transform='translate(148 244) rotate(-8)' opacity='0.22'><path d='M 0 0 C -10 -2, -14 -12, -10 -20 C -6 -22, -3 -22, -1 -19 L 0 -17 L 1 -19 C 3 -22, 6 -22, 10 -20 C 14 -12, 10 -2, 0 0 Z' fill='%23e8c15a'/></g><g transform='translate(30 240) rotate(55)' opacity='0.22'><path d='M 0 0 C -10 -2, -14 -12, -10 -20 C -6 -22, -3 -22, -1 -19 L 0 -17 L 1 -19 C 3 -22, 6 -22, 10 -20 C 14 -12, 10 -2, 0 0 Z' fill='%23aeb896'/></g></g></svg>"),
+    repeating-linear-gradient(0deg, transparent 0, transparent 5px, rgba(178,158,120,0.06) 5px, rgba(178,158,120,0.07) 5.5px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 5px, rgba(178,158,120,0.06) 5px, rgba(178,158,120,0.07) 5.5px);
+  background-size: 280px 280px, auto, auto;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+/* Tier 2 · the veranda-vine paper — deep dwell tier
+   trellis crossbar spans the three vine tops · vines hang FROM it · leaves in --canopy-soft on --canopy */
+body.grain-dwell {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' width='300' height='400'><g stroke-linecap='round'><path d='M 20 16 C 100 8, 200 8, 280 16' stroke='%23aeb896' stroke-width='0.75' fill='none' opacity='0.5'/><g fill='%23aeb896' opacity='0.55' stroke='%23575049' stroke-width='0.2'><path d='M 80 12 C 78 14, 76 17, 80 17 C 82 15, 82 12, 80 12 Z'/><path d='M 150 8 C 148 10, 146 13, 150 13 C 152 11, 152 8, 150 8 Z'/><path d='M 220 12 C 218 14, 216 17, 220 17 C 222 15, 222 12, 220 12 Z'/></g><path d='M 50 20 C 54 40, 46 70, 52 100 C 58 130, 50 160, 54 190 C 58 220, 50 250, 52 280 C 54 310, 48 340, 52 370 C 54 385, 52 395, 50 400' stroke='%23aeb896' stroke-width='0.8' fill='none' opacity='0.32'/><path d='M 150 18 C 146 40, 154 70, 148 100 C 142 130, 150 160, 146 190 C 142 220, 150 250, 148 280 C 146 310, 152 340, 148 370 C 146 385, 150 395, 148 400' stroke='%23aeb896' stroke-width='0.8' fill='none' opacity='0.30'/><path d='M 250 20 C 254 40, 246 70, 252 100 C 258 130, 250 160, 254 190 C 258 220, 250 250, 252 280 C 254 310, 248 340, 252 370 C 254 385, 250 395, 252 400' stroke='%23aeb896' stroke-width='0.8' fill='none' opacity='0.32'/><g fill='%236f7d5a' opacity='0.32'><path d='M 50 55 C 42 53, 38 58, 40 62 C 44 61, 48 59, 50 55 Z'/><path d='M 52 100 C 60 98, 64 103, 62 107 C 58 106, 54 104, 52 100 Z'/><path d='M 46 155 C 38 153, 34 158, 36 162 C 40 161, 44 159, 46 155 Z'/><path d='M 54 220 C 62 218, 66 223, 64 227 C 60 226, 56 224, 54 220 Z'/><path d='M 48 285 C 40 283, 36 288, 38 292 C 42 291, 46 289, 48 285 Z'/><path d='M 52 350 C 60 348, 64 353, 62 357 C 58 356, 54 354, 52 350 Z'/><path d='M 150 70 C 142 68, 138 73, 140 77 C 144 76, 148 74, 150 70 Z'/><path d='M 150 140 C 158 138, 162 143, 160 147 C 156 146, 152 144, 150 140 Z'/><path d='M 148 205 C 140 203, 136 208, 138 212 C 142 211, 146 209, 148 205 Z'/><path d='M 148 270 C 156 268, 160 273, 158 277 C 154 276, 150 274, 148 270 Z'/><path d='M 148 335 C 140 333, 136 338, 138 342 C 142 341, 146 339, 148 335 Z'/><path d='M 250 50 C 258 48, 262 53, 260 57 C 256 56, 252 54, 250 50 Z'/><path d='M 252 115 C 244 113, 240 118, 242 122 C 246 121, 250 119, 252 115 Z'/><path d='M 250 180 C 258 178, 262 183, 260 187 C 256 186, 252 184, 250 180 Z'/><path d='M 252 245 C 244 243, 240 248, 242 252 C 246 251, 250 249, 252 245 Z'/><path d='M 250 310 C 258 308, 262 313, 260 317 C 256 316, 252 314, 250 310 Z'/><path d='M 252 375 C 244 373, 240 378, 242 382 C 246 381, 250 379, 252 375 Z'/></g></g></svg>"),
+    repeating-linear-gradient(0deg, transparent 0, transparent 22px, rgba(178,158,120,0.12) 22px, rgba(178,158,120,0.13) 22.5px);
+  background-size: 300px 400px, auto;
+  background-position: 0 0, 0 0;
+}
+
+/* Tier 3 · the meadow-line paper — reference tier
+   trellis in --canopy · hanging --slate + --lavender line-blossoms · meadow-line open blooms below */
+body.grain-reference {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' width='300' height='300'><g stroke-linecap='round' fill='none'><g transform='translate(125 42)' opacity='0.48'><path d='M 0 0 C 12 -7, 38 -7, 50 0' stroke='%236f7d5a' stroke-width='0.7'/><path d='M 15 -2 L 15 5' stroke='%23aeb896' stroke-width='0.35'/><g transform='translate(15 8)' stroke='%23a4b8c8' stroke-width='0.4' opacity='0.85'><circle cx='0' cy='0' r='1' fill='%23a4b8c8' opacity='0.55'/><path d='M 0 -1.4 C -2.5 -3.5, -3.5 -7, 0 -8.5 C 3.5 -7, 2.5 -3.5, 0 -1.4'/><path d='M 1.4 0 C 3.5 -1.2, 7 -2.5, 8.5 0 C 7 2.5, 3.5 1.2, 1.4 0'/><path d='M 0 1.4 C 2.5 3.5, 3.5 7, 0 8.5 C -3.5 7, -2.5 3.5, 0 1.4'/><path d='M -1.4 0 C -3.5 -1.2, -7 -2.5, -8.5 0 C -7 2.5, -3.5 1.2, -1.4 0'/></g><path d='M 35 -2 L 35 5' stroke='%23aeb896' stroke-width='0.35'/><g transform='translate(35 8)' stroke='%23b899c9' stroke-width='0.4' opacity='0.85'><circle cx='0' cy='0' r='1' fill='%23b899c9' opacity='0.55'/><path d='M 0 -1.4 C -2.5 -3.5, -3.5 -7, 0 -8.5 C 3.5 -7, 2.5 -3.5, 0 -1.4'/><path d='M 1.4 0 C 3.5 -1.2, 7 -2.5, 8.5 0 C 7 2.5, 3.5 1.2, 1.4 0'/><path d='M 0 1.4 C 2.5 3.5, 3.5 7, 0 8.5 C -3.5 7, -2.5 3.5, 0 1.4'/><path d='M -1.4 0 C -3.5 -1.2, -7 -2.5, -8.5 0 C -7 2.5, -3.5 1.2, -1.4 0'/></g></g><g transform='translate(60 150) rotate(-10)' stroke='%23a4b8c8' stroke-width='0.5' opacity='0.34'><circle cx='0' cy='0' r='1.5' fill='%23a4b8c8' opacity='0.45'/><path d='M 0 -2 C -4 -6, -6 -12, 0 -14 C 6 -12, 4 -6, 0 -2'/><path d='M 2 0 C 6 -2, 12 -4, 14 0 C 12 4, 6 2, 2 0'/><path d='M 0 2 C 4 6, 6 12, 0 14 C -6 12, -4 6, 0 2'/><path d='M -2 0 C -6 -2, -12 -4, -14 0 C -12 4, -6 2, -2 0'/></g><g transform='translate(215 170) rotate(20)' stroke='%23b899c9' stroke-width='0.5' opacity='0.32'><circle cx='0' cy='0' r='1.5' fill='%23b899c9' opacity='0.4'/><path d='M 0 -2 C -4 -6, -6 -12, 0 -14 C 6 -12, 4 -6, 0 -2'/><path d='M 2 0 C 6 -2, 12 -4, 14 0 C 12 4, 6 2, 2 0'/><path d='M 0 2 C 4 6, 6 12, 0 14 C -6 12, -4 6, 0 2'/><path d='M -2 0 C -6 -2, -12 -4, -14 0 C -12 4, -6 2, -2 0'/></g><g transform='translate(120 250) rotate(35)' stroke='%23a4b8c8' stroke-width='0.5' opacity='0.30'><circle cx='0' cy='0' r='1.5' fill='%23a4b8c8' opacity='0.4'/><path d='M 0 -2 C -4 -6, -6 -12, 0 -14 C 6 -12, 4 -6, 0 -2'/><path d='M 2 0 C 6 -2, 12 -4, 14 0 C 12 4, 6 2, 2 0'/><path d='M 0 2 C 4 6, 6 12, 0 14 C -6 12, -4 6, 0 2'/><path d='M -2 0 C -6 -2, -12 -4, -14 0 C -12 4, -6 2, -2 0'/></g><g stroke='%23aeb896' stroke-width='0.35' opacity='0.4' fill='none'><path d='M 60 164 C 90 200, 130 240, 120 250'/><path d='M 215 184 C 200 210, 180 240, 145 260'/></g></g></svg>"),
+    repeating-linear-gradient(0deg, transparent 0, transparent 4px, rgba(178,158,120,0.09) 4px, rgba(178,158,120,0.10) 4.5px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 4px, rgba(178,158,120,0.09) 4px, rgba(178,158,120,0.10) 4.5px);
+  background-size: 300px 300px, auto, auto;
+  background-position: 0 0, 0 0, 0 0;
+}
+
 /* ── reduced motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

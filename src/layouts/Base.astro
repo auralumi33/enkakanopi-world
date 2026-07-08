@@ -19,6 +19,19 @@ const ogImage = Astro.site ? new URL("/og/og-card.png", Astro.site).href : "/og/
 const ogImageAlt =
   "Enka Kanopi — a hand-drawn canopy over the words 'a quiet garden of writings, craft, and identity in the age of AI'";
 
+// The silk-on-washi register (Set 3 · 2026-07-09) — one of three grain
+// classes applied to <body> per the reader's stage in the garden. Doctrine:
+// DESIGN-SYSTEM.md · the silk-on-washi register.
+const rawPath = Astro.url.pathname;
+const path = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
+const arrivalPaths = ["/", "/volume-i", "/field-notes", "/workbench", "/body-spine"];
+const referencePaths = ["/nursery", "/studio", "/lexicon"];
+const grainTier = arrivalPaths.includes(path)
+  ? "grain-arrival"          // home + volume-i + section hubs
+  : referencePaths.includes(path)
+    ? "grain-reference"      // nursery + studio + lexicon
+    : "grain-dwell";         // individual essays + colophon + versions
+
 // Site + author structured data — so answer engines can attribute the frameworks
 // to a named source (AEO/GEO). Person kept minimal + non-identifying by design.
 // (sameAs omitted deliberately — external profiles to be confirmed by Rika.)
@@ -91,7 +104,7 @@ const ldSite = {
     />
     <script type="application/ld+json" set:html={JSON.stringify(ldSite)} />
   </head>
-  <body>
+  <body class={grainTier}>
     <a class="skip" href="#main">Skip to content</a>
     <Nav />
     <main id="main">

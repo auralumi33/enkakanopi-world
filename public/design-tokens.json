@@ -74,6 +74,32 @@
     "block": { "$value": 1.1, "$type": "number", "$description": "Box / node edges" },
     "hair":  { "$value": 0.7, "$type": "number", "$description": "Annotation hairlines" }
   },
+  "texture": {
+    "register": {
+      "name":        { "$value": "the silk-on-washi register", "$type": "string", "$description": "Set 3 · the paper doctrine · Rika Fang · 2026-07-09. A whiter washi ground for the whole site, carrying three named paper variants keyed to the reader's walk through the garden. Trellis-canopy is the shared overhead register — same arch, palette shifts per tier." },
+      "shipped":     { "$value": "2026-07-09",                 "$type": "string" }
+    },
+    "paper": {
+      "washi": { "$value": "#fbf7ea", "$type": "color", "$description": "Set 3 · the washi ground — whiter than --paper, still warm. The base for the silk-on-washi register. Applied to <body> via Base.astro per-route." }
+    },
+    "grain": {
+      "arrival": {
+        "$type":       "string",
+        "$value":      ".grain-arrival",
+        "$description": "Tier 1 · the ginkgo-scattered paper (arrival) — trellis in --canopy with hanging --gold + --canopy-soft blooms · scattered ginkgo leaves in --gold + --canopy-soft · subtle cross-hatch base. Applied to <body> on home, volume-i, section overviews."
+      },
+      "dwell": {
+        "$type":       "string",
+        "$value":      ".grain-dwell",
+        "$description": "Tier 2 · the veranda-vine paper (deep dwell) — trellis crossbar spans three vine tops (vines hang FROM the trellis) · leaves in --canopy on --canopy-soft vines · washi chain-line base. Applied to <body> on essays, colophon, versions."
+      },
+      "reference": {
+        "$type":       "string",
+        "$value":      ".grain-reference",
+        "$description": "Tier 3 · the meadow-line paper (reference) — trellis in --canopy with hanging --slate + --lavender line-blossoms · fine-line open blooms in --slate + --lavender · tight linen cross-hatch base. Applied to <body> on nursery, studio, lexicon."
+      }
+    }
+  },
   "rhythm": {
     "measure": { "$value": "65ch",                             "$type": "dimension", "$description": "Reading measure — the width the eye can carry" },
     "lh":      { "$value": 1.72,                               "$type": "number",    "$description": "Body line-height" },
