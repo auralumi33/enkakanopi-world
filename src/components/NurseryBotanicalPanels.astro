@@ -1,17 +1,22 @@
 ---
 /**
- * NurseryBotanicalPanels — Set 3 slice-2.4 · 2026-07-09
- * Eight panels for the Nursery seed-bed page, arranged as two rows of four. Each panel is
- * anchored to the seed-bed's intent: fragments caught before they are essays, kept small on
- * purpose. Row 1: the scrap · the germination · the wobble · the cracked seed. Row 2: the
- * closed bud · the pressed leaf · the tangent · the small vessel. Each with a hidden closed-eye
- * smile (Murakami paradox joy). All in Enka's canonical pastels. Rendered on --paper-seedbed.
- * Caption whisper (Rika's shipped voice): "we arrive at legibility not by becoming linear,
- * but by loving the curve enough to know where the tangent leaves it."
+ * NurseryBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (rebalance 2026-07-09 · slice-2.5)
+ * Eight panels for the Nursery seed-bed page. Row 1: the scrap · the germination · the wobble
+ * · the cracked seed. Row 2: the closed bud · the pressed leaf · the tangent · the small vessel.
+ * Slice-2.5: rows are now distributable via the `row` prop (1 | 2 | "all"), so the two rows can
+ * live at different points on the page instead of clustered at the bottom. Each panel keeps its
+ * hidden Murakami closed-eye smile.
  */
+export interface Props {
+  row?: 1 | 2 | "all";
+}
+const { row = "all" } = Astro.props as Props;
+const showRow1 = row === "all" || row === 1;
+const showRow2 = row === "all" || row === 2;
 ---
-<figure class="botanical-panels botanical-panels--seedbed" aria-label="Eight seed-bed panels — fragments before they are essays">
-  <div class="panels-grid">
+<figure class={`botanical-panels botanical-panels--seedbed botanical-panels--row-${row}`} aria-label="Nursery seed-bed panels — fragments before they are essays">
+  {showRow1 && (
+  <div class="panels-grid panels-grid--row1">
     <!-- Row 1 -->
     <div class="panel">
       <p class="panel-label">紫 · lavender</p>
@@ -101,7 +106,11 @@
       </svg>
       <p class="panel-cap">the cracked seed · root emerging · smile inside the crack</p>
     </div>
+  </div>
+  )}
 
+  {showRow2 && (
+  <div class="panels-grid panels-grid--row2">
     <!-- Row 2 -->
     <div class="panel">
       <p class="panel-label">紫 · lavender</p>
@@ -184,10 +193,18 @@
       <p class="panel-cap">a tiny pot · tender growth · smile in the bell</p>
     </div>
   </div>
+  )}
+
+  {(row === "all" || row === 2) && (
   <figcaption>we arrive at legibility not by becoming linear, but by loving the curve enough to know where the tangent leaves it</figcaption>
+  )}
 </figure>
 <style>
-  .botanical-panels--seedbed { margin: 3rem auto 2rem; max-width: 62rem; padding: 0 var(--gutter); }
+  .botanical-panels--seedbed { margin: 2rem auto 1.6rem; max-width: 62rem; padding: 0 var(--gutter); }
+  /* Slice-2.5: rows now distributed across the seed-bed page. */
+  .botanical-panels--seedbed.botanical-panels--row-1,
+  .botanical-panels--seedbed.botanical-panels--row-2 { margin: 1.5rem auto 1.5rem; }
+  .botanical-panels--seedbed .panels-grid + .panels-grid { margin-top: 0.75rem; }
   .botanical-panels--seedbed .panels-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

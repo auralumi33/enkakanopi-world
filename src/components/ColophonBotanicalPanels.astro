@@ -1,22 +1,25 @@
 ---
 /**
- * ColophonBotanicalPanels — Set 3 slice-2.4 · 2026-07-09
+ * ColophonBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (rebalance 2026-07-09 · slice-2.5)
  * Twelve panels for the Colophon, arranged as three rows of four telling the full brand-story
  * triptych: (Row 1) What holds the garden — the plot · the canopy · the 円花 ensō · the
- * provenance target — adapted from the shipped inline visuals so all panels share one visual
- * language. (Row 2) How it's made — the hand (v3 · full 5-finger sumi-e grip) · the seal
- * (maker's-mark) · the covenant (v4 · hand-over-hand teacher-student transmission) · the mirror
- * (reviewer's veto register). (Row 3) The retraining — the small hand (picking up brush again)
- * · the first mark (joyful mess) · the wobbly ensō (tremors + ghost strokes + tiny hopeful mark)
- * · the trust (prominent multi-pastel bloom + red 王 seal). Each panel with a hidden closed-eye
- * smile. Unified grammar: hairline ink-soft strokes 0.55–0.7, minimal border, subject-centred,
- * Japanese kanji + English label + italic caption. Anchored to shipped voice:
- * "assisted, never authored — nothing is published without her yes."
+ * provenance target. (Row 2) How it's made — the hand · the seal · the covenant · the mirror.
+ * (Row 3) The retraining — the small hand · the first mark · the wobbly ensō · the trust.
+ * Slice-2.5: rows are now distributable via the `row` prop (1 | 2 | 3 | "all"), so the
+ * three-act story can be interleaved with existing shipped visuals across the page instead of
+ * clustered at the top. Internal row-title text dropped — surrounding prose does the introducing.
  */
+export interface Props {
+  row?: 1 | 2 | 3 | "all";
+}
+const { row = "all" } = Astro.props as Props;
+const showRow1 = row === "all" || row === 1;
+const showRow2 = row === "all" || row === 2;
+const showRow3 = row === "all" || row === 3;
 ---
-<figure class="botanical-panels botanical-panels--colophon" aria-label="Twelve Colophon panels — the brand story in three acts">
+<figure class={`botanical-panels botanical-panels--colophon botanical-panels--row-${row}`} aria-label="Colophon panels — the brand story">
+  {showRow1 && (<>
   <!-- Row 1 · What holds the garden -->
-  <p class="row-title">Row 1 · What holds the garden</p>
   <div class="panels-grid">
     <div class="panel">
       <p class="panel-label">紫 · lavender</p>
@@ -116,9 +119,10 @@
       <p class="panel-cap">provenance held · four grounds circled</p>
     </div>
   </div>
+  </>)}
 
+  {showRow2 && (<>
   <!-- Row 2 · How it's made -->
-  <p class="row-title">Row 2 · How it's made</p>
   <div class="panels-grid">
     <div class="panel">
       <p class="panel-label">紫 · lavender</p>
@@ -235,9 +239,10 @@
       <p class="panel-cap">the mirror agent · smile in what it reflects</p>
     </div>
   </div>
+  </>)}
 
+  {showRow3 && (<>
   <!-- Row 3 · The retraining -->
-  <p class="row-title">Row 3 · The retraining</p>
   <div class="panels-grid">
     <div class="panel">
       <p class="panel-label">紫 · lavender</p>
@@ -347,18 +352,16 @@
     </div>
   </div>
   <figcaption>assisted, never authored · nothing is published without her yes</figcaption>
+  </>)}
 </figure>
 <style>
-  .botanical-panels--colophon { margin: 3rem auto 2rem; max-width: 62rem; padding: 0 var(--gutter); }
-  .botanical-panels--colophon .row-title {
-    font-family: var(--hand);
-    font-size: 0.95rem;
-    color: var(--ink-faint);
-    margin: 1.25rem 0 0.5rem;
-    font-style: italic;
-    letter-spacing: 0.02em;
-  }
-  .botanical-panels--colophon .row-title:first-of-type { margin-top: 0; }
+  .botanical-panels--colophon { margin: 2rem auto 1.6rem; max-width: 62rem; padding: 0 var(--gutter); }
+  /* Slice-2.5: rows are now distributed inline between prose blocks, so each
+     single-row variant gets tighter breathing room; the "all"-row variant keeps
+     the fuller triptych rhythm for standalone use. */
+  .botanical-panels--colophon.botanical-panels--row-1,
+  .botanical-panels--colophon.botanical-panels--row-2,
+  .botanical-panels--colophon.botanical-panels--row-3 { margin: 1.5rem auto 1.5rem; }
   .botanical-panels--colophon .panels-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

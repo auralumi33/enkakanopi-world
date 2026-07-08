@@ -202,8 +202,22 @@ const whatThisIs = [
   /* the hero — indexed to the left, blooms sprouting from behind the h1.
      LEFT alignment keeps everything anchored at the page's left gutter;
      the sprout SVG hugs the h1 via width: fit-content, so the five crown
-     blooms fall exactly where the text lands. */
-  .hero { padding-top: 2.65rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+     blooms fall exactly where the text lands.
+
+     Slice-2.5: the hero gets a soft washi wash (::before radial gradient)
+     that quiets body.grain-arrival's accent dots in the immediate zone
+     around the CanopyScene — so the paper reads clean, not "dirty",
+     without hiding the arrival grain elsewhere on the page. */
+  .hero { padding-top: 2.65rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -1rem -2rem -1rem -2rem;
+    background:
+      radial-gradient(ellipse 65% 55% at 50% 50%, var(--paper-washi) 0%, rgba(251, 248, 238, 0.75) 40%, rgba(251, 248, 238, 0) 78%);
+    z-index: -2;
+    pointer-events: none;
+  }
   /* Text elements in the hero are optically nudged right ~1.4 rem so they
      align with the CARD CONTENT edge (card border + padding) in the
      "what this is" and "plan" sections below, and with the CanopyScene's
@@ -228,7 +242,9 @@ const whatThisIs = [
     inset: 0;
     z-index: -1;
     display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
-    opacity: 0.8;
+    /* Slice-2.5: dialled down 0.8 → 0.58 so the crown-blooms behind the h1
+       whisper instead of shout, keeping the paper feeling dainty. */
+    opacity: 0.58;
     pointer-events: none;
   }
   .signature-garden .sprout :global(svg) { width: 100%; height: auto; display: block; }
