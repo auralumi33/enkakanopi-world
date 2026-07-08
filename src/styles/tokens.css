@@ -41,7 +41,7 @@
      body class from Base.astro. Reader walks arrival → dwell → reference
      through the garden; the paper's grain and overhead trellis shift with
      them. Doctrine: DESIGN-SYSTEM.md · the silk-on-washi register. */
-  --paper-washi:   #fbf7ea;   /* the washi ground — whiter than --paper, still warm */
+  --paper-washi:   #fbf8ee;   /* the washi ground — cream-white with a hint less yellow (was #fbf7ea) */
 
   /* — type — */
   --display: "Fraunces", "Newsreader", Georgia, serif;                /* the wonky-soft display voice */

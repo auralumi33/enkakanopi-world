@@ -80,23 +80,28 @@
       "shipped":     { "$value": "2026-07-09",                 "$type": "string" }
     },
     "paper": {
-      "washi": { "$value": "#fbf7ea", "$type": "color", "$description": "Set 3 · the washi ground — whiter than --paper, still warm. The base for the silk-on-washi register. Applied to <body> via Base.astro per-route." }
+      "washi": { "$value": "#fbf8ee", "$type": "color", "$description": "Set 3 · the washi ground — cream-white with a hint less yellow (was #fbf7ea). The base for the silk-on-washi register. Applied to <body> via Base.astro per-route." }
     },
     "grain": {
       "arrival": {
         "$type":       "string",
         "$value":      ".grain-arrival",
-        "$description": "Tier 1 · the ginkgo-scattered paper (arrival) — trellis in --canopy with hanging --gold + --canopy-soft blooms · scattered ginkgo leaves in --gold + --canopy-soft · subtle cross-hatch base. Applied to <body> on home, volume-i, section overviews."
+        "$description": "Tier 1 · the ginkgo-scattered paper (arrival) · v2 daintier — 2 ginkgo (--gold + --canopy-soft) · 1 lavender bud · 3 pastel accent dots (slate + coral + gold) · tile 500×500 · opacities 0.10–0.30 · subtle cross-hatch base. NO tiled trellis (removed 2026-07-09 · read as random arch clutter). Applied to <body> on home, volume-i, section overviews."
       },
       "dwell": {
         "$type":       "string",
         "$value":      ".grain-dwell",
-        "$description": "Tier 2 · the veranda-vine paper (deep dwell) — trellis crossbar spans three vine tops (vines hang FROM the trellis) · leaves in --canopy on --canopy-soft vines · washi chain-line base. Applied to <body> on essays, colophon, versions."
+        "$description": "Tier 2 · the veranda-vine paper (deep dwell) · v2 daintier — 2 vertical vines · 4 canopy leaves · 6 pastel berries in --lavender + --gold + --slate + --coral · tile 500×600 · opacities 0.16–0.35 · horizontal chain-line base. NO tiled trellis crossbar (removed 2026-07-09). Applied to <body> on essays, colophon, versions."
       },
       "reference": {
         "$type":       "string",
         "$value":      ".grain-reference",
-        "$description": "Tier 3 · the meadow-line paper (reference) — trellis in --canopy with hanging --slate + --lavender line-blossoms · fine-line open blooms in --slate + --lavender · tight linen cross-hatch base. Applied to <body> on nursery, studio, lexicon."
+        "$description": "Tier 3 · the meadow-line paper (reference) · v2 daintier — 2 fine-line open blossoms (--slate + --lavender) · 3 gold + coral accent dots · tile 500×500 · opacities 0.14–0.25 · subtle linen cross-hatch base. NO tiled trellis (removed 2026-07-09). Applied to <body> on studio, lexicon."
+      },
+      "seedbed": {
+        "$type":       "string",
+        "$value":      ".grain-seedbed",
+        "$description": "Tier 4 · the seed-bed paper (NURSERY ONLY · NEW 2026-07-09) · Japanese refinement — 1 sumi-e tree-friend silhouette · 6 sakura petal marks in all four canonical pastels · 2 clusters of sumi-e ink seed dashes · tile 600×600 (biggest) · opacities 0.13–0.28 · horizontal-only chain-line base (no cross-hatch). The most delicate paper in the system. Applied to <body> on /nursery only."
       }
     }
   },

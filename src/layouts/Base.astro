@@ -25,12 +25,14 @@ const ogImageAlt =
 const rawPath = Astro.url.pathname;
 const path = rawPath === "/" ? "/" : rawPath.replace(/\/$/, "");
 const arrivalPaths = ["/", "/volume-i", "/field-notes", "/workbench", "/body-spine"];
-const referencePaths = ["/nursery", "/studio", "/lexicon"];
+const referencePaths = ["/studio", "/lexicon"];
 const grainTier = arrivalPaths.includes(path)
   ? "grain-arrival"          // home + volume-i + section hubs
-  : referencePaths.includes(path)
-    ? "grain-reference"      // nursery + studio + lexicon
-    : "grain-dwell";         // individual essays + colophon + versions
+  : path === "/nursery"
+    ? "grain-seedbed"        // NEW · Nursery only · Japanese refinement
+    : referencePaths.includes(path)
+      ? "grain-reference"    // studio + lexicon
+      : "grain-dwell";       // individual essays + colophon + versions
 
 // Site + author structured data — so answer engines can attribute the frameworks
 // to a named source (AEO/GEO). Person kept minimal + non-identifying by design.
