@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import ChapterOrnament from "../components/ChapterOrnament.astro";
 import Analytics from "@vercel/analytics/astro";
 
 interface Props {
@@ -33,6 +34,14 @@ const grainTier = arrivalPaths.includes(path)
     : referencePaths.includes(path)
       ? "grain-reference"    // studio + lexicon
       : "grain-dwell";       // individual essays + colophon + versions
+
+// ChapterOrnament (slice-2.4) — rendered only on the 7 core section openers where a reader
+// crosses a threshold into a new chapter. NOT on individual essays (already inside a room),
+// NOT on nursery/studio/lexicon (catalog surfaces with their own visual identity).
+const ornamentPaths = [
+  "/", "/volume-i", "/field-notes", "/workbench", "/body-spine", "/versions", "/colophon",
+];
+const showOrnament = ornamentPaths.includes(path);
 
 // Site + author structured data — so answer engines can attribute the frameworks
 // to a named source (AEO/GEO). Person kept minimal + non-identifying by design.
@@ -109,6 +118,7 @@ const ldSite = {
   <body class={grainTier}>
     <a class="skip" href="#main">Skip to content</a>
     <Nav />
+    {showOrnament && <ChapterOrnament />}
     <main id="main">
       <slot />
     </main>

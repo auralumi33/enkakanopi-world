@@ -42,6 +42,10 @@
      through the garden; the paper's grain and overhead trellis shift with
      them. Doctrine: DESIGN-SYSTEM.md · the silk-on-washi register. */
   --paper-washi:   #fbf8ee;   /* the washi ground — cream-white with a hint less yellow (was #fbf7ea) */
+  --paper-seedbed: #f8f3e6;   /* Set 3 slice-2.4 · aged washi middle — nourishing warm cream between --paper-washi and #f4ecda · Nursery only */
+  --skin:          #f2e0d0;   /* Set 3 · warm skin ink-wash (from shipped scene-hybrid grammar) — hands + covenant panels */
+  --skin-deep:     #e5c9a8;   /* Set 3 slice-2.4 · deeper skin for the covenant's guiding hand (v4 hand-over-hand) */
+  --bamboo:        #c9b088;   /* Set 3 slice-2.4 · warm bamboo for brush handles in Colophon panels */
 
   /* — type — */
   --display: "Fraunces", "Newsreader", Georgia, serif;                /* the wonky-soft display voice */

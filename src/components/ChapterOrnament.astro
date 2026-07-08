@@ -1,0 +1,90 @@
+---
+/**
+ * ChapterOrnament — Set 3 slice-2.4 · 2026-07-09
+ * The delicate trellis-canopy header, rendered ONCE at the top of each core section opener
+ * (home + volume-i + field-notes hub + workbench hub + body-spine hub + versions + colophon).
+ * NOT rendered on individual essays, nursery, studio, or lexicon. Marks entering a chapter,
+ * not repeated as tiled clutter.
+ *
+ * Composition: one faded hand-brushed arch in --canopy · four hanging blooms (one per canonical
+ * pastel: --lavender + --gold + --coral (poppy-soft) + --slate bell) · two whisper vine-curls
+ * and four small canopy-soft leaves woven along. Sumi-e restraint. Under 90px tall so it
+ * doesn't push content down. aria-hidden — decorative overhead register.
+ */
+---
+<div class="chapter-ornament" aria-hidden="true">
+  <svg viewBox="0 0 800 90" preserveAspectRatio="xMidYMid meet">
+    <!-- FADED arch line -->
+    <path d="M 260 68 C 320 30, 480 30, 540 68"
+      stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.40"/>
+
+    <!-- whisper vine-curls along the arch -->
+    <path d="M 328 42 C 332 38, 334 38, 336 42 C 334 46, 330 46, 328 42 Z"
+      stroke="var(--canopy-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.55"/>
+    <path d="M 464 42 C 468 38, 470 38, 472 42 C 470 46, 466 46, 464 42 Z"
+      stroke="var(--canopy-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- 1 · LAVENDER bloom hanging from arch -->
+    <path d="M 338 38 L 338 55" stroke="var(--canopy-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
+    <g transform="translate(338 58)">
+      <g fill="#b899c9" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
+        <path d="M0 -4.6 C 2.4 -4, 3 -1.2, 0 -0.3 C -3 -1.2, -2.4 -4, 0 -4.6 Z"/>
+        <path d="M3.6 -1.5 C 4.5 1.2, 2.4 3, 0.6 1.8 C 0 -0.3, 2.1 -2.4, 3.6 -1.5 Z"/>
+        <path d="M2.4 3 C 0 3.9, -2.4 1.8, -0.9 0 C 1.5 -1.2, 3.6 0.9, 2.4 3 Z"/>
+        <path d="M-3 1.5 C -4.5 -0.9, -3 -2.7, -0.6 -1.5 C 0 0, -1.5 2.7, -3 1.5 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="0.9" fill="#e8c15a" opacity="0.95"/>
+    </g>
+
+    <!-- 2 · GOLD bloom -->
+    <path d="M 388 32 L 388 46" stroke="var(--canopy-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
+    <g transform="translate(388 52)">
+      <g fill="#e8c15a" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
+        <path d="M0 -4.6 C 2.4 -4, 3 -1.2, 0 -0.3 C -3 -1.2, -2.4 -4, 0 -4.6 Z"/>
+        <path d="M3.6 -1.5 C 4.5 1.2, 2.4 3, 0.6 1.8 C 0 -0.3, 2.1 -2.4, 3.6 -1.5 Z"/>
+        <path d="M2.4 3 C 0 3.9, -2.4 1.8, -0.9 0 C 1.5 -1.2, 3.6 0.9, 2.4 3 Z"/>
+        <path d="M-3 1.5 C -4.5 -0.9, -3 -2.7, -0.6 -1.5 C 0 0, -1.5 2.7, -3 1.5 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="0.9" fill="var(--ink-soft)" opacity="0.7"/>
+    </g>
+
+    <!-- 3 · CORAL bloom (poppy-soft — softer feminine pink) -->
+    <path d="M 412 32 L 412 46" stroke="var(--canopy-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
+    <g transform="translate(412 52)">
+      <g fill="#e08d84" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
+        <path d="M0 -4.6 C 2.4 -4, 3 -1.2, 0 -0.3 C -3 -1.2, -2.4 -4, 0 -4.6 Z"/>
+        <path d="M3.6 -1.5 C 4.5 1.2, 2.4 3, 0.6 1.8 C 0 -0.3, 2.1 -2.4, 3.6 -1.5 Z"/>
+        <path d="M2.4 3 C 0 3.9, -2.4 1.8, -0.9 0 C 1.5 -1.2, 3.6 0.9, 2.4 3 Z"/>
+        <path d="M-3 1.5 C -4.5 -0.9, -3 -2.7, -0.6 -1.5 C 0 0, -1.5 2.7, -3 1.5 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="0.9" fill="#e8c15a" opacity="0.95"/>
+    </g>
+
+    <!-- 4 · SLATE bell bloom -->
+    <path d="M 462 36 L 462 50" stroke="var(--canopy-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.65"/>
+    <g transform="translate(462 54)">
+      <path d="M -3.6 -1.5 C -4 4.5, -2.5 5.5, 0 5.5 C 2.5 5.5, 4 4.5, 3.6 -1.5 Z"
+            fill="#a4b8c8" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
+      <circle cx="0" cy="5.5" r="0.9" fill="#e8c15a" opacity="0.9"/>
+    </g>
+
+    <!-- whisper leaves along the arch -->
+    <path d="M 372 38 C 369 39, 366 43, 368 46 C 370 44, 373 41, 372 38 Z"
+          fill="var(--canopy-soft)" opacity="0.55" stroke="var(--ink-soft)" stroke-width="0.22" stroke-linejoin="round"/>
+    <path d="M 428 40 C 425 40, 422 44, 424 47 C 426 45, 429 43, 428 40 Z"
+          fill="var(--canopy-soft)" opacity="0.5" stroke="var(--ink-soft)" stroke-width="0.22" stroke-linejoin="round"/>
+  </svg>
+</div>
+<style>
+  .chapter-ornament {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  .chapter-ornament svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 90px;
+  }
+</style>

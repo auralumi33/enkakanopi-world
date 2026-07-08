@@ -40,7 +40,7 @@ export async function GET(context: APIContext) {
     "",
     "## Design language",
     "",
-    `- [Charts & Crafts design system](https://github.com/auralumi33/enkakanopi-world/blob/main/DESIGN-SYSTEM.md): Named idioms (the bloom family · the signature garden · the paper stays light · one poppy held back · the 円花 keystone mark · the memoria layer · the scene-motif hybrid layer · the silk-on-washi register with three named papers · the ginkgo-scattered paper · the veranda-vine paper · the meadow-line paper · the trellis-canopy · WeaveSeam · SceneWeaveSeam) and the working principles. Code MIT · creative works CC BY-NC-ND 4.0. Cite as: Charts & Crafts — a design language by Fang Rika · enka kanopi.`,
+    `- [Charts & Crafts design system](https://github.com/auralumi33/enkakanopi-world/blob/main/DESIGN-SYSTEM.md): Named idioms (the bloom family · the signature garden · the paper stays light · one poppy held back · the 円花 keystone mark · the memoria layer · the scene-motif hybrid layer · the silk-on-washi register with four named papers · the ginkgo-scattered paper · the veranda-vine paper · the meadow-line paper · the seed-bed paper · the trellis-canopy · the ChapterOrnament · the Isson × Murakami paradox panels · WeaveSeam · SceneWeaveSeam) and the working principles. Code MIT · creative works CC BY-NC-ND 4.0. Cite as: Charts & Crafts — a design language by Fang Rika · enka kanopi.`,
     `- [Design tokens (JSON)](${site}/design-tokens.json): Machine-readable manifest of the palette, type stack, line weights, rhythm, and the silk-on-washi texture register (three named papers keyed to the reader's walk) — with attribution frontmatter.`,
     "",
     "## Colophon",
