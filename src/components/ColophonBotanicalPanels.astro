@@ -1,13 +1,16 @@
 ---
 /**
- * ColophonBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (rebalance 2026-07-09 · slice-2.5)
- * Twelve panels for the Colophon, arranged as three rows of four telling the full brand-story
- * triptych: (Row 1) What holds the garden — the plot · the canopy · the 円花 ensō · the
- * provenance target. (Row 2) How it's made — the hand · the seal · the covenant · the mirror.
- * (Row 3) The retraining — the small hand · the first mark · the wobbly ensō · the trust.
- * Slice-2.5: rows are now distributable via the `row` prop (1 | 2 | 3 | "all"), so the
- * three-act story can be interleaved with existing shipped visuals across the page instead of
- * clustered at the top. Internal row-title text dropped — surrounding prose does the introducing.
+ * ColophonBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (linked 2026-07-09 · slice-2.9)
+ * Twelve panels for the Colophon triptych. Slice-2.9: each panel is now an anchor to a
+ * semantic route so the panels stop reading as static paintings and start reading as doors —
+ * same pattern as Home + Nursery panels. Semantic map, per act:
+ * Row 1 · What holds the garden (structure) — plot→Nursery · canopy→Volume I ·
+ *   ensō 円花→Lexicon · provenance→Studio.
+ * Row 2 · How it's made (practice) — hand→Body & Spine · seal→Versions ·
+ *   covenant→Field Notes · mirror→Workbench.
+ * Row 3 · The retraining (state) — small hand→Nursery (starting small) · first mark→Studio
+ *   (marks at the bench) · wobbly ensō→Body & Spine (the wobble kept) · trust→Versions
+ *   (seal the yes).
  */
 export interface Props {
   row?: 1 | 2 | 3 | "all";
@@ -16,12 +19,13 @@ const { row = "all" } = Astro.props as Props;
 const showRow1 = row === "all" || row === 1;
 const showRow2 = row === "all" || row === 2;
 const showRow3 = row === "all" || row === 3;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <figure class={`botanical-panels botanical-panels--colophon botanical-panels--row-${row}`} aria-label="Colophon panels — the brand story">
   {showRow1 && (<>
   <!-- Row 1 · What holds the garden -->
   <div class="panels-grid">
-    <div class="panel">
+    <a class="panel" href={base + "/nursery"} aria-label="the plot — enter the Nursery">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the plot</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c1-t"><title id="c1-t">Sprouts in a dashed boundary plot with a lavender bloom smile</title>
@@ -49,9 +53,10 @@ const showRow3 = row === "all" || row === 3;
         <line x1="40" y1="172" x2="160" y2="172" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.55"/>
       </svg>
       <p class="panel-cap">a plot kept · noise stays out · smile in the bloom</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Nursery →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/volume-i"} aria-label="the canopy — enter Volume I">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the canopy</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c2-t"><title id="c2-t">Three canopy arches with pastel blooms and a hidden smile</title>
@@ -71,9 +76,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">three arches · the canopy holds without fixing</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Volume I →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/lexicon"} aria-label="the ensō 円花 — enter the Lexicon">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the ensō · 円花</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c3-t"><title id="c3-t">The 円花 ensō keystone with flower held inside and four cardinal orbit dots</title>
@@ -95,9 +101,10 @@ const showRow3 = row === "all" || row === 3;
         <circle cx="22" cy="108" r="1.4" fill="#e08d84" opacity="0.7"/>
       </svg>
       <p class="panel-cap">円花 keystone · flower held in the circle</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Lexicon →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/studio"} aria-label="the provenance — enter the Studio">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the provenance</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c4-t"><title id="c4-t">A target with three concentric rings and four cardinal orbit dots</title>
@@ -117,14 +124,15 @@ const showRow3 = row === "all" || row === 3;
         <text font-family="var(--hand)" x="100" y="188" font-size="8.5" text-anchor="middle" opacity="0.65" font-style="italic" fill="var(--ink-soft)">summer 07/2026 · tended by Fang Rika</text>
       </svg>
       <p class="panel-cap">provenance held · four grounds circled</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Studio →</span>
+    </a>
   </div>
   </>)}
 
   {showRow2 && (<>
   <!-- Row 2 · How it's made -->
   <div class="panels-grid">
-    <div class="panel">
+    <a class="panel" href={base + "/body-spine"} aria-label="the hand — enter Body & Spine">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the hand</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c5-t"><title id="c5-t">A hand gripping a vertical sumi-e brush with all five fingers visible</title>
@@ -156,9 +164,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">the hand that means it · smile at the tip</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/versions"} aria-label="the seal — enter Versions of Me">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the seal</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c6-t"><title id="c6-t">The maker's-mark wax seal with a hidden smile in the flower heart</title>
@@ -177,9 +186,10 @@ const showRow3 = row === "all" || row === 3;
         <text font-family="var(--hand)" x="100" y="153" font-size="8" text-anchor="middle" opacity="0.6" font-style="italic" fill="var(--ink-soft)">tended by Fang Rika ·</text>
       </svg>
       <p class="panel-cap">the maker's-mark seal · smile in the flower heart</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/field-notes"} aria-label="the covenant — enter Field Notes">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the covenant</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c7-t"><title id="c7-t">Two hands hand-over-hand — the covenant made picture — with a coral bloom smile</title>
@@ -217,9 +227,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">two hands · Rika rests on the assistant · smile in the yes</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Field Notes →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/workbench"} aria-label="the mirror — enter The Workbench">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the mirror</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c8-t"><title id="c8-t">A hand-held mirror reflecting a small smile</title>
@@ -237,14 +248,15 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">the mirror agent · smile in what it reflects</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter The Workbench →</span>
+    </a>
   </div>
   </>)}
 
   {showRow3 && (<>
   <!-- Row 3 · The retraining -->
   <div class="panels-grid">
-    <div class="panel">
+    <a class="panel" href={base + "/nursery"} aria-label="the small hand — enter the Nursery">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the small hand</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c9-t"><title id="c9-t">A small child's hand picking up a paintbrush with a hopeful lavender mark below</title>
@@ -270,9 +282,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">picking up the brush · brave enough to try</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Nursery →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/studio"} aria-label="the first mark — enter the Studio">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the first mark</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c10-t"><title id="c10-t">A big joyful golden swoop with pastel fingerprints and a smile in the mess</title>
@@ -289,9 +302,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">joy before judgment · smile in the mess</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Studio →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/body-spine"} aria-label="the wobbly ensō — enter Body & Spine">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the wobbly ensō</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c11-t"><title id="c11-t">A wobbly first-attempt ensō with visible tremors, ghost strokes, and a hopeful coral mark inside</title>
@@ -314,9 +328,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">the wobble is the truth · smile at the trying</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/versions"} aria-label="the trust — enter Versions of Me">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the trust</p>
       <svg viewBox="0 0 200 200" role="img" aria-labelledby="c12-t"><title id="c12-t">A completed ensō with a prominent multi-pastel bloom, halo of pastel dots, and a red 王 seal</title>
@@ -349,9 +364,10 @@ const showRow3 = row === "all" || row === 3;
         </g>
       </svg>
       <p class="panel-cap">trust the wobble · seal the yes · smile in the bloom</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
+    </a>
   </div>
-  <figcaption>assisted, never authored · nothing is published without her yes</figcaption>
+  <figcaption>assisted, never authored · nothing is published without her yes · each panel a door</figcaption>
   </>)}
 </figure>
 <style>
@@ -372,6 +388,11 @@ const showRow3 = row === "all" || row === 3;
     .botanical-panels--colophon .panels-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .botanical-panels--colophon .panel {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    position: relative;
     border: 1px solid rgba(231, 220, 198, 0.55);
     border-radius: 3px;
     padding: 0.85rem 0.6rem 0.7rem;
@@ -382,4 +403,32 @@ const showRow3 = row === "all" || row === 3;
   .botanical-panels--colophon .panel svg { width: 100%; height: auto; display: block; }
   .botanical-panels--colophon .panel-cap { font-family: var(--serif); font-size: 0.68rem; color: var(--ink-faint); font-style: italic; text-align: center; line-height: 1.45; margin: 0.4rem 0 0; }
   .botanical-panels--colophon > figcaption { font-family: var(--hand); font-size: 0.85rem; color: var(--ink-faint); text-align: center; margin: 1.5rem 0 0; font-style: italic; opacity: 0.75; }
+  /* Slice-2.9 · panels-as-doors — anchor hover reveals the room name in poppy.
+     Same discovered-affordance pattern as Home + Nursery panel families. */
+  .botanical-panels--colophon a.panel:hover,
+  .botanical-panels--colophon a.panel:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(207, 74, 69, 0.28);
+    background: rgba(251, 248, 238, 0.55);
+    outline: none;
+  }
+  .botanical-panels--colophon .panel-cta {
+    display: block;
+    font-family: var(--hand);
+    font-size: 0.7rem;
+    color: var(--poppy);
+    text-align: center;
+    margin-top: 0.35rem;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    letter-spacing: 0.01em;
+  }
+  .botanical-panels--colophon a.panel:hover .panel-cta,
+  .botanical-panels--colophon a.panel:focus-visible .panel-cta { opacity: 0.85; }
+  @media (prefers-reduced-motion: reduce) {
+    .botanical-panels--colophon .panel { transition: none; }
+    .botanical-panels--colophon a.panel:hover,
+    .botanical-panels--colophon a.panel:focus-visible { transform: none; }
+    .botanical-panels--colophon .panel-cta { transition: none; }
+  }
 </style>
