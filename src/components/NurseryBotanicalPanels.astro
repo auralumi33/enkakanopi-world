@@ -1,11 +1,14 @@
 ---
 /**
- * NurseryBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (rebalance 2026-07-09 · slice-2.5)
+ * NurseryBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (linked 2026-07-09 · slice-2.7)
  * Eight panels for the Nursery seed-bed page. Row 1: the scrap · the germination · the wobble
  * · the cracked seed. Row 2: the closed bud · the pressed leaf · the tangent · the small vessel.
- * Slice-2.5: rows are now distributable via the `row` prop (1 | 2 | "all"), so the two rows can
- * live at different points on the page instead of clustered at the bottom. Each panel keeps its
- * hidden Murakami closed-eye smile.
+ * Slice-2.7: each panel is now an anchor to a semantic route so the panels stop reading as
+ * static paintings and start reading as doors — the scrap → Field Notes (fragments) ·
+ * germination → Workbench (first shoots of work) · wobble → Body & Spine (kept-wobble
+ * embodiment) · cracked seed → Versions of Me (transformation) · closed bud → Volume I
+ * (in formation) · pressed leaf → Colophon (kept-and-labelled) · tangent → Lexicon
+ * (named-tangent) · small vessel → Studio (small held work).
  */
 export interface Props {
   row?: 1 | 2 | "all";
@@ -13,12 +16,13 @@ export interface Props {
 const { row = "all" } = Astro.props as Props;
 const showRow1 = row === "all" || row === 1;
 const showRow2 = row === "all" || row === 2;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <figure class={`botanical-panels botanical-panels--seedbed botanical-panels--row-${row}`} aria-label="Nursery seed-bed panels — fragments before they are essays">
   {showRow1 && (
   <div class="panels-grid panels-grid--row1">
     <!-- Row 1 -->
-    <div class="panel">
+    <a class="panel" href={base + "/field-notes"} aria-label="the scrap — enter Field Notes">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the scrap</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n1-t"><title id="n1-t">A torn paper scrap with a small lavender bloom holding a hidden smile</title>
@@ -40,9 +44,10 @@ const showRow2 = row === "all" || row === 2;
         <path d="M 140 55 L 155 65 L 145 130" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" opacity="0.55" stroke-linecap="round"/>
       </svg>
       <p class="panel-cap">a scrap · fragment caught · smile in the corner bloom</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Field Notes →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/workbench"} aria-label="the germination — enter The Workbench">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the germination</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n2-t"><title id="n2-t">A gold sprout breaking through soil with a hidden smile in the bud</title>
@@ -61,9 +66,10 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">the germination · first shoot · smile in the gold bud</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter The Workbench →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/body-spine"} aria-label="the wobble — enter Body & Spine">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the wobble</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n3-t"><title id="n3-t">A wobbling curve leaving a dashed ruler with a coral bloom at the tip</title>
@@ -88,9 +94,10 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">the ruler couldn't hold · smile at the tip</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/versions"} aria-label="the cracked seed — enter Versions of Me">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the cracked seed</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n4-t"><title id="n4-t">A cracked seed with a small root emerging and a hidden smile inside</title>
@@ -105,14 +112,15 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">the cracked seed · root emerging · smile inside the crack</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
+    </a>
   </div>
   )}
 
   {showRow2 && (
   <div class="panels-grid panels-grid--row2">
     <!-- Row 2 -->
-    <div class="panel">
+    <a class="panel" href={base + "/volume-i"} aria-label="the closed bud — enter Volume I · In Formation">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the closed bud</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n5-t"><title id="n5-t">A closed lavender bud on a stem with a hidden smile sleeping inside</title>
@@ -128,9 +136,10 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">potential · not yet open · smile sleeping inside</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Volume I →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/colophon"} aria-label="the pressed leaf — enter the Colophon">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the pressed leaf</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n6-t"><title id="n6-t">A pressed leaf with veins preserved and a gold smile at the tip</title>
@@ -151,9 +160,10 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">a leaf preserved · veins remembered · smile at the tip</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Colophon →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/lexicon"} aria-label="the tangent — enter the Lexicon">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the tangent</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n7-t"><title id="n7-t">A curve leaving a dashed ruler with a coral bloom at the arrival, smile at the tip</title>
@@ -172,9 +182,10 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">loving the curve · smile at the arrival</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Lexicon →</span>
+    </a>
 
-    <div class="panel">
+    <a class="panel" href={base + "/studio"} aria-label="the small vessel — enter the Studio">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the small vessel</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="n8-t"><title id="n8-t">A small pot with a tender slate-bell sprout inside and a hidden smile</title>
@@ -191,7 +202,8 @@ const showRow2 = row === "all" || row === 2;
         </g>
       </svg>
       <p class="panel-cap">a tiny pot · tender growth · smile in the bell</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter the Studio →</span>
+    </a>
   </div>
   )}
 
@@ -214,6 +226,11 @@ const showRow2 = row === "all" || row === 2;
     .botanical-panels--seedbed .panels-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .botanical-panels--seedbed .panel {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    position: relative;
     border: 1px solid rgba(231, 220, 198, 0.55);
     border-radius: 3px;
     padding: 0.85rem 0.6rem 0.7rem;
@@ -224,4 +241,32 @@ const showRow2 = row === "all" || row === 2;
   .botanical-panels--seedbed .panel svg { width: 100%; height: auto; display: block; }
   .botanical-panels--seedbed .panel-cap { font-family: var(--serif); font-size: 0.68rem; color: var(--ink-faint); font-style: italic; text-align: center; line-height: 1.45; margin: 0.4rem 0 0; }
   .botanical-panels--seedbed > figcaption { font-family: var(--hand); font-size: 0.85rem; color: var(--ink-faint); text-align: center; margin: 1rem 0 0; font-style: italic; opacity: 0.75; }
+  /* Slice-2.7 · panels-as-doors — anchor hover reveals the room name in poppy.
+     Panels stop reading as static paintings; discovered affordance, not shouted. */
+  .botanical-panels--seedbed a.panel:hover,
+  .botanical-panels--seedbed a.panel:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(207, 74, 69, 0.28);
+    background: rgba(251, 248, 238, 0.55);
+    outline: none;
+  }
+  .botanical-panels--seedbed .panel-cta {
+    display: block;
+    font-family: var(--hand);
+    font-size: 0.7rem;
+    color: var(--poppy);
+    text-align: center;
+    margin-top: 0.35rem;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    letter-spacing: 0.01em;
+  }
+  .botanical-panels--seedbed a.panel:hover .panel-cta,
+  .botanical-panels--seedbed a.panel:focus-visible .panel-cta { opacity: 0.85; }
+  @media (prefers-reduced-motion: reduce) {
+    .botanical-panels--seedbed .panel { transition: none; }
+    .botanical-panels--seedbed a.panel:hover,
+    .botanical-panels--seedbed a.panel:focus-visible { transform: none; }
+    .botanical-panels--seedbed .panel-cta { transition: none; }
+  }
 </style>

@@ -161,7 +161,31 @@
       <circle class="port-fill" cx="412" cy="392" r="3.4" />
     </g>
 
-    <text class="hand-label" x="470" y="120" font-size="21">the canopy</text>
+    {/* Slice-2.7 · SceneWeaveSeam woven-thread grammar baked in — a --canopy
+        thread crosses the mid-composition horizontally, going OVER the beam
+        and UNDER the three ground-bloom stems (over-and-under: the signature
+        weave gesture from SceneWeaveSeam). Shows the container beneath the
+        craft — the canopy holds and is held. */}
+    <g class="woven-thread" aria-hidden="true">
+      <path d="M 80 268 C 160 264, 240 272, 320 268" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 322 270 C 328 264, 336 264, 342 270" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 342 270 C 360 274, 380 268, 400 272" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 400 272 C 406 268, 418 268, 424 272" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 424 272 C 442 276, 462 270, 482 274" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 482 274 C 488 268, 498 268, 504 274" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M 504 274 C 580 268, 660 272, 740 268" stroke="var(--canopy)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+    </g>
+
+    {/* Slice-2.7 · SceneWeaveSeam kernel voice — the container beneath the
+        craft, whispered mid-figure at low opacity. From Rika's shipped voice. */}
+    <text class="kernel-voice" x="412" y="228" text-anchor="middle" font-size="13" opacity="0.55" font-style="italic">held long enough to become</text>
+
+    {/* Slice-2.7 · Panel-style header (inverted hierarchy — kanji label at
+        top center like the four botanical panels, so the whole hero reads
+        as a fifth, larger panel). */}
+    <text class="hero-kanji" x="412" y="30" text-anchor="middle" font-size="16" letter-spacing="0.5" opacity="0.85">円 · canopy</text>
+    <text class="hero-sub" x="412" y="52" text-anchor="middle" font-size="12" font-style="italic" opacity="0.6">the container and the light</text>
+
     <text class="hand-label hand-label--accent" x="418" y="418" font-size="20">the light lands here</text>
   </svg>
 </figure>
@@ -171,6 +195,10 @@
   .canopy-strokes path { stroke: var(--canopy-deep); }
   .dapples .light { fill: var(--canopy-soft); stroke: var(--canopy); opacity: 0.5; }
   .beam { opacity: 0.7; }
+  /* Slice-2.7 · panel-style header + kernel voice + woven-thread type. */
+  .hero-kanji { font-family: "Noto Serif JP", var(--display); fill: var(--ink); font-weight: 500; }
+  .hero-sub { font-family: var(--serif); fill: var(--ink-soft); font-style: italic; }
+  .kernel-voice { font-family: var(--hand); fill: var(--ink-soft); }
 
   /* the light breathes — one slow drift, reduced-motion turns it off.
      petals join the drift, a beat slower and gentler. */

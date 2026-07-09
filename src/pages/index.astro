@@ -62,16 +62,28 @@ const whatThisIs = [
       ; holding on, letting go, loving anyway.
     </p>
     <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
-    <div class="scene"><CanopyScene /></div>
-    <p class="keystone">
-      Our machines will outremember us, outdo us — maybe outlast us. A life,
-      though — brief, and bright while it lasts — is theirs to admire, never
-      to hand to us. That stays ours: breath to air, weight to lightness;
-      a small convoy of selves
-      <span class="doodle" aria-label="with patience between the hulls"><MotifTwoHulls size={64} /></span>
-      ,
-      <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
-    </p>
+
+    {/* Slice-2.7 · hero-figure integrated: the CanopyScene visual + the
+        Our-machines byline live inside ONE figure so the whole thing reads
+        as a fifth, larger panel — panel-style header (kanji 円 · canopy) at
+        top INSIDE the SVG · the woven-thread SceneWeaveSeam grammar baked
+        into the mid-composition · the byline as figcaption below, framed
+        by a hairline top-rule so it reads as part of the same figure, not
+        a floating paragraph. Storytelling arc: the container, the light,
+        the words spoken from under it. */}
+    <figure class="hero-figure">
+      <div class="scene"><CanopyScene /></div>
+      <figcaption class="keystone">
+        Our machines will outremember us, outdo us — maybe outlast us. A life,
+        though — brief, and bright while it lasts — is theirs to admire, never
+        to hand to us. That stays ours: breath to air, weight to lightness;
+        a small convoy of selves
+        <span class="doodle" aria-label="with patience between the hulls"><MotifTwoHulls size={64} /></span>
+        ,
+        <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
+      </figcaption>
+    </figure>
+
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
   </section>
 
@@ -223,9 +235,15 @@ const whatThisIs = [
      "what this is" and "plan" sections below, and with the CanopyScene's
      leftmost arch. .scene itself stays at the hero's native left edge —
      its arches carry the internal indent that visually meets the text. */
-  .hero > :not(.scene) { margin-left: 1.4rem; }
+  /* Slice-2.7: exempt .hero-figure too — it sits at the hero's native left
+     edge (its .scene child inherits that); the .keystone figcaption inside
+     the hero-figure gets its own margin-left so the byline stays aligned
+     with the h1 baseline. */
+  .hero > :not(.scene):not(.hero-figure) { margin-left: 1.4rem; }
+  .hero-figure .keystone { margin-left: 1.4rem; }
   @media (max-width: 46rem) {
-    .hero > :not(.scene) { margin-left: 0; }
+    .hero > :not(.scene):not(.hero-figure) { margin-left: 0; }
+    .hero-figure .keystone { margin-left: 0; }
   }
   .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
@@ -297,7 +315,22 @@ const whatThisIs = [
   @media (min-width: 60rem) {
     .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
   }
-  .scene { margin: 2rem 0 0; max-width: 60rem; width: 100%; }
+  .scene { margin: 0; max-width: 60rem; width: 100%; }
+  /* Slice-2.7 · integrated hero-figure — CanopyScene + byline read as one
+     panel. Hairline top-rule on the figcaption ties byline to visual. */
+  .hero-figure {
+    margin: 2rem 0 0;
+    max-width: 60rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .hero-figure .keystone {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(231, 220, 198, 0.65);
+  }
   .keystone {
     font-family: var(--serif); font-style: italic;
     font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.65;

@@ -40,6 +40,13 @@ const beds = [
     <section class="page head">
       <p class="eyebrow"><Glyph name="leaf" size={18} /> &nbsp;the seed-bed</p>
       <h1>Musings &amp; Dreams</h1>
+
+      {/* Slice-2.6 (2026-07-09): Row 1 (scrap · germination · wobble · cracked
+          seed) moved UP to sit above the "Seeds land here first" lede — the
+          four fragment states land as visual overture before the words say
+          what a seed is. Storytelling arc: paradox panels → lede → the rest. */}
+      <NurseryBotanicalPanels row={1} />
+
       <p class="lede">
         Seeds land here first — fragments caught before they are essays, in her
         hand only.
@@ -75,8 +82,6 @@ const beds = [
         <VineTrail size={220} />
       </div>
     </section>
-
-    <NurseryBotanicalPanels row={1} />
 
     <section class="page grows" aria-label="How a seed grows">
       <p class="eyebrow">the ladder, from the ground down</p>
