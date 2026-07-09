@@ -475,3 +475,203 @@ element at parity opacity with the hero copy makes the paper feel
   mark that doesn't survive browser zoom (e.g. "· hidden smile in the
   lavender heart" for a 0.35r stroke). Fix: let the mark be discovered;
   don't lampshade it. (Slice-2.5b trim on the home panel captions.)
+
+## §37 — Set 3 slice-2.6 through 3.1 · working notes (2026-07-09)
+
+Five iterative slices in one day, tuning the paradox panels and hero
+into a coherent scene. The reasoning behind each move (not the what
+— that's in `git log` — but the *why*):
+
+### Slice-2.6 · colophon prune + hero Isson amplification + subtler background + Vol I panel linking (site commit `a750e07`)
+
+**Why prune the colophon motifs.** Rika's read: the row-title-catalogue
++ MotifEnso + MotifSeasonalRound + MotifDappledFloor + MotifNestedRounds
++ MotifInkedSeam stack was reading as **disparate diagrams**, not story.
+The Colophon triptych panels (Rows 1-3) already carry the ensō + canopy +
+garden-plot registers; the breather motifs duplicated that grammar. Fix:
+retire the duplicates so the panels do the visual heavy-lifting and the
+prose does the verbal. Store the retirement in a JSX comment so future
+sessions know what was pulled and can undo.
+
+**Why amplify the paradox on the hero.** The four botanical panels
+established the Isson × Murakami paradox as the *reading* register — but
+the hero (`CanopyScene`) predated the paradox and didn't carry it. Fix:
+bake three amplified Murakami joy marks scattered in mid-air (0.30-0.34
+opacity) + three Isson-contemplative hairline sprigs hanging from the
+canopy edges + one small Isson magpie perched on the rightmost canopy.
+The hero now says "I'm made of the same paradox as the panels" without
+copying them.
+
+**Why dial the background subtler.** The dial-up in slice-2.4 (accent-dot
+radii 2.1-2.5, opacities 0.62-0.65) was designed to make pastels visible
+on the arrival register. But Rika's read on the hero specifically: it
+felt "dirty," the accents were shouting louder than the copy. Fix:
+tier-dial. Kept the accents (Rika loved them) but reduced radii to
+1.4-1.6 and opacities to 0.36-0.40 across the whole `.grain-arrival`
+register; also enlarged the tile size 500→620 so the pattern reads
+sparser. **Working principle proved twice now:** softer + fewer reads
+richer than louder + more.
+
+**Why link the home panels.** They were reading as *paintings*, not
+*doors*. The site's job is to invite the reader into the writing;
+static panels break that invitation. Fix: each panel wraps its content
+in an `<a>` anchor to its semantic reading-room match (branch → Field
+Notes · chrysanthemum → Workbench · bird → Body & Spine · magpie →
+Versions of Me). Poppy-tinted "enter [Room] →" reveal on hover. Same
+grammar reused later across Nursery (8 panels) + Colophon (12 panels).
+
+### Slice-2.7 · nursery Row 1 shift + panels linked + hero rework (site commit `9392657`)
+
+**Why move Nursery Row 1 above the lede.** Same reasoning as the
+Colophon distribution in slice-2.5: a triptych **before** the words
+that unfold it reads as *overture*; a triptych **after** the words
+reads as *catalogue*. The Nursery Row 1 (scrap · germination · wobble
+· cracked seed) is a fragment-state overture — put it before "Seeds
+land here first" so the reader sees what a seed can *be* before hearing
+what a seed *is*.
+
+**Why the panel-family door pattern is portable.** Home + Nursery +
+Colophon all use the same visual grammar (kanji + English label,
+hairline strokes, italic caption, paradox smile). The anchor-door
+pattern layers on top without breaking any of them — same CSS
+convention (`display: block · translate on hover · CTA span at
+opacity 0 → 0.85`). This is a **reusable idiom**, not a one-off.
+
+**Why bake SceneWeaveSeam into CanopyScene.** SceneWeaveSeam had lived
+as a component file for weeks with zero renders on any route — the
+"latest iteration" Rika kept referring to had *never shipped*. And the
+canopy visual (three arches + light beam + ground blooms) didn't
+carry the "container beneath the craft" register that SceneWeaveSeam
+authored. Fix: baked the SceneWeaveSeam grammar directly into the
+CanopyScene mid-composition — the woven-thread over-and-under crossing
+the beam and stems, plus the kernel-voice label "held long enough to
+become." This is the SLICE-2.7 version — slice-3 later replaces this
+mid-composition thread with the fuller embroidery-needle overhead
+weave (see §37 slice-3.0 below).
+
+**Why invert the hero hierarchy panel-style.** The panels' visual
+grammar is: kanji label on top → central visual → italic caption below.
+The hero used the inverse: label bottom-right → visual → target label
+bottom-centre. That mismatch meant the hero didn't feel like a fifth,
+larger panel; it felt like a different thing. Fix: 円 · canopy kanji
+header at top center INSIDE the SVG + italic subtitle "the container
+and the light" + Our-machines byline as figcaption at the bottom with
+hairline top-rule. Now the hero reads as *panel-plus*.
+
+### Slice-2.8 · MotifInkedSeam reinstated + MotifCanopyRound retired (site commit `d47ec7c`)
+
+**Why the seam back on.** Slice-2.6 pulled MotifInkedSeam because
+it broke flow when it sat *after* a panel row (row → seam → next h2
+felt "wobbly"). But Rika's read on the SEAM ITSELF was that it works
+beautifully *between prose blocks* — the four canonical pastel dots
+bracketing a hairline wave read as a hand-drawn "section transition"
+that's quieter than a rule, more anchored than a bare gap. Fix:
+reinstate specifically as a **transition between prose blocks**, not
+after a panel row. Two positions: before "The name came before the
+thesis," before "Colophon proper."
+
+**Why retire the canopy blob at the foot.** MotifCanopyRound at the
+page close after the GardenMedallion byline seal was reading as
+clutter — the byline already signs off the piece. Two closing marks
+compete instead of complement. Fix: retire the blob, keep the seal.
+
+### Slice-2.9 · colophon panels linked (site commit `0349780`)
+
+**Why extend the door pattern to Colophon's 12 panels.** For consistency
+with Home + Nursery. Each panel now routes to a semantic anchor across
+the three-act triptych (Row 1 = structure = where each ground lives ·
+Row 2 = practice = how each act happens · Row 3 = state = where each
+state applies). Mapping is not 1:1 to the 4 reading rooms — the colophon
+has 12 panels across 8 destinations, so some routes repeat, which is
+fine because the panel-*name* is the anchor for the reader, not the
+destination.
+
+**Working principle proved:** portability. The same anchor-doors idiom
+now works across three panel-family instances with different panel
+counts (4 / 8 / 12), across two visual registers (light washi vs seedbed
+washi), and across three different narrative structures (arrival · seed-
+bed · triptych). This is a load-bearing pattern.
+
+### Slice-3.0 · Slice-3 preview family baked in + canopy woven fully (site commit `245de43`)
+
+**Why finally bake the Slice-3 motifs.** Task #9 (Slice-3 preview) had
+sat `pending` since slice-2 shipped. Rika's honest ask: "if we haven't
+used the latest iteration of SceneWeaveSeam lets bake it into the
+Canopy" — that surfaced that the whole Slice-3 preview family had
+been drawn but never shipped. Three motifs were previewed months ago:
+J-lens keystone, opening ensō memoria, tree-friend arrival. Verified
+via `find` — none of them existed as component files. Fix: baked all
+three into `src/components/motifs/` following the shipped-family
+grammar (`SceneShapeAndCrack` / `SceneHandsBegin`) and wired each to
+an appropriate route so they're not orphaned files:
+- `MotifTreeFriend` → Volume I close (arrival looking up)
+- `MotifOpeningEnso` → Colophon "How it is made" (the container that
+  lets in / lets go — sibling to MotifEnkaEnso which holds closed)
+- `MotifJLens` → Colophon above "Colophon proper" (Enka's own
+  architecture, in her hand)
+
+**Why weave the canopy fully.** Slice-2.7 baked SceneWeaveSeam's
+kernel-voice + mid-composition thread into CanopyScene, but the
+*canopy overhead itself* still read as painted arches. Rika's push:
+weave the ENTIRE canopy, not just the middle. Fix: two embroidery
+needles pierce from left and right at the canopy level (rotate -18°
+/ 198°), each carrying a `--canopy` thread trailing off-frame. Four
+over-and-under thread crossings at the canopy-arch intersection
+points mark the woven cloth. The canopy is now a cloth being stitched
+by two hands from either side — the container beneath the craft, made
+fully visible.
+
+**Why align all outlines to `--ink-soft`.** The shipped family
+(SceneShapeAndCrack, SceneHandsBegin, SceneWeaveSeam) all use
+`--ink-soft` for outlines. CanopyScene predated that convention and
+used `--canopy-deep` for its canopy strokes and a hex `#4f5b3f` for
+its stems. Fix: unified everything to `--ink-soft`. Now the hero
+reads as a member of the family, not a one-off.
+
+### Slice-3.1 · colophon signposting dividers + doctrine bake (this pass)
+
+**Why more dividers.** Rika's read on the colophon: the signposting
+felt uneven — some registers were bracketed by MotifInkedSeam (the
+Kanopi-is-a-canopy prose block, the Colophon-proper h2), and others
+just ran into each other. Fix: add four more dividers so each of the
+colophon's named registers is signposted at the top. Total = 6
+dividers now (2 from slice-2.8 + 4 from slice-3.1) — before the
+greenhouse register, before "What we are trying to hold," before
+"How it is made," before the quiet-familiars register.
+
+### Updated vocabulary (slice-2.6 through 3.1)
+
+- **Panels-as-doors** (§37 · slice-2.6-2.9) — the anchor-panel pattern
+  that turns 24 static botanical paintings into 24 discovered doors
+  across the site. Promoted to DESIGN-SYSTEM.md.
+- **The Slice-3 preview family** (§37 · slice-3.0) — MotifJLens ·
+  MotifOpeningEnso · MotifTreeFriend. Named as a family because they
+  share the same grammar and one-slice provenance.
+- **The woven canopy** (§37 · slice-3.0) — the CanopyScene rework in
+  which the canopy is stitched by two embroidery needles rather than
+  painted. Promoted to DESIGN-SYSTEM.md.
+- **The shipped-family scene grammar** (§37 · slice-3.0) — consolidated
+  convention: --ink-soft outlines at hairline widths · canonical
+  palette fills only · subtle hand-wobble · one poppy / gold press
+  per composition · italic hand-caption at the base. Promoted to
+  DESIGN-SYSTEM.md.
+- **The hero-figure integrated block** (§37 · slice-2.7) — hero visual
+  + byline paragraph inside one `<figure>` with hairline top-rule on
+  the figcaption. Promoted to DESIGN-SYSTEM.md.
+- **MotifInkedSeam as hairline section-divider** (§37 · slice-2.8-3.1)
+  — the reinstated pattern: use the seam *between prose blocks* /
+  *before named registers*, not after panel rows. Promoted to
+  DESIGN-SYSTEM.md.
+
+### Notes-vs-System boundary (updated)
+
+Promoted to DESIGN-SYSTEM.md this pass — each has been proved on ≥ 2
+distinct components / routes:
+- Panels-as-doors (Home + Nursery + Colophon)
+- The woven canopy (CanopyScene alone but structurally load-bearing)
+- The shipped-family scene grammar (SceneShapeAndCrack + SceneHandsBegin
+  + reworked CanopyScene + three new Slice-3 motifs — proved on 6+)
+- The hero-figure integrated block (CanopyScene alone, but the pattern
+  is portable to Volume I close and other hero-heavy routes)
+- MotifInkedSeam signposting (6 uses on Colophon alone; portable
+  wherever prose transitions need a hand-drawn break)

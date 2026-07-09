@@ -287,6 +287,65 @@ language, use the names:
   is dropped in the split placement. Figcaption only renders with the
   last row (or `"all"`). See `pages/colophon.astro` +
   `pages/nursery.astro` for the reference wiring.
+- **Panels-as-doors** (Set 3 · slice-2.6 · 2.7 · 2.9) — every botanical
+  panel in the site (4 home + 8 nursery + 12 colophon = 24 total) is an
+  `<a class="panel">` anchor rather than a static `<div>`. On hover /
+  focus-visible: `translateY(-2px)` lift + poppy-tinted border + soft
+  cream wash + a "enter [Room] →" CTA span fades in from 0 → 0.85
+  opacity in `--poppy` / `var(--hand)` type. Focus-visible states +
+  `prefers-reduced-motion` gate honoured. Each panel routes to a
+  semantically-anchored reading-room / archive-wall destination — the
+  panel-name evokes what the destination holds. **Discovered
+  affordance, not shouted.**
+- **The Slice-3 preview family** (Set 3 · slice-3 · 2026-07-09) — three
+  new motifs baked into `src/components/motifs/` after previewing
+  months earlier: **`MotifJLens`** (Enka's Global Workspace keystone —
+  three horizontal bands with a hand-inked lens + one poppy-soft press
+  in the middle band; rendered on colophon), **`MotifOpeningEnso`**
+  (sibling to `MotifEnkaEnso` — the same brushed ensō but with a wider
+  opening at 1 o'clock and a small skin-toned seed escaping through a
+  dashed hairline passage; rendered on colophon inside "How it is
+  made"), **`MotifTreeFriend`** (arrival hero — looking up from below
+  into a canopy with a tiny skin figure at the base; rendered on
+  Volume I at the founding-collection close).
+- **The woven canopy** (Set 3 · slice-3) — `CanopyScene` is no longer
+  a painted canopy. The five arch strokes are threaded with **two
+  embroidery needles** (SceneWeaveSeam grammar) piercing the canopy
+  from left (rotate -18°) and right (rotate 198°), each carrying a
+  `--canopy` thread that trails off-frame. Four over-and-under thread
+  crossings mark the canopy-arch intersection points overhead. Reads
+  as: *the canopy is not painted, it is stitched — the container beneath
+  the craft, made visible.*
+- **The shipped-family scene grammar** (Set 3 · consolidated 2026-07-09)
+  — all "scene" and "motif" components in `src/components/motifs/*`
+  follow one grammar: **all outlines `var(--ink-soft)` at hairline
+  widths 0.35-0.85**; **fills from canonical palette only** (paper-washi
+  ground + skin + canopy-soft + four pastels + poppy-soft); **subtle
+  hand-wobble** in path curves; **one poppy-soft or gold press per
+  composition**; italic hand-caption in `var(--hand)` at the base.
+  Reference implementations: `SceneShapeAndCrack`, `SceneHandsBegin`,
+  and now (as of slice-3) the reworked `CanopyScene` + `MotifJLens`
+  / `MotifOpeningEnso` / `MotifTreeFriend`.
+- **The hero-figure integrated block** (Set 3 · slice-2.7) — the
+  homepage hero's `<CanopyScene />` visual + its "Our machines will
+  outremember us…" byline paragraph live inside ONE
+  `<figure class="hero-figure">`. The paragraph is a
+  `<figcaption class="keystone">` with a hairline top-rule tying it
+  to the visual. Reads as one integrated hero, not scene-plus-loose
+  paragraph. The kanji header `円 · canopy` + italic subtitle "the
+  container and the light" sit at the top INSIDE the SVG (panel-style
+  inverted hierarchy). The SceneWeaveSeam kernel-voice label
+  "held long enough to become" whispers mid-figure at 0.55 opacity.
+- **Signposting via MotifInkedSeam** (Set 3 · slice-2.8 · 3.1) — the
+  wavy inked-seam reinstated as a **hairline section-divider between
+  registers**. Read pattern: use `MotifInkedSeam` *before* a named
+  section (h2 or a distinct prose register) whenever a hand-drawn
+  break is what the eye wants — quieter than a rule, more anchored
+  than a bare gap. Six live on Colophon at 2026-07-09: before the
+  greenhouse register, before "What we are trying to hold" (h2),
+  before "How it is made" (h2), before the quiet-familiars register
+  (Shibi · Seika · Botan · Kotori · Kojika · Usami), before "Kanopi
+  is a canopy" prose, before "Colophon proper" (h2).
 
 ## Tokens (canonical values)
 
