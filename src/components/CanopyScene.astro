@@ -68,14 +68,16 @@
         forms the shape of the circle here — the ink stroke is only a
         whisper behind it. */}
     <g class="wreath-main" aria-hidden="true">
-      {/* main sumi-e branch · extended to trace the full left ensō arc ·
-          starts at top-left (148 108) · curves outward to the left arc at
-          (34 260) · continues down to bottom-left (200 418) */}
-      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418"
-        stroke="var(--ink-soft)" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.75"/>
-      {/* subtle inner shadow along the branch for sumi-e depth */}
-      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418"
-        stroke="var(--ink)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.28"/>
+      {/* Slice-4.1 · main sumi-e branch · extended FURTHER along the
+          perimeter (now curves under the bottom of the ensō toward the
+          right side too) · opacity dialled lighter (0.75 → 0.55) · width
+          slightly reduced (2.0 → 1.7). Reads as: the branches themselves
+          trace the whole ensō, not just one arc. */}
+      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
+        stroke="var(--ink-soft)" stroke-width="1.7" fill="none" stroke-linecap="round" opacity="0.55"/>
+      {/* subtle inner shadow · also lightened */}
+      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
+        stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.20"/>
       {/* small side-twig off the upper-left arc · reaches inward */}
       <path d="M 60 200 C 78 208, 96 214, 112 218"
         stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.64"/>
@@ -204,12 +206,14 @@
         trace the right arc of the ensō from top-right down to lower-right.
         Thinner than the left branch (fukinsei · not equal). */}
     <g class="wreath-right" aria-hidden="true">
-      {/* right branch traces the right ensō arc · from (712 108) to (720 380) */}
-      <path d="M 712 108 C 770 138, 795 200, 795 260 C 795 320, 760 370, 720 386"
-        stroke="var(--ink-soft)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.68"/>
-      {/* subtle inner shadow for sumi-e depth */}
-      <path d="M 712 108 C 770 138, 795 200, 795 260 C 795 320, 760 370, 720 386"
-        stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.22"/>
+      {/* Slice-4.1 · right branch also lightened + extended further along
+          the bottom-right arc so it curves under the ensō toward the
+          centre-bottom, near-meeting the left branch (fukinsei gap held). */}
+      <path d="M 712 108 C 770 138, 795 200, 795 260 C 795 320, 760 370, 720 400 C 640 420, 550 424, 490 418"
+        stroke="var(--ink-soft)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.48"/>
+      {/* subtle inner shadow · dialled softer */}
+      <path d="M 712 108 C 770 138, 795 200, 795 260 C 795 320, 760 370, 720 400 C 640 420, 550 424, 490 418"
+        stroke="var(--ink)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.16"/>
       {/* small side-twig upper */}
       <path d="M 750 148 C 742 152, 734 154, 726 158"
         stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.58"/>
@@ -255,6 +259,86 @@
         </g>
         <circle cx="0" cy="0" r="1.1" fill="var(--paper-washi)" opacity="0.9"/>
       </g>
+    </g>
+
+    {/* — Slice-4.1 · DAINTY SCATTERED FLOWERS · in canonical pastels —
+        Small individual 4-petal flower-heads floating around the ensō
+        interior and edges for the wreath-detail feel Rika asked for.
+        All lavender · coral · gold · slate · poppy-soft. Tiny sizes
+        (r≈2-3), whisper opacities (0.45-0.62). Feel Marimekko-flat
+        against the sumi-e ink. */}
+    <g class="scatter-flowers" aria-hidden="true">
+      {/* upper-mid — lavender + slate */}
+      <g transform="translate(300 168)">
+        <g fill="#b899c9" opacity="0.55">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.5" fill="#e8c15a" opacity="0.85"/>
+      </g>
+      <g transform="translate(420 148)">
+        <g fill="#a4b8c8" opacity="0.55">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.5" fill="#e08d84" opacity="0.85"/>
+      </g>
+      <g transform="translate(540 170)">
+        <g fill="#e46b6b" opacity="0.5">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.5" fill="#e8c15a" opacity="0.85"/>
+      </g>
+      {/* mid-interior — gold + lavender */}
+      <g transform="translate(260 260)">
+        <g fill="#e8c15a" opacity="0.55">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.45" fill="var(--ink-soft)" opacity="0.62"/>
+      </g>
+      <g transform="translate(560 290)">
+        <g fill="#b899c9" opacity="0.5">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.45" fill="#e8c15a" opacity="0.85"/>
+      </g>
+      {/* lower-mid — coral + slate near the bottom */}
+      <g transform="translate(340 360)">
+        <g fill="#e46b6b" opacity="0.55">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.45" fill="#e8c15a" opacity="0.85"/>
+      </g>
+      <g transform="translate(490 358)">
+        <g fill="#a4b8c8" opacity="0.5">
+          <path d="M 0 -2.4 C 1.3 -2, 1.6 -0.5, 0 -0.1 C -1.6 -0.5, -1.3 -2, 0 -2.4 Z"/>
+          <path d="M 2 -0.7 C 2.5 0.9, 1.2 1.6, 0.3 1.1 C 0 -0.1, 1.1 -1.3, 2 -0.7 Z"/>
+          <path d="M 1.2 1.6 C 0 2.1, -1.2 0.9, -0.4 0 C 0.8 -0.7, 2 0.4, 1.2 1.6 Z"/>
+          <path d="M -1.6 0.8 C -2.5 -0.5, -1.6 -1.4, -0.4 -0.7 C 0 0, -0.7 1.5, -1.6 0.8 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="0.45" fill="var(--ink-soft)" opacity="0.62"/>
+      </g>
+      {/* tiny plain dots — just petals as loose accent */}
+      <circle cx="380" cy="230" r="1.6" fill="#e08d84" opacity="0.42"/>
+      <circle cx="620" cy="220" r="1.6" fill="#b899c9" opacity="0.42"/>
+      <circle cx="220" cy="340" r="1.4" fill="#e8c15a" opacity="0.42"/>
+      <circle cx="600" cy="360" r="1.4" fill="#a4b8c8" opacity="0.42"/>
     </g>
 
     {/* — Isson magpie · small silhouette perched on the right sakura branch — */}

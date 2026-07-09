@@ -4,6 +4,7 @@ import Base from "../../layouts/Base.astro";
 import EssayList from "../../components/EssayList.astro";
 import Glyph from "../../components/Glyph.astro";
 import RowPlanter from "../../components/RowPlanter.astro";
+import MotifArchiveGate from "../../components/motifs/MotifArchiveGate.astro";
 
 const entries = (await getCollection("bodySpine")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
@@ -23,6 +24,12 @@ const items = entries.map((e) => ({ slug: e.id, ...e.data }));
   <section class="page listing">
     <EssayList items={items} basePath="/body-spine" />
   </section>
+  {/* Slice-4.1 · MotifArchiveGate (arch) relocated from Volume I → to the
+      bottom of Workbench + Body-Spine per Rika. Reads as: the archway
+      that closes each practice tab. */}
+  <div class="gate" aria-hidden="true">
+    <MotifArchiveGate size={340} />
+  </div>
 </Base>
 <style>
   .head { max-width: 46rem; }
@@ -32,4 +39,7 @@ const items = entries.map((e) => ({ slug: e.id, ...e.data }));
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 56ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
   .listing { max-width: 46rem; margin-top: 1.5rem; }
+  /* Slice-4.1 · archway at the tab close */
+  .gate { display: flex; justify-content: center; margin: 2.6rem 0 0.4rem; opacity: 0.9; }
+  .gate :global(svg) { max-width: 100%; height: auto; }
 </style>
