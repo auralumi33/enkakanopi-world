@@ -675,3 +675,230 @@ distinct components / routes:
   is portable to Volume I close and other hero-heavy routes)
 - MotifInkedSeam signposting (6 uses on Colophon alone; portable
   wherever prose transitions need a hand-drawn break)
+
+## §38 — Set 3 slices 3.9 → 4.8 · the 円花 wreath composition (2026-07-09)
+
+Eleven more iterative slices in one long day tightening the CanopyScene
+hero. The through-line: the 円花 keystone said literally at scene scale
+— a hand-brushed ensō with a cascade cherry-blossom branch tracing the
+perimeter, a hanko seal at bottom-right, a discreet paintbrush at the
+stroke-end, a light beam falling to the light-lands port at the base.
+This is the shipped shape that gets cemented before the next info-
+architecture + multi-agent overlay work.
+
+### Slice-3.9 · re-check on the tree-friend/arch decision (site commit `ef38744` + `1ea1786`)
+
+**What Rika saw:** the Volume I close was missing the tree-friend visual
+she had asked me to preserve. In slice-3.6 I had read the "move OR
+remove if clutter" ask as *remove* and pulled MotifTreeFriend from
+Volume I. Rika flagged it as missing on the founding-collection close.
+
+**What we changed:** rolled back the retirement (3.9), then retired
+MotifArchiveGate from Volume I (3.9b) so the tree-friend became the
+sole close visual there. Component files for both preserved.
+
+**Working principle proved:** when an ask offers a choice ("move OR
+remove"), preview both routes before executing, don't unilaterally pick
+the more destructive one. Noted as a stance-correction for future
+iterations.
+
+### Slice-4.0 · whispered ensō · branches trace the shape (site commit `2cbf463`)
+
+**What Rika saw:** the ensō stroke was reading as a bold outline; she
+wanted the shape *felt* more than *seen*, with the sakura branches
+themselves tracing the circle.
+
+**What we changed:** ensō main stroke opacity 0.55 → 0.20, width 2.6 →
+1.0. Extended left branch path to trace the full left arc; extended
+right counter-branch to trace the right arc. Both branch stroke widths
+lightened correspondingly.
+
+**Working principle proved:** in wreath compositions, the wreath IS the
+container's shape — the container stroke can whisper because the wreath
+does the shape-making work. Portable to other sumi-e-register scenes.
+
+### Slice-4.1 · MotifArchiveGate → Workbench + Body-Spine (site commit `22cc26c`)
+
+**What Rika saw:** the arch retired from Volume I in 3.9b needed a home
+that fit its register (an archway = a threshold between practices).
+
+**What we changed:** added `MotifArchiveGate` at size 340 to the bottom
+of Workbench + Body-Spine index pages. Reads as: the arch that closes
+each practice tab.
+
+**Working principle proved:** motifs that are retired from one route
+don't need to be deleted — they can be re-homed on a route where their
+register naturally fits. Keeps the design system's grammar without
+proliferating unused components.
+
+### Slice-4.2 · paintbrush restored at discreet size (site commit `0baf1d5`)
+
+**What Rika saw:** after slice-3.5's kanso rewrite retired the
+paintbrush, the composition lost its *being-painted* register — the
+maker's presence in the drawing.
+
+**What we changed:** restored the paintbrush at ~60% of the earlier
+iteration's size (handle 46→30, tip 6→3.5). Placed at the ensō 1
+o'clock start where the brush would be lifting off.
+
+**Working principle proved:** the "made by a hand" register is worth
+holding at scene scale, but only at discreet size. A larger brush would
+compete for attention with the composition it's supposedly *making*.
+
+### Slice-4.3 · ensō opening moved bottom (site commit `0769bcc`)
+
+**What Rika saw:** the 1 o'clock opening was where "the light lands
+here" text should sit. Metaphorically, the light lands *inside* the
+ensō, so the opening should be at the base where the light meets the
+seal.
+
+**What we changed:** rotated the ensō path so it starts at (280, 428)
+at ~7 o'clock and ends at (540, 425) at ~5 o'clock — opening at 6
+o'clock (bottom) around the port ring. Paintbrush + dry-brush tail
+moved to the (540, 425) bottom-right endpoint.
+
+*Working principle proved:* the ensō opening carries meaning — its
+position should be chosen to point at what the composition is about,
+not defaulted to the traditional 1 o'clock.
+
+### Slice-4.4 + 4.5 · asymmetric handcrafted opening + kanso reduction (site commit `1ffd31a`)
+
+**What Rika saw:** the 6 o'clock opening was too symmetric — it read as
+"the maker centred the opening at the meaningful spot," which is more
+computed than handcrafted. She wanted "the little opening portion is
+around 11:30 to 2:30/3pm to capture the slight asymmetrical handcrafted
+nature of the ensō's orientation."
+
+**What we changed:** ensō opening rotated to 11:30-3pm. Path traces ~2/3
+of the circle CCW; opening spans ~1/3 at the top-right — the
+asymmetric handcrafted feel of a real sumi-e ensō. Also aggressive
+kanso reduction: retired the right wreath branch entirely (kanso — one
+elegant left composition is enough), retired the scatter-flowers group
+(10 flat flower-heads + 4 loose dots that filled the interior), retired
+the added coral highlight rect behind text.
+
+*Working principle proved:* asymmetric openings read as *handcrafted*
+(fukinsei); centred openings read as *computed*. Also: when you find
+yourself adding decorative highlights or filling empty space with
+scatter dots, that's a signal to retire clutter, not add more.
+
+### Slice-4.6 · branch extended to 1 o'clock · thicker brush strokes (site commit `b83af41`)
+
+**What Rika saw:** the extended branch could reach further up to cover
+the 11:30 → 1 o'clock area, with the branch stroke itself feeling more
+brushed and the composition denser with natural botanicals not
+decorative dots.
+
+**What we changed:** branch path extended from (148, 108) prepended
+segment reaching up to (620, 90) at ~1 o'clock. Ensō + branch stroke
+widths bumped for wet-ink illusion. Two new clusters + gold companion
+in the extended top section. Stamens per primary blossom restored 3→5
+(had reduced to 3 in slice-4.5's kanso pass).
+
+*Working principle proved:* "density" and "clutter" are not synonyms.
+Density from natural botanicals along a branch is *organic*; density
+from scattered decorative dots is *clutter*. Reduce the latter to
+amplify the former.
+
+### Slice-4.7 · dial extended top down + amplify top florals (site commit `d7bac53`)
+
+**What Rika saw:** after 4.6 extended the top branch with thicker
+brush strokes, the top read as too dark/prominent — the branch was
+dominating instead of guiding.
+
+**What we changed:** split the branch into two separate SVG paths so
+each can be dialled independently. Extended top segment (620,90 →
+148,108) dialled to 0.38 opacity + 1.6 width; body segment kept at full
+wet-ink weight (0.68 opacity + 2.2 width). Added three more small
+clusters + four buds along the extended top. Enlarged the earlier top
+clusters. Now the top branch recedes to a whisper while the top-of-
+the-ceiling florals become the visual anchor.
+
+*Working principle proved:* the **split-branch dial pattern** — one
+wreath branch split into two SVG paths (extended segment vs body
+segment) so each can be dialled independently. Promoted to
+DESIGN-SYSTEM.md.
+
+### Slice-4.8 · pull branch end back + retire horizontal twig (site commit `082ed1f`)
+
+**What Rika saw:** the branch endpoint was ending at (456,412) which
+overlapped with "the light lands here" text at (418,416). Also a
+nearly-horizontal side-twig at (62,340) → (122,336) read as a
+horizontal line / clutter.
+
+**What we changed:** branch shortened to end at (315, 422) — well clear
+of the text zone (30-unit gap on the left). Cluster 4 tip lavender
+relocated to sit at the new endpoint. Nearly-horizontal side-twig
+retired. Kept the two diagonal top-arc twigs for the organic sketch
+feel.
+
+*Working principle proved:* text zones need explicit no-overlap gaps.
+Also: nearly-horizontal or nearly-vertical strokes in an organic sumi-e
+composition read as *ruler lines* — retire them.
+
+### Updated vocabulary (slice-3.9 through 4.8)
+
+- **The 円花 wreath composition** (§38 · shipped 4.0-4.8) — the whole
+  homepage hero pattern: bold hand-brushed ensō with a hanging cascade
+  cherry-blossom branch tracing the perimeter + hanko seal + light-lands
+  port at the base. Named after the keystone kanji. Promoted to
+  DESIGN-SYSTEM.md.
+- **The hanko seal** (§38 · shipped 3.8, refined 4.4) — small
+  poppy-red rounded square (26×30 units) with white 円 (top) + 花
+  (bottom) kanji stacked in Noto Serif JP. Sits at bottom-right as the
+  maker's mark. Portable to any signed surface. Promoted to
+  DESIGN-SYSTEM.md.
+- **The split-branch dial pattern** (§38 · shipped 4.7) — one wreath
+  branch split into two SVG paths so segments can be dialled
+  independently (extended segment low-opacity + body segment full
+  wet-ink weight). Promoted to DESIGN-SYSTEM.md.
+- **The wet-ink illusion** (§38 · shipped 4.6) — two-layer stroke
+  rendering: main `var(--ink-soft)` at higher width + darker `var(--ink)`
+  inner shadow at ~40% width and ~50% opacity of main. Saturated
+  brushed-ink feel without literal ink texture. Promoted to
+  DESIGN-SYSTEM.md.
+- **The refined discreet fude** (§38 · shipped 4.2) — small bamboo
+  paintbrush at ~60% of naive size, positioned at the ensō stroke-end.
+  Signals *this is being painted* without dominating. Pairs with the
+  dry-brush tail. Promoted to DESIGN-SYSTEM.md.
+- **The seven wabi-sabi principles as named policy** (§38 · shipped
+  4.0-4.8) — fukinsei · kanso · koko · shizen · yugen · datsuzoku ·
+  seijaku each applied to specific compositional choices in the
+  CanopyScene. Documented in the enka-design-language SKILL as the
+  register discipline for sumi-e-register scenes. Promoted to
+  DESIGN-SYSTEM.md.
+
+### Antipatterns named (slice-3.9 through 4.8)
+
+- **The centred opening** (§38 · slice-4.4) — opening the ensō at the
+  centre of the meaningful spot (e.g., dead-centre bottom around the
+  light seal). Reads as *computed*, not handcrafted. Fix: offset the
+  opening ~30° from centre for the asymmetric fukinsei feel.
+- **The overlap with text** (§38 · slice-4.8) — letting a stroke
+  endpoint pass through or near a text zone. Fix: shorten the stroke
+  to end before the text with an explicit gap.
+- **The horizontal / vertical decorative twig** (§38 · slice-4.8) — a
+  nearly-horizontal or nearly-vertical stroke in an organic sumi-e
+  composition. Reads as ruler-drawn. Fix: retire it or angle it clearly
+  diagonal.
+- **The "add scatter to fill" instinct** (§38 · slice-4.4) — when a
+  composition feels empty, adding small decorative dots or flowers to
+  fill it. Fix: usually the composition doesn't need filling; empty
+  space is register-carrying (kanso · seijaku).
+- **The unilateral OR-choice** (§38 · slice-3.9) — when a brief offers
+  a choice ("move OR remove"), unilaterally picking the more
+  destructive option. Fix: preview both routes with the human before
+  executing.
+
+### Notes-vs-System boundary (updated)
+
+Promoted to DESIGN-SYSTEM.md this pass — each has been proved on the
+shipped hero:
+- The 円花 wreath composition
+- The hanko seal
+- The split-branch dial pattern
+- The wet-ink illusion
+- The refined discreet fude
+- The seven wabi-sabi principles as named register discipline
+Nothing else on the promotion candidate list right now — attribution
+economy still watched for one more cycle.

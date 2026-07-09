@@ -346,6 +346,54 @@ language, use the names:
   before "How it is made" (h2), before the quiet-familiars register
   (Shibi · Seika · Botan · Kotori · Kojika · Usami), before "Kanopi
   is a canopy" prose, before "Colophon proper" (h2).
+- **The 円花 wreath composition** (Set 3 · slices 3.8-4.8 · shipped
+  homepage hero) — the CanopyScene consolidated shape: bold
+  hand-brushed ensō with opening at 1:30-3pm (asymmetric handcrafted)
+  + cascade cherry-blossom branch tracing the perimeter + hanko seal at
+  bottom-right + discreet paintbrush at stroke-end + Isson magpie
+  perched near the end + light beam falling to poppy port + "the light
+  lands here" seal at the base. Named after the keystone kanji (円
+  circle + 花 flower). The full site now radiates from this single
+  composition — homepage hero rendered by `src/components/CanopyScene`.
+- **The hanko seal** (Set 3 · slice-3.8 · refined 4.4) — small
+  poppy-red rounded square (~26×30 units) with white 円 (top) + 花
+  (bottom) kanji stacked vertically in Noto Serif JP. Sits at the
+  bottom-right of a scene as the maker's-mark register. The 円花
+  keystone made literal. Portable to any signed surface where a small
+  poppy seal is on-register.
+- **The split-branch dial pattern** (Set 3 · slice-4.7) — one wreath
+  branch split into two SVG `<path>` elements (extended segment +
+  body segment) so each can be dialled independently. Used in
+  `CanopyScene` where the extended top branch runs at low opacity
+  behind the top-of-the-ceiling florals while the body branch keeps
+  full wet-ink weight. Portable to any sumi-e-register scene where a
+  branch or stroke needs foreground/background variance without
+  separating into two conceptual paths.
+- **The wet-ink illusion** (Set 3 · slice-4.6) — two-layer stroke
+  rendering pattern: main `var(--ink-soft)` at higher width + darker
+  `var(--ink)` inner shadow at ~40% of main width and ~50% of main
+  opacity. Produces saturated brushed-ink feel without literal ink
+  texture. Applies to ensō, cherry-blossom branches, side-twigs — any
+  sumi-e stroke that should carry brush-weight.
+- **The refined discreet fude** (Set 3 · slice-4.2 · refined 4.3-4.6)
+  — small bamboo paintbrush at ~60% of naive size (handle 30×2.6,
+  ferrule 2×3.1, brush tip 3.5×1.05), positioned at the ensō
+  stroke-end via `transform="translate(x y) rotate(-42)"`. Wet ink
+  dot at the contact point. Signals *this is being painted* without
+  dominating the composition. Pairs with the dry-brush tail trailing
+  away from contact.
+- **The seven wabi-sabi principles** (Set 3 · consolidated 4.0-4.8) —
+  named register discipline for sumi-e-register scenes:
+  · **fukinsei** (asymmetry — offset openings ~30° from centre)
+  · **kanso** (simplicity — retire decorative fill, empty space is
+    register-carrying)
+  · **koko** (weathered — dry-brush hairlines, layered opacities)
+  · **shizen** (natural — organic curves, no ruler lines)
+  · **yugen** (subtle grace — paradox smiles hidden on close look)
+  · **datsuzoku** (freedom — break strict convention with canonical
+    pastels + English hand-labels)
+  · **seijaku** (tranquility — no animations on the hero; paper stays
+    still).
 
 ## Tokens (canonical values)
 
