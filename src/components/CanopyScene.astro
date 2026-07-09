@@ -1,13 +1,19 @@
 ---
 /**
- * CanopyScene — the home's single hand-drawn image, refined.
+ * CanopyScene — the home's single hand-drawn image (slice-3 grammar-aligned).
  * One idea (Law 1): light reaches the ground only by passing through what
  * holds it — and where it lands, a flower bed grows in quiet defiance.
- * The canopy overhead stays canopy-deep, but the abstract dapples are now
- * a mixed drift: some soft-green light dapples, some tiny palette petals
- * falling through with the beam. At the port, where the light lands, a
- * small bed of blooms — lavender bud, coral rose (the maker's mark), yellow
- * bud — grows from the ground line.
+ * Slice-3 rework (2026-07-09):
+ *   · All outlines use --ink-soft (shared shipped family — SceneShapeAndCrack
+ *     / SceneHandsBegin) rather than --canopy-deep, so the canopy reads as
+ *     hand-brushed hairline, not painted branches.
+ *   · Fills are canonical pastels only — no stray palette. One poppy press
+ *     lands at the "light lands here" target ring (the seal).
+ *   · The canopy is now a WOVEN canvas: two embroidery needles pierce the
+ *     canopy from left and right (SceneWeaveSeam grammar), threading the
+ *     arches with a --canopy thread that crosses over-and-under at the
+ *     three arch-crossing points overhead. Reads as: the container beneath
+ *     the craft, made visible — the canopy is not painted, it is stitched.
  * Motion is CSS-only and gated on prefers-reduced-motion.
  */
 ---
@@ -21,6 +27,38 @@
       <path d="M250 150 C 316 104, 404 108, 452 156" />
       <path d="M430 150 C 500 104, 596 108, 648 154" />
       <path d="M582 156 C 640 116, 716 118, 760 156" />
+    </g>
+
+    {/* Slice-3 · the canopy is WOVEN — SceneWeaveSeam grammar baked into
+        the overhead register. Two embroidery needles pierce the canopy
+        from left and right (mirrored); each carries a canopy-coloured
+        thread that trails off-frame. Where the four canopy arches cross,
+        a subtle over-and-under thread signature marks the woven cloth —
+        the canopy is not painted, it is stitched. */}
+    <g class="canopy-weave" aria-hidden="true">
+      {/* over-under thread signature at each of the four canopy-arch intersections */}
+      <path d="M 148 140 C 156 137, 164 137, 172 140" stroke="var(--canopy)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.68"/>
+      <path d="M 300 140 C 308 143, 316 143, 324 140" stroke="var(--canopy)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.68"/>
+      <path d="M 480 140 C 488 137, 496 137, 504 140" stroke="var(--canopy)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.68"/>
+      <path d="M 620 140 C 628 143, 636 143, 644 140" stroke="var(--canopy)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.68"/>
+
+      {/* LEFT embroidery needle · piercing the canopy · thread trailing off-frame */}
+      <g transform="translate(60 130) rotate(-18)">
+        <path d="M -4 0 C -20 -6, -38 4, -58 -4 C -76 -12, -94 0, -110 -8"
+          stroke="var(--canopy)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <ellipse cx="0" cy="0" rx="3.4" ry="1.6" fill="none" stroke="var(--ink-soft)" stroke-width="0.65" opacity="0.82"/>
+        <line x1="3" y1="0" x2="72" y2="0" stroke="var(--ink-soft)" stroke-width="1.2" stroke-linecap="round" opacity="0.82"/>
+        <path d="M 72 -0.5 L 82 0 L 72 0.5 Z" fill="var(--ink-soft)" opacity="0.78"/>
+      </g>
+
+      {/* RIGHT embroidery needle · mirrored · same thread trailing */}
+      <g transform="translate(760 130) rotate(198)">
+        <path d="M -4 0 C -20 -6, -38 4, -58 -4 C -76 -12, -94 0, -110 -8"
+          stroke="var(--canopy)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <ellipse cx="0" cy="0" rx="3.4" ry="1.6" fill="none" stroke="var(--ink-soft)" stroke-width="0.65" opacity="0.82"/>
+        <line x1="3" y1="0" x2="72" y2="0" stroke="var(--ink-soft)" stroke-width="1.2" stroke-linecap="round" opacity="0.82"/>
+        <path d="M 72 -0.5 L 82 0 L 72 0.5 Z" fill="var(--ink-soft)" opacity="0.78"/>
+      </g>
     </g>
 
     <g class="leaves">
@@ -47,13 +85,13 @@
         hanging from the canopy edges (patient, seed-bed grammar), tucked at
         whisper opacity. The soul side of the paradox. */}
     <g class="isson-sprigs" aria-hidden="true">
-      <path d="M 178 138 C 176 148, 172 156, 168 162" stroke="var(--canopy-deep)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
-      <path d="M 168 162 C 166 160, 163 160, 161 162" stroke="var(--canopy-deep)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <path d="M 178 138 C 176 148, 172 156, 168 162" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M 168 162 C 166 160, 163 160, 161 162" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.35"/>
       <ellipse cx="168" cy="164" rx="1.4" ry="1.9" fill="#aeb896" opacity="0.45"/>
-      <path d="M 388 132 C 386 142, 383 150, 380 156" stroke="var(--canopy-deep)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M 388 132 C 386 142, 383 150, 380 156" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
       <ellipse cx="380" cy="158" rx="1.2" ry="1.7" fill="#aeb896" opacity="0.45"/>
       <ellipse cx="378" cy="155" rx="0.9" ry="1.2" fill="#aeb896" opacity="0.35"/>
-      <path d="M 596 138 C 598 148, 601 156, 604 162" stroke="var(--canopy-deep)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M 596 138 C 598 148, 601 156, 604 162" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
       <ellipse cx="604" cy="164" rx="1.4" ry="1.9" fill="#aeb896" opacity="0.45"/>
     </g>
 
@@ -111,9 +149,10 @@
     <g class="ground">
       <path class="ink block" d="M120 392 C 320 380, 520 380, 700 392" />
 
-      <path d="M378 388 Q 376 372, 378 356" stroke="#4f5b3f" stroke-width="1" fill="none" opacity="0.65" stroke-linecap="round"/>
-      <path d="M412 386 Q 412 366, 412 348" stroke="#4f5b3f" stroke-width="1.1" fill="none" opacity="0.7" stroke-linecap="round"/>
-      <path d="M446 388 Q 448 372, 446 356" stroke="#4f5b3f" stroke-width="1" fill="none" opacity="0.65" stroke-linecap="round"/>
+      {/* Slice-3 · stems now use --ink-soft hairline (shared shipped grammar) */}
+      <path d="M378 388 Q 376 372, 378 356" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72" stroke-linecap="round"/>
+      <path d="M412 386 Q 412 366, 412 348" stroke="var(--ink-soft)" stroke-width="0.95" fill="none" opacity="0.76" stroke-linecap="round"/>
+      <path d="M446 388 Q 448 372, 446 356" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72" stroke-linecap="round"/>
 
       {/* Slice-2.5 · Murakami paradox smile marks on each ground bloom —
           hairline closed-eye smile with two tiny eye dots, matching the panel
@@ -192,7 +231,9 @@
 <style>
   .scene { margin: 0; }
   .scene svg { width: 100%; height: auto; }
-  .canopy-strokes path { stroke: var(--canopy-deep); }
+  /* Slice-3 · align to shipped family (SceneShapeAndCrack / SceneHandsBegin):
+     all outlines use --ink-soft. Canopy reads hand-brushed, not painted. */
+  .canopy-strokes path { stroke: var(--ink-soft); stroke-width: 1.1; }
   .dapples .light { fill: var(--canopy-soft); stroke: var(--canopy); opacity: 0.5; }
   .beam { opacity: 0.7; }
   /* Slice-2.7 · panel-style header + kernel voice + woven-thread type. */

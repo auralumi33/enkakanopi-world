@@ -1,0 +1,67 @@
+---
+/**
+ * MotifOpeningEnso — Set 3 slice-3 · 2026-07-09
+ * Memoria mark for unlearning + openness. The same hand-brushed ensō as
+ * `MotifEnkaEnso`, but with a wider opening at 1 o'clock and a small seed
+ * escaping through — the container that lets in, that lets go. A dashed
+ * hairline traces the seed's passage from inside to outside. One
+ * poppy-soft press inside (what stays), one skin-toned press outside
+ * (what leaves — becomes something else). Sibling to `MotifEnkaEnso`
+ * (which holds closed) — this one holds open.
+ *
+ * Grammar (shared shipped family): all outlines --ink-soft at hairline
+ * widths · fills only from canonical palette · subtle hand-wobble · one
+ * poppy-soft accent per composition.
+ *
+ * Props: size (default 130) — the rendered width in px.
+ */
+export interface Props {
+  size?: number;
+}
+const { size = 130 } = Astro.props as Props;
+---
+<figure class="motif motif--opening-enso" aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 200 200" role="img" aria-labelledby="opening-t" preserveAspectRatio="xMidYMid meet">
+    <title id="opening-t">A hand-brushed ensō with a wider opening at 1 o'clock · a small seed escapes through the gap along a dashed hairline · unlearning + openness.</title>
+
+    {/* — the ensō · brushed hairline · with wider opening at 1 o'clock — */}
+    {/* the main circle traces roughly 8 o'clock → 12 → 1 → 3 → 6 → 8, leaving a wider gap between 1 and 3 */}
+    <path d="M 60 62 C 34 88, 34 130, 56 156 C 82 184, 132 184, 158 158 C 174 140, 176 118, 168 100"
+      stroke="var(--ink-soft)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.72"/>
+    {/* the subtler brush echo — a shadow beside the main stroke */}
+    <path d="M 60 62 C 34 88, 34 130, 56 156 C 82 184, 132 184, 158 158 C 174 140, 176 118, 168 100"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+    {/* — the wider opening at 1 o'clock · marked by a soft interior wash — */}
+    {/* faint wash inside · lavender at very low opacity · says "container" without shouting */}
+    <ellipse cx="100" cy="112" rx="46" ry="46" fill="#b899c9" opacity="0.06"/>
+
+    {/* — inside · one poppy-soft press · what stays — */}
+    <circle cx="88" cy="122" r="1.6" fill="var(--poppy-soft)" opacity="0.88"/>
+
+    {/* — the passage · dashed hairline from inside → out through the opening — */}
+    <path d="M 88 122 C 106 108, 128 92, 150 78"
+      stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round"
+      stroke-dasharray="2 3" opacity="0.68"/>
+
+    {/* — the escaping seed · a small skin-toned mark just outside the opening — */}
+    <g transform="translate(158 72)">
+      <ellipse cx="0" cy="0" rx="3.4" ry="2.2" transform="rotate(-18 0 0)" fill="#f2e0d0" opacity="0.85"
+        stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+      {/* a tiny sprout mark at the tip — the seed is already becoming */}
+      <path d="M 3 -1 C 6 -3, 9 -2, 10 0" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.65"/>
+    </g>
+
+    {/* — hairline wobble at 3 o'clock · gives the ensō its hand-drawn breath — */}
+    <path d="M 168 100 C 172 106, 174 112, 172 118"
+      stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+    {/* — the caption · Rika's shipped voice register — */}
+    <text class="opening-caption" x="100" y="192" text-anchor="middle" font-size="8" fill="var(--ink-faint)" font-style="italic" opacity="0.72">the container is not sealed</text>
+  </svg>
+</figure>
+<style>
+  .motif--opening-enso { margin: 0; display: flex; justify-content: center; opacity: 0.94; }
+  .motif--opening-enso :global(svg) { max-width: 100%; height: auto; display: block; }
+  .motif--opening-enso :global(text.opening-caption) { font-family: var(--hand); }
+</style>

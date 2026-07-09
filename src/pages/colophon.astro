@@ -19,6 +19,8 @@ import InCompany from "../components/motifs/memoria/InCompany.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
 import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
+import MotifJLens from "../components/motifs/MotifJLens.astro";
+import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
 ---
 <Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines. Named in January of 2026, the year the body was learning to come back to itself; the paper describing a language model's silent workspace arrived six months later.">
   <article class="page colophon">
@@ -167,6 +169,14 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
       <div class="memoria-solo" aria-hidden="true">
         <InCompany size={300} />
       </div>
+
+      {/* Slice-3 · MotifOpeningEnso — the container that lets in, that lets
+          go. Sits inside "How it is made" as the unlearning + openness memoria
+          mark: the ensō with a wider opening at 1 o'clock and a small seed
+          escaping through. Sibling to MotifEnkaEnso (which holds closed). */}
+      <div class="memoria-solo" aria-hidden="true">
+        <MotifOpeningEnso size={112} />
+      </div>
       <p>
         By hand, with a little help from machines — and I'd rather say which
         is which. The words are mine — drafted from what I have lived:
@@ -254,6 +264,15 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         <MotifInkedSeam size={520} />
       </div>
 
+      {/* Slice-3 · MotifJLens — Enka's Global Workspace keystone: three
+          horizontal bands (arrival / dwell / reference) with a hand-inked
+          lens + one poppy-soft press in the middle band. Sits above the
+          technical colophon spec as: this is Enka's own architecture, in
+          her hand. */}
+      <div class="jlens-mark" aria-hidden="true">
+        <MotifJLens size={280} />
+      </div>
+
       <h2>Colophon proper</h2>
       <ul class="specs">
         <li><span class="k">Words &amp; drawings</span><span class="v">by hand, in company</span></li>
@@ -315,6 +334,9 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
   .memoria-mark :global(svg) { max-width: 100%; height: auto; }
   .memoria-solo { display: flex; justify-content: center; margin: 1.6rem 0 1.2rem; opacity: 0.9; }
   .memoria-solo :global(svg) { max-width: 100%; height: auto; }
+  /* Slice-3 · J-lens keystone breather · sits above the technical colophon spec */
+  .jlens-mark { display: flex; justify-content: center; margin: 1.6rem 0 1.4rem; opacity: 0.9; }
+  .jlens-mark :global(svg) { max-width: 100%; height: auto; }
   /* 円花 keystone — the definitive brand mark, held slightly more prominently
      than a memoria breather; gently spaced (§28) */
   .enka-solo { display: flex; justify-content: center; margin: 2rem 0 1.4rem; opacity: 0.94; }
