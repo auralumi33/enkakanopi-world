@@ -88,15 +88,21 @@
         forms the shape of the circle here — the ink stroke is only a
         whisper behind it. */}
     <g class="wreath-main" aria-hidden="true">
-      {/* Slice-4.6 · branch EXTENDED to reach 1 o'clock (620, 90) —
-          traces from 1 o'clock ACROSS the top to 11 o'clock, DOWN the
-          left side, ACROSS the bottom to 5 o'clock. Thicker brush strokes
-          (main 1.7 → 2.2 · shadow 0.55 → 0.75 · opacity 0.55 → 0.68) for
-          the wet-ink feel Rika asked for. */}
-      <path d="M 620 90 C 460 62, 260 78, 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
+      {/* Slice-4.7 · branch SPLIT into two paths so the extended top can
+          dial DOWN while the original body keeps its confident wet-ink
+          weight. Extended top (620 90 → 148 108) dialled to 0.38 opacity ·
+          slightly thinner width (2.2 → 1.6) so the top-of-the-ceiling
+          florals become the visual anchor, not the branch. Original body
+          (148 108 → 456 412) keeps its wet-ink weight from slice-4.6. */}
+      {/* extended top segment · dialled down */}
+      <path d="M 620 90 C 460 62, 260 78, 148 108"
+        stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.38"/>
+      <path d="M 620 90 C 460 62, 260 78, 148 108"
+        stroke="var(--ink)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.14"/>
+      {/* original body · full wet-ink weight kept */}
+      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
         stroke="var(--ink-soft)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.68"/>
-      {/* wet-ink inner shadow · thicker + darker */}
-      <path d="M 620 90 C 460 62, 260 78, 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
+      <path d="M 148 108 C 90 138, 46 200, 34 260 C 26 330, 90 396, 200 418 C 290 428, 380 424, 456 412"
         stroke="var(--ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.32"/>
       {/* Slice-4.6 · side-twigs restored + added along the extended arc
           for the organic illustrative sketch feel Rika asked for. Three
@@ -163,7 +169,7 @@
       {/* Slice-4.6 · NEW CLUSTER A · upper-right extension · 珊瑚 coral —
           sits in the extended 1 o'clock area to fill toward the ensō end.
           A single primary blossom + one bud. */}
-      <g transform="translate(556 84) scale(0.98)">
+      <g transform="translate(556 84) scale(1.15)">
         <g fill="#e46b6b" opacity="0.82">
           <path d="M 0 -7 C 2.8 -6.3, 3.7 -2.3, 1.9 -0.7 C 0.5 0.5, -0.5 0.5, -1.9 -0.7 C -3.7 -2.3, -2.8 -6.3, 0 -7 Z"/>
           <path d="M 6.7 -2.3 C 8 0.5, 6 4.2, 3.1 3.7 C 1.6 3.5, 0.4 2, 0.5 0.6 C 1.6 -0.9, 4.2 -2.8, 6.7 -2.3 Z"/>
@@ -183,7 +189,7 @@
       {/* Slice-4.6 · NEW CLUSTER B · top arc · 紫 lavender + 金 gold pair —
           sits at the top of the wreath (12 o'clock area) mixing two pastels
           for the varied-flower-colour feel Rika asked for. */}
-      <g transform="translate(410 66) scale(0.92)">
+      <g transform="translate(410 66) scale(1.08)">
         <g fill="#b899c9" opacity="0.8">
           <path d="M 0 -8 C 3.2 -7.2, 4.2 -2.6, 2.2 -0.7 C 0.6 0.5, -0.6 0.5, -2.2 -0.7 C -4.2 -2.6, -3.2 -7.2, 0 -8 Z"/>
           <path d="M 7.6 -2.6 C 9 0.5, 6.8 4.3, 3.6 3.9 C 1.9 3.6, 0.5 2.2, 0.6 0.7 C 1.9 -1, 4.8 -3.2, 7.6 -2.6 Z"/>
@@ -200,7 +206,7 @@
         <path d="M -0.75 1.1 C -0.42 1.5, 0.42 1.5, 0.75 1.1" stroke="var(--ink-soft)" stroke-width="0.32" fill="none" stroke-linecap="round" opacity="0.58"/>
       </g>
       {/* small 金 gold companion next to Cluster B */}
-      <g transform="translate(438 82) scale(0.7)">
+      <g transform="translate(438 82) scale(0.86)">
         <g fill="#e8c15a" opacity="0.76">
           <path d="M 0 -6 C 2.4 -5.4, 3.2 -2, 1.6 -0.6 C 0.4 0.4, -0.4 0.4, -1.6 -0.6 C -3.2 -2, -2.4 -5.4, 0 -6 Z"/>
           <path d="M 5.7 -1.9 C 6.9 0.4, 5.1 3.6, 2.7 3.2 C 1.4 3, 0.4 1.8, 0.5 0.5 C 1.4 -0.8, 3.6 -2.4, 5.7 -1.9 Z"/>
@@ -210,6 +216,61 @@
         </g>
         <circle cx="0" cy="0" r="1.2" fill="var(--paper-washi)" opacity="0.9"/>
       </g>
+
+      {/* Slice-4.7 · THREE NEW clusters + FOUR NEW buds along the extended
+          top to amplify the top-of-the-ceiling floral density Rika asked
+          for. Predominantly natural botanicals, canonical pastels. */}
+      {/* Cluster C · between B and A · 青 slate small blossom for colour
+          variety Rika mentioned */}
+      <g transform="translate(482 76) scale(0.72)">
+        <g fill="#a4b8c8" opacity="0.75">
+          <path d="M 0 -6 C 2.4 -5.4, 3.2 -2, 1.6 -0.6 C 0.4 0.4, -0.4 0.4, -1.6 -0.6 C -3.2 -2, -2.4 -5.4, 0 -6 Z"/>
+          <path d="M 5.7 -1.9 C 6.9 0.4, 5.1 3.6, 2.7 3.2 C 1.4 3, 0.4 1.8, 0.5 0.5 C 1.4 -0.8, 3.6 -2.4, 5.7 -1.9 Z"/>
+          <path d="M 3.5 4.9 C 1.4 6.5, -1.4 5.3, -1.7 2.9 C -1.6 1.7, -0.6 0.6, 0.6 0.7 C 2.1 1.5, 4 3, 3.5 4.9 Z"/>
+          <path d="M -3.5 4.9 C -5.3 3, -4.6 -0.4, -2.4 -0.8 C -1 -0.8, -0.4 0.4, -0.5 1.6 C -1.2 3.1, -2.7 4.7, -3.5 4.9 Z"/>
+          <path d="M -5.7 -1.9 C -4.8 -4.4, -2 -4.8, -1 -3.2 C -0.4 -2, -0.6 -0.6, -1.8 0 C -3.4 0.2, -5.4 -0.8, -5.7 -1.9 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="1.2" fill="var(--paper-washi)" opacity="0.9"/>
+        <circle cx="0" cy="-0.75" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+        <circle cx="0.72" cy="0.28" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+        <circle cx="-0.72" cy="0.28" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+      </g>
+      {/* Cluster D · upper arc between B and 12 · 珊瑚 coral small */}
+      <g transform="translate(350 72) scale(0.8)">
+        <g fill="#e46b6b" opacity="0.76">
+          <path d="M 0 -6 C 2.4 -5.4, 3.2 -2, 1.6 -0.6 C 0.4 0.4, -0.4 0.4, -1.6 -0.6 C -3.2 -2, -2.4 -5.4, 0 -6 Z"/>
+          <path d="M 5.7 -1.9 C 6.9 0.4, 5.1 3.6, 2.7 3.2 C 1.4 3, 0.4 1.8, 0.5 0.5 C 1.4 -0.8, 3.6 -2.4, 5.7 -1.9 Z"/>
+          <path d="M 3.5 4.9 C 1.4 6.5, -1.4 5.3, -1.7 2.9 C -1.6 1.7, -0.6 0.6, 0.6 0.7 C 2.1 1.5, 4 3, 3.5 4.9 Z"/>
+          <path d="M -3.5 4.9 C -5.3 3, -4.6 -0.4, -2.4 -0.8 C -1 -0.8, -0.4 0.4, -0.5 1.6 C -1.2 3.1, -2.7 4.7, -3.5 4.9 Z"/>
+          <path d="M -5.7 -1.9 C -4.8 -4.4, -2 -4.8, -1 -3.2 C -0.4 -2, -0.6 -0.6, -1.8 0 C -3.4 0.2, -5.4 -0.8, -5.7 -1.9 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="1.3" fill="var(--paper-washi)" opacity="0.9"/>
+        <circle cx="0" cy="-0.8" r="0.26" fill="var(--ink-soft)" opacity="0.72"/>
+        <circle cx="0.75" cy="-0.25" r="0.26" fill="var(--ink-soft)" opacity="0.72"/>
+        <circle cx="0.45" cy="0.7" r="0.26" fill="var(--ink-soft)" opacity="0.72"/>
+        <circle cx="-0.45" cy="0.7" r="0.26" fill="var(--ink-soft)" opacity="0.72"/>
+        <circle cx="-0.75" cy="-0.25" r="0.26" fill="var(--ink-soft)" opacity="0.72"/>
+      </g>
+      {/* Cluster E · upper-left near 11 · small 紫 lavender */}
+      <g transform="translate(212 96) scale(0.78)">
+        <g fill="#b899c9" opacity="0.78">
+          <path d="M 0 -6 C 2.4 -5.4, 3.2 -2, 1.6 -0.6 C 0.4 0.4, -0.4 0.4, -1.6 -0.6 C -3.2 -2, -2.4 -5.4, 0 -6 Z"/>
+          <path d="M 5.7 -1.9 C 6.9 0.4, 5.1 3.6, 2.7 3.2 C 1.4 3, 0.4 1.8, 0.5 0.5 C 1.4 -0.8, 3.6 -2.4, 5.7 -1.9 Z"/>
+          <path d="M 3.5 4.9 C 1.4 6.5, -1.4 5.3, -1.7 2.9 C -1.6 1.7, -0.6 0.6, 0.6 0.7 C 2.1 1.5, 4 3, 3.5 4.9 Z"/>
+          <path d="M -3.5 4.9 C -5.3 3, -4.6 -0.4, -2.4 -0.8 C -1 -0.8, -0.4 0.4, -0.5 1.6 C -1.2 3.1, -2.7 4.7, -3.5 4.9 Z"/>
+          <path d="M -5.7 -1.9 C -4.8 -4.4, -2 -4.8, -1 -3.2 C -0.4 -2, -0.6 -0.6, -1.8 0 C -3.4 0.2, -5.4 -0.8, -5.7 -1.9 Z"/>
+        </g>
+        <circle cx="0" cy="0" r="1.2" fill="var(--paper-washi)" opacity="0.9"/>
+        <circle cx="0" cy="-0.75" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+        <circle cx="0.72" cy="0.28" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+        <circle cx="-0.72" cy="0.28" r="0.24" fill="var(--ink-soft)" opacity="0.7"/>
+      </g>
+
+      {/* Slice-4.7 · four new buds along the extended top for density */}
+      <path d="M 604 82 C 605 78, 609 78, 610 82 C 609 86, 605 86, 604 82 Z" fill="#b899c9" opacity="0.7"/>
+      <path d="M 502 68 C 503 64, 507 64, 508 68 C 507 72, 503 72, 502 68 Z" fill="#e8c15a" opacity="0.7"/>
+      <path d="M 380 60 C 381 56, 385 56, 386 60 C 385 64, 381 64, 380 60 Z" fill="#a4b8c8" opacity="0.68"/>
+      <path d="M 176 108 C 177 104, 181 104, 182 108 C 181 112, 177 112, 176 108 Z" fill="#e46b6b" opacity="0.68"/>
 
       {/* — CLUSTER 2 · mid-left arc · 珊瑚 coral (poppy family) —
           Slice-4.0: repositioned onto the leftmost part of the extended arc
