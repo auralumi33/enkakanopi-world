@@ -8,9 +8,10 @@ import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
 import GardenMedallion from "../components/GardenMedallion.astro";
 import MotifShelteredBloom from "../components/motifs/MotifShelteredBloom.astro";
 import MotifNurseryPot from "../components/motifs/MotifNurseryPot.astro";
-import MotifCanopyRound from "../components/motifs/MotifCanopyRound.astro";
 import MotifThreeArches from "../components/motifs/MotifThreeArches.astro";
 import MotifThreePots from "../components/motifs/MotifThreePots.astro";
+import MotifInkedSeam from "../components/motifs/MotifInkedSeam.astro";
+// MotifCanopyRound retired 2026-07-09 (slice-2.8) — scene-foot blob dropped as clutter.
 import Greenhouse from "../components/motifs/memoria/Greenhouse.astro";
 import BenchTending from "../components/motifs/memoria/BenchTending.astro";
 import PlaceNotFunnel from "../components/motifs/memoria/PlaceNotFunnel.astro";
@@ -217,6 +218,15 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         <DiaTendingQuiet />
       </Figure>
 
+      {/* Slice-2.8 (2026-07-09): MotifInkedSeam reinstated as a hairline
+          section divider between two prose blocks. Reads as a hand-drawn
+          hairline break — quieter than an h2 rule, more anchored than a
+          bare gap. Bracketed by the four canonical pastel dots so it echoes
+          the panel palette. */}
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
+
       <p>
         The name came before the thesis. <em>Kanopi</em> is a canopy — the
         thing that holds without fixing. Shelter, not a frame. A container,
@@ -238,6 +248,12 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         unfinished, on purpose. Provenance: the garden · summer 07/ 2026 ·
       </p>
 
+      {/* Slice-2.8: second MotifInkedSeam divider — separates the essay
+          prose above from the technical colophon-proper spec below. */}
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
+
       <h2>Colophon proper</h2>
       <ul class="specs">
         <li><span class="k">Words &amp; drawings</span><span class="v">by hand, in company</span></li>
@@ -256,9 +272,9 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
       </p>
       <!-- hello@enkakanopi.world wired via Email Routing 2026-07-05 (rule active; delivery pending Rika's destination-verification click). -->
 
-      <div class="scene-foot" aria-hidden="true">
-        <MotifCanopyRound size={124} />
-      </div>
+      {/* Slice-2.8 (2026-07-09): scene-foot MotifCanopyRound blob retired
+          per Rika — read as clutter at the page close after the byline
+          seal already signs off the piece. */}
     </div>
   </article>
 </Base>
@@ -315,6 +331,5 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
   .byline .name { color: var(--ink); }
   .byline .alt-name { color: var(--ink-faint); font-size: 0.88em; margin-left: 0.15rem; }
   .mail { font-size: 0.98rem; }
-  .scene-foot { display: flex; justify-content: center; margin-top: 2.5rem; opacity: 0.94; }
   @media (max-width: 32rem) { .specs li { grid-template-columns: 1fr; gap: 0.1rem; } }
 </style>
