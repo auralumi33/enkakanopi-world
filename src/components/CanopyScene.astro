@@ -44,33 +44,33 @@
     <text class="hero-kanji" x="412" y="24" text-anchor="middle" font-size="18" letter-spacing="0.5" opacity="0.88">円 · canopy</text>
     <text class="hero-sub" x="412" y="44" text-anchor="middle" font-size="12" font-style="italic" opacity="0.6">the container and the light</text>
 
-    {/* — THE ENSŌ · WHISPERED to a brush-light hairline —
-        Slice-4.0: the bold circle stroke (0.55 opacity · 2.6 width)
-        retired per Rika. The sakura branches themselves now trace the
-        ensō shape (see wreath-main / wreath-right below); the ensō ink
-        remains only as a faint guiding whisper (0.20 opacity · 1.0 width)
-        so the shape is felt more than seen. Dry-brush tail at 1 o'clock
-        kept but dialled softer. */}
+    {/* — THE ENSŌ · WHISPERED with OPENING INVERTED to 6 o'clock —
+        Slice-4.3: opening rotated from 1 o'clock (top-right) to 6 o'clock
+        (bottom) per Rika — so the little gap sits where "the light lands
+        here" is, and the whole ensō reads accurately (opening at the base
+        rather than the top). Path now starts at (280 428) at ~7 o'clock,
+        curves CCW up + around + back down, ending at (540 425) at
+        ~5 o'clock. Opening spans ~260 units around the light-lands seal. */}
     <g class="enso-container" aria-hidden="true">
-      <path d="M 700 92 C 540 68, 300 64, 156 106 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+      <path d="M 280 428 C 156 420, 40 340, 24 260 C 24 152, 156 68, 320 62 C 540 62, 700 92, 782 178 C 795 236, 782 322, 700 394 C 660 414, 590 422, 540 425"
         stroke="var(--ink-soft)" stroke-width="1.0" fill="none" stroke-linecap="round" opacity="0.20"/>
-      <path d="M 700 92 C 540 68, 300 64, 156 106 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+      <path d="M 280 428 C 156 420, 40 340, 24 260 C 24 152, 156 68, 320 62 C 540 62, 700 92, 782 178 C 795 236, 782 322, 700 394 C 660 414, 590 422, 540 425"
         stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.15"/>
-      {/* dry-brush tail at 1 o'clock · dialled softer */}
-      <path d="M 712 96 C 720 94, 728 96, 734 100" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.22"/>
-      <path d="M 720 92 C 726 91, 730 91, 734 92" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round" opacity="0.18"/>
-      <path d="M 726 88 C 730 87, 733 87, 736 88" stroke="var(--ink-soft)" stroke-width="0.22" fill="none" stroke-linecap="round" opacity="0.14"/>
+      {/* dry-brush tail near the BOTTOM opening end (5 o'clock) · trails right */}
+      <path d="M 540 425 C 528 428, 516 428, 508 425" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.22"/>
+      <path d="M 528 430 C 522 430, 518 430, 514 430" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round" opacity="0.18"/>
+      <path d="M 516 434 C 520 434, 522 434, 524 434" stroke="var(--ink-soft)" stroke-width="0.22" fill="none" stroke-linecap="round" opacity="0.14"/>
     </g>
 
-    {/* — Slice-4.2 · PAINTBRUSH restored at REFINED DISCREET sizing —
-        Small bamboo Chinese calligraphy brush (fude) with dark ferrule
-        band + tapered brush tip, touching the ensō at the 1 o'clock
-        opening where the brush would be lifting off. Reads as: the
-        composition is BEING PAINTED — the ensō, branches, and blossoms
-        are all coming into being under a hand. Reduced ~60% from the
-        earlier iteration for discretion. */}
+    {/* — Slice-4.3 · PAINTBRUSH moved to the 6 o'clock opening —
+        Small bamboo fude at refined discreet size (slice-4.2), now
+        positioned at the ensō's bottom-right opening end (540, 425)
+        where the brush would be lifting off after completing the stroke.
+        Rotation -42° preserved so the handle rises up-right from the
+        contact point. Reads as: the ensō is being drawn from the bottom,
+        the brush trails off just past the light-lands seal. */}
     <g class="enso-brush" aria-hidden="true">
-      <g transform="translate(712 96) rotate(-42)">
+      <g transform="translate(540 425) rotate(-42)">
         {/* bamboo handle · warm --bamboo · shorter + thinner */}
         <rect x="5" y="-1.3" width="30" height="2.6" rx="1.2" fill="var(--bamboo)" opacity="0.82"
           stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round"/>
@@ -82,7 +82,7 @@
         <path d="M 0 0 C -0.5 -0.15, -0.9 0, -1.3 0.15" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.64"/>
       </g>
       {/* tiny wet ink dot where the brush tip meets the paper */}
-      <circle cx="710" cy="97" r="0.6" fill="var(--ink-soft)" opacity="0.68"/>
+      <circle cx="538" cy="426" r="0.6" fill="var(--ink-soft)" opacity="0.68"/>
     </g>
 
     {/* — 円花 WREATH · MAIN LEFT BRANCH — extended (slice-4.0) to trace
