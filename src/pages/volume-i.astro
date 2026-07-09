@@ -5,7 +5,9 @@ import Glyph from "../components/Glyph.astro";
 import StageTag from "../components/StageTag.astro";
 import MotifPressedNineteen from "../components/motifs/MotifPressedNineteen.astro";
 import MotifEnso from "../components/motifs/MotifEnso.astro";
-import MotifArchiveGate from "../components/motifs/MotifArchiveGate.astro";
+// Slice-3.9b · MotifArchiveGate import retired (arch component swapped for
+// MotifTreeFriend on the Volume I close). Component preserved at
+// src/components/motifs/MotifArchiveGate.astro if needed elsewhere.
 import MotifTreeFriend from "../components/motifs/MotifTreeFriend.astro";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -172,7 +174,7 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
         the founding-collection close: the archive is a tree; the reader is
         at its base, looking up. */}
     <div class="tree-friend" aria-hidden="true">
-      <MotifTreeFriend size={260} />
+      <MotifTreeFriend size={320} />
     </div>
     <p class="close-line">
       The founding collection stays open — each piece is still tended: a living
@@ -180,9 +182,9 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
       <a class="link" href={base + "/lexicon"}>lexicon</a> and the
       <a class="link" href={base + "/colophon"}>colophon</a> hang in this room too.
     </p>
-    <div class="gate" aria-hidden="true">
-      <MotifArchiveGate size={420} />
-    </div>
+    {/* Slice-3.9b · MotifArchiveGate (arch) retired per Rika — the
+        tree-friend above IS the close visual, not the arch. Component
+        file preserved for future re-wiring elsewhere if needed. */}
   </section>
 </Base>
 
@@ -199,11 +201,10 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
   /* the pinned cluster — marks each theme cluster after the first */
   .cluster-pin { display: flex; justify-content: center; margin: 0.4rem 0 0.6rem; opacity: 0.94; }
   /* the archive gate — closes the room */
-  .gate { display: flex; justify-content: center; margin: 2.4rem 0 0; opacity: 0.94; }
+  /* Slice-3.9b · .gate CSS retired alongside MotifArchiveGate removal. */
   /* Slice-3.9 · .tree-friend restored — arrival looking-up motif. */
-  .tree-friend { display: flex; justify-content: center; margin: 0 0 1.4rem; opacity: 0.9; }
+  .tree-friend { display: flex; justify-content: center; margin: 1.2rem 0 1.6rem; opacity: 0.92; }
   .tree-friend :global(svg) { max-width: 100%; height: auto; }
-  .gate :global(svg) { max-width: 100%; height: auto; }
 
   /* ── the wall · clusters · frames ─────────────────────────────
      Stable structure: .wall > .cluster > .frames > .frame — a later
