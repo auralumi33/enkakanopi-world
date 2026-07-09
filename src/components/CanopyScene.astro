@@ -36,11 +36,14 @@
 ---
 <figure class="scene">
   <svg width="820" height="440" viewBox="0 0 820 440" role="img" aria-labelledby="scene-t" preserveAspectRatio="xMidYMid meet">
-    <title id="scene-t">A minimalist ensō container is being drawn by a sumi-e paintbrush at its top and embroidery needles at its edges; inside, a simplified three-arch canopy hangs three delicate sumi-e cherry-blossom sprigs (lavender · coral · gold) with 5-petal sakura clusters and ink stamens; light falls to a small ground-line seal marked "the light lands here".</title>
+    <title id="scene-t">A minimalist ensō container being drawn by a sumi-e paintbrush at its top and embroidery needles at its edges; inside, a simplified three-arch canopy hangs three delicate sumi-e cherry-blossom sprigs (lavender · coral · gold) as detail around the ensō; at the ground the light lands on a small silk-on-washi cloth holding three dainty Isson-hairline tall-stem flowers (lavender · gold · slate bell).</title>
 
     {/* — Panel-style header (kanji + subtitle) at top center — */}
-    <text class="hero-kanji" x="412" y="30" text-anchor="middle" font-size="18" letter-spacing="0.5" opacity="0.88">円 · canopy</text>
-    <text class="hero-sub" x="412" y="52" text-anchor="middle" font-size="12" font-style="italic" opacity="0.6">the container and the light</text>
+    {/* Slice-3.7 · header shifted UP (y 30→24 / 52→44) — pairs with the
+        lowered ensō top curve below to give visible breathability between
+        text block and drawing. */}
+    <text class="hero-kanji" x="412" y="24" text-anchor="middle" font-size="18" letter-spacing="0.5" opacity="0.88">円 · canopy</text>
+    <text class="hero-sub" x="412" y="44" text-anchor="middle" font-size="12" font-style="italic" opacity="0.6">the container and the light</text>
 
     {/* — THE ENSŌ · bold minimalist single-brushstroke circle —
         Slice-3.5: brought UP from whisper (0.20 opacity) to elegant
@@ -48,9 +51,9 @@
         sumi-e stroke Rika's references show. Three tapered dry-brush
         hairlines at the 1 o'clock opening: fukinsei · datsuzoku. */}
     <g class="enso-container" aria-hidden="true">
-      <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+      <path d="M 700 92 C 540 68, 300 64, 156 106 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
         stroke="var(--ink-soft)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.55"/>
-      <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+      <path d="M 700 92 C 540 68, 300 64, 156 106 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
         stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.32"/>
       <path d="M 712 96 C 720 94, 728 96, 734 100" stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.48"/>
       <path d="M 720 92 C 726 91, 730 91, 734 92" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.32"/>
@@ -62,14 +65,14 @@
         tip touching the ensō starting stroke. Reads as: the container
         is being drawn, not just placed. */}
     <g class="enso-brush" aria-hidden="true">
-      <g transform="translate(700 82) rotate(-42)">
+      <g transform="translate(700 92) rotate(-42)">
         <rect x="8" y="-2" width="46" height="4" rx="1.8" fill="var(--bamboo)" opacity="0.85"
           stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
         <rect x="6" y="-2.4" width="3" height="4.8" fill="var(--ink-soft)" opacity="0.55"/>
         <path d="M 6 -1.6 C 3.5 -1.2, 1.2 -0.6, 0 0 C 1.2 0.6, 3.5 1.2, 6 1.6 Z" fill="var(--ink-soft)" opacity="0.78"/>
         <path d="M 0 0 C -0.8 -0.2, -1.4 0, -2 0.2" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.68"/>
       </g>
-      <circle cx="698" cy="83" r="0.9" fill="var(--ink-soft)" opacity="0.72"/>
+      <circle cx="698" cy="93" r="0.9" fill="var(--ink-soft)" opacity="0.72"/>
     </g>
 
     {/* — EMBROIDERY NEEDLES stitching the ensō from L and R —
@@ -281,13 +284,81 @@
     </g>
 
     {/* — GROUND · minimalist ground-line + poppy seal —
-        Slice-3.5: retired the top-down flower plot (it competed with
-        the sumi-e sprigs above and read as clutter). The ensō is the
-        container; the sprigs are what it holds; the seal is where
-        the light lands. Kanso simplicity throughout. */}
+        Slice-3.5: retired the top-down flower plot; slice-3.7 restores
+        a MUCH smaller SceneWeaveSeam-style flower bed around the seal —
+        Isson-contemplative tall-stem hairlines + silk-moiré + kanso
+        restraint. The ensō is the container; the sprigs above are what
+        it holds; the light lands in this small held bed. */}
     <g class="ground">
       <path class="ink block" d="M 120 392 C 320 380, 520 380, 700 392"
         stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.72"/>
+
+      {/* Slice-3.7 · dainty light-lands flower bed — SceneWeaveSeam grammar
+          at 1/4 scale: skin-toned cloth panel (0.28 fill-opacity) with
+          silk-moiré vertical hairlines + 3 Isson-contemplative tall stems
+          growing UP from the cloth base to small canonical-pastel blossoms.
+          Principal-designer restraint: nothing louder than the port seal. */}
+      <g class="light-lands-bed" aria-hidden="true">
+        {/* the cloth panel — small skin-toned rounded rect around the seal */}
+        <rect x="354" y="374" width="116" height="30" rx="3" ry="3"
+          fill="#f2e0d0" fill-opacity="0.28"
+          stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round" opacity="0.55"/>
+        {/* silk-moiré vertical hairlines · 6 whispers */}
+        <g stroke="var(--ink-soft)" stroke-width="0.22" opacity="0.28" stroke-linecap="round">
+          <line x1="368" y1="378" x2="368" y2="400"/>
+          <line x1="384" y1="378" x2="384" y2="400"/>
+          <line x1="400" y1="378" x2="400" y2="400"/>
+          <line x1="424" y1="378" x2="424" y2="400"/>
+          <line x1="440" y1="378" x2="440" y2="400"/>
+          <line x1="456" y1="378" x2="456" y2="400"/>
+        </g>
+
+        {/* Left flower · 紫 lavender · Isson-hairline tall stem */}
+        <g class="lands-flower">
+          <path d="M 376 402 C 376 396, 376 384, 378 372" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+          {/* small leaf hint */}
+          <ellipse cx="381" cy="386" rx="2.6" ry="1" transform="rotate(30 381 386)" fill="var(--canopy-soft)" opacity="0.5"/>
+          {/* small 5-petal lavender bloom at tip */}
+          <g transform="translate(378 370)">
+            <g fill="#b899c9" opacity="0.7">
+              <path d="M 0 -2.6 C 1 -2.3, 1.4 -0.9, 0.7 -0.3 C 0.2 0.2, -0.2 0.2, -0.7 -0.3 C -1.4 -0.9, -1 -2.3, 0 -2.6 Z"/>
+              <path d="M 2.5 -0.85 C 3 0.2, 2.2 1.5, 1.2 1.3 C 0.6 1.3, 0.2 0.7, 0.25 0.2 C 0.6 -0.4, 1.6 -1, 2.5 -0.85 Z"/>
+              <path d="M 1.5 2.1 C 0.6 2.8, -0.6 2.3, -0.75 1.2 C -0.7 0.7, -0.3 0.3, 0.3 0.35 C 0.9 0.7, 1.7 1.3, 1.5 2.1 Z"/>
+              <path d="M -1.5 2.1 C -2.3 1.3, -2 -0.2, -1 -0.35 C -0.4 -0.35, -0.2 0.2, -0.25 0.7 C -0.5 1.3, -1.2 2, -1.5 2.1 Z"/>
+              <path d="M -2.5 -0.85 C -2.1 -1.9, -0.8 -2.1, -0.4 -1.4 C -0.2 -0.9, -0.3 -0.3, -0.8 0 C -1.5 0.1, -2.4 -0.35, -2.5 -0.85 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="0.55" fill="var(--paper-washi)" opacity="0.9"/>
+          </g>
+        </g>
+
+        {/* Middle-right flower · 金 gold · slightly taller · offset from port ring */}
+        <g class="lands-flower">
+          <path d="M 434 402 C 434 396, 434 380, 436 368" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+          <ellipse cx="431" cy="384" rx="2.6" ry="1" transform="rotate(-28 431 384)" fill="var(--canopy-soft)" opacity="0.5"/>
+          <g transform="translate(436 366)">
+            <g fill="#e8c15a" opacity="0.72">
+              <path d="M 0 -2.6 C 1 -2.3, 1.4 -0.9, 0.7 -0.3 C 0.2 0.2, -0.2 0.2, -0.7 -0.3 C -1.4 -0.9, -1 -2.3, 0 -2.6 Z"/>
+              <path d="M 2.5 -0.85 C 3 0.2, 2.2 1.5, 1.2 1.3 C 0.6 1.3, 0.2 0.7, 0.25 0.2 C 0.6 -0.4, 1.6 -1, 2.5 -0.85 Z"/>
+              <path d="M 1.5 2.1 C 0.6 2.8, -0.6 2.3, -0.75 1.2 C -0.7 0.7, -0.3 0.3, 0.3 0.35 C 0.9 0.7, 1.7 1.3, 1.5 2.1 Z"/>
+              <path d="M -1.5 2.1 C -2.3 1.3, -2 -0.2, -1 -0.35 C -0.4 -0.35, -0.2 0.2, -0.25 0.7 C -0.5 1.3, -1.2 2, -1.5 2.1 Z"/>
+              <path d="M -2.5 -0.85 C -2.1 -1.9, -0.8 -2.1, -0.4 -1.4 C -0.2 -0.9, -0.3 -0.3, -0.8 0 C -1.5 0.1, -2.4 -0.35, -2.5 -0.85 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="0.55" fill="var(--paper-washi)" opacity="0.9"/>
+          </g>
+        </g>
+
+        {/* Right flower · 青 slate bell · small hanging bell-shape */}
+        <g class="lands-flower">
+          <path d="M 454 402 C 454 394, 454 384, 452 374" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.68"/>
+          <ellipse cx="450" cy="386" rx="2.4" ry="0.9" transform="rotate(28 450 386)" fill="var(--canopy-soft)" opacity="0.5"/>
+          {/* bell-shape · slate */}
+          <g transform="translate(452 372)">
+            <path d="M -2 0 C -2.2 1.8, -0.8 2.6, 0 2.6 C 0.8 2.6, 2.2 1.8, 2 0 C 1.4 -0.6, -1.4 -0.6, -2 0 Z" fill="#a4b8c8" opacity="0.72" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round"/>
+            <circle cx="0" cy="0.4" r="0.4" fill="var(--paper-washi)" opacity="0.85"/>
+          </g>
+        </g>
+      </g>
+
       <circle class="port-ring" cx="412" cy="392" r="9" />
       <circle class="port-fill" cx="412" cy="392" r="3.4" />
     </g>
