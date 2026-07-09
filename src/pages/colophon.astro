@@ -7,15 +7,10 @@ import DiaGardenPlot from "../components/diagrams/DiaGardenPlot.astro";
 import DiaTendingQuiet from "../components/diagrams/DiaTendingQuiet.astro";
 import GardenMedallion from "../components/GardenMedallion.astro";
 import MotifShelteredBloom from "../components/motifs/MotifShelteredBloom.astro";
-import MotifEnso from "../components/motifs/MotifEnso.astro";
 import MotifNurseryPot from "../components/motifs/MotifNurseryPot.astro";
 import MotifCanopyRound from "../components/motifs/MotifCanopyRound.astro";
-import MotifSeasonalRound from "../components/motifs/MotifSeasonalRound.astro";
-import MotifNestedRounds from "../components/motifs/MotifNestedRounds.astro";
 import MotifThreeArches from "../components/motifs/MotifThreeArches.astro";
 import MotifThreePots from "../components/motifs/MotifThreePots.astro";
-import MotifDappledFloor from "../components/motifs/MotifDappledFloor.astro";
-import MotifInkedSeam from "../components/motifs/MotifInkedSeam.astro";
 import Greenhouse from "../components/motifs/memoria/Greenhouse.astro";
 import BenchTending from "../components/motifs/memoria/BenchTending.astro";
 import PlaceNotFunnel from "../components/motifs/memoria/PlaceNotFunnel.astro";
@@ -91,6 +86,15 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         <DiaGardenPlot />
       </Figure>
 
+      {/* Slice-2.6 (2026-07-09): Row 1 (What holds the garden) moved UP to
+          sit above "The name holds" — the panels give the four grounds
+          before the words unfold what grows on them. Storytelling arc:
+          visual overture → verbal deepening. The three disparate breather
+          motifs that used to sit between the two (MotifEnso ·
+          MotifSeasonalRound · MotifDappledFloor) retired here — the panels
+          carry the ensō + canopy + garden-plot registers already. */}
+      <ColophonBotanicalPanels row={1} />
+
       <p>
         The name holds a particular idea of growth: not the straight line of
         a career but the rounding of seasons and time zones I've crossed; not
@@ -99,20 +103,6 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         accumulates here builds quietly. The point is not to announce the
         bloom, only to keep the conditions right for it.
       </p>
-
-      <div class="motif-mid" aria-hidden="true">
-        <MotifEnso size={110} />
-      </div>
-
-      <div class="motif-mid" aria-hidden="true">
-        <MotifSeasonalRound size={120} />
-      </div>
-
-      <div class="motif-div" aria-hidden="true">
-        <MotifDappledFloor size={520} />
-      </div>
-
-      <ColophonBotanicalPanels row={1} />
 
       <h2>What we are trying to hold</h2>
       <p>
@@ -233,21 +223,20 @@ import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
         and the living thing it lets keep moving.
       </p>
 
-      <div class="motif-mid" aria-hidden="true">
-        <MotifNestedRounds size={116} />
-      </div>
+      {/* Slice-2.6 (2026-07-09): Row 3 (The retraining) moved UP to sit
+          above "Under the softness" — so the section closes on the
+          provenance line, not on a panel row. The bullseye motif
+          (MotifNestedRounds) and the wavy inked seam (MotifInkedSeam)
+          that used to bracket this passage retired here — Rika's read
+          was that they broke the storytelling flow. Row 3's four
+          retraining panels are the visual close; the prose signs off. */}
+      <ColophonBotanicalPanels row={3} />
 
       <p>
         Under the softness is a plain discipline: tend in the open, so that
         what grows can be understood. Kept by one hand — Fang Rika — offered
         unfinished, on purpose. Provenance: the garden · summer 07/ 2026 ·
       </p>
-
-      <div class="motif-div" aria-hidden="true">
-        <MotifInkedSeam size={520} />
-      </div>
-
-      <ColophonBotanicalPanels row={3} />
 
       <h2>Colophon proper</h2>
       <ul class="specs">

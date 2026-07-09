@@ -1,18 +1,21 @@
 ---
 /**
- * HomeBotanicalPanels — Set 3 slice-2.4 · 2026-07-09
+ * HomeBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (slice-2.6 · linked 2026-07-09)
  * Four Tanaka Isson × Takashi Murakami paradox panels for the home page arrival hero.
  * Each panel: one contemplative botanical (Isson soul) with one hidden closed-eye smile
- * (Murakami joy). Panels: 紫 lavender (branch + blossoms) · 金 gold (chrysanthemum) ·
- * 珊瑚 coral (bird on branch) · 青 slate (magpie perched).
- * Unified grammar: hairline ink-soft strokes 0.55–0.7 · minimal borders · subject-centred ·
- * Japanese kanji + English label + italic caption. In Enka's canonical palette only.
+ * (Murakami joy). Slice-2.6: each panel is now an anchor linking to its semantic
+ * reading-room match — the branch → Field Notes (observational writing) · the
+ * chrysanthemum → The Workbench (unfurling work-in-progress) · the bird → Body & Spine
+ * (embodied, perched on the line of the body) · the magpie → Versions of Me (Isson's
+ * magpie collects across seasons — self-portrait through time). Panels stay static-looking
+ * with a subtle hover lift so the reading-room affordance is discovered, not shouted.
  */
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 <figure class="botanical-panels" aria-label="Four botanical panels — a contemplative garden with hidden joy in each">
   <div class="panels-grid">
-    <!-- 紫 · lavender · the branch -->
-    <div class="panel">
+    <!-- 紫 · lavender · the branch → Field Notes (observational essays) -->
+    <a class="panel" href={base + "/field-notes"} aria-label="the branch — enter Field Notes">
       <p class="panel-label">紫 · lavender</p>
       <p class="panel-jp">the branch</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-lavender-t">
@@ -39,10 +42,11 @@
         </g>
       </svg>
       <p class="panel-cap">the branch · the blossoms · lavender heart</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Field Notes →</span>
+    </a>
 
-    <!-- 金 · gold · the chrysanthemum -->
-    <div class="panel">
+    <!-- 金 · gold · the chrysanthemum → The Workbench (unfurling work-in-progress) -->
+    <a class="panel" href={base + "/workbench"} aria-label="the chrysanthemum — enter The Workbench">
       <p class="panel-label">金 · gold</p>
       <p class="panel-jp">the chrysanthemum</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-gold-t">
@@ -78,10 +82,11 @@
         </g>
       </svg>
       <p class="panel-cap">chrysanthemum unfurled · ink heart</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter The Workbench →</span>
+    </a>
 
-    <!-- 珊瑚 · coral · the bird on branch -->
-    <div class="panel">
+    <!-- 珊瑚 · coral · the bird → Body & Spine (embodied, perched on the line of the body) -->
+    <a class="panel" href={base + "/body-spine"} aria-label="the bird — enter Body & Spine">
       <p class="panel-label">珊瑚 · coral</p>
       <p class="panel-jp">the bird</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-coral-t">
@@ -107,10 +112,11 @@
         </g>
       </svg>
       <p class="panel-cap">a small bird · coral berries · perched at rest</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
+    </a>
 
-    <!-- 青 · slate · the magpie -->
-    <div class="panel">
+    <!-- 青 · slate · the magpie → Versions of Me (Isson's magpie · self-portrait through seasons) -->
+    <a class="panel" href={base + "/versions"} aria-label="the magpie — enter Versions of Me">
       <p class="panel-label">青 · slate</p>
       <p class="panel-jp">the magpie</p>
       <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-slate-t">
@@ -132,9 +138,10 @@
         <circle cx="163" cy="112" r="1.5" fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.3"/>
       </svg>
       <p class="panel-cap">the Isson magpie · slate mountain behind</p>
-    </div>
+      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
+    </a>
   </div>
-  <figcaption>four contemplative botanicals · one hidden joy in each</figcaption>
+  <figcaption>four contemplative botanicals · one hidden joy in each · each a door</figcaption>
 </figure>
 <style>
   .botanical-panels {
@@ -151,10 +158,46 @@
     .botanical-panels .panels-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .botanical-panels .panel {
+    display: block;
     border: 1px solid rgba(231, 220, 198, 0.55);
     border-radius: 3px;
     padding: 0.85rem 0.6rem 0.7rem;
     background: transparent;
+    /* Slice-2.6: panels are now anchors — inherit reader colour, remove
+       underline, and lift softly on hover so the door affordance is
+       discovered rather than shouted. */
+    color: inherit;
+    text-decoration: none;
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+    position: relative;
+  }
+  .botanical-panels a.panel:hover,
+  .botanical-panels a.panel:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(207, 74, 69, 0.28);
+    background: rgba(251, 248, 238, 0.55);
+    outline: none;
+  }
+  .botanical-panels .panel-cta {
+    display: block;
+    font-family: var(--hand);
+    font-size: 0.72rem;
+    color: var(--poppy);
+    text-align: center;
+    margin-top: 0.4rem;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    letter-spacing: 0.01em;
+  }
+  .botanical-panels a.panel:hover .panel-cta,
+  .botanical-panels a.panel:focus-visible .panel-cta {
+    opacity: 0.85;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .botanical-panels .panel { transition: none; }
+    .botanical-panels a.panel:hover,
+    .botanical-panels a.panel:focus-visible { transform: none; }
+    .botanical-panels .panel-cta { transition: none; }
   }
   .botanical-panels .panel-label {
     font-family: var(--display);
