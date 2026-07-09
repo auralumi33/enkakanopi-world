@@ -304,6 +304,24 @@
   .leaves .leaf-fill { fill: var(--canopy-soft); opacity: 0.42; }
   .beam { opacity: 0.68; }
 
+  /* Slice-3.6 · sumi-e sprigs dialled to detail-scale — the ensō stays
+     central and BOLD; the cherry blossoms read as tinier dainty accents
+     AROUND it. Scale ~0.62 shrinks each sprig from its anchor point
+     under the canopy; opacity 0.62 lightens branch + blossom together
+     (composes with inline opacities → net ~0.35-0.5 · gentler). */
+  .sumie-sprig {
+    transform-box: fill-box;
+    transform-origin: center top;
+    transform: scale(0.62);
+    opacity: 0.62;
+  }
+  .sprig-middle { transform-origin: 350px 148px; }
+  .sprig-left { transform-origin: 194px 158px; }
+  .sprig-right { transform-origin: 626px 158px; }
+  @supports not (transform-box: fill-box) {
+    .sumie-sprig { transform: none; opacity: 0.55; }
+  }
+
   /* panel-style header + kernel voice type */
   .hero-kanji { font-family: "Noto Serif JP", var(--display); fill: var(--ink); font-weight: 500; }
   .hero-sub { font-family: var(--serif); fill: var(--ink-soft); font-style: italic; }

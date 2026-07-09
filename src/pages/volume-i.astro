@@ -6,7 +6,10 @@ import StageTag from "../components/StageTag.astro";
 import MotifPressedNineteen from "../components/motifs/MotifPressedNineteen.astro";
 import MotifEnso from "../components/motifs/MotifEnso.astro";
 import MotifArchiveGate from "../components/motifs/MotifArchiveGate.astro";
-import MotifTreeFriend from "../components/motifs/MotifTreeFriend.astro";
+// MotifTreeFriend retired from volume-i (slice-3.6) — read as clutter on close;
+// MotifArchiveGate already provides the visual close signal.
+// Component preserved at src/components/motifs/MotifTreeFriend.astro for
+// future re-wiring on a more suitable route.
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -167,12 +170,8 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
   </section>
 
   <section class="page close">
-    {/* Slice-3 (2026-07-09) · the tree-friend arrival motif — looking up
-        from below into the canopy. The founding-collection close reads:
-        the archive is a tree; the reader is at its base, looking up. */}
-    <div class="tree-friend" aria-hidden="true">
-      <MotifTreeFriend size={260} />
-    </div>
+    {/* Slice-3.6 (2026-07-09) · MotifTreeFriend retired here — read as
+        clutter; MotifArchiveGate below already carries the close signal. */}
     <p class="close-line">
       The founding collection stays open — each piece is still tended: a living
       line you can return to and find changed. The
@@ -199,9 +198,7 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
   .cluster-pin { display: flex; justify-content: center; margin: 0.4rem 0 0.6rem; opacity: 0.94; }
   /* the archive gate — closes the room */
   .gate { display: flex; justify-content: center; margin: 2.4rem 0 0; opacity: 0.94; }
-  /* Slice-3 · the tree-friend arrival · looking up. */
-  .tree-friend { display: flex; justify-content: center; margin: 0 0 1.4rem; opacity: 0.9; }
-  .tree-friend :global(svg) { max-width: 100%; height: auto; }
+  /* Slice-3.6 · .tree-friend CSS retired alongside the motif retirement. */
   .gate :global(svg) { max-width: 100%; height: auto; }
 
   /* ── the wall · clusters · frames ─────────────────────────────
