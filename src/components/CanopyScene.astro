@@ -1,25 +1,45 @@
 ---
 /**
- * CanopyScene — the home's single hand-drawn image (slice-3 grammar-aligned).
+ * CanopyScene — the home's single hand-drawn image (slice-3.2 · subsumed
+ * within an ensō container · flower-bed on silk-on-washi cloth).
+ *
  * One idea (Law 1): light reaches the ground only by passing through what
- * holds it — and where it lands, a flower bed grows in quiet defiance.
- * Slice-3 rework (2026-07-09):
- *   · All outlines use --ink-soft (shared shipped family — SceneShapeAndCrack
- *     / SceneHandsBegin) rather than --canopy-deep, so the canopy reads as
- *     hand-brushed hairline, not painted branches.
- *   · Fills are canonical pastels only — no stray palette. One poppy press
- *     lands at the "light lands here" target ring (the seal).
- *   · The canopy is now a WOVEN canvas: two embroidery needles pierce the
- *     canopy from left and right (SceneWeaveSeam grammar), threading the
- *     arches with a --canopy thread that crosses over-and-under at the
- *     three arch-crossing points overhead. Reads as: the container beneath
- *     the craft, made visible — the canopy is not painted, it is stitched.
+ * holds it — and where it lands, a flower bed grows on a small cloth of
+ * paper the whole scene sits inside a hand-brushed ensō container.
+ *
+ * Slice-3.2 rework (2026-07-09) — info-hierarchy clarified:
+ *   · The whole scene now sits INSIDE a large hand-brushed ensō container
+ *     (opens subtly at ~1 o'clock, hairline stroke, low opacity) — matching
+ *     the SceneWeaveSeam container register. Reads as: the canopy is not a
+ *     scene on the page; it is held.
+ *   · The three ground blooms now grow on a small SKIN-toned flower-bed
+ *     cloth (silk-on-washi register) sitting on the ground line — vertical
+ *     silk-moiré hairlines run down the cloth like SceneWeaveSeam's fabric.
+ *   · Canopy top strokes softened to calligraphic feel — reduced opacity +
+ *     hairline width so they read as brush-ink, not painted branches.
+ *   · Slice-3.0 grammar still held: --ink-soft outlines · canonical pastels
+ *     only · one poppy press at 'the light lands here' seal · SceneWeaveSeam
+ *     embroidery-needle weave overhead. Slice-2.5 paradox smiles still hidden
+ *     in each ground bloom.
  * Motion is CSS-only and gated on prefers-reduced-motion.
  */
 ---
 <figure class="scene">
   <svg width="820" height="440" viewBox="0 0 820 440" role="img" aria-labelledby="scene-t" preserveAspectRatio="xMidYMid meet">
-    <title id="scene-t">A hand-drawn canopy; light falls through the leaves and lands on a small flower bed at the ground.</title>
+    <title id="scene-t">A hand-brushed ensō contains the whole scene; inside it a canopy of soft calligraphic arches, light falling through, and a small flower bed on a silk-on-washi cloth at the ground.</title>
+
+    {/* Slice-3.2 · the enclosing ensō container — the whole scene sits
+        INSIDE a large hand-brushed ensō with a subtle opening near 1 o'clock,
+        matching the SceneWeaveSeam container register. Reads as: the canopy
+        is held. Drawn first so it sits BEHIND the composition. */}
+    <g class="enso-container" aria-hidden="true">
+      <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+        stroke="var(--ink-soft)" stroke-width="2.0" fill="none" stroke-linecap="round" opacity="0.42"/>
+      <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
+        stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.32"/>
+      {/* the ensō opens here — a subtle hairline tail marking the gap at 1 o'clock */}
+      <path d="M 712 96 C 720 94, 728 96, 736 100" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+    </g>
 
     <g class="ink block canopy-strokes">
       <path d="M40 150 C 150 60, 300 70, 410 132 C 520 66, 690 74, 790 156" />
@@ -149,6 +169,29 @@
     <g class="ground">
       <path class="ink block" d="M120 392 C 320 380, 520 380, 700 392" />
 
+      {/* Slice-3.2 · the flower-bed CLOTH — a small skin-toned rounded rect
+          on the ground line, hosting the three ground blooms. Silk-on-washi
+          register: skin fill at whisper opacity + fine vertical hairlines
+          (silk-moiré) running down the cloth like SceneWeaveSeam's fabric.
+          Reads as: the flowers grow on a small held cloth, not from bare
+          soil — the container beneath the craft, at the ground. */}
+      <g class="flower-bed-cloth" aria-hidden="true">
+        <rect x="330" y="342" width="164" height="60" rx="4" ry="4"
+          fill="#f2e0d0" fill-opacity="0.32"
+          stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round" opacity="0.62"/>
+        {/* silk-moiré vertical hairlines · 8 whispers running down the cloth */}
+        <g stroke="var(--ink-soft)" stroke-width="0.25" opacity="0.32" stroke-linecap="round">
+          <line x1="348" y1="348" x2="348" y2="396"/>
+          <line x1="366" y1="348" x2="366" y2="396"/>
+          <line x1="384" y1="348" x2="384" y2="396"/>
+          <line x1="402" y1="348" x2="402" y2="396"/>
+          <line x1="420" y1="348" x2="420" y2="396"/>
+          <line x1="438" y1="348" x2="438" y2="396"/>
+          <line x1="456" y1="348" x2="456" y2="396"/>
+          <line x1="474" y1="348" x2="474" y2="396"/>
+        </g>
+      </g>
+
       {/* Slice-3 · stems now use --ink-soft hairline (shared shipped grammar) */}
       <path d="M378 388 Q 376 372, 378 356" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" opacity="0.72" stroke-linecap="round"/>
       <path d="M412 386 Q 412 366, 412 348" stroke="var(--ink-soft)" stroke-width="0.95" fill="none" opacity="0.76" stroke-linecap="round"/>
@@ -231,9 +274,11 @@
 <style>
   .scene { margin: 0; }
   .scene svg { width: 100%; height: auto; }
-  /* Slice-3 · align to shipped family (SceneShapeAndCrack / SceneHandsBegin):
-     all outlines use --ink-soft. Canopy reads hand-brushed, not painted. */
-  .canopy-strokes path { stroke: var(--ink-soft); stroke-width: 1.1; }
+  /* Slice-3.2 · canopy strokes tuned for CALLIGRAPHIC feel — hairline width
+     0.85 + opacity 0.62 so the arches read as brush-ink held long enough to
+     become, not as painted branches. --ink-soft aligns with shipped family. */
+  .canopy-strokes path { stroke: var(--ink-soft); stroke-width: 0.85; opacity: 0.62; stroke-linecap: round; }
+  .leaves .leaf-fill { opacity: 0.38; }
   .dapples .light { fill: var(--canopy-soft); stroke: var(--canopy); opacity: 0.5; }
   .beam { opacity: 0.7; }
   /* Slice-2.7 · panel-style header + kernel voice + woven-thread type. */
