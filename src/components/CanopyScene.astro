@@ -1,7 +1,8 @@
 ---
 /**
- * CanopyScene — the home's single hand-drawn image (slice-3.2 · subsumed
- * within an ensō container · flower-bed on silk-on-washi cloth).
+ * CanopyScene — the home's single hand-drawn image (slice-3.4 · ensō being
+ * made by paintbrush + needles · weeping-cherry cascade sprigs · top-down
+ * flower plot with Finnish-inspired restraint).
  *
  * One idea (Law 1): light reaches the ground only by passing through what
  * holds it — and where it lands, a flower bed grows on a small cloth of
@@ -26,15 +27,16 @@
 ---
 <figure class="scene">
   <svg width="820" height="440" viewBox="0 0 820 440" role="img" aria-labelledby="scene-t" preserveAspectRatio="xMidYMid meet">
-    <title id="scene-t">A whispered hand-brushed ensō contains the whole scene; inside it a canopy of soft calligraphic arches, three sumi-e botanical sprigs (lavender · coral · gold) hanging delicately from the canopy above, light falling through to a small silk-on-washi cloth at the ground.</title>
+    <title id="scene-t">A whispered ensō being made by a sumi-e paintbrush at its top and embroidery needles at its edges; inside, soft calligraphic canopy arches; three sumi-e sprigs (lavender · coral · gold) hang delicately from the canopy with weeping-cherry cascade buds along each branch; at the ground a small top-down flower plot with scattered pastel flower-heads seen from above (Finnish-inspired restraint).</title>
 
-    {/* Slice-3.3 · the enclosing ensō container — dialled MUCH softer per
-        Rika. Now: two-layer brush (thick 1.6-width at 0.20 opacity, plus a
-        hairline 0.4-width echo at 0.16 opacity for the doubled brush edge)
-        + three tapered dry-brush segments at the 1 o'clock opening for the
-        hand-lifted feel (where the brush leaves the paper). Reads as: a
-        whispered container that holds without shouting — encloses the
-        canopy but does not overwhelm it. */}
+    {/* Slice-3.4 · the enclosing ensō is being MADE — Rika's vision: a
+        paintbrush AND embroidery needles jointly painting/stitching the
+        container into being. Finnish-inspired restraint: flat silhouettes,
+        minimal linework, bold-but-quiet.
+
+        The ensō itself: two-layer whispered brush (1.6-width at 0.20
+        opacity + hairline echo at 0.16) + dry-brush tail at 1 o'clock
+        opening (where the brush lifts from the paper). */}
     <g class="enso-container" aria-hidden="true">
       {/* main brush stroke — thick + soft */}
       <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
@@ -42,10 +44,29 @@
       {/* hairline echo — doubled brush edge */}
       <path d="M 700 82 C 540 46, 300 42, 156 96 C 46 152, 24 268, 90 358 C 178 424, 402 438, 590 414 C 710 394, 782 322, 782 236 C 782 178, 748 122, 712 96"
         stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.16"/>
-      {/* dry-brush tail at 1 o'clock — three small tapered hairlines where the brush lifts */}
+      {/* dry-brush tail at 1 o'clock — three tapered hairlines where the brush lifts */}
       <path d="M 712 96 C 720 94, 728 96, 734 100" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.22"/>
       <path d="M 720 92 C 726 91, 730 91, 734 92" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.18"/>
       <path d="M 726 88 C 730 87, 733 87, 736 88" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round" opacity="0.14"/>
+    </g>
+
+    {/* Slice-3.4 · THE PAINTBRUSH · touching the ensō at its 1 o'clock start
+        point — the sumi-e brush that is drawing the container into being.
+        Bamboo handle rising up-right + tapered ink brush tip touching the
+        ensō start. Small ink drop marks where the brush met the paper. */}
+    <g class="enso-brush" aria-hidden="true">
+      {/* bamboo handle · warm --bamboo · rising up-right from the ensō tip */}
+      <g transform="translate(700 82) rotate(-42)">
+        <rect x="8" y="-2" width="46" height="4" rx="1.8" fill="var(--bamboo)" opacity="0.85"
+          stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
+        {/* ferrule ring · a small metallic band near the brush end */}
+        <rect x="6" y="-2.4" width="3" height="4.8" fill="var(--ink-soft)" opacity="0.55"/>
+        {/* the brush tip · tapered ink-dark stroke touching the ensō start */}
+        <path d="M 6 -1.6 C 3.5 -1.2, 1.2 -0.6, 0 0 C 1.2 0.6, 3.5 1.2, 6 1.6 Z" fill="var(--ink-soft)" opacity="0.72"/>
+        <path d="M 0 0 C -0.8 -0.2, -1.4 0, -2 0.2" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.62"/>
+      </g>
+      {/* tiny wet ink dot at the brush contact point */}
+      <circle cx="698" cy="83" r="0.9" fill="var(--ink-soft)" opacity="0.65"/>
     </g>
 
     <g class="ink block canopy-strokes">
@@ -173,16 +194,14 @@
 
     <path class="ink hair beam" d="M412 168 C 420 250, 404 330, 412 386" stroke-dasharray="1.5 7" />
 
-    {/* Slice-3.3 · HANGING SUMI-E BOTANICALS — three delicate sumi-e sprigs
-        hang DOWN from the canopy arches (per Rika's plum-blossom / peony
-        reference). Each: a hairline calligraphic branch descending from
-        under a canopy arch, tapering, with a small twig or two + a delicate
-        pastel blossom at the tip. The three canonical bloom pastels
-        (lavender · coral · gold) preserved, each still carrying its
-        Murakami paradox smile in the flower heart. Reads as: what the
-        canopy holds up — held from above, offered to the reader.
+    {/* Slice-3.4 · HANGING SUMI-E BOTANICALS · weeping-cherry cascade —
+        per Rika's shidarezakura reference: buds and small blossoms cluster
+        and cascade DOWN each branch, not just a single bloom at the tip.
+        Three sprigs (lavender · coral · gold) hang from the canopy arches,
+        each carrying a small cluster of blossoms + buds at various open-
+        states along the length. Paradox smile preserved in the tip bloom.
 
-        Left sprig · 紫 lavender · descends from x≈200 · a plum-branch feel */}
+        Left sprig · 紫 lavender · plum-cherry cascade */}
     <g class="hanging-sprig sprig-left" aria-hidden="true">
       {/* main branch · hairline calligraphic curve from canopy → mid-composition */}
       <path d="M 200 148 C 196 172, 188 198, 178 226 C 174 240, 178 254, 184 264"
@@ -207,9 +226,22 @@
       {/* two small hairline calligraphy strokes near the branch base — plum-blossom register */}
       <path d="M 196 178 C 192 176, 190 176, 188 178" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
       <path d="M 192 196 C 189 195, 186 196, 184 198" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
+      {/* Slice-3.4 · cascade buds along the branch — weeping-cherry feel */}
+      <g class="cascade-buds">
+        <ellipse cx="194" cy="184" rx="1.5" ry="2" fill="#b899c9" opacity="0.7" transform="rotate(-14 194 184)"/>
+        <ellipse cx="190" cy="204" rx="1.2" ry="1.7" fill="#b899c9" opacity="0.62" transform="rotate(-8 190 204)"/>
+        <ellipse cx="186" cy="230" rx="1.7" ry="2.2" fill="#b899c9" opacity="0.75" transform="rotate(-4 186 230)"/>
+        {/* a small half-open blossom mid-branch — 3-petal hint */}
+        <g transform="translate(180 250)" opacity="0.72">
+          <ellipse cx="-1.6" cy="-0.5" rx="1.5" ry="2" fill="#b899c9" transform="rotate(-30 -1.6 -0.5)"/>
+          <ellipse cx="1.6" cy="-0.5" rx="1.5" ry="2" fill="#b899c9" transform="rotate(30 1.6 -0.5)"/>
+          <ellipse cx="0" cy="1.4" rx="1.5" ry="2" fill="#b899c9"/>
+          <circle cx="0" cy="0" r="0.55" fill="#e8c15a" opacity="0.85"/>
+        </g>
+      </g>
     </g>
 
-    {/* Middle sprig · 珊瑚 coral · offset from the center beam · peony feel */}
+    {/* Middle sprig · 珊瑚 coral · offset from the center beam · peony cascade */}
     <g class="hanging-sprig sprig-middle" aria-hidden="true">
       {/* main branch */}
       <path d="M 340 138 C 342 168, 348 198, 356 226 C 360 242, 358 258, 352 270"
@@ -237,9 +269,22 @@
       {/* hairline plum-blossom marks on the branch */}
       <path d="M 344 170 C 340 168, 338 168, 336 170" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
       <path d="M 350 210 C 346 208, 344 208, 342 210" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
+      {/* Slice-3.4 · cascade buds along the branch — coral weeping cluster */}
+      <g class="cascade-buds">
+        <ellipse cx="344" cy="180" rx="1.6" ry="2.1" fill="#e46b6b" opacity="0.68" transform="rotate(10 344 180)"/>
+        <ellipse cx="349" cy="212" rx="1.4" ry="1.9" fill="#e46b6b" opacity="0.62" transform="rotate(14 349 212)"/>
+        <ellipse cx="354" cy="240" rx="1.8" ry="2.3" fill="#e46b6b" opacity="0.75" transform="rotate(18 354 240)"/>
+        {/* a small half-open coral blossom mid-branch */}
+        <g transform="translate(348 258)" opacity="0.72">
+          <ellipse cx="-1.8" cy="-0.5" rx="1.7" ry="2.2" fill="#e46b6b" transform="rotate(-30 -1.8 -0.5)"/>
+          <ellipse cx="1.8" cy="-0.5" rx="1.7" ry="2.2" fill="#e46b6b" transform="rotate(30 1.8 -0.5)"/>
+          <ellipse cx="0" cy="1.5" rx="1.7" ry="2.2" fill="#e46b6b"/>
+          <circle cx="0" cy="0" r="0.55" fill="#e8c15a" opacity="0.85"/>
+        </g>
+      </g>
     </g>
 
-    {/* Right sprig · 金 gold · descends from x≈610 · cherry-blossom feel */}
+    {/* Right sprig · 金 gold · cherry-blossom cascade */}
     <g class="hanging-sprig sprig-right" aria-hidden="true">
       {/* main branch */}
       <path d="M 610 148 C 614 172, 622 198, 632 226 C 636 240, 632 254, 626 264"
@@ -264,32 +309,87 @@
       {/* hairline calligraphy marks */}
       <path d="M 614 180 C 618 178, 620 178, 622 180" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
       <path d="M 620 200 C 623 198, 626 198, 628 200" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round" opacity="0.5"/>
+      {/* Slice-3.4 · cascade buds along the branch — gold weeping cluster */}
+      <g class="cascade-buds">
+        <ellipse cx="616" cy="184" rx="1.5" ry="2" fill="#e8c15a" opacity="0.7" transform="rotate(12 616 184)"/>
+        <ellipse cx="622" cy="208" rx="1.3" ry="1.8" fill="#e8c15a" opacity="0.62" transform="rotate(16 622 208)"/>
+        <ellipse cx="628" cy="234" rx="1.7" ry="2.2" fill="#e8c15a" opacity="0.75" transform="rotate(20 628 234)"/>
+        {/* a small half-open gold blossom mid-branch */}
+        <g transform="translate(624 252)" opacity="0.72">
+          <ellipse cx="-1.5" cy="-0.4" rx="1.4" ry="1.9" fill="#e8c15a" transform="rotate(-30 -1.5 -0.4)"/>
+          <ellipse cx="1.5" cy="-0.4" rx="1.4" ry="1.9" fill="#e8c15a" transform="rotate(30 1.5 -0.4)"/>
+          <ellipse cx="0" cy="1.4" rx="1.4" ry="1.9" fill="#e8c15a"/>
+          <circle cx="0" cy="0" r="0.5" fill="var(--ink-soft)" opacity="0.85"/>
+        </g>
+      </g>
     </g>
 
     <g class="ground">
       <path class="ink block" d="M120 392 C 320 380, 520 380, 700 392" />
 
-      {/* Slice-3.3 · flower-bed cloth softened further — the botanicals now
-          hang from the canopy above, so the cloth reads as the LIGHT-CATCHING
-          cloth (silk-on-washi register at the ground) waiting for what falls
-          from above. Reduced opacity to whisper. */}
-      <g class="flower-bed-cloth" aria-hidden="true">
-        <rect x="330" y="342" width="164" height="60" rx="4" ry="4"
-          fill="#f2e0d0" fill-opacity="0.20"
-          stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round" opacity="0.42"/>
-        {/* silk-moiré vertical hairlines · 8 whispers · lower opacity */}
-        <g stroke="var(--ink-soft)" stroke-width="0.22" opacity="0.22" stroke-linecap="round">
-          <line x1="348" y1="348" x2="348" y2="396"/>
-          <line x1="366" y1="348" x2="366" y2="396"/>
-          <line x1="384" y1="348" x2="384" y2="396"/>
-          <line x1="402" y1="348" x2="402" y2="396"/>
-          <line x1="420" y1="348" x2="420" y2="396"/>
-          <line x1="438" y1="348" x2="438" y2="396"/>
-          <line x1="456" y1="348" x2="456" y2="396"/>
-          <line x1="474" y1="348" x2="474" y2="396"/>
+      {/* Slice-3.4 · TOP-DOWN FLOWER BED — Rika's brief called for a more
+          delicate sprouts view "from a top-down view than 2d flat image."
+          Finnish-inspired restraint (Marimekko / Maija Isola grammar): a
+          soft dashed plot boundary + flat pastel flower-heads seen from
+          above scattered inside, each a small circle-cluster in a canonical
+          pastel. Minimal linework, bold-but-quiet silhouettes. Retains the
+          port-ring poppy seal at the centre — the aerial view of where the
+          light lands on the plot. */}
+      <g class="flower-bed-aerial" aria-hidden="true">
+        {/* soft-edged plot boundary · dashed hairline · like DiaGardenPlot's boundary but shorter */}
+        <path d="M 320 344 C 320 344, 508 344, 508 344 C 508 344, 508 400, 508 400 C 508 400, 320 400, 320 400 C 320 400, 320 344, 320 344 Z"
+          stroke="var(--ink-soft)" stroke-width="0.5" fill="var(--paper-washi)" fill-opacity="0.42"
+          stroke-dasharray="2 3" stroke-linecap="round" opacity="0.55"/>
+
+        {/* 7 top-down flower-heads scattered across the plot · Marimekko-flat silhouettes */}
+        {/* lavender flower · upper-left */}
+        <g transform="translate(342 358)">
+          <circle r="4.4" fill="#b899c9" opacity="0.7"/>
+          <circle r="1.4" fill="var(--paper-washi)" opacity="0.9"/>
+          <circle r="0.6" fill="#e8c15a" opacity="0.85"/>
         </g>
+        {/* coral flower · upper-middle */}
+        <g transform="translate(378 366)">
+          <circle r="5" fill="#e46b6b" opacity="0.68"/>
+          <circle r="1.6" fill="var(--paper-washi)" opacity="0.9"/>
+          <circle r="0.7" fill="#e8c15a" opacity="0.85"/>
+        </g>
+        {/* gold flower · upper-right */}
+        <g transform="translate(438 356)">
+          <circle r="4" fill="#e8c15a" opacity="0.7"/>
+          <circle r="1.2" fill="var(--paper-washi)" opacity="0.9"/>
+          <circle r="0.5" fill="var(--ink-soft)" opacity="0.7"/>
+        </g>
+        {/* slate flower · far right */}
+        <g transform="translate(480 372)">
+          <circle r="3.6" fill="#a4b8c8" opacity="0.72"/>
+          <circle r="1" fill="var(--paper-washi)" opacity="0.9"/>
+          <circle r="0.5" fill="#e08d84" opacity="0.85"/>
+        </g>
+        {/* smaller lavender bud · lower-left */}
+        <g transform="translate(348 386)">
+          <circle r="2.6" fill="#b899c9" opacity="0.55"/>
+          <circle r="0.7" fill="var(--paper-washi)" opacity="0.9"/>
+        </g>
+        {/* smaller coral bud · lower */}
+        <g transform="translate(410 388)">
+          <circle r="2.4" fill="#e46b6b" opacity="0.5"/>
+          <circle r="0.6" fill="var(--paper-washi)" opacity="0.9"/>
+        </g>
+        {/* smaller gold bud · lower right */}
+        <g transform="translate(468 386)">
+          <circle r="2.6" fill="#e8c15a" opacity="0.55"/>
+          <circle r="0.7" fill="var(--paper-washi)" opacity="0.9"/>
+        </g>
+
+        {/* three tiny hairline leaf-hints for restraint · Isola-print flat */}
+        <ellipse cx="360" cy="376" rx="2.6" ry="1.1" fill="var(--canopy-soft)" opacity="0.45" transform="rotate(-18 360 376)"/>
+        <ellipse cx="420" cy="374" rx="2.6" ry="1.1" fill="var(--canopy-soft)" opacity="0.45" transform="rotate(24 420 374)"/>
+        <ellipse cx="460" cy="380" rx="2.6" ry="1.1" fill="var(--canopy-soft)" opacity="0.45" transform="rotate(-14 460 380)"/>
       </g>
 
+      {/* the port ring · 'the light lands here' seal · now sits at the centre
+          of the top-down plot as the aerial view of where the light lands */}
       <circle class="port-ring" cx="412" cy="392" r="9" />
       <circle class="port-fill" cx="412" cy="392" r="3.4" />
     </g>
