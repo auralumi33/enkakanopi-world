@@ -528,6 +528,79 @@ Nursery / Colophon panels) to *sumi-e-primary*:
   pastel-primary vignettes; the covenant + house-layer sections that come
   later would take sumi-e if built.
 
+### The Isson doctrine (the deeper source for the sumi-e register)
+
+*Named idiom, canonised 2026-07-11 after a six-source Isson synthesis
+(Kashima Arts · Explore Amami · note.com/artdiva · z-mile · Sainsbury
+Institute's* Beauty in Shadows *exhibition brief · artnet). This deepens
+what the sumi-e-register section names above with the specific historical
+practice Enka's paradox panels borrow from.*
+
+**Who Tanaka Isson was** (Tanaka Takashi, 1908–1977 · artist name Beison).
+A Showa-period nihonga painter. Left Tokyo Bijutsu Gakko (Tokyo Fine Arts
+School) after two months in 1926; won first prize at the Seiryu-sha
+exhibition in 1947, then broke with the mainstream art world after
+disagreement with Kawabata Ryūshi. In 1958, at fifty, he moved alone to
+Amami Ōshima, in Japan's southern islands. Lived twenty years in a small
+hut, paying for art supplies by dyeing tsumugi silk kimono, and painted
+the endemic forests, birds (Lidth's jay, Amami woodpecker), and botanicals
+of the island. Died there of a heart attack, 1977. Unknown during his
+lifetime; the local residents — not institutions — preserved his legacy.
+
+**The ten Isson moves and their Enka correspondences.**
+
+| Isson move | What it is | Enka correspondence |
+|---|---|---|
+| The 20-year Amami withdrawal | Deliberate exit from the mainstream art world; posthumous recognition | The Gate Doctrine (§3.5 of the voice spine): named, gated by depth |
+| The tsumugi day-job | Dyeing silk kimono to buy silk to paint on. Craft supporting craft. | The container beneath the craft (§1). The machinery underneath compounds while the diary stays uncorrupted (Charter §0) |
+| Filling in solidly instead of drawing the veins | Solid-fill silhouettes over vein-drawing. Shape dominates detail. | The drawing hand as a spec: hierarchy through weight, never through incidental detail (Law 2 · Law 7) |
+| Yellow screw pine, not green | Intentional colour transformation. Memorable over accurate. | The four canonical pastels are chosen for register, not for observational accuracy |
+| "Palace" for the humble dwelling | Reframing material poverty as gift. Joy of concentration. | Openly-unfinished as identity (Law 10). *In Formation* is the palace, not the apology |
+| Backlit botanical | "Enigmatic landscapes and otherworldly botanical sketches often bathed in backlighting" — subjects as shape-silhouettes catching light from behind | *An import to sharpen*: a subtle radial-wash behind the vignette's focal subject can deepen the sumi-e register. Reserved for archive-room panels only; do not over-apply |
+| Beauty in Shadows | From Tanizaki Jun'ichirō — value discovered in shadow and obscurity, not in the tourist-postcard view | The intimate voice under the canopy, never the polish. The forested interior, never the beach |
+| Stayed quiet for a long time and became one with the atmosphere of the forest | Patient observation until becoming. His endemic bird paintings came from long stillness. | *Held long enough to become* — the 円花 keystone's inner line, made literal in painting practice |
+| Two paintings as "gifts to the King of Hell" | Non-legible-to-the-crowd audience. Sovereign in whom he addressed. | *Address the few; let the many overhear* (Voice-IP §3.5) |
+| Local residents preserved the legacy | Community, not gallery. Not by an institution. | The correspondence rail is Enka's community; the citation graph is its slow gallery. Neither is an institution |
+
+**Register discipline for the sumi-e vignettes** (the tuning that ships
+per-panel, honouring Isson):
+
+1. **Composition** — asymmetric (fukinsei); the focal subject offset from
+   centre; empty ma to one side of the composition (the "quiet corner"
+   Isson deliberately leaves).
+2. **Line vs mass** — where a leaf, petal, or wing is drawn, prefer
+   solid-fill silhouette over vein-line. Hairlines are for gesture and
+   trace (stems, tangent lines, dry-brush trails), never for filling
+   surfaces that shape can carry.
+3. **Backlight (optional, per composition)** — a very subtle radial-wash
+   behind the focal subject at 6–10% opacity of a canonical pastel can
+   deepen the "bathed in backlighting" register. Reserved for archive-
+   room panels; skip on the pastel-primary reading-room panels.
+4. **The endemic subject** — Isson painted the specific bird of Amami,
+   not a generic bird. Enka's panels name specific idioms: the branch,
+   the chrysanthemum, the tension sketches, the covenant, the mirror.
+   Never generic ("a plant"); always the named idiom.
+5. **The paradox smile** — Murakami's hidden joy, held. Rules unchanged.
+6. **The 六% – 十% rule** (proposed cadence) — of the archive-room
+   panels, roughly 6–10% may carry a Tanizaki-shadow gradient (a
+   deeper ink-wash region opposite the backlight, at 8–12% opacity of
+   `var(--ink)`) to name a shadow-carrying idiom (a covenant · a
+   mirror · a container). Held rare; when everything shadows, none does.
+
+**Why this matters for Enka's user journey.** Isson's whole practice is
+a shape-signature of what Enka is building: the *long withdrawal*, the
+*community-preserved legacy*, the *shape over the vein*, the *palace in
+the humble dwelling*. Every reader who arrives at a sumi-e panel meets
+a small proof — carried in the composition, not written in the copy —
+that Enka's slowness is a stance, not a shortfall. Isson is the historical
+argument for the register.
+
+**Reading rule:** if a proposed sumi-e vignette does not carry at least
+three of the ten Isson moves (Composition · Line vs mass · a named
+endemic subject · the paradox smile plus optional backlight or shadow),
+it drifts toward decorative sumi-e-adjacent rather than register-carrying.
+Return it for another pass.
+
 ### Accessibility (machine-legibility, one investment, both returns)
 
 - The panels are wrapped in a `<nav aria-label="...">` landmark
