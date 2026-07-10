@@ -38,7 +38,7 @@ export interface Props {
   panels: Panel[];
   signature?: string;
   ariaLabel?: string;
-  variant?: "" | "seedbed" | "colophon" | "hub";
+  variant?: "" | "seedbed" | "colophon" | "hub" | "meditation";
   row?: 1 | 2 | 3 | "all";
   rows?: 1 | 2 | 3;
 }
@@ -69,6 +69,7 @@ const rowClass = ` botanical-panels--row-${row}`;
 const showSignature = signature && (row === "all" || row === rows);
 ---
 <figure class={`botanical-panels${variantClass}${rowClass}`}>
+  <slot name="preamble" />
   <nav class="panels-nav" aria-label={ariaLabel}>
     <ul class="panels-grid" role="list">
       {panels.map((p, i) => {
@@ -145,6 +146,26 @@ const showSignature = signature && (row === "all" || row === rows);
   }
   @media (max-width: 40rem) {
     .botanical-panels--hub .panels-grid { grid-template-columns: 1fr; }
+  }
+  /* --meditation variant — for single-piece meditations (like Versions of Me).
+     Doors sit at the FOOT with extra top-margin + a hairline top-rule so they
+     read as a soft "if this moved you" companion register, not a nav strip.
+     The meditation stays sit-down; the walk-out is offered, not imposed.
+     Added 2026-07-11 · system map + journey graph pass. */
+  .botanical-panels--meditation {
+    margin: 4rem auto 1.6rem;
+    padding-top: 2.2rem;
+    border-top: 0.7px solid rgba(231, 220, 198, 0.55);
+    max-width: 46rem;
+  }
+  .botanical-panels--meditation .meditation-preamble {
+    font-family: var(--hand);
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 1.2rem;
+    opacity: 0.85;
   }
   /* Alignment pass (2026-07-11 · second): panels stretch to their grid row.
      Each <li> is a flex container so the <a class="panel"> anchor fills the

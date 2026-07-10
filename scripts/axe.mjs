@@ -29,6 +29,7 @@ const ROUTES = [
   "/body-spine",
   "/studio",
   "/lexicon",
+  "/versions",
 ];
 
 const axeSource = await readFile(AXE_SRC, "utf8");

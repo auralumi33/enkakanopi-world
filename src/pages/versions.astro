@@ -7,6 +7,18 @@ import DiaMerging from "../components/diagrams/DiaMerging.astro";
 import DiaTwoVerdicts from "../components/diagrams/DiaTwoVerdicts.astro";
 import Glyph from "../components/Glyph.astro";
 import MotifBraidedSeam from "../components/motifs/MotifBraidedSeam.astro";
+import PanelDoors, { type Panel } from "../components/PanelDoors.astro";
+
+// The four seams — companion essays that trace what this meditation names.
+// Meditation-variant doors (2026-07-11 · system-map & journey-graph pass):
+// they sit at the FOOT with a hairline top-rule, softer register than a
+// nav strip. The meditation stays sit-down; the walk-out is offered.
+const doors: Panel[] = [
+  { hue: "lavender", role: "the seam",           caption: "wabi-sabi as a thinking tool · the refusal to be averaged · smile in the fold",           href: "/field-notes/the-seam",              cta: "read The Seam" },
+  { hue: "gold",     role: "in formation",       caption: "unfinishedness · Volume I as an honest state · smile in the wobble",                       href: "/field-notes/in-formation",          cta: "read In Formation" },
+  { hue: "coral",    role: "only in motion",     caption: "legible only in motion · never in the still frame · smile in the traffic",                 href: "/field-notes/only-in-motion",        cta: "read Only in Motion" },
+  { hue: "slate",    role: "fragments that rhyme", caption: "pieces that never reconcile · only rhyme · smile in the returning",                       href: "/field-notes/fragments-that-rhyme",  cta: "read Fragments That Rhyme" },
+];
 ---
 <Base title="Versions of Me" description="A hand-drawn map of the selves that won't average into one — and the open question this place never resolves.">
   <article class="page room">
@@ -129,6 +141,100 @@ import MotifBraidedSeam from "../components/motifs/MotifBraidedSeam.astro";
         <MotifBraidedSeam size={360} />
       </div>
     </div>
+
+    <PanelDoors
+      panels={doors}
+      variant="meditation"
+      ariaLabel="Versions of Me · four seams companion doors"
+      signature="one meditation · four companion pieces · the walk-out offered, not imposed"
+    >
+      <p slot="preamble" class="meditation-preamble">
+        if this moved you — the four seams the essays trace
+      </p>
+
+      {/* 紫 · lavender · the seam — a hand-stitched silk-seam holding two panels of cloth, one hidden smile in the stitch */}
+      <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="vm-l-t"><title id="vm-l-t">A hand-stitched silk-seam holding two panels of cloth with one hidden lavender smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
+        <path d="M 30 108 C 44 105, 62 110, 78 106 C 92 102, 98 100, 100 100" fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.65" opacity="0.85" stroke-linejoin="round"/>
+        <path d="M 100 100 C 104 100, 116 102, 132 106 C 148 110, 168 105, 178 108 L 178 152 C 168 155, 148 150, 132 154 C 116 158, 104 160, 100 160 C 98 160, 92 158, 78 154 C 62 150, 44 155, 30 152 Z" fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.65" opacity="0.9" stroke-linejoin="round"/>
+        <path d="M 100 88 L 100 172" stroke="var(--ink-soft)" stroke-width="0.55" opacity="0.65" stroke-linecap="round"/>
+        <path d="M 94 92 L 106 96 M 94 100 L 106 104 M 94 108 L 106 112 M 94 116 L 106 120 M 94 124 L 106 128 M 94 132 L 106 136 M 94 140 L 106 144 M 94 148 L 106 152 M 94 156 L 106 160 M 94 164 L 106 168" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.55" stroke-linecap="round"/>
+        <g transform="translate(100 130)">
+          <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+            <path d="M 0 -6 C 3.5 -5, 4.8 -1.6, 0 -0.4 C -4.8 -1.6, -3.5 -5, 0 -6 Z"/>
+            <path d="M 5 -2.5 C 6.5 2.5, 3 4.5, 0.7 3 C 0 -0.4, 4 -5, 5 -2.5 Z"/>
+            <path d="M 4 4.5 C 0 5.5, -4 3, -1.4 0 C 2.5 -2, 6 2, 4 4.5 Z"/>
+            <path d="M -5 3 C -6.5 -1.6, -5 -4.5, -1 -3 C 0 0, -2 4.5, -5 3 Z"/>
+          </g>
+          <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.6 -0.15 C -0.35 0.1, 0.35 0.1, 0.6 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      {/* 金 · gold · in formation — an unfinished sumi-e ensō stroke, wet-ink trailing to dry-brush, one hidden smile at the arrested point */}
+      <svg slot="vignette-2" viewBox="0 0 200 220" role="img" aria-labelledby="vm-g-t"><title id="vm-g-t">An unfinished sumi-e ensō with wet-ink trailing to dry-brush and a hidden gold smile at the arrested point</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.11" rx="1"/>
+        <path d="M 138 62 C 108 46, 68 54, 46 84 C 26 114, 34 158, 68 176 C 96 190, 132 182, 152 158" stroke="var(--ink-soft)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 130 68 C 106 56, 76 62, 58 88 C 42 116, 50 150, 78 168 C 100 178, 128 174, 144 158" stroke="var(--ink)" stroke-width="0.95" fill="none" stroke-linecap="round" opacity="0.42"/>
+        <path d="M 152 158 C 158 154, 164 148, 168 142" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <path d="M 168 142 C 172 138, 174 134, 175 130" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.45"/>
+        <path d="M 175 130 C 176 127, 177 124, 178 121" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.35" stroke-dasharray="1 1.8"/>
+        <path d="M 172 118 L 175 120" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.4"/>
+        <path d="M 179 128 L 182 129" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.4"/>
+        <g transform="translate(170 138)">
+          <circle cx="0" cy="0" r="3.5" fill="#e8c15a" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.42"/>
+          <path d="M -1.3 -0.3 C -0.8 0.4, 0.8 0.4, 1.3 -0.3" stroke="var(--ink-soft)" stroke-width="0.38" fill="none" stroke-linecap="round"/>
+          <circle cx="-1.3" cy="-1.3" r="0.32" fill="var(--ink-soft)"/>
+          <circle cx="1.3" cy="-1.3" r="0.32" fill="var(--ink-soft)"/>
+        </g>
+        <text font-family="var(--hand)" x="100" y="120" text-anchor="middle" font-size="10" font-style="italic" fill="var(--ink-soft)" opacity="0.55">still forming</text>
+      </svg>
+
+      {/* 珊瑚 · coral · only in motion — a figure trailing sumi-e motion-strokes, one hidden smile in the trailing edge */}
+      <svg slot="vignette-3" viewBox="0 0 200 220" role="img" aria-labelledby="vm-c-t"><title id="vm-c-t">A sumi-e figure trailing motion-strokes with a hidden coral smile in the trail</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.09" rx="1"/>
+        <line x1="20" y1="180" x2="180" y2="180" stroke="var(--ink-soft)" stroke-width="0.55" opacity="0.55" stroke-linecap="round"/>
+        <path d="M 155 178 L 155 155" stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.78"/>
+        <circle cx="155" cy="148" r="7" fill="var(--paper-washi)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.7"/>
+        <path d="M 155 155 C 160 158, 168 156, 172 152" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+        <path d="M 155 155 C 152 162, 148 168, 145 176" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+        <path d="M 155 165 C 158 172, 162 176, 168 178" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.72"/>
+        <path d="M 30 165 C 50 168, 80 172, 110 175 C 120 176, 130 177, 140 178" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 34 166 C 52 168, 78 172, 108 175" stroke="var(--ink)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.3"/>
+        <path d="M 20 162 C 24 162, 26 163, 28 164" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35" stroke-dasharray="0.8 1.4"/>
+        <path d="M 45 155 C 55 158, 70 162, 90 165" stroke="var(--ink-soft)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.42"/>
+        <path d="M 60 144 C 75 148, 90 152, 105 156" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.32"/>
+        <g transform="translate(32 168)">
+          <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.32" stroke-linejoin="round">
+            <path d="M 0 -5 C 3 -4, 4 -1, 0 -0.3 C -4 -1, -3 -4, 0 -5 Z"/>
+            <path d="M 4 -2 C 5 2, 2 3.5, 0.5 2.5 C 0 -0.3, 3 -3.5, 4 -2 Z"/>
+            <path d="M 3 3.5 C 0 4.5, -3 2.5, -1 0 C 2 -1.5, 4 1.5, 3 3.5 Z"/>
+            <path d="M -3.5 2 C -5 -1, -3.5 -3, -1 -2 C 0 0, -1.5 3.5, -3.5 2 Z"/>
+          </g>
+          <circle cx="0" cy="0" r="1.2" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.55 -0.15 C -0.3 0.1, 0.3 0.1, 0.55 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      {/* 青 · slate · fragments that rhyme — three fragmented shapes connected by rhyming hairlines, one hidden smile in the third fragment */}
+      <svg slot="vignette-4" viewBox="0 0 200 220" role="img" aria-labelledby="vm-s-t"><title id="vm-s-t">Three fragmented sumi-e shapes connected by rhyming hairlines with a hidden slate smile in the third fragment</title>
+        <rect x="10" y="10" width="180" height="200" fill="#a4b8c8" opacity="0.13" rx="1"/>
+        <path d="M 40 70 C 42 62, 52 60, 60 64 C 68 68, 68 82, 62 88 C 54 92, 42 88, 38 82 C 34 76, 36 72, 40 70 Z" fill="#a4b8c8" opacity="0.28" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linejoin="round"/>
+        <path d="M 44 74 C 52 76, 60 82, 60 88" stroke="var(--ink)" stroke-width="0.4" fill="none" opacity="0.35"/>
+        <path d="M 120 100 C 122 92, 132 88, 142 92 C 152 96, 152 112, 144 118 C 134 122, 122 118, 118 110 C 114 104, 116 100, 120 100 Z" fill="#a4b8c8" opacity="0.3" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linejoin="round"/>
+        <path d="M 124 104 C 132 108, 140 114, 142 120" stroke="var(--ink)" stroke-width="0.4" fill="none" opacity="0.35"/>
+        <path d="M 60 148 C 62 138, 74 134, 84 138 C 94 144, 96 160, 88 168 C 78 172, 66 168, 60 158 C 56 154, 58 150, 60 148 Z" fill="#a4b8c8" opacity="0.35" stroke="var(--ink-soft)" stroke-width="0.9" stroke-linejoin="round"/>
+        <path d="M 64 152 C 72 154, 82 162, 84 168" stroke="var(--ink)" stroke-width="0.4" fill="none" opacity="0.4"/>
+        <path d="M 60 82 C 78 88, 100 92, 118 98" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 2.5"/>
+        <path d="M 62 96 C 68 116, 70 132, 74 148" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 2.5"/>
+        <path d="M 120 118 C 108 130, 96 142, 88 148" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.45" stroke-dasharray="2 2.5"/>
+        <g transform="translate(74 154)">
+          <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.6 -0.15 C -0.35 0.1, 0.35 0.1, 0.6 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        </g>
+        <text font-family="var(--hand)" x="100" y="196" text-anchor="middle" font-size="9.5" font-style="italic" fill="var(--ink-soft)" opacity="0.62">rhyming, not resolving</text>
+      </svg>
+    </PanelDoors>
   </article>
 </Base>
 <style>

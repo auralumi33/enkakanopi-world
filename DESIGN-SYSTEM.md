@@ -471,6 +471,63 @@ For multi-row callers (Nursery · Colophon), the `row` prop on
 prose blocks. Signature (figcaption) renders only with the final row. See
 the named-idiom entry above for the shipped precedents.
 
+### The variants (five, each with a specific register)
+
+The `variant` prop on `PanelDoors` accepts one of five values. Each is a
+register decision, not just a layout switch. Pick by surface, not by
+looks:
+
+| Variant | Where | Register carried |
+|---|---|---|
+| `""` (default) | Home | Threshold arrival · 4 doors → 4 reading rooms |
+| `"seedbed"` | Nursery | The seed-bed pattern · multi-row rhythm across prose |
+| `"colophon"` | Colophon | Triptych structure · three acts (structure · practice · state) |
+| `"hub"` | Field Notes · Workbench · Body & Spine | Reading-room arrival · 3 doors, desktop 3-col, mobile 1-col stacked |
+| `"meditation"` | Versions of Me | Companion-frame at the foot of a single meditation · hairline top-rule · softer top-margin · "if this moved you" preamble register |
+
+**The meditation-variant** (Set 3 · slice-5.0 · 2026-07-11) is the
+newest addition. It exists because Versions of Me is a *single-piece
+meditation*, not a hub over multiple essays. Adding doors at the top
+would disrupt the sit-down flow; adding them at the foot with a hairline
+top-rule + extra top-margin turns them into a *walk-out invitation* —
+the meditation stays sit-down, the four seams companion pieces are
+offered, not imposed. Uses the same panel anatomy + hue register as
+other variants; the CSS carries a `<slot name="preamble" />` so the
+caller can prefix a hand-caption ("if this moved you — the four seams the
+essays trace").
+
+### The sumi-e register within the panel language
+
+Added 2026-07-11 alongside Studio + Lexicon + Versions of Me doors.
+An alternative visual register within the same door grammar — hue,
+anatomy, one-hidden-joy, each-a-door contract, placement law all held —
+but the vignettes shift from *pastel-primary* (the shipped Home /
+Nursery / Colophon panels) to *sumi-e-primary*:
+
+- Hairline monochrome brushwork on ink-soft as the dominant register
+- **The wet-ink illusion** (already codified) as the load-bearing gesture —
+  main stroke `var(--ink-soft)` at higher width + darker `var(--ink)`
+  inner shadow at ~40% width and ~50% opacity of main
+- Dry-brush hairlines at endpoints (`stroke-dasharray` on trailing
+  segments)
+- More *ma* — 50–65% negative space per panel
+- Restrained pastel accent (one small dot or bloom per panel), reserved
+  for the hidden-joy paradox smile at the composition's focal point
+- Isson × Murakami paradox held throughout — one hidden smile per panel,
+  never zero, never two
+
+**Which register goes where** (the reading-room / archive-room heuristic):
+
+- **Reading rooms** (Home · Nursery · Field Notes hub · Workbench hub ·
+  Body & Spine hub) — pastel-primary. Warm, tender, growing-bed
+  register.
+- **Archive rooms** (Studio · Lexicon · Versions of Me foot) — sumi-e-
+  primary. Held, patient, thinking-with-the-hand register. The gesture
+  IS the content.
+- **Colophon** — mixed. The triptych register keeps its shipped
+  pastel-primary vignettes; the covenant + house-layer sections that come
+  later would take sumi-e if built.
+
 ### Accessibility (machine-legibility, one investment, both returns)
 
 - The panels are wrapped in a `<nav aria-label="...">` landmark

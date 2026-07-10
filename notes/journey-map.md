@@ -65,10 +65,21 @@ flowchart TD
   col -- "青 the mirror"                        --> wb
   col -- "青 the trust"                         --> vs
 
-  %% Hub doors (new, this pass · 9 · one row per hub)
+  %% Hub doors (added earlier this pass · 9 · one row per hub)
   fn -- "紫 seedling · 金 budding · 珊瑚 evergreen" --> essay_fn
   wb -- "紫 why-start · 金 little-kit · 珊瑚 shape-of-things" --> essay_wb
   bs -- "紫 relearning-to-fall · 金 articulation · 珊瑚 tide" --> essay_bs
+
+  %% Studio + Lexicon arrival doors (added 2026-07-11 · sumi-e register · 4 each)
+  studio([4 · Studio wall])
+  lex_hub([4 · Lexicon vocabulary])
+  vs_hub([3 · Versions of Me · meditation foot])
+
+  studio -- "紫 tension · 金 kit · 珊瑚 mirror · 青 chain" --> essay_wb
+  lex_hub -- "紫 container · 金 resonance · 珊瑚 deflation · 青 canopy" --> essay_fn
+
+  %% Versions of Me meditation-variant · four seams companions at the foot
+  vs -- "紫 seam · 金 in-formation · 珊瑚 only-in-motion · 青 fragments" --> essay_fn
 
   %% Return loops (foot of essay + correspondence rail)
   essay_fn --> foot
@@ -132,3 +143,18 @@ flowchart TD
 - Workbench + Body-Spine are honestly small right now. When they cross
   four essays, their hub doors should switch from essay-per-door to
   stage-exemplar-per-door (matching Field Notes).
+- **Volume I holds back deliberately.** Its six theme clusters (*the
+  merging frontier · home & the rebuild · the machines · the selves ·
+  the hands · the body*) already function as native door grammar.
+  Adding a PanelDoors row would compete with the cluster labels, not
+  amplify. If the archive wall ever needs an *arrival* register, prefer
+  a small sumi-e cluster-mark per label over a full PanelDoors row.
+- **The reading rooms wear pastel-primary vignettes; the archive rooms
+  wear sumi-e-primary vignettes.** This is a register heuristic, not a
+  hard rule. If a future room falls between (e.g. an incubated voice's
+  page), pick by the room's felt tempo — tender/growing beds get pastel,
+  patient/held archive gets sumi-e.
+- **The meditation-variant is a specific answer for a specific shape.**
+  Only single-piece meditations (Versions of Me being the only current
+  instance) take foot-placement with the hairline top-rule + preamble.
+  Do not use it as a decorative frame on any hub or index page.
