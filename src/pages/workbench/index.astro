@@ -5,9 +5,20 @@ import EssayList from "../../components/EssayList.astro";
 import Glyph from "../../components/Glyph.astro";
 import RowPlanter from "../../components/RowPlanter.astro";
 import MotifArchiveGate from "../../components/motifs/MotifArchiveGate.astro";
+import PanelDoors, { type Panel } from "../../components/PanelDoors.astro";
 
 const entries = (await getCollection("workbench")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
+
+// The hub doors — one restrained row, one door per shipped entry, ordered
+// by the essay's own frontmatter order. The room is small; the doors reflect
+// that honestly. When the room grows, the doors can become stage-clusters
+// (per the Field Notes hub pattern).
+const doors: Panel[] = [
+  { hue: "lavender", role: "why start with the hands", caption: "the first entry · beginning where thinking begins · smile in the palm", href: "/workbench/why-start-with-the-hands", cta: "enter Why Start with the Hands" },
+  { hue: "gold",     role: "trust the little kit",     caption: "a few beloved primitives · the little kit · smile in the hand",        href: "/workbench/trust-the-little-kit",     cta: "enter Trust the Little Kit" },
+  { hue: "coral",    role: "the shape of things",      caption: "seeing shape with fresh eyes · the wobble kept · smile in the crack",  href: "/workbench/the-shape-of-things",      cta: "enter The Shape of Things" },
+];
 ---
 <Base title="The Workbench" description="A living practice log — rebuilding maker foundations as an adult. Clay, wood, paper, textiles, a little current, and the slow arc toward code and space as media.">
   <section class="page head">
@@ -21,6 +32,79 @@ const items = entries.map((e) => ({ slug: e.id, ...e.data }));
       material. Not a syllabus. A record of what the hands find out.
     </p>
     <!-- SLOT: awaiting Rika's true detail — first real making session (what, when, what it cost) -->
+  </section>
+  <section class="page doors">
+    <PanelDoors
+      panels={doors}
+      variant="hub"
+      ariaLabel="Workbench hub doors — three reading paths into the practice log"
+      signature="a small room · three doors · the little kit is enough"
+    >
+      <!-- 紫 · lavender · why start with the hands -->
+      <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="wb-l-t"><title id="wb-l-t">An open hand cupping a small seed with a hidden lavender bloom smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
+        <g transform="translate(100 150)">
+          <path d="M -30 8 C -36 -6, -28 -20, -14 -20 C 0 -22, 22 -20, 32 -12 C 40 -4, 40 8, 34 16 C 22 20, 4 22, -12 20 C -22 18, -28 14, -30 8 Z" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
+          <path d="M -30 8 C -36 4, -40 -4, -34 -8 C -28 -10, -22 -6, -20 -2" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin)" fill-opacity="0.94" stroke-linejoin="round"/>
+          <path d="M -12 -20 C -10 -30, -4 -34, 2 -32 C 6 -28, 4 -22, 0 -20" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin)" fill-opacity="0.94" stroke-linejoin="round"/>
+          <path d="M 4 -20 C 10 -28, 16 -30, 20 -26 C 22 -22, 18 -18, 14 -18" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin)" fill-opacity="0.94" stroke-linejoin="round"/>
+          <path d="M 20 -18 C 26 -22, 32 -22, 34 -16 C 34 -12, 30 -10, 28 -10" stroke="var(--ink-soft)" stroke-width="0.42" fill="var(--skin)" fill-opacity="0.9" stroke-linejoin="round"/>
+        </g>
+        <g transform="translate(100 128)">
+          <ellipse cx="0" cy="0" rx="5.5" ry="7.5" fill="var(--canopy-soft)" opacity="0.6" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linejoin="round"/>
+          <path d="M 0 -7.5 L 0 -14" stroke="var(--canopy)" stroke-width="0.7" stroke-linecap="round" opacity="0.8"/>
+          <g transform="translate(0 -6)">
+            <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+              <path d="M 0 -3 C 1.6 -2.5, 2.2 -0.8, 0 -0.2 C -2.2 -0.8, -1.6 -2.5, 0 -3 Z"/>
+              <path d="M 2.6 -0.8 C 3.2 0.9, 1.6 2, 0.4 1.3 C 0 -0.2, 1.4 -1.6, 2.6 -0.8 Z"/>
+              <path d="M 1.6 2 C 0 2.6, -1.6 1.2, -0.6 0 C 1 -0.7, 2.6 0.6, 1.6 2 Z"/>
+              <path d="M -2.2 1 C -3.2 -0.6, -2.2 -2, -0.6 -1 C 0 0, -1 2, -2.2 1 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="1" fill="#e8c15a" opacity="0.95"/>
+            <path d="M -0.5 -0.1 C -0.3 0.1, 0.3 0.1, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+
+      <!-- 金 · gold · trust the little kit -->
+      <svg slot="vignette-2" viewBox="0 0 200 220" role="img" aria-labelledby="wb-g-t"><title id="wb-g-t">A workbench tray with a few beloved primitives and a hidden gold smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.11" rx="1"/>
+        <path d="M 30 140 L 170 140 L 165 178 C 164 182, 158 184, 148 184 L 52 184 C 42 184, 36 182, 35 178 Z" fill="var(--bamboo)" opacity="0.55" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
+        <line x1="30" y1="140" x2="170" y2="140" stroke="var(--ink-soft)" stroke-width="0.55" opacity="0.7"/>
+        <line x1="30" y1="150" x2="170" y2="150" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.5"/>
+        <circle cx="65" cy="164" r="8" fill="none" stroke="var(--ink-soft)" stroke-width="0.7" opacity="0.75"/>
+        <line x1="88" y1="158" x2="112" y2="170" stroke="var(--ink-soft)" stroke-width="0.9" stroke-linecap="round" opacity="0.75"/>
+        <circle cx="135" cy="164" r="2.5" fill="var(--ink-soft)" opacity="0.8"/>
+        <g transform="translate(100 100)">
+          <circle cx="0" cy="0" r="14" fill="#e8c15a" opacity="0.68" stroke="var(--ink-soft)" stroke-width="0.55"/>
+          <path d="M -6 -1.5 C -3 2, 3 2, 6 -1.5" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+          <circle cx="-5" cy="-5" r="1.2" fill="var(--ink-soft)"/>
+          <circle cx="5" cy="-5" r="1.2" fill="var(--ink-soft)"/>
+        </g>
+        <text font-family="var(--hand)" x="100" y="60" font-size="9.5" text-anchor="middle" font-style="italic" fill="var(--ink-soft)" opacity="0.7">&amp; enough</text>
+      </svg>
+
+      <!-- 珊瑚 · coral · the shape of things -->
+      <svg slot="vignette-3" viewBox="0 0 200 220" role="img" aria-labelledby="wb-c-t"><title id="wb-c-t">A kintsugi bowl with a gold-mended crack held in hairline hands, with a hidden coral smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.08" rx="1"/>
+        <path d="M 50 108 C 55 92, 145 92, 150 108 L 138 168 C 135 176, 128 180, 100 180 C 72 180, 65 176, 62 168 Z" fill="var(--paper-washi)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.75" stroke-linejoin="round"/>
+        <path d="M 50 108 C 60 106, 90 108, 100 106 C 110 108, 140 106, 150 108" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" opacity="0.55" stroke-linecap="round"/>
+        <path d="M 90 108 C 85 128, 96 150, 92 168" stroke="#e8c15a" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <path d="M 82 122 L 96 128" stroke="#e8c15a" stroke-width="1.4" stroke-linecap="round" opacity="0.72"/>
+        <path d="M 96 148 L 84 158" stroke="#e8c15a" stroke-width="1.2" stroke-linecap="round" opacity="0.72"/>
+        <path d="M 30 110 C 40 108, 46 112, 48 116" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" opacity="0.7" stroke-linecap="round"/>
+        <path d="M 152 116 C 154 112, 160 108, 170 110" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" opacity="0.7" stroke-linecap="round"/>
+        <g transform="translate(130 140)">
+          <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
+            <path d="M 0 -4 C 2.2 -3.3, 2.8 -0.9, 0 -0.2 C -2.8 -0.9, -2.2 -3.3, 0 -4 Z"/>
+            <path d="M 3.4 -1.4 C 4 1, 2 2.6, 0.6 1.6 C 0 -0.2, 1.8 -2.2, 3.4 -1.4 Z"/>
+            <path d="M 2 2.6 C 0 3.4, -2 1.6, -0.6 0 C 1.4 -1.1, 3.4 0.8, 2 2.6 Z"/>
+          </g>
+          <circle cx="0" cy="0" r="1.2" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.55 -0.15 C -0.3 0.1, 0.3 0.1, 0.55 -0.15" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </PanelDoors>
   </section>
   <section class="page listing">
     <EssayList items={items} basePath="/workbench" />
