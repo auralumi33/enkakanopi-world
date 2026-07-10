@@ -14,7 +14,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "guard": "node scripts/guard.mjs",
-    "verify": "npm run guard && astro check && astro build",
+    "lint:panels": "node scripts/panel-anatomy.mjs",
+    "lint:covenant": "node scripts/essay-covenant.mjs",
+    "verify": "npm run guard && astro check && astro build && npm run lint:panels && npm run lint:covenant",
     "shots": "node scripts/shoot.mjs ./_shots http://localhost:4173"
   },
   "dependencies": {
