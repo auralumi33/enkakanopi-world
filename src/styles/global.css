@@ -49,13 +49,16 @@ a.link, .prose a {
 }
 a.link:hover, .prose a:hover { text-decoration-color: var(--poppy); }
 
-/* the eyebrow / label voice — sans, spaced, quiet */
+/* the eyebrow / label voice — sans, spaced, quiet.
+   Panel-language IA pass (2026-07-11): colour bumped ink-faint → ink-soft so
+   the eyebrow meets WCAG AA at 0.72rem uppercase. The quiet register is held
+   by size + spacing + tracking, not by whisper-level contrast. */
 .eyebrow {
   font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 
 /* epistemic-status tag — in-format, never an apology */

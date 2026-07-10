@@ -165,9 +165,14 @@ const stars = [[8,22],[19,64],[27,38],[36,80],[44,18],[53,58],[61,30],[70,72],[7
 
   .sub { font-family: var(--serif); font-style: italic; font-size: 1.02rem; color: var(--night-dim); margin: 1rem 0 0; max-width: 50ch; line-height: 1.55; letter-spacing: 0; }
 
-  .lock { font-size: 0.92rem; color: var(--night-dim); margin-top: 1.4rem; max-width: 60ch; }
+  /* Panel-language IA pass (2026-07-11): .lock body copy bumped night-dim →
+     night-ink so the workshop paragraph meets WCAG AA on the night ground.
+     The .lock em accent switched bloom → poppy-soft — same coral family,
+     brighter twin, passes AA on night. Register (a small coral mark inside
+     the sentence) preserved. */
+  .lock { font-size: 0.92rem; color: var(--night-ink); margin-top: 1.4rem; max-width: 60ch; }
   .lock + .refuse + .lock { margin-top: 1rem; }
-  .lock em { font-style: normal; color: var(--bloom); }
+  .lock em { font-style: normal; color: var(--poppy-soft); }
   .lock .say { display: block; font-family: var(--hand); font-size: 1.15rem; color: var(--gold); margin-top: 0.3rem; }
 
   .refuse { list-style: none; margin: 0.7rem 0 0; padding: 0; max-width: 60ch; }
