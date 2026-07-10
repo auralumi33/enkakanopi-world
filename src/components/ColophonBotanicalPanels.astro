@@ -1,17 +1,18 @@
 ---
 /**
- * ColophonBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (linked 2026-07-09 · slice-2.9)
- * Twelve panels for the Colophon triptych. Slice-2.9: each panel is now an anchor to a
- * semantic route so the panels stop reading as static paintings and start reading as doors —
- * same pattern as Home + Nursery panels. Semantic map, per act:
- * Row 1 · What holds the garden (structure) — plot→Nursery · canopy→Volume I ·
- *   ensō 円花→Lexicon · provenance→Studio.
- * Row 2 · How it's made (practice) — hand→Body & Spine · seal→Versions ·
- *   covenant→Field Notes · mirror→Workbench.
- * Row 3 · The retraining (state) — small hand→Nursery (starting small) · first mark→Studio
- *   (marks at the bench) · wobbly ensō→Body & Spine (the wobble kept) · trust→Versions
- *   (seal the yes).
+ * ColophonBotanicalPanels — the Colophon triptych's twelve panel doors,
+ * distributed across three acts via the row-prop distribution pattern.
+ *
+ * Migrated to the shared PanelDoors system (2026-07-11): data + hand-tuned
+ * vignettes stay here; layout, hue tokens, hover/focus, caption grammar,
+ * and the nav landmark are owned by `PanelDoors.astro`.
+ *
+ * Row 1 · What holds the garden (structure) — plot · canopy · ensō 円花 · provenance
+ * Row 2 · How it's made (practice)          — hand · seal · covenant · mirror
+ * Row 3 · The retraining (state)            — small hand · first mark · wobbly ensō · trust
  */
+import PanelDoors, { type Panel } from "./PanelDoors.astro";
+
 export interface Props {
   row?: 1 | 2 | 3 | "all";
 }
@@ -19,416 +20,316 @@ const { row = "all" } = Astro.props as Props;
 const showRow1 = row === "all" || row === 1;
 const showRow2 = row === "all" || row === 2;
 const showRow3 = row === "all" || row === 3;
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const showFinal = row === "all" || row === 3;
+
+const row1: Panel[] = [
+  { hue: "lavender", role: "the plot",       caption: "a plot kept · noise stays out · smile in the bloom",   href: "/nursery",   cta: "enter the Nursery" },
+  { hue: "gold",     role: "the canopy",     caption: "three arches · the canopy holds without fixing",       href: "/volume-i",  cta: "enter Volume I" },
+  { hue: "coral",    role: "the ensō · 円花", caption: "円花 keystone · flower held in the circle",             href: "/lexicon",   cta: "enter the Lexicon" },
+  { hue: "slate",    role: "the provenance", caption: "provenance held · four grounds circled",               href: "/studio",    cta: "enter the Studio" },
+];
+const row2: Panel[] = [
+  { hue: "lavender", role: "the hand",       caption: "the hand that means it · smile at the tip",           href: "/body-spine", cta: "enter Body & Spine" },
+  { hue: "gold",     role: "the seal",       caption: "the maker's-mark seal · smile in the flower heart",   href: "/versions",   cta: "enter Versions of Me" },
+  { hue: "coral",    role: "the covenant",   caption: "two hands · Rika rests on the assistant · smile in the yes", href: "/field-notes", cta: "enter Field Notes" },
+  { hue: "slate",    role: "the mirror",     caption: "the mirror agent · smile in what it reflects",         href: "/workbench",  cta: "enter The Workbench" },
+];
+const row3: Panel[] = [
+  { hue: "lavender", role: "the small hand",   caption: "picking up the brush · brave enough to try",         href: "/nursery",   cta: "enter the Nursery" },
+  { hue: "gold",     role: "the first mark",   caption: "joy before judgment · smile in the mess",            href: "/studio",    cta: "enter the Studio" },
+  { hue: "coral",    role: "the wobbly ensō",  caption: "the wobble is the truth · smile at the trying",      href: "/body-spine", cta: "enter Body & Spine" },
+  { hue: "slate",    role: "the trust",        caption: "trust the wobble · seal the yes · smile in the bloom", href: "/versions",  cta: "enter Versions of Me" },
+];
+
+const signature = "assisted, never authored · nothing is published without her yes · each panel a door";
 ---
-<figure class={`botanical-panels botanical-panels--colophon botanical-panels--row-${row}`} aria-label="Colophon panels — the brand story">
-  {showRow1 && (<>
-  <!-- Row 1 · What holds the garden -->
-  <div class="panels-grid">
-    <a class="panel" href={base + "/nursery"} aria-label="the plot — enter the Nursery">
-      <p class="panel-label">紫 · lavender</p>
-      <p class="panel-jp">the plot</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c1-t"><title id="c1-t">Sprouts in a dashed boundary plot with a lavender bloom smile</title>
-        <path d="M 40 130 C 42 128, 100 126, 160 128 C 162 130, 162 168, 160 170 C 158 172, 100 172, 40 170 C 38 168, 38 130, 40 130 Z" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.75"/>
-        <g stroke="var(--ink-soft)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.85">
-          <line x1="70" y1="165" x2="70" y2="140"/>
-          <line x1="95" y1="165" x2="95" y2="132"/>
-          <line x1="118" y1="165" x2="118" y2="140"/>
-          <line x1="140" y1="165" x2="140" y2="130"/>
+{showRow1 && (
+  <PanelDoors
+    panels={row1}
+    ariaLabel="Colophon panels · row one — what holds the garden"
+    variant="colophon"
+    row={row === "all" ? 1 : row}
+    rows={3}
+  >
+    <svg slot="vignette-1" viewBox="0 0 200 200" role="img" aria-labelledby="c1-t"><title id="c1-t">Sprouts in a dashed boundary plot with a lavender bloom smile</title>
+      <path d="M 40 130 C 42 128, 100 126, 160 128 C 162 130, 162 168, 160 170 C 158 172, 100 172, 40 170 C 38 168, 38 130, 40 130 Z" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.75"/>
+      <g stroke="var(--ink-soft)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.85">
+        <line x1="70" y1="165" x2="70" y2="140"/>
+        <line x1="95" y1="165" x2="95" y2="132"/>
+        <line x1="118" y1="165" x2="118" y2="140"/>
+        <line x1="140" y1="165" x2="140" y2="130"/>
+      </g>
+      <g fill="var(--canopy-soft)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+        <path d="M 70 150 C 64 148, 60 152, 62 156 C 66 155, 70 153, 70 150 Z"/>
+        <path d="M 95 140 C 101 138, 105 142, 103 146 C 99 145, 95 143, 95 140 Z"/>
+        <path d="M 118 148 C 112 146, 108 150, 110 154 C 114 153, 118 151, 118 148 Z"/>
+      </g>
+      <g transform="translate(140 128)">
+        <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+          <path d="M0 -3 C 1.5 -2.5, 2 -0.7, 0 -0.15 C -2 -0.7, -1.5 -2.5, 0 -3 Z"/>
+          <path d="M 2.4 -0.8 C 3 0.9, 1.5 2, 0.4 1.3 C 0 -0.15, 1.4 -1.6, 2.4 -0.8 Z"/>
+          <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.4 0.5, 1.5 2 Z"/>
         </g>
-        <g fill="var(--canopy-soft)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
-          <path d="M 70 150 C 64 148, 60 152, 62 156 C 66 155, 70 153, 70 150 Z"/>
-          <path d="M 95 140 C 101 138, 105 142, 103 146 C 99 145, 95 143, 95 140 Z"/>
-          <path d="M 118 148 C 112 146, 108 150, 110 154 C 114 153, 118 151, 118 148 Z"/>
-        </g>
-        <g transform="translate(140 128)">
-          <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
-            <path d="M0 -3 C 1.5 -2.5, 2 -0.7, 0 -0.15 C -2 -0.7, -1.5 -2.5, 0 -3 Z"/>
-            <path d="M 2.4 -0.8 C 3 0.9, 1.5 2, 0.4 1.3 C 0 -0.15, 1.4 -1.6, 2.4 -0.8 Z"/>
-            <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.4 0.5, 1.5 2 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.5 -0.1 C -0.3 0.05, 0.3 0.05, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
-        </g>
-        <line x1="40" y1="172" x2="160" y2="172" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.55"/>
-      </svg>
-      <p class="panel-cap">a plot kept · noise stays out · smile in the bloom</p>
-      <span class="panel-cta" aria-hidden="true">enter the Nursery →</span>
-    </a>
+        <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.5 -0.1 C -0.3 0.05, 0.3 0.05, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+      </g>
+      <line x1="40" y1="172" x2="160" y2="172" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.55"/>
+    </svg>
 
-    <a class="panel" href={base + "/volume-i"} aria-label="the canopy — enter Volume I">
-      <p class="panel-label">金 · gold</p>
-      <p class="panel-jp">the canopy</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c2-t"><title id="c2-t">Three canopy arches with pastel blooms and a hidden smile</title>
-        <path d="M 20 155 C 20 100, 90 100, 90 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 60 155 C 60 90, 140 90, 140 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 110 155 C 110 100, 180 100, 180 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <circle cx="55" cy="118" r="4" fill="var(--canopy-soft)" opacity="0.7"/>
-        <circle cx="100" cy="98" r="5" fill="#b899c9" opacity="0.7"/>
-        <circle cx="140" cy="110" r="4" fill="#e8c15a" opacity="0.7"/>
-        <circle cx="75" cy="85" r="1.2" fill="#b899c9" opacity="0.65"/>
-        <circle cx="130" cy="80" r="1" fill="#a4b8c8" opacity="0.65"/>
-        <circle cx="170" cy="112" r="1.2" fill="#e8c15a" opacity="0.7"/>
-        <line x1="20" y1="155" x2="180" y2="155" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.6"/>
-        <g transform="translate(102 100)">
-          <circle cx="0" cy="0" r="1.5" fill="#e8c15a" opacity="0.9"/>
-          <path d="M -0.6 -0.1 C -0.35 0.1, 0.35 0.1, 0.6 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">three arches · the canopy holds without fixing</p>
-      <span class="panel-cta" aria-hidden="true">enter Volume I →</span>
-    </a>
+    <svg slot="vignette-2" viewBox="0 0 200 200" role="img" aria-labelledby="c2-t"><title id="c2-t">Three canopy arches with pastel blooms and a hidden smile</title>
+      <path d="M 20 155 C 20 100, 90 100, 90 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
+      <path d="M 60 155 C 60 90, 140 90, 140 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
+      <path d="M 110 155 C 110 100, 180 100, 180 155" stroke="var(--canopy)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.75"/>
+      <circle cx="55" cy="118" r="4" fill="var(--canopy-soft)" opacity="0.7"/>
+      <circle cx="100" cy="98" r="5" fill="#b899c9" opacity="0.7"/>
+      <circle cx="140" cy="110" r="4" fill="#e8c15a" opacity="0.7"/>
+      <circle cx="75" cy="85" r="1.2" fill="#b899c9" opacity="0.65"/>
+      <circle cx="130" cy="80" r="1" fill="#a4b8c8" opacity="0.65"/>
+      <circle cx="170" cy="112" r="1.2" fill="#e8c15a" opacity="0.7"/>
+      <line x1="20" y1="155" x2="180" y2="155" stroke="var(--ink-soft)" stroke-width="0.5" opacity="0.6"/>
+      <g transform="translate(102 100)">
+        <circle cx="0" cy="0" r="1.5" fill="#e8c15a" opacity="0.9"/>
+        <path d="M -0.6 -0.1 C -0.35 0.1, 0.35 0.1, 0.6 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/lexicon"} aria-label="the ensō 円花 — enter the Lexicon">
-      <p class="panel-label">珊瑚 · coral</p>
-      <p class="panel-jp">the ensō · 円花</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c3-t"><title id="c3-t">The 円花 ensō keystone with flower held inside and four cardinal orbit dots</title>
-        <path d="M 130 55 C 100 45, 65 55, 45 82 C 28 108, 33 145, 60 162 C 88 178, 128 170, 148 143 C 162 122, 162 92, 145 72" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.65"/>
-        <text x="98" y="118" text-anchor="middle" font-size="26" font-family="Noto Serif JP, serif" fill="var(--ink-soft)" opacity="0.3">円</text>
-        <path d="M 98 90 L 98 78" stroke="var(--canopy)" stroke-width="0.55" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 94 82 L 90 78" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.65"/>
-        <path d="M 102 82 L 106 78" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.65"/>
-        <path d="M 90 78 C 88 76, 88 74, 90 75 C 91 76, 91 78, 90 78 Z" fill="var(--canopy-soft)" opacity="0.75"/>
-        <path d="M 106 78 C 108 76, 108 74, 106 75 C 105 76, 105 78, 106 78 Z" fill="var(--canopy-soft)" opacity="0.75"/>
-        <g transform="translate(98 72)">
-          <circle cx="0" cy="0" r="2.6" fill="#e08d84" opacity="0.9"/>
-          <circle cx="0" cy="0" r="1" fill="var(--paper-washi)"/>
-          <path d="M -0.4 -0.05 C -0.2 0.1, 0.2 0.1, 0.4 -0.05" stroke="var(--ink-soft)" stroke-width="0.22" fill="none" stroke-linecap="round"/>
-        </g>
-        <circle cx="98" cy="34" r="1.4" fill="#b899c9" opacity="0.7"/>
-        <circle cx="175" cy="108" r="1.4" fill="#e8c15a" opacity="0.7"/>
-        <circle cx="98" cy="180" r="1.4" fill="#a4b8c8" opacity="0.7"/>
-        <circle cx="22" cy="108" r="1.4" fill="#e08d84" opacity="0.7"/>
-      </svg>
-      <p class="panel-cap">円花 keystone · flower held in the circle</p>
-      <span class="panel-cta" aria-hidden="true">enter the Lexicon →</span>
-    </a>
+    <svg slot="vignette-3" viewBox="0 0 200 200" role="img" aria-labelledby="c3-t"><title id="c3-t">The 円花 ensō keystone with flower held inside and four cardinal orbit dots</title>
+      <path d="M 130 55 C 100 45, 65 55, 45 82 C 28 108, 33 145, 60 162 C 88 178, 128 170, 148 143 C 162 122, 162 92, 145 72" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.65"/>
+      <text x="98" y="118" text-anchor="middle" font-size="26" font-family="Noto Serif JP, serif" fill="var(--ink-soft)" opacity="0.3">円</text>
+      <path d="M 98 90 L 98 78" stroke="var(--canopy)" stroke-width="0.55" stroke-linecap="round" opacity="0.75"/>
+      <path d="M 94 82 L 90 78" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.65"/>
+      <path d="M 102 82 L 106 78" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.65"/>
+      <path d="M 90 78 C 88 76, 88 74, 90 75 C 91 76, 91 78, 90 78 Z" fill="var(--canopy-soft)" opacity="0.75"/>
+      <path d="M 106 78 C 108 76, 108 74, 106 75 C 105 76, 105 78, 106 78 Z" fill="var(--canopy-soft)" opacity="0.75"/>
+      <g transform="translate(98 72)">
+        <circle cx="0" cy="0" r="2.6" fill="#e08d84" opacity="0.9"/>
+        <circle cx="0" cy="0" r="1" fill="var(--paper-washi)"/>
+        <path d="M -0.4 -0.05 C -0.2 0.1, 0.2 0.1, 0.4 -0.05" stroke="var(--ink-soft)" stroke-width="0.22" fill="none" stroke-linecap="round"/>
+      </g>
+      <circle cx="98" cy="34" r="1.4" fill="#b899c9" opacity="0.7"/>
+      <circle cx="175" cy="108" r="1.4" fill="#e8c15a" opacity="0.7"/>
+      <circle cx="98" cy="180" r="1.4" fill="#a4b8c8" opacity="0.7"/>
+      <circle cx="22" cy="108" r="1.4" fill="#e08d84" opacity="0.7"/>
+    </svg>
 
-    <a class="panel" href={base + "/studio"} aria-label="the provenance — enter the Studio">
-      <p class="panel-label">青 · slate</p>
-      <p class="panel-jp">the provenance</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c4-t"><title id="c4-t">A target with three concentric rings and four cardinal orbit dots</title>
-        <circle cx="100" cy="100" r="52" stroke="var(--canopy-soft)" stroke-width="0.6" fill="none" opacity="0.65"/>
-        <circle cx="100" cy="100" r="32" stroke="var(--canopy)" stroke-width="0.7" fill="none" opacity="0.7"/>
-        <circle cx="100" cy="100" r="14" stroke="var(--ink-soft)" stroke-width="0.65" fill="none" opacity="0.7"/>
-        <g transform="translate(100 100)">
-          <circle cx="0" cy="0" r="3.2" fill="#e08d84" opacity="0.9"/>
-          <path d="M -0.7 -0.1 C -0.4 0.15, 0.4 0.15, 0.7 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
-          <circle cx="-0.9" cy="-0.9" r="0.28" fill="var(--ink-soft)" opacity="0.85"/>
-          <circle cx="0.9" cy="-0.9" r="0.28" fill="var(--ink-soft)" opacity="0.85"/>
-        </g>
-        <circle cx="100" cy="48" r="1.4" fill="#b899c9" opacity="0.72"/>
-        <circle cx="152" cy="100" r="1.4" fill="#e8c15a" opacity="0.72"/>
-        <circle cx="100" cy="152" r="1.4" fill="#a4b8c8" opacity="0.72"/>
-        <circle cx="48" cy="100" r="1.4" fill="#e08d84" opacity="0.72"/>
-        <text font-family="var(--hand)" x="100" y="188" font-size="8.5" text-anchor="middle" opacity="0.65" font-style="italic" fill="var(--ink-soft)">summer 07/2026 · tended by Fang Rika</text>
-      </svg>
-      <p class="panel-cap">provenance held · four grounds circled</p>
-      <span class="panel-cta" aria-hidden="true">enter the Studio →</span>
-    </a>
-  </div>
-  </>)}
+    <svg slot="vignette-4" viewBox="0 0 200 200" role="img" aria-labelledby="c4-t"><title id="c4-t">A target with three concentric rings and four cardinal orbit dots</title>
+      <circle cx="100" cy="100" r="52" stroke="var(--canopy-soft)" stroke-width="0.6" fill="none" opacity="0.65"/>
+      <circle cx="100" cy="100" r="32" stroke="var(--canopy)" stroke-width="0.7" fill="none" opacity="0.7"/>
+      <circle cx="100" cy="100" r="14" stroke="var(--ink-soft)" stroke-width="0.65" fill="none" opacity="0.7"/>
+      <g transform="translate(100 100)">
+        <circle cx="0" cy="0" r="3.2" fill="#e08d84" opacity="0.9"/>
+        <path d="M -0.7 -0.1 C -0.4 0.15, 0.4 0.15, 0.7 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        <circle cx="-0.9" cy="-0.9" r="0.28" fill="var(--ink-soft)" opacity="0.85"/>
+        <circle cx="0.9" cy="-0.9" r="0.28" fill="var(--ink-soft)" opacity="0.85"/>
+      </g>
+      <circle cx="100" cy="48" r="1.4" fill="#b899c9" opacity="0.72"/>
+      <circle cx="152" cy="100" r="1.4" fill="#e8c15a" opacity="0.72"/>
+      <circle cx="100" cy="152" r="1.4" fill="#a4b8c8" opacity="0.72"/>
+      <circle cx="48" cy="100" r="1.4" fill="#e08d84" opacity="0.72"/>
+      <text font-family="var(--hand)" x="100" y="188" font-size="8.5" text-anchor="middle" opacity="0.65" font-style="italic" fill="var(--ink-soft)">summer 07/2026 · tended by Fang Rika</text>
+    </svg>
+  </PanelDoors>
+)}
 
-  {showRow2 && (<>
-  <!-- Row 2 · How it's made -->
-  <div class="panels-grid">
-    <a class="panel" href={base + "/body-spine"} aria-label="the hand — enter Body & Spine">
-      <p class="panel-label">紫 · lavender</p>
-      <p class="panel-jp">the hand</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c5-t"><title id="c5-t">A hand gripping a vertical sumi-e brush with all five fingers visible</title>
-        <g transform="translate(105 -10)">
-          <rect x="-3.5" y="30" width="7" height="70" fill="var(--bamboo)" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.5" rx="0.5"/>
-          <line x1="-3.5" y1="50" x2="3.5" y2="50" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.55"/>
-          <line x1="-3.5" y1="75" x2="3.5" y2="75" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.55"/>
-          <rect x="-5" y="100" width="10" height="3" fill="var(--ink-soft)" opacity="0.9"/>
-          <path d="M -5 103 C -6 113, -3 122, 0 128 C 3 122, 6 113, 5 103 Z" fill="var(--ink-soft)" opacity="0.88"/>
-          <circle cx="0" cy="126" r="2.4" fill="var(--ink-soft)"/>
+{showRow2 && (
+  <PanelDoors
+    panels={row2}
+    ariaLabel="Colophon panels · row two — how it's made"
+    variant="colophon"
+    row={row === "all" ? 2 : row}
+    rows={3}
+  >
+    <svg slot="vignette-1" viewBox="0 0 200 200" role="img" aria-labelledby="c5-t"><title id="c5-t">A hand gripping a vertical sumi-e brush with all five fingers visible</title>
+      <g transform="translate(105 -10)">
+        <rect x="-3.5" y="30" width="7" height="70" fill="var(--bamboo)" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.5" rx="0.5"/>
+        <line x1="-3.5" y1="50" x2="3.5" y2="50" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.55"/>
+        <line x1="-3.5" y1="75" x2="3.5" y2="75" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.55"/>
+        <rect x="-5" y="100" width="10" height="3" fill="var(--ink-soft)" opacity="0.9"/>
+        <path d="M -5 103 C -6 113, -3 122, 0 128 C 3 122, 6 113, 5 103 Z" fill="var(--ink-soft)" opacity="0.88"/>
+        <circle cx="0" cy="126" r="2.4" fill="var(--ink-soft)"/>
+      </g>
+      <g transform="translate(105 145)">
+        <path d="M -22 8 C -26 18, -22 30, -10 32 C 6 34, 20 30, 24 18 C 26 10, 22 4, 18 2 L -16 2 Z" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
+        <path d="M -16 2 C -22 -4, -26 -12, -20 -14 C -14 -14, -8 -6, -6 -2" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M -6 -2 C -3 -10, 0 -14, 3 -14 C 6 -14, 7 -10, 5 -6 C 4 -3, 3 -1, 2 0" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M 4 -1 C 7 -6, 10 -8, 13 -6 C 15 -3, 14 0, 12 2" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
+        <path d="M 12 2 C 16 4, 19 6, 20 10 C 20 14, 18 15, 16 14" fill="var(--skin)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linejoin="round"/>
+        <path d="M 22 28 C 28 38, 34 48, 40 60" stroke="var(--ink-soft)" stroke-width="0.65" fill="none" stroke-linecap="round" opacity="0.7"/>
+      </g>
+      <g transform="translate(45 178)">
+        <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+          <path d="M 0 -3 C 1.5 -2.5, 2 -0.7, 0 -0.15 C -2 -0.7, -1.5 -2.5, 0 -3 Z"/>
+          <path d="M 2.4 -0.8 C 3 0.9, 1.5 2, 0.4 1.3 C 0 -0.15, 1.4 -1.6, 2.4 -0.8 Z"/>
+          <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.4 0.5, 1.5 2 Z"/>
+          <path d="M -2 1 C -3 -0.5, -2 -1.8, -0.5 -1 C 0 0, -1 1.9, -2 1 Z"/>
         </g>
-        <g transform="translate(105 145)">
-          <path d="M -22 8 C -26 18, -22 30, -10 32 C 6 34, 20 30, 24 18 C 26 10, 22 4, 18 2 L -16 2 Z" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
-          <path d="M -16 2 C -22 -4, -26 -12, -20 -14 C -14 -14, -8 -6, -6 -2" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M -6 -2 C -3 -10, 0 -14, 3 -14 C 6 -14, 7 -10, 5 -6 C 4 -3, 3 -1, 2 0" fill="var(--skin)" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M 4 -1 C 7 -6, 10 -8, 13 -6 C 15 -3, 14 0, 12 2" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
-          <path d="M 12 2 C 16 4, 19 6, 20 10 C 20 14, 18 15, 16 14" fill="var(--skin)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linejoin="round"/>
-          <path d="M 22 28 C 28 38, 34 48, 40 60" stroke="var(--ink-soft)" stroke-width="0.65" fill="none" stroke-linecap="round" opacity="0.7"/>
-        </g>
-        <g transform="translate(45 178)">
-          <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
-            <path d="M 0 -3 C 1.5 -2.5, 2 -0.7, 0 -0.15 C -2 -0.7, -1.5 -2.5, 0 -3 Z"/>
-            <path d="M 2.4 -0.8 C 3 0.9, 1.5 2, 0.4 1.3 C 0 -0.15, 1.4 -1.6, 2.4 -0.8 Z"/>
-            <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.4 0.5, 1.5 2 Z"/>
-            <path d="M -2 1 C -3 -0.5, -2 -1.8, -0.5 -1 C 0 0, -1 1.9, -2 1 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.5 -0.1 C -0.3 0.1, 0.3 0.1, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">the hand that means it · smile at the tip</p>
-      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
-    </a>
+        <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.5 -0.1 C -0.3 0.1, 0.3 0.1, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/versions"} aria-label="the seal — enter Versions of Me">
-      <p class="panel-label">金 · gold</p>
-      <p class="panel-jp">the seal</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c6-t"><title id="c6-t">The maker's-mark wax seal with a hidden smile in the flower heart</title>
-        <path d="M 100 70 C 116 68, 126 78, 126 92 C 126 107, 116 118, 100 118 C 84 118, 74 108, 72 94 C 70 80, 84 71, 100 70 Z" fill="var(--poppy)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-        <path d="M 100 78 C 110 77, 116 84, 116 92 C 116 102, 108 108, 100 108 C 92 108, 86 102, 86 94 C 86 84, 92 78, 100 78 Z" fill="none" stroke="var(--paper-washi)" stroke-width="0.5" opacity="0.7"/>
-        <g transform="translate(100 93)">
-          <g fill="#e8c15a" opacity="0.85">
-            <path d="M 0 -3 C 1.5 -2.5, 2 -0.8, 0 -0.2 C -2 -0.8, -1.5 -2.5, 0 -3 Z"/>
-            <path d="M 2.5 -0.8 C 3 0.8, 1.5 2, 0.3 1.4 C 0 -0.2, 1.4 -1.6, 2.5 -0.8 Z"/>
-            <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.5 0.6, 1.5 2 Z"/>
-            <path d="M -2 1 C -3 -0.5, -2 -1.8, -0.5 -1 C 0 0, -1 1.9, -2 1 Z"/>
-          </g>
-          <path d="M -0.6 -0.1 C -0.35 0.15, 0.35 0.15, 0.6 -0.1" stroke="var(--poppy)" stroke-width="0.32" fill="none" stroke-linecap="round"/>
+    <svg slot="vignette-2" viewBox="0 0 200 200" role="img" aria-labelledby="c6-t"><title id="c6-t">The maker's-mark wax seal with a hidden smile in the flower heart</title>
+      <path d="M 100 70 C 116 68, 126 78, 126 92 C 126 107, 116 118, 100 118 C 84 118, 74 108, 72 94 C 70 80, 84 71, 100 70 Z" fill="var(--poppy)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      <path d="M 100 78 C 110 77, 116 84, 116 92 C 116 102, 108 108, 100 108 C 92 108, 86 102, 86 94 C 86 84, 92 78, 100 78 Z" fill="none" stroke="var(--paper-washi)" stroke-width="0.5" opacity="0.7"/>
+      <g transform="translate(100 93)">
+        <g fill="#e8c15a" opacity="0.85">
+          <path d="M 0 -3 C 1.5 -2.5, 2 -0.8, 0 -0.2 C -2 -0.8, -1.5 -2.5, 0 -3 Z"/>
+          <path d="M 2.5 -0.8 C 3 0.8, 1.5 2, 0.3 1.4 C 0 -0.2, 1.4 -1.6, 2.5 -0.8 Z"/>
+          <path d="M 1.5 2 C 0 2.5, -1.5 1.2, -0.5 0 C 1 -0.7, 2.5 0.6, 1.5 2 Z"/>
+          <path d="M -2 1 C -3 -0.5, -2 -1.8, -0.5 -1 C 0 0, -1 1.9, -2 1 Z"/>
         </g>
-        <text font-family="var(--hand)" x="100" y="140" font-size="9" text-anchor="middle" opacity="0.7" font-style="italic" fill="var(--ink-soft)">the garden · summer 07/ 2026</text>
-        <text font-family="var(--hand)" x="100" y="153" font-size="8" text-anchor="middle" opacity="0.6" font-style="italic" fill="var(--ink-soft)">tended by Fang Rika ·</text>
-      </svg>
-      <p class="panel-cap">the maker's-mark seal · smile in the flower heart</p>
-      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
-    </a>
+        <path d="M -0.6 -0.1 C -0.35 0.15, 0.35 0.15, 0.6 -0.1" stroke="var(--poppy)" stroke-width="0.32" fill="none" stroke-linecap="round"/>
+      </g>
+      <text font-family="var(--hand)" x="100" y="140" font-size="9" text-anchor="middle" opacity="0.7" font-style="italic" fill="var(--ink-soft)">the garden · summer 07/ 2026</text>
+      <text font-family="var(--hand)" x="100" y="153" font-size="8" text-anchor="middle" opacity="0.6" font-style="italic" fill="var(--ink-soft)">tended by Fang Rika ·</text>
+    </svg>
 
-    <a class="panel" href={base + "/field-notes"} aria-label="the covenant — enter Field Notes">
-      <p class="panel-label">珊瑚 · coral</p>
-      <p class="panel-jp">the covenant</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c7-t"><title id="c7-t">Two hands hand-over-hand — the covenant made picture — with a coral bloom smile</title>
-        <path d="M 20 160 C 55 156, 145 156, 180 160 C 182 163, 182 178, 180 180 C 145 182, 55 182, 20 180 C 18 178, 18 163, 20 160 Z" fill="var(--paper-washi)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
-        <line x1="28" y1="165" x2="120" y2="164" stroke="var(--ink-soft)" stroke-width="0.3" opacity="0.35"/>
-        <line x1="28" y1="171" x2="110" y2="170" stroke="var(--ink-soft)" stroke-width="0.3" opacity="0.35"/>
-        <path d="M 95 170 C 103 168, 111 165, 117 160" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.6"/>
-        <line x1="118" y1="152" x2="178" y2="60" stroke="var(--bamboo)" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
-        <line x1="118" y1="152" x2="178" y2="60" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.4"/>
-        <line x1="113" y1="157" x2="121" y2="163" stroke="var(--ink-soft)" stroke-width="2" stroke-linecap="round"/>
-        <path d="M 113 157 L 100 170 L 108 168 Z" fill="var(--ink-soft)" opacity="0.9"/>
-        <g transform="translate(125 138)">
-          <path d="M -10 -3 C -18 5, -16 20, -6 24 C 8 26, 22 22, 26 12 C 28 4, 24 -4, 20 -6 L -8 -5 Z" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
-          <path d="M -8 -5 C -16 -12, -22 -4, -14 2 C -10 5, -8 5, -4 2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M -4 -5 C -2 -12, 2 -18, 4 -18 C 6 -18, 8 -14, 6 -8 C 4 -4, 2 -2, 0 -2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M 6 -3 C 8 -8, 12 -12, 14 -8 C 15 -4, 14 -2, 12 -1" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
-          <path d="M 24 18 C 30 28, 36 38, 42 48" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <svg slot="vignette-3" viewBox="0 0 200 200" role="img" aria-labelledby="c7-t"><title id="c7-t">Two hands hand-over-hand — the covenant made picture — with a coral bloom smile</title>
+      <path d="M 20 160 C 55 156, 145 156, 180 160 C 182 163, 182 178, 180 180 C 145 182, 55 182, 20 180 C 18 178, 18 163, 20 160 Z" fill="var(--paper-washi)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <line x1="28" y1="165" x2="120" y2="164" stroke="var(--ink-soft)" stroke-width="0.3" opacity="0.35"/>
+      <line x1="28" y1="171" x2="110" y2="170" stroke="var(--ink-soft)" stroke-width="0.3" opacity="0.35"/>
+      <path d="M 95 170 C 103 168, 111 165, 117 160" stroke="var(--ink-soft)" stroke-width="0.85" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <line x1="118" y1="152" x2="178" y2="60" stroke="var(--bamboo)" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+      <line x1="118" y1="152" x2="178" y2="60" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.4"/>
+      <line x1="113" y1="157" x2="121" y2="163" stroke="var(--ink-soft)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 113 157 L 100 170 L 108 168 Z" fill="var(--ink-soft)" opacity="0.9"/>
+      <g transform="translate(125 138)">
+        <path d="M -10 -3 C -18 5, -16 20, -6 24 C 8 26, 22 22, 26 12 C 28 4, 24 -4, 20 -6 L -8 -5 Z" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
+        <path d="M -8 -5 C -16 -12, -22 -4, -14 2 C -10 5, -8 5, -4 2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M -4 -5 C -2 -12, 2 -18, 4 -18 C 6 -18, 8 -14, 6 -8 C 4 -4, 2 -2, 0 -2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M 6 -3 C 8 -8, 12 -12, 14 -8 C 15 -4, 14 -2, 12 -1" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
+        <path d="M 24 18 C 30 28, 36 38, 42 48" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.7"/>
+      </g>
+      <g transform="translate(145 115) rotate(-10)">
+        <path d="M -18 -4 C -22 2, -20 12, -10 14 C 4 15, 18 12, 22 4 C 23 -1, 20 -8, 16 -8 L -14 -8 Z" fill="var(--skin-deep)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
+        <path d="M -18 -4 C -22 -2, -24 4, -20 8 C -16 10, -12 8, -10 6" fill="var(--skin-deep)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M -4 14 C -5 20, -5 22, -4 24" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
+        <path d="M 4 14 C 3 20, 3 22, 4 24" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
+        <path d="M 12 12 C 11 18, 11 20, 12 22" stroke="var(--ink-soft)" stroke-width="0.42" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
+        <path d="M 20 -6 C 28 -12, 34 -18, 42 -24" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
+      </g>
+      <g transform="translate(78 172)">
+        <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+          <path d="M 0 -3.4 C 2 -2.8, 2.6 -0.7, 0 -0.15 C -2.6 -0.7, -2 -2.8, 0 -3.4 Z"/>
+          <path d="M 2.8 -1 C 3.4 1, 1.6 2.2, 0.4 1.4 C 0 -0.15, 1.5 -1.7, 2.8 -1 Z"/>
+          <path d="M 1.6 2.2 C 0 2.8, -1.6 1.2, -0.5 0 C 1 -0.7, 2.8 0.5, 1.6 2.2 Z"/>
         </g>
-        <g transform="translate(145 115) rotate(-10)">
-          <path d="M -18 -4 C -22 2, -20 12, -10 14 C 4 15, 18 12, 22 4 C 23 -1, 20 -8, 16 -8 L -14 -8 Z" fill="var(--skin-deep)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.6" stroke-linejoin="round"/>
-          <path d="M -18 -4 C -22 -2, -24 4, -20 8 C -16 10, -12 8, -10 6" fill="var(--skin-deep)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M -4 14 C -5 20, -5 22, -4 24" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
-          <path d="M 4 14 C 3 20, 3 22, 4 24" stroke="var(--ink-soft)" stroke-width="0.45" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
-          <path d="M 12 12 C 11 18, 11 20, 12 22" stroke="var(--ink-soft)" stroke-width="0.42" fill="var(--skin-deep)" fill-opacity="0.85" stroke-linejoin="round"/>
-          <path d="M 20 -6 C 28 -12, 34 -18, 42 -24" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
-        </g>
-        <g transform="translate(78 172)">
-          <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
-            <path d="M 0 -3.4 C 2 -2.8, 2.6 -0.7, 0 -0.15 C -2.6 -0.7, -2 -2.8, 0 -3.4 Z"/>
-            <path d="M 2.8 -1 C 3.4 1, 1.6 2.2, 0.4 1.4 C 0 -0.15, 1.5 -1.7, 2.8 -1 Z"/>
-            <path d="M 1.6 2.2 C 0 2.8, -1.6 1.2, -0.5 0 C 1 -0.7, 2.8 0.5, 1.6 2.2 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.5 -0.1 C -0.3 0.1, 0.3 0.1, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">two hands · Rika rests on the assistant · smile in the yes</p>
-      <span class="panel-cta" aria-hidden="true">enter Field Notes →</span>
-    </a>
+        <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.5 -0.1 C -0.3 0.1, 0.3 0.1, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/workbench"} aria-label="the mirror — enter The Workbench">
-      <p class="panel-label">青 · slate</p>
-      <p class="panel-jp">the mirror</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c8-t"><title id="c8-t">A hand-held mirror reflecting a small smile</title>
-        <ellipse cx="100" cy="90" rx="42" ry="52" fill="#a4b8c8" opacity="0.20" stroke="var(--ink-soft)" stroke-width="0.65"/>
-        <ellipse cx="100" cy="90" rx="34" ry="44" fill="none" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.55"/>
-        <path d="M 100 142 C 98 155, 96 172, 96 185 C 100 185, 104 185, 104 185 C 104 172, 102 155, 100 142 Z" fill="#a4b8c8" opacity="0.5" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-        <g transform="translate(100 88)">
-          <g fill="#e08d84" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
-            <path d="M 0 -6 C 3.3 -5, 4.2 -1.2, 0 -0.3 C -4.2 -1.2, -3.3 -5, 0 -6 Z"/>
-            <path d="M 5 -2 C 6 1.5, 3.3 4, 1 2.4 C 0 -0.3, 2.7 -3.3, 5 -2 Z"/>
-            <path d="M 3.3 4 C 0 5, -3.3 2.4, -1.2 0 C 2 -1.7, 5 1.4, 3.3 4 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.6 -0.1 C -0.35 0.15, 0.35 0.15, 0.6 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+    <svg slot="vignette-4" viewBox="0 0 200 200" role="img" aria-labelledby="c8-t"><title id="c8-t">A hand-held mirror reflecting a small smile</title>
+      <ellipse cx="100" cy="90" rx="42" ry="52" fill="#a4b8c8" opacity="0.20" stroke="var(--ink-soft)" stroke-width="0.65"/>
+      <ellipse cx="100" cy="90" rx="34" ry="44" fill="none" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.55"/>
+      <path d="M 100 142 C 98 155, 96 172, 96 185 C 100 185, 104 185, 104 185 C 104 172, 102 155, 100 142 Z" fill="#a4b8c8" opacity="0.5" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+      <g transform="translate(100 88)">
+        <g fill="#e08d84" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+          <path d="M 0 -6 C 3.3 -5, 4.2 -1.2, 0 -0.3 C -4.2 -1.2, -3.3 -5, 0 -6 Z"/>
+          <path d="M 5 -2 C 6 1.5, 3.3 4, 1 2.4 C 0 -0.3, 2.7 -3.3, 5 -2 Z"/>
+          <path d="M 3.3 4 C 0 5, -3.3 2.4, -1.2 0 C 2 -1.7, 5 1.4, 3.3 4 Z"/>
         </g>
-      </svg>
-      <p class="panel-cap">the mirror agent · smile in what it reflects</p>
-      <span class="panel-cta" aria-hidden="true">enter The Workbench →</span>
-    </a>
-  </div>
-  </>)}
+        <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.6 -0.1 C -0.35 0.15, 0.35 0.15, 0.6 -0.1" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </PanelDoors>
+)}
 
-  {showRow3 && (<>
-  <!-- Row 3 · The retraining -->
-  <div class="panels-grid">
-    <a class="panel" href={base + "/nursery"} aria-label="the small hand — enter the Nursery">
-      <p class="panel-label">紫 · lavender</p>
-      <p class="panel-jp">the small hand</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c9-t"><title id="c9-t">A small child's hand picking up a paintbrush with a hopeful lavender mark below</title>
-        <line x1="60" y1="165" x2="155" y2="65" stroke="var(--bamboo)" stroke-width="5.5" stroke-linecap="round" opacity="0.88"/>
-        <line x1="60" y1="165" x2="155" y2="65" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.45"/>
-        <line x1="56" y1="169" x2="64" y2="176" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M 56 169 L 44 185 L 52 182 Z" fill="var(--ink-soft)" opacity="0.85"/>
-        <g transform="translate(112 115) rotate(-42)">
-          <path d="M -12 -3 C -16 4, -14 14, -6 16 C 6 17, 16 14, 18 6 C 20 0, 16 -4, 12 -6 L -10 -5 Z" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
-          <path d="M -10 -5 C -16 -10, -18 -2, -14 2 C -10 4, -8 4, -6 2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
-          <path d="M -6 -4 C -4 -8, -1 -11, 2 -11 C 5 -11, 6 -8, 4 -4" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
-          <path d="M 4 -3 C 6 -7, 10 -9, 12 -5 C 13 -2, 11 0, 9 1" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linejoin="round"/>
-          <path d="M 12 -1 C 15 1, 17 5, 15 8" fill="var(--skin)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.42" stroke-linejoin="round"/>
-          <path d="M 18 6 C 26 10, 34 14, 42 20" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
+{showRow3 && (
+  <PanelDoors
+    panels={row3}
+    ariaLabel="Colophon panels · row three — the retraining"
+    variant="colophon"
+    row={row === "all" ? 3 : row}
+    rows={3}
+    signature={showFinal ? signature : undefined}
+  >
+    <svg slot="vignette-1" viewBox="0 0 200 200" role="img" aria-labelledby="c9-t"><title id="c9-t">A small child's hand picking up a paintbrush with a hopeful lavender mark below</title>
+      <line x1="60" y1="165" x2="155" y2="65" stroke="var(--bamboo)" stroke-width="5.5" stroke-linecap="round" opacity="0.88"/>
+      <line x1="60" y1="165" x2="155" y2="65" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.45"/>
+      <line x1="56" y1="169" x2="64" y2="176" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 56 169 L 44 185 L 52 182 Z" fill="var(--ink-soft)" opacity="0.85"/>
+      <g transform="translate(112 115) rotate(-42)">
+        <path d="M -12 -3 C -16 4, -14 14, -6 16 C 6 17, 16 14, 18 6 C 20 0, 16 -4, 12 -6 L -10 -5 Z" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linejoin="round"/>
+        <path d="M -10 -5 C -16 -10, -18 -2, -14 2 C -10 4, -8 4, -6 2" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
+        <path d="M -6 -4 C -4 -8, -1 -11, 2 -11 C 5 -11, 6 -8, 4 -4" fill="var(--skin)" opacity="0.94" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linejoin="round"/>
+        <path d="M 4 -3 C 6 -7, 10 -9, 12 -5 C 13 -2, 11 0, 9 1" fill="var(--skin)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.45" stroke-linejoin="round"/>
+        <path d="M 12 -1 C 15 1, 17 5, 15 8" fill="var(--skin)" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.42" stroke-linejoin="round"/>
+        <path d="M 18 6 C 26 10, 34 14, 42 20" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
+      </g>
+      <g transform="translate(48 187)">
+        <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
+          <path d="M 0 -3 C 1.5 -2.4, 2 -0.5, 0 -0.1 C -2 -0.5, -1.5 -2.4, 0 -3 Z"/>
+          <path d="M 2.4 -0.8 C 3 0.8, 1.5 2, 0.4 1.3 C 0 -0.1, 1.4 -1.6, 2.4 -0.8 Z"/>
         </g>
-        <g transform="translate(48 187)">
-          <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.28" stroke-linejoin="round">
-            <path d="M 0 -3 C 1.5 -2.4, 2 -0.5, 0 -0.1 C -2 -0.5, -1.5 -2.4, 0 -3 Z"/>
-            <path d="M 2.4 -0.8 C 3 0.8, 1.5 2, 0.4 1.3 C 0 -0.1, 1.4 -1.6, 2.4 -0.8 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.5 -0.1 C -0.3 0.05, 0.3 0.05, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">picking up the brush · brave enough to try</p>
-      <span class="panel-cta" aria-hidden="true">enter the Nursery →</span>
-    </a>
+        <circle cx="0" cy="0" r="1.1" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.5 -0.1 C -0.3 0.05, 0.3 0.05, 0.5 -0.1" stroke="var(--ink-soft)" stroke-width="0.28" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/studio"} aria-label="the first mark — enter the Studio">
-      <p class="panel-label">金 · gold</p>
-      <p class="panel-jp">the first mark</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c10-t"><title id="c10-t">A big joyful golden swoop with pastel fingerprints and a smile in the mess</title>
-        <path d="M 40 118 C 60 90, 100 88, 130 105 C 148 118, 162 132, 158 155" stroke="#e8c15a" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.72"/>
-        <ellipse cx="42" cy="55" rx="5.5" ry="6" fill="#b899c9" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
-        <ellipse cx="160" cy="60" rx="6.5" ry="5.5" fill="#e08d84" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
-        <ellipse cx="52" cy="170" rx="5.5" ry="6" fill="#a4b8c8" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
-        <ellipse cx="168" cy="170" rx="6" ry="5.5" fill="var(--canopy-soft)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
-        <g transform="translate(95 110)">
-          <circle cx="0" cy="0" r="3" fill="#e8c15a" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
-          <path d="M -1.4 -0.3 C -0.8 0.5, 0.8 0.5, 1.4 -0.3" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round"/>
-          <circle cx="-1.2" cy="-1.2" r="0.35" fill="var(--ink-soft)"/>
-          <circle cx="1.2" cy="-1.2" r="0.35" fill="var(--ink-soft)"/>
-        </g>
-      </svg>
-      <p class="panel-cap">joy before judgment · smile in the mess</p>
-      <span class="panel-cta" aria-hidden="true">enter the Studio →</span>
-    </a>
+    <svg slot="vignette-2" viewBox="0 0 200 200" role="img" aria-labelledby="c10-t"><title id="c10-t">A big joyful golden swoop with pastel fingerprints and a smile in the mess</title>
+      <path d="M 40 118 C 60 90, 100 88, 130 105 C 148 118, 162 132, 158 155" stroke="#e8c15a" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.72"/>
+      <ellipse cx="42" cy="55" rx="5.5" ry="6" fill="#b899c9" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <ellipse cx="160" cy="60" rx="6.5" ry="5.5" fill="#e08d84" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <ellipse cx="52" cy="170" rx="5.5" ry="6" fill="#a4b8c8" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <ellipse cx="168" cy="170" rx="6" ry="5.5" fill="var(--canopy-soft)" opacity="0.7" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <g transform="translate(95 110)">
+        <circle cx="0" cy="0" r="3" fill="#e8c15a" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
+        <path d="M -1.4 -0.3 C -0.8 0.5, 0.8 0.5, 1.4 -0.3" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round"/>
+        <circle cx="-1.2" cy="-1.2" r="0.35" fill="var(--ink-soft)"/>
+        <circle cx="1.2" cy="-1.2" r="0.35" fill="var(--ink-soft)"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/body-spine"} aria-label="the wobbly ensō — enter Body & Spine">
-      <p class="panel-label">珊瑚 · coral</p>
-      <p class="panel-jp">the wobbly ensō</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c11-t"><title id="c11-t">A wobbly first-attempt ensō with visible tremors, ghost strokes, and a hopeful coral mark inside</title>
-        <path d="M 132 46 C 100 38, 62 48, 42 78 C 26 102, 32 140, 60 156" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.18"/>
-        <path d="M 128 55 C 96 48, 60 60, 45 82 C 28 105, 35 142, 62 158" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.14"/>
-        <path d="M 130 48 C 118 44, 106 44, 92 46 C 78 48, 64 52, 54 62 C 44 72, 38 84, 34 96 C 30 108, 30 122, 34 134 C 38 144, 46 152, 56 156 C 68 160, 82 162, 96 162 C 110 162, 124 158, 136 152 C 146 146, 154 138, 158 128 C 162 118, 164 106, 162 94 C 160 82, 154 72, 146 64" stroke="var(--ink-soft)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M 76 48 C 78 46, 80 48, 82 48" stroke="var(--ink-soft)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.68"/>
-        <path d="M 38 94 C 39 92, 40 94, 41 94" stroke="var(--ink-soft)" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.65"/>
-        <path d="M 128 158 C 130 156, 132 158, 134 158" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.68"/>
-        <circle cx="30" cy="60" r="1.1" fill="#b899c9" opacity="0.55"/>
-        <circle cx="175" cy="80" r="1" fill="#e8c15a" opacity="0.55"/>
-        <circle cx="45" cy="180" r="1.2" fill="#a4b8c8" opacity="0.5"/>
-        <circle cx="170" cy="175" r="1" fill="#e08d84" opacity="0.55"/>
-        <path d="M 40 175 C 44 173, 50 175, 53 178" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
-        <path d="M 155 172 C 159 170, 165 172, 168 175" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
-        <g transform="translate(100 105)">
-          <circle cx="0" cy="0" r="3" fill="#e08d84" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
-          <circle cx="0" cy="0" r="1.2" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.4 -0.05 C -0.2 0.1, 0.2 0.1, 0.4 -0.05" stroke="var(--ink-soft)" stroke-width="0.25" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">the wobble is the truth · smile at the trying</p>
-      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
-    </a>
+    <svg slot="vignette-3" viewBox="0 0 200 200" role="img" aria-labelledby="c11-t"><title id="c11-t">A wobbly first-attempt ensō with visible tremors, ghost strokes, and a hopeful coral mark inside</title>
+      <path d="M 132 46 C 100 38, 62 48, 42 78 C 26 102, 32 140, 60 156" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.18"/>
+      <path d="M 128 55 C 96 48, 60 60, 45 82 C 28 105, 35 142, 62 158" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.14"/>
+      <path d="M 130 48 C 118 44, 106 44, 92 46 C 78 48, 64 52, 54 62 C 44 72, 38 84, 34 96 C 30 108, 30 122, 34 134 C 38 144, 46 152, 56 156 C 68 160, 82 162, 96 162 C 110 162, 124 158, 136 152 C 146 146, 154 138, 158 128 C 162 118, 164 106, 162 94 C 160 82, 154 72, 146 64" stroke="var(--ink-soft)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <path d="M 76 48 C 78 46, 80 48, 82 48" stroke="var(--ink-soft)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.68"/>
+      <path d="M 38 94 C 39 92, 40 94, 41 94" stroke="var(--ink-soft)" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.65"/>
+      <path d="M 128 158 C 130 156, 132 158, 134 158" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.68"/>
+      <circle cx="30" cy="60" r="1.1" fill="#b899c9" opacity="0.55"/>
+      <circle cx="175" cy="80" r="1" fill="#e8c15a" opacity="0.55"/>
+      <circle cx="45" cy="180" r="1.2" fill="#a4b8c8" opacity="0.5"/>
+      <circle cx="170" cy="175" r="1" fill="#e08d84" opacity="0.55"/>
+      <path d="M 40 175 C 44 173, 50 175, 53 178" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <path d="M 155 172 C 159 170, 165 172, 168 175" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <g transform="translate(100 105)">
+        <circle cx="0" cy="0" r="3" fill="#e08d84" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
+        <circle cx="0" cy="0" r="1.2" fill="#e8c15a" opacity="0.95"/>
+        <path d="M -0.4 -0.05 C -0.2 0.1, 0.2 0.1, 0.4 -0.05" stroke="var(--ink-soft)" stroke-width="0.25" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
 
-    <a class="panel" href={base + "/versions"} aria-label="the trust — enter Versions of Me">
-      <p class="panel-label">青 · slate</p>
-      <p class="panel-jp">the trust</p>
-      <svg viewBox="0 0 200 200" role="img" aria-labelledby="c12-t"><title id="c12-t">A completed ensō with a prominent multi-pastel bloom, halo of pastel dots, and a red 王 seal</title>
-        <path d="M 130 40 C 100 32, 65 42, 45 70 C 28 98, 32 136, 60 153 C 88 170, 128 163, 148 136 C 162 115, 162 83, 145 60" stroke="var(--ink-soft)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.72"/>
-        <circle cx="72" cy="80" r="1.3" fill="#b899c9" opacity="0.65"/>
-        <circle cx="126" cy="72" r="1.1" fill="#e8c15a" opacity="0.7"/>
-        <circle cx="140" cy="112" r="1.4" fill="#a4b8c8" opacity="0.6"/>
-        <circle cx="70" cy="130" r="1.2" fill="#e08d84" opacity="0.65"/>
-        <circle cx="118" cy="140" r="1" fill="#b899c9" opacity="0.55"/>
-        <circle cx="82" cy="100" r="0.9" fill="var(--canopy-soft)" opacity="0.7"/>
-        <circle cx="130" cy="98" r="0.8" fill="#e8c15a" opacity="0.55"/>
-        <g transform="translate(100 105)">
-          <path d="M 0 12 L 0 -2" stroke="var(--canopy)" stroke-width="0.75" stroke-linecap="round" opacity="0.75"/>
-          <path d="M 0 7 C -7 6, -10 10, -7 13 C -3 12, 0 10, 0 7 Z" fill="var(--canopy-soft)" opacity="0.72" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M 0 4 C 7 3, 10 7, 7 10 C 3 9, 0 6, 0 4 Z" fill="var(--canopy-soft)" opacity="0.72" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M 0 -16 C 5 -14, 7 -8, 0 -5 C -7 -8, -5 -14, 0 -16 Z" fill="#b899c9" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M 12 -10 C 17 -5, 15 3, 7 3 C 3 -2, 7 -10, 12 -10 Z" fill="#e8c15a" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M 14 4 C 17 10, 12 15, 6 12 C 3 7, 8 3, 14 4 Z" fill="#a4b8c8" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M 0 15 C -6 15, -7 8, 0 6 C 6 8, 6 15, 0 15 Z" fill="#e08d84" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M -14 4 C -17 10, -12 15, -6 12 C -3 7, -8 3, -14 4 Z" fill="#b899c9" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <path d="M -12 -10 C -17 -5, -15 3, -7 3 C -3 -2, -7 -10, -12 -10 Z" fill="#e8c15a" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-          <circle cx="0" cy="0" r="3.2" fill="#e8c15a" opacity="0.95" stroke="var(--ink-soft)" stroke-width="0.45"/>
-          <path d="M -1.4 -0.1 C -0.85 0.5, 0.85 0.5, 1.4 -0.1" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round"/>
-          <circle cx="-1.2" cy="-1.1" r="0.4" fill="var(--ink-soft)" opacity="0.88"/>
-          <circle cx="1.2" cy="-1.1" r="0.4" fill="var(--ink-soft)" opacity="0.88"/>
-        </g>
-        <g transform="translate(155 175)">
-          <path d="M -8 -8 C -8 -8, 8 -9, 8 -8 C 9 -8, 9 8, 8 8 C 8 9, -8 8, -8 8 C -9 8, -9 -8, -8 -8 Z" fill="var(--poppy)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5"/>
-          <path d="M -4 -4 L 4 -4 M -4 0 L 4 0 M 0 -4 L 0 4 M -4 4 L 4 4" stroke="var(--paper-washi)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.9"/>
-        </g>
-      </svg>
-      <p class="panel-cap">trust the wobble · seal the yes · smile in the bloom</p>
-      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
-    </a>
-  </div>
-  <figcaption>assisted, never authored · nothing is published without her yes · each panel a door</figcaption>
-  </>)}
-</figure>
-<style>
-  .botanical-panels--colophon { margin: 2rem auto 1.6rem; max-width: 62rem; padding: 0 var(--gutter); }
-  /* Slice-2.5: rows are now distributed inline between prose blocks, so each
-     single-row variant gets tighter breathing room; the "all"-row variant keeps
-     the fuller triptych rhythm for standalone use. */
-  .botanical-panels--colophon.botanical-panels--row-1,
-  .botanical-panels--colophon.botanical-panels--row-2,
-  .botanical-panels--colophon.botanical-panels--row-3 { margin: 1.5rem auto 1.5rem; }
-  .botanical-panels--colophon .panels-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-  }
-  @media (max-width: 40rem) {
-    .botanical-panels--colophon .panels-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .botanical-panels--colophon .panel {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
-    position: relative;
-    border: 1px solid rgba(231, 220, 198, 0.55);
-    border-radius: 3px;
-    padding: 0.85rem 0.6rem 0.7rem;
-    background: transparent;
-  }
-  .botanical-panels--colophon .panel-label { font-family: var(--display); font-size: 0.75rem; color: var(--ink-soft); text-align: center; margin: 0 0 0.15rem; }
-  .botanical-panels--colophon .panel-jp { font-family: "Noto Serif JP", "Newsreader", Georgia, serif; font-size: 0.65rem; color: var(--ink-faint); text-align: center; margin: 0 0 0.5rem; opacity: 0.7; font-style: italic; }
-  .botanical-panels--colophon .panel svg { width: 100%; height: auto; display: block; }
-  .botanical-panels--colophon .panel-cap { font-family: var(--serif); font-size: 0.68rem; color: var(--ink-faint); font-style: italic; text-align: center; line-height: 1.45; margin: 0.4rem 0 0; }
-  .botanical-panels--colophon > figcaption { font-family: var(--hand); font-size: 0.85rem; color: var(--ink-faint); text-align: center; margin: 1.5rem 0 0; font-style: italic; opacity: 0.75; }
-  /* Slice-2.9 · panels-as-doors — anchor hover reveals the room name in poppy.
-     Same discovered-affordance pattern as Home + Nursery panel families. */
-  .botanical-panels--colophon a.panel:hover,
-  .botanical-panels--colophon a.panel:focus-visible {
-    transform: translateY(-2px);
-    border-color: rgba(207, 74, 69, 0.28);
-    background: rgba(251, 248, 238, 0.55);
-    outline: none;
-  }
-  .botanical-panels--colophon .panel-cta {
-    display: block;
-    font-family: var(--hand);
-    font-size: 0.7rem;
-    color: var(--poppy);
-    text-align: center;
-    margin-top: 0.35rem;
-    opacity: 0;
-    transition: opacity 200ms ease;
-    letter-spacing: 0.01em;
-  }
-  .botanical-panels--colophon a.panel:hover .panel-cta,
-  .botanical-panels--colophon a.panel:focus-visible .panel-cta { opacity: 0.85; }
-  @media (prefers-reduced-motion: reduce) {
-    .botanical-panels--colophon .panel { transition: none; }
-    .botanical-panels--colophon a.panel:hover,
-    .botanical-panels--colophon a.panel:focus-visible { transform: none; }
-    .botanical-panels--colophon .panel-cta { transition: none; }
-  }
-</style>
+    <svg slot="vignette-4" viewBox="0 0 200 200" role="img" aria-labelledby="c12-t"><title id="c12-t">A completed ensō with a prominent multi-pastel bloom, halo of pastel dots, and a red 王 seal</title>
+      <path d="M 130 40 C 100 32, 65 42, 45 70 C 28 98, 32 136, 60 153 C 88 170, 128 163, 148 136 C 162 115, 162 83, 145 60" stroke="var(--ink-soft)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.72"/>
+      <circle cx="72" cy="80" r="1.3" fill="#b899c9" opacity="0.65"/>
+      <circle cx="126" cy="72" r="1.1" fill="#e8c15a" opacity="0.7"/>
+      <circle cx="140" cy="112" r="1.4" fill="#a4b8c8" opacity="0.6"/>
+      <circle cx="70" cy="130" r="1.2" fill="#e08d84" opacity="0.65"/>
+      <circle cx="118" cy="140" r="1" fill="#b899c9" opacity="0.55"/>
+      <circle cx="82" cy="100" r="0.9" fill="var(--canopy-soft)" opacity="0.7"/>
+      <circle cx="130" cy="98" r="0.8" fill="#e8c15a" opacity="0.55"/>
+      <g transform="translate(100 105)">
+        <path d="M 0 12 L 0 -2" stroke="var(--canopy)" stroke-width="0.75" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 0 7 C -7 6, -10 10, -7 13 C -3 12, 0 10, 0 7 Z" fill="var(--canopy-soft)" opacity="0.72" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M 0 4 C 7 3, 10 7, 7 10 C 3 9, 0 6, 0 4 Z" fill="var(--canopy-soft)" opacity="0.72" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M 0 -16 C 5 -14, 7 -8, 0 -5 C -7 -8, -5 -14, 0 -16 Z" fill="#b899c9" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M 12 -10 C 17 -5, 15 3, 7 3 C 3 -2, 7 -10, 12 -10 Z" fill="#e8c15a" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M 14 4 C 17 10, 12 15, 6 12 C 3 7, 8 3, 14 4 Z" fill="#a4b8c8" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M 0 15 C -6 15, -7 8, 0 6 C 6 8, 6 15, 0 15 Z" fill="#e08d84" opacity="0.92" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M -14 4 C -17 10, -12 15, -6 12 C -3 7, -8 3, -14 4 Z" fill="#b899c9" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <path d="M -12 -10 C -17 -5, -15 3, -7 3 C -3 -2, -7 -10, -12 -10 Z" fill="#e8c15a" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+        <circle cx="0" cy="0" r="3.2" fill="#e8c15a" opacity="0.95" stroke="var(--ink-soft)" stroke-width="0.45"/>
+        <path d="M -1.4 -0.1 C -0.85 0.5, 0.85 0.5, 1.4 -0.1" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round"/>
+        <circle cx="-1.2" cy="-1.1" r="0.4" fill="var(--ink-soft)" opacity="0.88"/>
+        <circle cx="1.2" cy="-1.1" r="0.4" fill="var(--ink-soft)" opacity="0.88"/>
+      </g>
+      <g transform="translate(155 175)">
+        <path d="M -8 -8 C -8 -8, 8 -9, 8 -8 C 9 -8, 9 8, 8 8 C 8 9, -8 8, -8 8 C -9 8, -9 -8, -8 -8 Z" fill="var(--poppy)" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.5"/>
+        <path d="M -4 -4 L 4 -4 M -4 0 L 4 0 M 0 -4 L 0 4 M -4 4 L 4 4" stroke="var(--paper-washi)" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.9"/>
+      </g>
+    </svg>
+  </PanelDoors>
+)}

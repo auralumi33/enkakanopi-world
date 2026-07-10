@@ -1,237 +1,132 @@
 ---
 /**
- * HomeBotanicalPanels — Set 3 slice-2.4 · 2026-07-09 (slice-2.6 · linked 2026-07-09)
- * Four Tanaka Isson × Takashi Murakami paradox panels for the home page arrival hero.
- * Each panel: one contemplative botanical (Isson soul) with one hidden closed-eye smile
- * (Murakami joy). Slice-2.6: each panel is now an anchor linking to its semantic
- * reading-room match — the branch → Field Notes (observational writing) · the
- * chrysanthemum → The Workbench (unfurling work-in-progress) · the bird → Body & Spine
- * (embodied, perched on the line of the body) · the magpie → Versions of Me (Isson's
- * magpie collects across seasons — self-portrait through time). Panels stay static-looking
- * with a subtle hover lift so the reading-room affordance is discovered, not shouted.
+ * HomeBotanicalPanels — the home page arrival hero's four panel doors.
+ *
+ * Migrated to the shared PanelDoors system component (2026-07-11): data +
+ * hand-tuned vignettes stay here; layout, hue tokens, hover/focus, caption
+ * grammar, and the nav landmark are owned by `PanelDoors.astro`.
+ *
+ * The Isson × Murakami paradox holds: each panel a contemplative botanical
+ * with one hidden closed-eye smile. Each panel a door to its semantic room —
+ * the branch → Field Notes (observational writing) · the chrysanthemum →
+ * The Workbench (unfurling work) · the bird → Body & Spine (embodied,
+ * perched on the line of the body) · the magpie → Versions of Me (Isson's
+ * magpie collects across seasons — self-portrait through time).
  */
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+import PanelDoors, { type Panel } from "./PanelDoors.astro";
+
+const panels: Panel[] = [
+  { hue: "lavender", role: "the branch",         caption: "the branch · the blossoms · lavender heart", href: "/field-notes", cta: "enter Field Notes" },
+  { hue: "gold",     role: "the chrysanthemum",  caption: "chrysanthemum unfurled · ink heart",         href: "/workbench",   cta: "enter The Workbench" },
+  { hue: "coral",    role: "the bird",           caption: "a small bird · coral berries · perched at rest", href: "/body-spine", cta: "enter Body & Spine" },
+  { hue: "slate",    role: "the magpie",         caption: "the Isson magpie · slate mountain behind",   href: "/versions",    cta: "enter Versions of Me" },
+];
 ---
-<figure class="botanical-panels" aria-label="Four botanical panels — a contemplative garden with hidden joy in each">
-  <div class="panels-grid">
-    <!-- 紫 · lavender · the branch → Field Notes (observational essays) -->
-    <a class="panel" href={base + "/field-notes"} aria-label="the branch — enter Field Notes">
-      <p class="panel-label">紫 · lavender</p>
-      <p class="panel-jp">the branch</p>
-      <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-lavender-t">
-        <title id="p-lavender-t">A hairline branch with white blossoms and one lavender bloom holding a hidden smile</title>
-        <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
-        <path d="M 40 220 C 60 180, 100 140, 130 100 C 150 70, 165 50, 175 30" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 100 150 C 118 138, 138 130, 158 128" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <g fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round" opacity="0.9">
-          <circle cx="130" cy="100" r="3.5"/>
-          <circle cx="150" cy="70" r="3"/>
-          <circle cx="140" cy="128" r="2.8"/>
-          <circle cx="160" cy="55" r="2.5"/>
-          <circle cx="115" cy="132" r="2.4"/>
-        </g>
-        <g transform="translate(70 180)">
-          <g fill="#b899c9" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
-            <path d="M0 -7 C 4 -6, 5 -2, 0 -0.5 C -5 -2, -4 -6, 0 -7 Z"/>
-            <path d="M6 -3 C 7 3, 3 5, 0.7 3 C 0 -0.5, 4 -5, 6 -3 Z"/>
-            <path d="M4 5 C 0 6, -4 3, -1.5 0 C 2 -2, 6 2, 4 5 Z"/>
-            <path d="M-5 3 C -7 -2, -5 -5, -1 -3 C 0 0, -2 5, -5 3 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
-          <path d="M -0.7 -0.2 C -0.4 0.05, 0.4 0.05, 0.7 -0.2" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">the branch · the blossoms · lavender heart</p>
-      <span class="panel-cta" aria-hidden="true">enter Field Notes →</span>
-    </a>
+<PanelDoors
+  panels={panels}
+  signature="four contemplative botanicals · one hidden joy in each · each a door"
+  ariaLabel="Home panel doors — four rooms, four entrances"
+>
+  <!-- 紫 · lavender · the branch → Field Notes -->
+  <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="p-lavender-t">
+    <title id="p-lavender-t">A hairline branch with white blossoms and one lavender bloom holding a hidden smile</title>
+    <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
+    <path d="M 40 220 C 60 180, 100 140, 130 100 C 150 70, 165 50, 175 30" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 100 150 C 118 138, 138 130, 158 128" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <g fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round" opacity="0.9">
+      <circle cx="130" cy="100" r="3.5"/>
+      <circle cx="150" cy="70" r="3"/>
+      <circle cx="140" cy="128" r="2.8"/>
+      <circle cx="160" cy="55" r="2.5"/>
+      <circle cx="115" cy="132" r="2.4"/>
+    </g>
+    <g transform="translate(70 180)">
+      <g fill="#b899c9" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+        <path d="M0 -7 C 4 -6, 5 -2, 0 -0.5 C -5 -2, -4 -6, 0 -7 Z"/>
+        <path d="M6 -3 C 7 3, 3 5, 0.7 3 C 0 -0.5, 4 -5, 6 -3 Z"/>
+        <path d="M4 5 C 0 6, -4 3, -1.5 0 C 2 -2, 6 2, 4 5 Z"/>
+        <path d="M-5 3 C -7 -2, -5 -5, -1 -3 C 0 0, -2 5, -5 3 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+      <path d="M -0.7 -0.2 C -0.4 0.05, 0.4 0.05, 0.7 -0.2" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>
 
-    <!-- 金 · gold · the chrysanthemum → The Workbench (unfurling work-in-progress) -->
-    <a class="panel" href={base + "/workbench"} aria-label="the chrysanthemum — enter The Workbench">
-      <p class="panel-label">金 · gold</p>
-      <p class="panel-jp">the chrysanthemum</p>
-      <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-gold-t">
-        <title id="p-gold-t">A sumi-e chrysanthemum with radiating petals and a hidden smile in its ink center</title>
-        <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.12" rx="1"/>
-        <path d="M 100 230 C 98 190, 102 140, 100 100" stroke="var(--canopy)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M 100 170 C 88 168, 82 172, 82 178 C 88 178, 96 174, 100 170 Z" stroke="var(--canopy)" stroke-width="0.4" fill="var(--canopy-soft)" fill-opacity="0.62" opacity="0.75" stroke-linejoin="round"/>
-        <g transform="translate(100 90)">
-          <g fill="#e8c15a" opacity="0.68" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
-            <path d="M 0 -30 C 5 -26, 5 -18, 0 -14 C -5 -18, -5 -26, 0 -30 Z"/>
-            <path d="M 21 -21 C 24 -15, 20 -10, 14 -12 C 10 -18, 16 -24, 21 -21 Z"/>
-            <path d="M 30 0 C 26 5, 18 5, 14 0 C 18 -5, 26 -5, 30 0 Z"/>
-            <path d="M 21 21 C 15 24, 10 20, 12 14 C 18 10, 24 16, 21 21 Z"/>
-            <path d="M 0 30 C -5 26, -5 18, 0 14 C 5 18, 5 26, 0 30 Z"/>
-            <path d="M -21 21 C -24 15, -20 10, -14 12 C -10 18, -16 24, -21 21 Z"/>
-            <path d="M -30 0 C -26 -5, -18 -5, -14 0 C -18 5, -26 5, -30 0 Z"/>
-            <path d="M -21 -21 C -15 -24, -10 -20, -12 -14 C -18 -10, -24 -16, -21 -21 Z"/>
-          </g>
-          <g fill="#e8c15a" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
-            <path d="M 0 -18 C 3 -15, 3 -10, 0 -8 C -3 -10, -3 -15, 0 -18 Z"/>
-            <path d="M 13 -13 C 15 -9, 12 -6, 8 -8 C 6 -12, 10 -15, 13 -13 Z"/>
-            <path d="M 18 0 C 15 3, 10 3, 8 0 C 10 -3, 15 -3, 18 0 Z"/>
-            <path d="M 13 13 C 9 15, 6 12, 8 8 C 12 6, 15 10, 13 13 Z"/>
-            <path d="M 0 18 C -3 15, -3 10, 0 8 C 3 10, 3 15, 0 18 Z"/>
-            <path d="M -13 13 C -15 9, -12 6, -8 8 C -6 12, -10 15, -13 13 Z"/>
-            <path d="M -18 0 C -15 -3, -10 -3, -8 0 C -10 3, -15 3, -18 0 Z"/>
-            <path d="M -13 -13 C -9 -15, -6 -12, -8 -8 C -12 -6, -15 -10, -13 -13 Z"/>
-          </g>
-          <circle cx="0" cy="0" r="4" fill="var(--ink-soft)" opacity="0.85"/>
-          <path d="M -1.6 -0.5 C -1 0.2, 1 0.2, 1.6 -0.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-          <circle cx="-2" cy="-1.2" r="0.3" fill="var(--paper-washi)"/>
-          <circle cx="2" cy="-1.2" r="0.3" fill="var(--paper-washi)"/>
-        </g>
-      </svg>
-      <p class="panel-cap">chrysanthemum unfurled · ink heart</p>
-      <span class="panel-cta" aria-hidden="true">enter The Workbench →</span>
-    </a>
+  <!-- 金 · gold · the chrysanthemum → The Workbench -->
+  <svg slot="vignette-2" viewBox="0 0 200 220" role="img" aria-labelledby="p-gold-t">
+    <title id="p-gold-t">A sumi-e chrysanthemum with radiating petals and a hidden smile in its ink center</title>
+    <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.12" rx="1"/>
+    <path d="M 100 230 C 98 190, 102 140, 100 100" stroke="var(--canopy)" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 100 170 C 88 168, 82 172, 82 178 C 88 178, 96 174, 100 170 Z" stroke="var(--canopy)" stroke-width="0.4" fill="var(--canopy-soft)" fill-opacity="0.62" opacity="0.75" stroke-linejoin="round"/>
+    <g transform="translate(100 90)">
+      <g fill="#e8c15a" opacity="0.68" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+        <path d="M 0 -30 C 5 -26, 5 -18, 0 -14 C -5 -18, -5 -26, 0 -30 Z"/>
+        <path d="M 21 -21 C 24 -15, 20 -10, 14 -12 C 10 -18, 16 -24, 21 -21 Z"/>
+        <path d="M 30 0 C 26 5, 18 5, 14 0 C 18 -5, 26 -5, 30 0 Z"/>
+        <path d="M 21 21 C 15 24, 10 20, 12 14 C 18 10, 24 16, 21 21 Z"/>
+        <path d="M 0 30 C -5 26, -5 18, 0 14 C 5 18, 5 26, 0 30 Z"/>
+        <path d="M -21 21 C -24 15, -20 10, -14 12 C -10 18, -16 24, -21 21 Z"/>
+        <path d="M -30 0 C -26 -5, -18 -5, -14 0 C -18 5, -26 5, -30 0 Z"/>
+        <path d="M -21 -21 C -15 -24, -10 -20, -12 -14 C -18 -10, -24 -16, -21 -21 Z"/>
+      </g>
+      <g fill="#e8c15a" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.3" stroke-linejoin="round">
+        <path d="M 0 -18 C 3 -15, 3 -10, 0 -8 C -3 -10, -3 -15, 0 -18 Z"/>
+        <path d="M 13 -13 C 15 -9, 12 -6, 8 -8 C 6 -12, 10 -15, 13 -13 Z"/>
+        <path d="M 18 0 C 15 3, 10 3, 8 0 C 10 -3, 15 -3, 18 0 Z"/>
+        <path d="M 13 13 C 9 15, 6 12, 8 8 C 12 6, 15 10, 13 13 Z"/>
+        <path d="M 0 18 C -3 15, -3 10, 0 8 C 3 10, 3 15, 0 18 Z"/>
+        <path d="M -13 13 C -15 9, -12 6, -8 8 C -6 12, -10 15, -13 13 Z"/>
+        <path d="M -18 0 C -15 -3, -10 -3, -8 0 C -10 3, -15 3, -18 0 Z"/>
+        <path d="M -13 -13 C -9 -15, -6 -12, -8 -8 C -12 -6, -15 -10, -13 -13 Z"/>
+      </g>
+      <circle cx="0" cy="0" r="4" fill="var(--ink-soft)" opacity="0.85"/>
+      <path d="M -1.6 -0.5 C -1 0.2, 1 0.2, 1.6 -0.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <circle cx="-2" cy="-1.2" r="0.3" fill="var(--paper-washi)"/>
+      <circle cx="2" cy="-1.2" r="0.3" fill="var(--paper-washi)"/>
+    </g>
+  </svg>
 
-    <!-- 珊瑚 · coral · the bird → Body & Spine (embodied, perched on the line of the body) -->
-    <a class="panel" href={base + "/body-spine"} aria-label="the bird — enter Body & Spine">
-      <p class="panel-label">珊瑚 · coral</p>
-      <p class="panel-jp">the bird</p>
-      <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-coral-t">
-        <title id="p-coral-t">A small bird perched on a branch with coral berries, a hidden smile on its face</title>
-        <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.08" rx="1"/>
-        <path d="M 30 200 C 60 180, 100 165, 140 158 C 160 152, 175 148, 185 145" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 120 160 C 118 140, 122 120, 128 108" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
-        <g fill="#e46b6b" opacity="0.75" stroke="var(--ink-soft)" stroke-width="0.3">
-          <circle cx="128" cy="108" r="3.5"/>
-          <circle cx="122" cy="102" r="3"/>
-          <circle cx="134" cy="102" r="3.2"/>
-          <circle cx="128" cy="98" r="2.8"/>
-        </g>
-        <path d="M 85 175 C 78 172, 72 178, 74 182 C 80 180, 86 178, 85 175 Z" fill="var(--canopy-soft)" opacity="0.65" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
-        <path d="M 155 152 C 162 149, 168 154, 166 158 C 160 156, 154 156, 155 152 Z" fill="var(--canopy-soft)" opacity="0.6" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
-        <g transform="translate(75 165)">
-          <ellipse cx="0" cy="0" rx="10" ry="6" fill="var(--ink-soft)" opacity="0.72"/>
-          <circle cx="8" cy="-4" r="4" fill="var(--ink-soft)" opacity="0.8"/>
-          <path d="M 12 -4 L 15 -3 L 12 -2 Z" fill="#e46b6b" opacity="0.85"/>
-          <path d="M -10 0 C -14 -1, -18 0, -20 2 C -18 1, -14 1, -10 1 Z" fill="var(--ink-soft)" opacity="0.7"/>
-          <path d="M 7.5 -4.5 C 7.8 -4.2, 8.2 -4.2, 8.5 -4.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-          <path d="M -2 6 L -2 10 M 2 6 L 2 10" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round"/>
-        </g>
-      </svg>
-      <p class="panel-cap">a small bird · coral berries · perched at rest</p>
-      <span class="panel-cta" aria-hidden="true">enter Body &amp; Spine →</span>
-    </a>
+  <!-- 珊瑚 · coral · the bird → Body & Spine -->
+  <svg slot="vignette-3" viewBox="0 0 200 220" role="img" aria-labelledby="p-coral-t">
+    <title id="p-coral-t">A small bird perched on a branch with coral berries, a hidden smile on its face</title>
+    <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.08" rx="1"/>
+    <path d="M 30 200 C 60 180, 100 165, 140 158 C 160 152, 175 148, 185 145" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 120 160 C 118 140, 122 120, 128 108" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.65"/>
+    <g fill="#e46b6b" opacity="0.75" stroke="var(--ink-soft)" stroke-width="0.3">
+      <circle cx="128" cy="108" r="3.5"/>
+      <circle cx="122" cy="102" r="3"/>
+      <circle cx="134" cy="102" r="3.2"/>
+      <circle cx="128" cy="98" r="2.8"/>
+    </g>
+    <path d="M 85 175 C 78 172, 72 178, 74 182 C 80 180, 86 178, 85 175 Z" fill="var(--canopy-soft)" opacity="0.65" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
+    <path d="M 155 152 C 162 149, 168 154, 166 158 C 160 156, 154 156, 155 152 Z" fill="var(--canopy-soft)" opacity="0.6" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
+    <g transform="translate(75 165)">
+      <ellipse cx="0" cy="0" rx="10" ry="6" fill="var(--ink-soft)" opacity="0.72"/>
+      <circle cx="8" cy="-4" r="4" fill="var(--ink-soft)" opacity="0.8"/>
+      <path d="M 12 -4 L 15 -3 L 12 -2 Z" fill="#e46b6b" opacity="0.85"/>
+      <path d="M -10 0 C -14 -1, -18 0, -20 2 C -18 1, -14 1, -10 1 Z" fill="var(--ink-soft)" opacity="0.7"/>
+      <path d="M 7.5 -4.5 C 7.8 -4.2, 8.2 -4.2, 8.5 -4.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <path d="M -2 6 L -2 10 M 2 6 L 2 10" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round"/>
+    </g>
+  </svg>
 
-    <!-- 青 · slate · the magpie → Versions of Me (Isson's magpie · self-portrait through seasons) -->
-    <a class="panel" href={base + "/versions"} aria-label="the magpie — enter Versions of Me">
-      <p class="panel-label">青 · slate</p>
-      <p class="panel-jp">the magpie</p>
-      <svg viewBox="0 0 200 220" role="img" aria-labelledby="p-slate-t">
-        <title id="p-slate-t">An Isson-style magpie perched with slate mountain behind, a hidden smile on its face</title>
-        <rect x="10" y="10" width="180" height="200" fill="#a4b8c8" opacity="0.13" rx="1"/>
-        <path d="M 20 210 C 60 208, 140 208, 180 210" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
-        <path d="M 20 210 C 40 190, 80 175, 110 185 C 140 195, 165 190, 180 210 Z" fill="#a4b8c8" opacity="0.25" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-        <g transform="translate(100 105)">
-          <ellipse cx="0" cy="0" rx="14" ry="7" fill="var(--ink-soft)" opacity="0.82"/>
-          <ellipse cx="0" cy="1" rx="8" ry="4" fill="var(--paper-washi)" opacity="0.85"/>
-          <circle cx="11" cy="-5" r="5" fill="var(--ink-soft)" opacity="0.9"/>
-          <path d="M 16 -5 L 20 -4 L 16 -3 Z" fill="var(--ink-soft)" opacity="0.85"/>
-          <path d="M -14 0 C -22 -2, -32 -3, -40 -1 C -32 0, -22 1, -14 2 Z" fill="#a4b8c8" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
-          <path d="M -5 -2 C 0 -6, 7 -6, 8 -2 C 5 0, 0 0, -5 -2 Z" fill="#a4b8c8" opacity="0.75" stroke="var(--ink-soft)" stroke-width="0.35"/>
-          <path d="M 10 -5.5 C 10.5 -5.2, 11.5 -5.2, 12 -5.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
-          <path d="M 0 6 L 0 12" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round"/>
-        </g>
-        <path d="M 190 90 C 180 100, 170 108, 160 115" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.6"/>
-        <circle cx="163" cy="112" r="1.5" fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.3"/>
-      </svg>
-      <p class="panel-cap">the Isson magpie · slate mountain behind</p>
-      <span class="panel-cta" aria-hidden="true">enter Versions of Me →</span>
-    </a>
-  </div>
-  <figcaption>four contemplative botanicals · one hidden joy in each · each a door</figcaption>
-</figure>
-<style>
-  .botanical-panels {
-    margin: 3rem auto 2rem;
-    max-width: 62rem;
-    padding: 0 var(--gutter);
-  }
-  .botanical-panels .panels-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-  }
-  @media (max-width: 40rem) {
-    .botanical-panels .panels-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .botanical-panels .panel {
-    display: block;
-    border: 1px solid rgba(231, 220, 198, 0.55);
-    border-radius: 3px;
-    padding: 0.85rem 0.6rem 0.7rem;
-    background: transparent;
-    /* Slice-2.6: panels are now anchors — inherit reader colour, remove
-       underline, and lift softly on hover so the door affordance is
-       discovered rather than shouted. */
-    color: inherit;
-    text-decoration: none;
-    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
-    position: relative;
-  }
-  .botanical-panels a.panel:hover,
-  .botanical-panels a.panel:focus-visible {
-    transform: translateY(-2px);
-    border-color: rgba(207, 74, 69, 0.28);
-    background: rgba(251, 248, 238, 0.55);
-    outline: none;
-  }
-  .botanical-panels .panel-cta {
-    display: block;
-    font-family: var(--hand);
-    font-size: 0.72rem;
-    color: var(--poppy);
-    text-align: center;
-    margin-top: 0.4rem;
-    opacity: 0;
-    transition: opacity 200ms ease;
-    letter-spacing: 0.01em;
-  }
-  .botanical-panels a.panel:hover .panel-cta,
-  .botanical-panels a.panel:focus-visible .panel-cta {
-    opacity: 0.85;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .botanical-panels .panel { transition: none; }
-    .botanical-panels a.panel:hover,
-    .botanical-panels a.panel:focus-visible { transform: none; }
-    .botanical-panels .panel-cta { transition: none; }
-  }
-  .botanical-panels .panel-label {
-    font-family: var(--display);
-    font-size: 0.75rem;
-    color: var(--ink-soft);
-    text-align: center;
-    margin: 0 0 0.15rem;
-  }
-  .botanical-panels .panel-jp {
-    font-family: "Noto Serif JP", "Newsreader", Georgia, serif;
-    font-size: 0.65rem;
-    color: var(--ink-faint);
-    text-align: center;
-    margin: 0 0 0.5rem;
-    opacity: 0.7;
-    font-style: italic;
-  }
-  .botanical-panels .panel svg { width: 100%; height: auto; display: block; }
-  .botanical-panels .panel-cap {
-    font-family: var(--serif);
-    font-size: 0.68rem;
-    color: var(--ink-faint);
-    font-style: italic;
-    text-align: center;
-    line-height: 1.45;
-    margin: 0.4rem 0 0;
-  }
-  .botanical-panels > figcaption {
-    font-family: var(--hand);
-    font-size: 0.85rem;
-    color: var(--ink-faint);
-    text-align: center;
-    margin: 1rem 0 0;
-    font-style: italic;
-    opacity: 0.75;
-  }
-</style>
+  <!-- 青 · slate · the magpie → Versions of Me -->
+  <svg slot="vignette-4" viewBox="0 0 200 220" role="img" aria-labelledby="p-slate-t">
+    <title id="p-slate-t">An Isson-style magpie perched with slate mountain behind, a hidden smile on its face</title>
+    <rect x="10" y="10" width="180" height="200" fill="#a4b8c8" opacity="0.13" rx="1"/>
+    <path d="M 20 210 C 60 208, 140 208, 180 210" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+    <path d="M 20 210 C 40 190, 80 175, 110 185 C 140 195, 165 190, 180 210 Z" fill="#a4b8c8" opacity="0.25" stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
+    <g transform="translate(100 105)">
+      <ellipse cx="0" cy="0" rx="14" ry="7" fill="var(--ink-soft)" opacity="0.82"/>
+      <ellipse cx="0" cy="1" rx="8" ry="4" fill="var(--paper-washi)" opacity="0.85"/>
+      <circle cx="11" cy="-5" r="5" fill="var(--ink-soft)" opacity="0.9"/>
+      <path d="M 16 -5 L 20 -4 L 16 -3 Z" fill="var(--ink-soft)" opacity="0.85"/>
+      <path d="M -14 0 C -22 -2, -32 -3, -40 -1 C -32 0, -22 1, -14 2 Z" fill="#a4b8c8" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <path d="M -5 -2 C 0 -6, 7 -6, 8 -2 C 5 0, 0 0, -5 -2 Z" fill="#a4b8c8" opacity="0.75" stroke="var(--ink-soft)" stroke-width="0.35"/>
+      <path d="M 10 -5.5 C 10.5 -5.2, 11.5 -5.2, 12 -5.5" stroke="var(--paper-washi)" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+      <path d="M 0 6 L 0 12" stroke="var(--ink-soft)" stroke-width="0.55" stroke-linecap="round"/>
+    </g>
+    <path d="M 190 90 C 180 100, 170 108, 160 115" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="163" cy="112" r="1.5" fill="var(--paper-washi)" stroke="var(--ink-soft)" stroke-width="0.3"/>
+  </svg>
+</PanelDoors>

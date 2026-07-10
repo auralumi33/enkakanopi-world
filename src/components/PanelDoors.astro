@@ -1,0 +1,254 @@
+---
+/**
+ * PanelDoors — the site's one panel-language component.
+ *
+ * The Isson × Murakami paradox panels shipped page-locally three times over
+ * (Home · Nursery · Colophon). This is the system: one grammar, one CSS
+ * block, one accessibility model. Each surface still owns its hand-tuned
+ * vignettes (slotted as `vignette-{1..N}`); PanelDoors owns layout, rhythm,
+ * hue tokens, caption grammar, hover/focus states, and the nav landmark.
+ *
+ * Data contract per panel (all mandatory):
+ *   hue: "lavender" | "gold" | "coral" | "slate"   — resolves to canonical kanji+label
+ *   role: string                                    — the JP-styled second line (e.g. "the branch")
+ *   caption: string                                 — the italic triplet caption
+ *   href: string                                    — the door's destination
+ *   cta: string                                     — the fade-in "enter X →" text
+ *
+ * Optional props:
+ *   signature: string    — italic hand-caption below the row(s)
+ *   variant: string      — extra class hook (kept for the `--seedbed` / `--colophon`
+ *                          margin-rhythm variants; strictly optional)
+ *   row: 1 | 2 | 3 | "all"  — matches the row-prop distribution pattern
+ *   rows: number         — how many rows the caller is passing (default 1)
+ *
+ * Placement law: PanelDoors is a threshold/hub surface. Never place inside an
+ * essay's prose column.
+ */
+
+export interface Panel {
+  hue: "lavender" | "gold" | "coral" | "slate";
+  role: string;
+  caption: string;
+  href: string;
+  cta: string;
+}
+
+export interface Props {
+  panels: Panel[];
+  signature?: string;
+  ariaLabel?: string;
+  variant?: "" | "seedbed" | "colophon" | "hub";
+  row?: 1 | 2 | 3 | "all";
+  rows?: 1 | 2 | 3;
+}
+
+const {
+  panels,
+  signature,
+  ariaLabel = "Panel doors — each an entrance",
+  variant = "",
+  row = "all",
+  rows = 1,
+} = Astro.props as Props;
+
+const HUES = {
+  lavender: { kanji: "紫", en: "lavender" },
+  gold:     { kanji: "金", en: "gold" },
+  coral:    { kanji: "珊瑚", en: "coral" },
+  slate:    { kanji: "青", en: "slate" },
+} as const;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const variantClass = variant ? ` botanical-panels--${variant}` : "";
+const rowClass = ` botanical-panels--row-${row}`;
+
+// The row-prop distribution pattern: figcaption renders only with the final
+// row (row === "all" || row === rows). Keeps interleaved rows from repeating
+// the signature line.
+const showSignature = signature && (row === "all" || row === rows);
+---
+<figure class={`botanical-panels${variantClass}${rowClass}`}>
+  <nav class="panels-nav" aria-label={ariaLabel}>
+    <ul class="panels-grid" role="list">
+      {panels.map((p, i) => {
+        const hue = HUES[p.hue];
+        const label = `${hue.kanji} · ${hue.en}`;
+        // Accessible name: role + cta together carry meaning without leaning
+        // on the hue as the only signal (a11y checklist §4b·7).
+        const aName = `${p.role} — ${p.cta}`;
+        return (
+          <li>
+            <a class="panel" href={base + p.href} aria-label={aName}>
+              <p class="panel-label">{label}</p>
+              <p class="panel-jp">{p.role}</p>
+              <div class="panel-vignette">
+                {i === 0 && <slot name="vignette-1" />}
+                {i === 1 && <slot name="vignette-2" />}
+                {i === 2 && <slot name="vignette-3" />}
+                {i === 3 && <slot name="vignette-4" />}
+              </div>
+              <p class="panel-cap">{p.caption}</p>
+              <span class="panel-cta" aria-hidden="true">{p.cta} →</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+  {showSignature && (
+    <figcaption>{signature}</figcaption>
+  )}
+</figure>
+<style>
+  /* ── PanelDoors — the panel-language system ───────────────────────────────
+     One canonical CSS block. Three surfaces (Home · Nursery · Colophon) plus
+     the three hub doors (Field Notes · Workbench · Body & Spine) render off
+     this. Every hue is a register anchor; every panel is a door; the paper
+     stays light. */
+  .botanical-panels {
+    margin: 3rem auto 2rem;
+    max-width: 62rem;
+    padding: 0 var(--gutter);
+  }
+  /* variant-rhythm — the row-prop distribution pattern's tighter breathing */
+  .botanical-panels--seedbed,
+  .botanical-panels--colophon {
+    margin: 2rem auto 1.6rem;
+  }
+  .botanical-panels--row-1,
+  .botanical-panels--row-2,
+  .botanical-panels--row-3 {
+    margin: 1.5rem auto 1.5rem;
+  }
+  .panels-nav {
+    /* nav landmark — semantic only; no visual chrome */
+    display: block;
+  }
+  .panels-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 40rem) {
+    .panels-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  /* --hub variant — three doors per row (field-notes, workbench, body-spine
+     hubs). Desktop: 3 columns (no empty slot). Mobile: single column, stacked
+     — a small room's three doors get room to breathe, and no ghost-slot next
+     to a lone third panel. Added 2026-07-11 as the IA-pass follow-up. */
+  .botanical-panels--hub .panels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 40rem) {
+    .botanical-panels--hub .panels-grid { grid-template-columns: 1fr; }
+  }
+  .panels-grid > li { margin: 0; padding: 0; }
+  .panel {
+    display: block;
+    border: 1px solid rgba(231, 220, 198, 0.55);
+    border-radius: 3px;
+    padding: 0.85rem 0.6rem 0.7rem;
+    background: transparent;
+    /* the door affordance — discovered on hover / focus-visible.
+       Text-decoration removed; reader colour inherited. */
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      background 200ms ease;
+    position: relative;
+  }
+  .panel:hover,
+  .panel:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(207, 74, 69, 0.28);
+    background: rgba(251, 248, 238, 0.55);
+    outline: none;
+  }
+  .panel-label {
+    font-family: var(--display);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin: 0 0 0.15rem;
+  }
+  .panel-jp {
+    font-family: "Noto Serif JP", "Newsreader", Georgia, serif;
+    font-size: 0.65rem;
+    /* Panel-language IA pass (2026-07-11): color raised ink-faint → ink-soft
+       and opacity 0.7 → 0.85 so the role line meets WCAG AA at the small
+       size. Whisper register preserved by holding size + italic; the mark
+       is now legible on cream without shouting. */
+    color: var(--ink-soft);
+    text-align: center;
+    margin: 0 0 0.5rem;
+    opacity: 0.85;
+    font-style: italic;
+  }
+  .panel-vignette {
+    /* the drawing frame — width owned by the panel, height by the SVG */
+    display: block;
+    line-height: 0;
+  }
+  .panel-vignette :global(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .panel-cap {
+    font-family: var(--serif);
+    font-size: 0.68rem;
+    /* Panel-language IA pass (2026-07-11): same rationale as .panel-jp above.
+       Caption raised ink-faint → ink-soft for WCAG AA at 0.68rem italic. */
+    color: var(--ink-soft);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.45;
+    margin: 0.4rem 0 0;
+  }
+  .panel-cta {
+    display: block;
+    font-family: var(--hand);
+    font-size: 0.72rem;
+    color: var(--poppy);
+    text-align: center;
+    margin-top: 0.4rem;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    letter-spacing: 0.01em;
+  }
+  .panel:hover .panel-cta,
+  .panel:focus-visible .panel-cta { opacity: 0.85; }
+  /* seedbed + colophon variant CTA size (matches shipped pages before merge) */
+  .botanical-panels--seedbed .panel-cta,
+  .botanical-panels--colophon .panel-cta {
+    font-size: 0.7rem;
+    margin-top: 0.35rem;
+  }
+  .botanical-panels > figcaption {
+    font-family: var(--hand);
+    font-size: 0.85rem;
+    /* Panel-language IA pass (2026-07-11): signature bumped ink-faint at 0.75
+       opacity → ink-soft at 0.9 opacity so the caption meets WCAG AA on
+       cream at 0.85rem italic. Whisper held by hand-face + italic + size. */
+    color: var(--ink-soft);
+    text-align: center;
+    margin: 1rem 0 0;
+    font-style: italic;
+    opacity: 0.9;
+  }
+  .botanical-panels--colophon > figcaption { margin: 1.5rem 0 0; }
+  /* the row-prop distribution pattern — inter-row spacing */
+  .botanical-panels .panels-nav + .panels-nav { margin-top: 0.75rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .panel,
+    .panel-cta { transition: none; }
+    .panel:hover,
+    .panel:focus-visible { transform: none; }
+  }
+</style>

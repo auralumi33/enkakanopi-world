@@ -395,6 +395,92 @@ language, use the names:
   · **seijaku** (tranquility — no animations on the hero; paper stays
     still).
 
+## The panel language (the door grammar)
+
+The **Isson × Murakami paradox panels** shipped three times over — home,
+nursery, colophon — before they were recognised as a system. The pattern is
+now the site's single wayfinding grammar: **path · portal · place made
+literal**. A hub is a portal field; an essay is a room; a panel is a door.
+The component is [`src/components/PanelDoors.astro`](./src/components/PanelDoors.astro).
+
+### The four hues (register anchors)
+
+Each canonical pastel carries a **register**, not a fixed concept. The
+register is what has held across all 24 shipped panels; the specific role
+per surface may shift, but the register is stable and doors on any new
+surface should honour it.
+
+| Kanji | Name | Register (what the hue carries) |
+|---|---|---|
+| 紫 | lavender | **the hand · the fragment · the beginning** — the tender start, the piece being gathered (branch · scrap · closed bud · plot · hand · small hand · seedling · relearning · why-start) |
+| 金 | gold | **the growth · the seal · the warmth** — the thing coming into itself, and the maker's-mark stamp (chrysanthemum · germination · pressed leaf · canopy · seal · first mark · budding · articulation · little-kit) |
+| 珊瑚 | coral | **the wobble · the covenant · the opening** — where the curve leaves the ruler, where two hands meet, where the circle opens (bird · wobble · tangent · ensō 円花 · covenant · wobbly ensō · evergreen · tide · shape-of-things) |
+| 青 | slate | **the mirror · the distance · the far view** — the reflected and the seen-from-farther (magpie & mountain · cracked seed · small vessel · provenance target · mirror · trust seal) |
+
+**Rule:** one hue, one register, sitewide. Do not re-purpose a hue for a
+second register on a new panel — the portfolio-tag discipline: consistent
+vocabulary across the whole garden.
+
+### Panel anatomy (the four elements, in order)
+
+Every panel carries exactly these four elements, in order, top to bottom:
+
+1. **Kanji + English label** — `紫 · lavender` (owned by the system; do not vary form)
+2. **Role line** — the italic Noto Serif JP name for the door (`the branch`, `the seedling`, `the covenant`). Rika-voice; three-to-four words.
+3. **Vignette** — one hand-drawn SVG. Hairline outlines (`0.55–0.7`), canonical pastels only, one paradox smile hidden inside (see below). Per-surface; slotted from the caller.
+4. **Italic caption triplet** — three phrases separated by ` · `, ending in a `smile` reference. Compression from the room's own voice, never invention (voice-lock).
+
+The CTA line — `enter [Room] →` in `var(--hand)` `var(--poppy)` — fades in
+from `0 → 0.85` opacity on `hover` / `focus-visible`. The door affordance
+is **discovered**, not shouted.
+
+### The one-hidden-joy rule
+
+Every panel carries **exactly one paradox smile** somewhere in the drawing —
+a tiny closed-eye smile mark (`Tanaka Isson's soul × Takashi Murakami's
+hidden joy`, per the named idiom above). Never two. Never absent. Only
+readable on close look. Verified across all shipped panels; the rule is now
+canon.
+
+### The each-a-door contract
+
+**A panel is always a portal, never decoration.** Every shipped panel is
+an `<a class="panel">` anchor with an `href`. There is no such thing as a
+static ornamental panel in this garden — if it looks like a panel, it opens
+a room. Callers that only need a drawing should reach for a `Motif*` or
+`Scene*` component instead; those are the ornamental register.
+
+### The placement law
+
+The panel language lives on **threshold and hub surfaces only**:
+
+- **Threshold** — home, colophon, nursery (the wayfinding surfaces)
+- **Hub** — field-notes / workbench / body-spine index pages (the reading-
+  room entries)
+
+**Never** inside an essay's prose column. Essays end at their farewell +
+correspondence line; they do not carry doors. If a piece of prose feels
+like it wants a panel row, the row belongs on the parent hub, not the essay.
+This keeps the reader's four-zone journey legible: threshold → growing beds
+→ quiet doors → house layer (Studio Charter §3).
+
+### The row-prop distribution pattern (already named above)
+
+For multi-row callers (Nursery · Colophon), the `row` prop on
+`PanelDoors` (`1 | 2 | 3 | "all"`) lets the caller interleave rows across
+prose blocks. Signature (figcaption) renders only with the final row. See
+the named-idiom entry above for the shipped precedents.
+
+### Accessibility (machine-legibility, one investment, both returns)
+
+- The panels are wrapped in a `<nav aria-label="...">` landmark
+- Each panel is a real link with a descriptive `aria-label` (role + cta,
+  not the hue)
+- The vignette SVG carries `role="img"` + `<title>` (screen-reader accessible)
+- Hover / focus states honour `prefers-reduced-motion`
+- Hue is **never** the only signal (name, caption, aria-label all carry
+  meaning independently)
+
 ## Tokens (canonical values)
 
 Source of truth is [`src/styles/tokens.css`](./src/styles/tokens.css)
