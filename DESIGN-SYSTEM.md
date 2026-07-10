@@ -538,6 +538,70 @@ Nursery / Colophon panels) to *sumi-e-primary*:
 - Hue is **never** the only signal (name, caption, aria-label all carry
   meaning independently)
 
+### When NOT to use PanelDoors (the negative space of the pattern)
+
+*Intent Capture lens · 2026-07-11. Codified in the same pass as the
+system-map + journey-graph work. If the answer to any of the below is
+YES, use a different component, not PanelDoors.*
+
+| Situation | Why not | What to use instead |
+|---|---|---|
+| Inside an essay's prose column | Doors are wayfinding; essays are dwelling. Mixing breaks the sit-down flow. | `<Figure>` for diagrams · `<MarginNote>` for asides · `<Bloom>` for accents |
+| As a decorative row | The each-a-door contract is load-bearing. If it looks like a panel and it's not a door, it will erode reader trust. | `Motif*` components under `src/components/motifs/` are the ornamental register. |
+| To surface more than four items in a single row | Four is the ceiling (portfolio-grade IA discipline; one chart, one load). | Use the row-prop distribution pattern (Nursery: 2 rows, Colophon: 3 rows) or a curated selection. |
+| On the archive-wall (Volume I) | Volume I already carries a native six-cluster door grammar. Adding PanelDoors competes, not amplifies. | If arrival needs a mark, use a small sumi-e cluster-mark per cluster label. |
+| On single-piece meditations (as an arrival strip at top) | Doors at the top break the meditation's sit-down flow. | Use `variant="meditation"` at the FOOT with a hairline top-rule + preamble. |
+| To replace the correspondence rail | The rail is a persistent hand-note register; doors are a threshold-arrival register. They do different work. | Keep the rail separate; use doors as wayfinding, rail as invitation. |
+| On the workshop / night-skin strip | Night skin is a deliberately-entered room, not a portal field. Doors here would violate placement law. | Use the ChainStrip's own idioms (flow · lock · refuse · say). |
+| When the destination is off-domain | Bidirectional firewall (SOUL #9). No door on Enka can point outside Enka's own graph. | The correspondence rail is Enka's only outbound door. |
+
+### Constraint Morphology (enabling vs limiting · why + how)
+
+*Constraint Morphology lens · 2026-07-11. Every design constraint is
+either enabling (creates possibility by ruling out an alternative) or
+limiting (caps possibility without offering an alternative). Enka's
+five load-bearing constraints are named here as enabling — with the
+WHY (the compounding reason) and the HOW (the design consequence) —
+so future sessions treat them as gates for creative work, not walls.*
+
+| Constraint | Why (the compounding reason) | How (the design consequence) |
+|---|---|---|
+| **Voice-lock** — nothing originates outside Rika's hand | Every published essay carries a hand-signature that AI-generated content cannot fake. Over N essays, the hand-signature becomes an *identity fingerprint* — a moat that scales with volume without diluting. | Fleet agents propose redlines; Rika ratifies. Panel captions compress from essay-source only. New surfaces must borrow from shipped verbatim doctrine, never invent copy. |
+| **Bidirectional firewall** — no adjacent venture is named on Enka | Cross-promotion between ventures would confuse the register and collapse the citation graph into a single-brand block. Isolation preserves each venture's own audience + citation surface. | Every design decision passes a firewall audit. The correspondence rail is Enka's only outbound path; adjacent commerce is off-domain, self-select only. |
+| **Zero-PII aggregate-only telemetry** — no cookies, no fingerprint, no session | Trust is a container that appreciates; capture-mechanics deflate it. The zero-PII beacon builds trust as a compounding asset while still giving Rika the dwell + return signal she needs to tune the garden. | Cannot A/B individual behaviour → learn via holdout. Cannot personalise → curate universally. Panel-door discipline (curated few over exhaustive many) is a direct downstream consequence. |
+| **Openly-unfinished** — *In Formation* is the honest state, not an apology | Glossy sites read as *for sale*. Enka reads as *being tended*. The wobble is what the parasocial reader trusts (a hand shaping in real time). | `SLOT` placeholders where content is not yet ready. Growth stages (seedling / budding / evergreen) as the maturity axis. No progress bars, no completion percentages. |
+| **Assisted, never authored** — the covenant on every page | The very slowness is the moat in the AI-answer era. When AI content is infinitely reproducible, a human hand behind the work becomes rare and valuable (§1 of the voice spine — the container appreciates). | The mirror agent has a non-overridable veto. Every artifact traces to Rika's yes. Machine work is scaffold-keeping only. |
+
+**How to use this table:** when a new design decision feels blocked, find
+the constraint that blocks it. Read its WHY. If the WHY still holds, the
+constraint is genuine — design *around* it, not through it. If the WHY
+has changed, propose the constraint's revision through a doctrine
+update (a numbered fold in `SUCCESSION.md`), never a silent workaround.
+
+### Institutional Memory levels (where the panel language lives on the ladder)
+
+*Institutional Memory lens · 2026-07-11. Design systems climb a ladder
+from Static → Active → Learning → Predictive (per Ross Moody / Design
+Systems Collective). Enka's panel language currently lives between
+Static and Active — the tables below name where and why, so future
+sessions know what "the next rung" would cost.*
+
+| Level | What it means | Enka's panel language today |
+|---|---|---|
+| **Static** | Written down. Referenced by humans. | ✅ All PanelDoors doctrine (this doc, `notes/journey-map.md`, comments in `PanelDoors.astro`). |
+| **Active** | Enforced by tooling. Violations produce a machine-readable error. | ◐ Partial — `guard.mjs` catches dark-mode drift and off-register text but does not (yet) check panel-anatomy compliance (label → role → vignette → caption + hidden smile). |
+| **Learning** | Signal-driven — the system *updates itself* from observed use. | ▢ Not yet — the beacon (`b2820a3`) captures dwell/return atoms but does not feed back into panel-door composition. |
+| **Predictive** | The system proposes new artifacts a priori from patterns. | ▢ Not yet — fleet agents can propose new panels (they have the schema), but Rika ratifies each. Predictive would need learned taste + a much larger corpus. |
+
+**Next-rung cost estimates (HYPOTHESIS):**
+- Static → Active for PanelDoors: ~2 hours to add a build-time linter that checks each panel has the four anatomy elements + one hidden smile per SVG.
+- Active → Learning for the whole site: needs the beacon to have 4+ weeks of signal AND a monthly place-intelligence digest that surfaces dwell deltas per door. Cost: 4 hours setup, ~1 hour/month cadence.
+- Learning → Predictive: not near-term. Requires taste-corpus of ≥50 shipped panels (currently 33) plus a fleet-side judgment model that has trained on the vetoed vs. accepted pairs.
+
+The point of naming levels: **know which rung you are on before you propose
+the next**. Ambition without evidence produces overfit systems; evidence
+without ambition produces mediocre ones.
+
 ## Tokens (canonical values)
 
 Source of truth is [`src/styles/tokens.css`](./src/styles/tokens.css)

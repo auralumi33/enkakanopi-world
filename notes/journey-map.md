@@ -158,3 +158,78 @@ flowchart TD
   Only single-piece meditations (Versions of Me being the only current
   instance) take foot-placement with the hairline top-rule + preamble.
   Do not use it as a decorative frame on any hub or index page.
+
+## Hidden journey illumination (four path types)
+
+*Added 2026-07-11 alongside the portfolio-review pass. Per the Design
+Systems Intelligence lens: every navigable system carries four kinds of
+paths. The first two are designed; the last two are discovered.*
+
+### Happy paths (designed · above)
+
+Already mapped: the wanderer → kindred loop, the collaborator referral,
+the AI-answer-engine harvest. See sections above.
+
+### Failure paths (designed-against · surfaced in system map)
+
+Also mapped: search bounce · overwhelm at home · dead-panel · dark-mode
+expectation · correspondence latency · Vercel checkpoint · mobile
+3-panel awkwardness *(fixed)* · Volume I graduation ambiguity. See
+`SYSTEM-MAP-AND-JOURNEYS-2026-07-11.md §2.2` at the venture root.
+
+### Workaround paths (undesigned · likely happening)
+
+The reader does something we didn't plan for; they route around a gap.
+Naming these prevents us from designing over them accidentally.
+
+- **Save-as-PDF / Reader-view** — some readers strip chrome to read
+  offline. Voice-lock intact (Rika's words survive). The citation graph
+  can lose them (re-read happens offline). *No fix — this is respect
+  for reader agency.*
+- **Screenshot-quote passages** — readers screenshot rather than
+  link-with-anchor. Loses back-link to source. *HYPOTHESIS mitigation:
+  paragraph-anchor share icons — but adds chrome; voice-lock likely
+  vetoes.*
+- **Bookmark specific paragraphs** — paragraphs don't have IDs.
+  *HYPOTHESIS: silent `slugify` on `<h2>` and `<h3>` blocks would
+  enable `#specific-heading` links at zero visual cost.*
+- **Cmd-F search** — no site search exists. Small archive size makes
+  OS-level search sufficient; no build needed yet.
+
+### Desire paths (undesigned · reader wishes for)
+
+The reader wants something the system does not yet offer. Naming these
+sets the queue for future design work.
+
+- **A one-page "map of the garden"** — some readers want to see the
+  whole thing at once. Currently distributed across nav + panels + Volume I
+  clusters. *Hold until a demand signal exists.*
+- **"Start here" essay list for first-time visitors** — currently the
+  home is the start-here. A gentler intermediate could reduce Failure-2
+  overwhelm. *Overlaps HMW 1 in the system map; propose there.*
+- **Response-time signalling on correspondence** — a reader who writes
+  wants to know when to expect a reply. *HYPOTHESIS: a small note near
+  the correspondence rail: "the reply is slow but real."* Rika-copy
+  needed.
+
+## Institutional memory · where each doctrine sits on the ladder
+
+*Institutional Memory lens · Static → Active → Learning → Predictive.
+Where each of Enka's doctrines currently lives. The point of naming
+levels: know which rung you are on before you propose the next.*
+
+| Doctrine | Level | Next-rung cost |
+|---|---|---|
+| Panel language grammar (this doc + DESIGN-SYSTEM.md) | Static → Active partial | ~2 hrs to lint panel anatomy at build time |
+| Voice-lock (mirror-agent four-axis veto) | Active (mirror enforces) | Learning would need mirror to train on accepted/vetoed pairs |
+| Dark-mode prohibition | Active (`guard.mjs` blocks `prefers-color-scheme: dark`) | already at Active — no need to climb |
+| Panel-anatomy compliance | Static (documented, not enforced) | ~2 hrs for build-time SVG scan for `<title>` + smile-mark heuristic |
+| Correspondence rail presence | Static (doctrine only) | Guard could check every essay ends with the foot line — ~1 hr |
+| Firewall (no adjacent venture named) | Static → Active partial | `guard.words.local.txt` is Active for known-bad names; new venture names need to be added |
+| Citation graph tracking | Static (slot doc) | Monthly probe cadence via `enka-aieo-citation` skill would move to Learning — ~4 hrs setup + 1hr/mo |
+| Dwell / return signal | Learning tier (beacon lives, digest not automated) | Automating the fortnightly place-intelligence digest → full Learning tier |
+
+**Reading rule:** if a doctrine is on Static, a session can drift from it
+without noticing. If it's on Active, drift becomes a build failure.
+Prioritise Static → Active moves on any doctrine that was drifted from
+in the last 3 sessions.
