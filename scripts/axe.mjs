@@ -27,6 +27,8 @@ const ROUTES = [
   "/field-notes",
   "/workbench",
   "/body-spine",
+  "/studio",
+  "/lexicon",
 ];
 
 const axeSource = await readFile(AXE_SRC, "utf8");

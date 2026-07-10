@@ -5,8 +5,20 @@ import GardenMedallion from "../components/GardenMedallion.astro";
 import MotifWordPlot from "../components/motifs/MotifWordPlot.astro";
 import MotifTermTick from "../components/motifs/MotifTermTick.astro";
 import MotifCitationSeed from "../components/motifs/MotifCitationSeed.astro";
+import PanelDoors, { type Panel } from "../components/PanelDoors.astro";
 import { terms, slugify } from "../data/lexicon";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// The lexicon's arrival doors — four keystone frameworks from §6 of the
+// Voice & IP spine, in sumi-e register (2026-07-11 · panel-language
+// extension). Doubles as an AEO/GEO citation attractor per §7.5: named
+// frameworks with canonical anchors are what answer engines cite.
+const doors: Panel[] = [
+  { hue: "lavender", role: "the container",             caption: "the container beneath the craft · the ensō holds without fixing · smile inside the circle", href: "/lexicon#the-container-beneath-the-craft", cta: "read The Container Beneath the Craft" },
+  { hue: "gold",     role: "resonance architecture",    caption: "three surfaces meeting · physical · digital · agentic · smile at the focal",                 href: "/lexicon#resonance-architecture",           cta: "read Resonance Architecture" },
+  { hue: "coral",    role: "the deflation of execution", caption: "the stroke dissolves · the judgment appreciates · smile at the trailing edge",              href: "/lexicon#the-deflation-of-execution",       cta: "read The Deflation of Execution" },
+  { hue: "slate",    role: "the canopy and the light",   caption: "held long enough to become · light through the leaves · smile in the drop",                 href: "/lexicon#the-canopy-and-the-light",         cta: "read The Canopy and the Light" },
+];
 
 // The citable concept-lexicon lives in src/data/lexicon.ts (the source);
 // this page renders it. (Structured as DefinedTerms so answer engines can
@@ -44,6 +56,104 @@ const ldTerms = {
         <MotifWordPlot size={320} />
       </div>
     </header>
+
+    <div class="doors">
+      <PanelDoors
+        panels={doors}
+        ariaLabel="Lexicon arrival doors — four keystone frameworks, four sumi-e entrances"
+        signature="four keystones · one hidden smile in each · named for the citing"
+      >
+        {/* 紫 · lavender · the container beneath the craft — sumi-e ensō with a bloom held inside */}
+        <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="lex-l-t"><title id="lex-l-t">A sumi-e ensō circle open at 1:30 with a small lavender bloom held inside and a hidden smile</title>
+          <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
+          <path d="M 138 60 C 108 44, 68 52, 46 82 C 26 112, 34 156, 66 174 C 100 190, 142 176, 158 142 C 168 118, 164 88, 148 68" stroke="var(--ink-soft)" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.72"/>
+          <path d="M 132 68 C 106 54, 72 62, 54 88 C 38 114, 46 152, 74 168 C 104 182, 140 170, 152 140" stroke="var(--ink)" stroke-width="0.75" fill="none" stroke-linecap="round" opacity="0.35"/>
+          <path d="M 148 68 C 154 62, 160 58, 168 56" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.45" stroke-dasharray="1 1.5"/>
+          <path d="M 158 142 C 164 146, 170 150, 178 154" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.45" stroke-dasharray="1 1.5"/>
+          <g transform="translate(100 116)">
+            <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+              <path d="M 0 -9 C 5 -7.5, 6.5 -2.4, 0 -0.6 C -6.5 -2.4, -5 -7.5, 0 -9 Z"/>
+              <path d="M 7.5 -3.5 C 9 3.5, 3.5 6, 1 3.5 C 0 -0.6, 5 -6.5, 7.5 -3.5 Z"/>
+              <path d="M 5 6 C 0 7.5, -5 3.5, -1.7 0 C 3 -2.5, 7.5 2, 5 6 Z"/>
+              <path d="M -6 3.5 C -9 -2.4, -6 -6, -1.5 -3.5 C 0 0, -2.5 6, -6 3.5 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="1.8" fill="#e8c15a" opacity="0.95"/>
+            <path d="M -0.8 -0.2 C -0.5 0.15, 0.5 0.15, 0.8 -0.2" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+
+        {/* 金 · gold · resonance architecture — three concentric arcs converging at a focal bloom */}
+        <svg slot="vignette-2" viewBox="0 0 200 220" role="img" aria-labelledby="lex-g-t"><title id="lex-g-t">Three concentric sumi-e arcs meeting at a gold focal bloom with a hidden smile</title>
+          <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.11" rx="1"/>
+          <path d="M 20 168 C 20 88, 100 40, 180 88" stroke="var(--ink-soft)" stroke-width="1.15" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <path d="M 20 168 C 20 88, 100 40, 180 88" stroke="var(--ink)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+          <path d="M 38 168 C 38 108, 100 74, 162 108" stroke="var(--ink-soft)" stroke-width="1.15" fill="none" stroke-linecap="round" opacity="0.72"/>
+          <path d="M 38 168 C 38 108, 100 74, 162 108" stroke="var(--ink)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+          <path d="M 56 168 C 56 130, 100 110, 144 130" stroke="var(--ink-soft)" stroke-width="1.15" fill="none" stroke-linecap="round" opacity="0.82"/>
+          <path d="M 56 168 C 56 130, 100 110, 144 130" stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.42"/>
+          <line x1="100" y1="168" x2="100" y2="140" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.4" stroke-dasharray="1.5 2"/>
+          <g transform="translate(100 138)">
+            <g fill="#e8c15a" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round">
+              <path d="M 0 -8 C 4 -6.5, 5.2 -2, 0 -0.5 C -5.2 -2, -4 -6.5, 0 -8 Z"/>
+              <path d="M 6.5 -3 C 8 3, 3 5, 1 3 C 0 -0.5, 4 -5, 6.5 -3 Z"/>
+              <path d="M 4.5 5 C 0 6.5, -4.5 3, -1.5 0 C 2.5 -2, 6 2, 4.5 5 Z"/>
+              <path d="M -5.5 3 C -8 -2, -5.5 -5, -1 -3 C 0 0, -2 5, -5.5 3 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="1.6" fill="var(--ink-soft)" opacity="0.85"/>
+            <path d="M -0.7 -0.15 C -0.4 0.15, 0.4 0.15, 0.7 -0.15" stroke="var(--paper-washi)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
+          </g>
+          <text font-family="var(--hand)" x="30" y="60" font-size="8.5" text-anchor="start" font-style="italic" fill="var(--ink-soft)" opacity="0.55">physical</text>
+          <text font-family="var(--hand)" x="48" y="90" font-size="8.5" text-anchor="start" font-style="italic" fill="var(--ink-soft)" opacity="0.6">digital</text>
+          <text font-family="var(--hand)" x="64" y="122" font-size="8.5" text-anchor="start" font-style="italic" fill="var(--ink-soft)" opacity="0.65">agentic</text>
+        </svg>
+
+        {/* 珊瑚 · coral · the deflation of execution — a brushstroke dissolving into dry-brush, with the appreciating bloom at the trailing edge */}
+        <svg slot="vignette-3" viewBox="0 0 200 220" role="img" aria-labelledby="lex-c-t"><title id="lex-c-t">A sumi-e brushstroke dissolving from wet-ink into dry-brush, with a coral bloom at the trailing edge holding a hidden smile</title>
+          <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.09" rx="1"/>
+          <path d="M 20 108 C 40 96, 70 104, 90 108" stroke="var(--ink-soft)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
+          <path d="M 24 110 C 42 100, 68 106, 88 110" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <path d="M 90 108 C 108 110, 122 108, 134 108" stroke="var(--ink-soft)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.72"/>
+          <path d="M 134 108 C 142 108, 148 108, 154 106" stroke="var(--ink-soft)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <path d="M 154 106 C 158 106, 160 106, 163 106" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45" stroke-dasharray="0.8 1.2"/>
+          <path d="M 155 100 L 158 102" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.4"/>
+          <path d="M 159 110 L 162 112" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.4"/>
+          <path d="M 152 114 L 155 116" stroke="var(--ink-soft)" stroke-width="0.35" opacity="0.4"/>
+          <g transform="translate(174 106)">
+            <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.32" stroke-linejoin="round">
+              <path d="M 0 -6 C 3.3 -5, 4.2 -1.6, 0 -0.4 C -4.2 -1.6, -3.3 -5, 0 -6 Z"/>
+              <path d="M 5 -2.5 C 6 2, 2.5 4, 0.5 2.4 C 0 -0.4, 3 -4.5, 5 -2.5 Z"/>
+              <path d="M 3 4 C 0 5, -3 2.4, -1 0 C 2 -1.7, 4 1.6, 3 4 Z"/>
+              <path d="M -4 2.5 C -6 -1.6, -4 -4, -1 -2.4 C 0 0, -1.5 4, -4 2.5 Z"/>
+            </g>
+            <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+            <path d="M -0.55 -0.15 C -0.3 0.1, 0.3 0.1, 0.55 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+          </g>
+          <text font-family="var(--hand)" x="45" y="80" font-size="9" text-anchor="middle" font-style="italic" fill="var(--ink-soft)" opacity="0.6">execution ↓</text>
+          <text font-family="var(--hand)" x="158" y="80" font-size="9" text-anchor="middle" font-style="italic" fill="var(--ink-soft)" opacity="0.72">judgment ↑</text>
+        </svg>
+
+        {/* 青 · slate · the canopy and the light — a canopy arch with a hairline light shaft and a slate drop holding a hidden smile */}
+        <svg slot="vignette-4" viewBox="0 0 200 220" role="img" aria-labelledby="lex-s-t"><title id="lex-s-t">A sumi-e canopy arch with a hairline light shaft falling to a slate drop-bloom, with a hidden smile</title>
+          <rect x="10" y="10" width="180" height="200" fill="#a4b8c8" opacity="0.13" rx="1"/>
+          <path d="M 20 90 C 40 50, 100 32, 160 44 C 172 46, 180 52, 184 60" stroke="var(--ink-soft)" stroke-width="1.35" fill="none" stroke-linecap="round" opacity="0.72"/>
+          <path d="M 24 92 C 42 56, 100 40, 158 50 C 168 52, 176 56, 180 62" stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.35"/>
+          <path d="M 45 78 C 42 74, 46 68, 52 70" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M 62 68 C 60 62, 66 58, 70 62" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 88 60 C 86 54, 92 50, 96 54" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 118 56 C 118 50, 122 46, 128 50" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 148 52 C 146 46, 152 42, 156 46" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+          <path d="M 100 92 L 100 168" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.45" stroke-dasharray="1.5 2.2"/>
+          <g transform="translate(100 172)">
+            <circle cx="0" cy="0" r="6.5" fill="#a4b8c8" opacity="0.85" stroke="var(--ink-soft)" stroke-width="0.5"/>
+            <circle cx="0" cy="0" r="6.5" fill="none" stroke="var(--ink)" stroke-width="0.3" opacity="0.3"/>
+            <circle cx="0" cy="0" r="1.6" fill="#e8c15a" opacity="0.95"/>
+            <path d="M -0.7 -0.15 C -0.4 0.15, 0.4 0.15, 0.7 -0.15" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
+          </g>
+          <path d="M 95 200 C 90 202, 85 200, 88 196" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+          <path d="M 108 200 C 115 202, 118 200, 113 196" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </PanelDoors>
+    </div>
 
     <dl class="terms">
       {terms.map((t) => (

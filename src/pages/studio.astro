@@ -9,6 +9,18 @@ import TheFirstApproximation from "../components/motifs/memoria/TheFirstApproxim
 import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
 import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astro";
 import VineTrail from "../components/motifs/memoria/VineTrail.astro";
+import PanelDoors, { type Panel } from "../components/PanelDoors.astro";
+
+// The studio's arrival doors — one per shipped wall-piece, in sumi-e register
+// (2026-07-11 · panel-language extension). The doors sit above the wall so the
+// hall reads as a curated arrival, not a list-grid. Sumi-e brushwork over the
+// Isson × Murakami paradox — one hidden smile per panel, held.
+const doors: Panel[] = [
+  { hue: "lavender", role: "the tension sketches",  caption: "the bow held taut · the arc that means it · smile at the balance",       href: "/studio#the-tension-sketches", cta: "enter The Tension Sketches" },
+  { hue: "gold",     role: "the glyph kit",         caption: "four small primitives · a beloved kit · smile in the arc",                 href: "/studio#the-glyph-kit",        cta: "enter The Glyph Kit" },
+  { hue: "coral",    role: "the mechanical mirror", caption: "the covenant reflected · the four grounds seen · smile at the seam",       href: "/studio#the-mechanical-mirror", cta: "enter The Mechanical Mirror" },
+  { hue: "slate",    role: "the chain strip",       caption: "four links held long · the workshop across time · smile in the last link", href: "/studio#the-chain-strip",       cta: "enter The Chain Strip" },
+];
 
 // The wall's hanging order — flagship first; anything new hangs after.
 const hang = ["the-tension-sketches", "the-glyph-kit", "the-mechanical-mirror", "the-chain-strip"];
@@ -104,10 +116,113 @@ const pieces = await Promise.all(
     </div>
   </section>
 
+  <section class="page doors" aria-label="The studio's arrival doors">
+    <PanelDoors
+      panels={doors}
+      ariaLabel="Studio arrival doors — four wall-pieces, four sumi-e entrances"
+      signature="four pieces on the wall · one hidden smile in each · sumi-e in the door"
+    >
+      {/* 紫 · lavender · the tension sketches — a sumi-e tension arc, dry-brush trails, one hidden bloom */}
+      <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="stu-l-t"><title id="stu-l-t">A sumi-e tension arc drawn with wet-ink brushwork, one lavender bloom held at the balance point with a hidden smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>
+        <path d="M 22 178 C 46 108, 92 76, 100 74 C 108 76, 154 108, 178 178" stroke="var(--ink-soft)" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.78"/>
+        <path d="M 32 168 C 52 116, 92 88, 100 86 C 108 88, 148 116, 168 168" stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <path d="M 15 186 C 12 190, 8 194, 6 198" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="1 1.8"/>
+        <path d="M 185 186 C 188 190, 192 194, 194 198" stroke="var(--ink-soft)" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="1 1.8"/>
+        <path d="M 100 74 L 100 42" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round" opacity="0.4" stroke-dasharray="1.5 2.5"/>
+        <g transform="translate(100 74)">
+          <g fill="#b899c9" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.32" stroke-linejoin="round">
+            <path d="M 0 -6 C 3.5 -5, 4.5 -1.6, 0 -0.4 C -4.5 -1.6, -3.5 -5, 0 -6 Z"/>
+            <path d="M 5 -2.5 C 6 2.5, 2.5 4, 0.5 2.4 C 0 -0.4, 3.5 -4.5, 5 -2.5 Z"/>
+            <path d="M 3.5 4 C 0 5, -3.5 2.4, -1.2 0 C 2 -1.7, 5 1.6, 3.5 4 Z"/>
+            <path d="M -4.5 2.5 C -6 -1.6, -4.5 -4, -1 -2.4 C 0 0, -1.6 4, -4.5 2.5 Z"/>
+          </g>
+          <circle cx="0" cy="0" r="1.3" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.6 -0.15 C -0.35 0.1, 0.35 0.1, 0.6 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      {/* 金 · gold · the glyph kit — a small tray of four primitives, one hidden smile */}
+      <svg slot="vignette-2" viewBox="0 0 200 220" role="img" aria-labelledby="stu-g-t"><title id="stu-g-t">A workshop tray with four small primitive glyphs and a hidden gold smile</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e8c15a" opacity="0.11" rx="1"/>
+        <path d="M 32 100 C 32 96, 36 92, 40 92 L 160 92 C 164 92, 168 96, 168 100 L 165 172 C 164 178, 158 182, 100 182 C 42 182, 36 178, 35 172 Z" fill="none" stroke="var(--ink-soft)" stroke-width="0.85" stroke-linejoin="round" opacity="0.78"/>
+        <path d="M 40 92 C 60 90, 140 90, 160 92" stroke="var(--ink-soft)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M 32 100 C 32 96, 36 92, 40 92 L 160 92 C 164 92, 168 96, 168 100" stroke="var(--ink)" stroke-width="0.4" fill="none" opacity="0.35"/>
+        <g transform="translate(70 128)">
+          <circle cx="0" cy="0" r="12" fill="none" stroke="var(--ink-soft)" stroke-width="0.85" opacity="0.75"/>
+          <circle cx="0" cy="0" r="12" fill="none" stroke="var(--ink)" stroke-width="0.42" opacity="0.4"/>
+        </g>
+        <g transform="translate(130 128)">
+          <path d="M -10 6 L 0 -8 L 10 6" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+          <path d="M -10 6 L 0 -8 L 10 6" stroke="var(--ink)" stroke-width="0.42" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+        </g>
+        <g transform="translate(70 160)">
+          <path d="M -8 0 L -2 6 L 10 -6" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+          <path d="M -8 0 L -2 6 L 10 -6" stroke="var(--ink)" stroke-width="0.42" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+        </g>
+        <g transform="translate(130 160)">
+          <path d="M -10 4 C -6 -4, 6 -4, 10 4" stroke="var(--ink-soft)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.8"/>
+          <path d="M -10 4 C -6 -4, 6 -4, 10 4" stroke="var(--ink)" stroke-width="0.45" fill="none" stroke-linecap="round" opacity="0.42"/>
+          <circle cx="0" cy="-1" r="3" fill="#e8c15a" opacity="0.88" stroke="var(--ink-soft)" stroke-width="0.32"/>
+          <path d="M -1.2 -1.5 C -0.75 -1, 0.75 -1, 1.2 -1.5" stroke="var(--ink-soft)" stroke-width="0.35" fill="none" stroke-linecap="round"/>
+          <circle cx="-1.2" cy="-2.3" r="0.3" fill="var(--ink-soft)"/>
+          <circle cx="1.2" cy="-2.3" r="0.3" fill="var(--ink-soft)"/>
+        </g>
+        <text font-family="var(--hand)" x="100" y="70" font-size="9.5" text-anchor="middle" font-style="italic" fill="var(--ink-soft)" opacity="0.68">the little kit</text>
+      </svg>
+
+      {/* 珊瑚 · coral · the mechanical mirror — a hand-brushed mirror with reflection and hidden smile */}
+      <svg slot="vignette-3" viewBox="0 0 200 220" role="img" aria-labelledby="stu-c-t"><title id="stu-c-t">A sumi-e hand mirror reflecting a small covenant with a hidden coral smile at the seam</title>
+        <rect x="10" y="10" width="180" height="200" fill="#e46b6b" opacity="0.09" rx="1"/>
+        <ellipse cx="90" cy="98" rx="48" ry="58" fill="none" stroke="var(--ink-soft)" stroke-width="1.15" opacity="0.75"/>
+        <ellipse cx="90" cy="98" rx="48" ry="58" fill="none" stroke="var(--ink)" stroke-width="0.5" opacity="0.35"/>
+        <ellipse cx="90" cy="98" rx="40" ry="50" fill="var(--paper-washi)" opacity="0.6" stroke="var(--ink-soft)" stroke-width="0.4" opacity="0.5"/>
+        <path d="M 128 148 C 148 172, 168 190, 178 200" stroke="var(--ink-soft)" stroke-width="1.35" fill="none" stroke-linecap="round" opacity="0.78"/>
+        <path d="M 128 148 C 148 172, 168 190, 178 200" stroke="var(--ink)" stroke-width="0.55" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <path d="M 70 88 C 76 82, 84 78, 90 78 C 96 78, 104 82, 110 88" stroke="var(--ink-soft)" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <g transform="translate(90 100)">
+          <circle cx="-8" cy="-2" r="1.5" fill="#e08d84" opacity="0.85"/>
+          <circle cx="8" cy="-2" r="1.5" fill="#e08d84" opacity="0.85"/>
+          <circle cx="-8" cy="14" r="1.5" fill="#e08d84" opacity="0.85"/>
+          <circle cx="8" cy="14" r="1.5" fill="#e08d84" opacity="0.85"/>
+          <g fill="#e08d84" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.32" stroke-linejoin="round">
+            <path d="M 0 -8 C 4 -6.5, 5.2 -2, 0 -0.5 C -5.2 -2, -4 -6.5, 0 -8 Z"/>
+            <path d="M 6 -3 C 7 3, 3 5, 1 3 C 0 -0.5, 4 -5, 6 -3 Z"/>
+            <path d="M 4 5 C 0 6, -4 3, -1.5 0 C 2 -2, 6 2, 4 5 Z"/>
+            <path d="M -5 3 C -7 -2, -5 -5, -1 -3 C 0 0, -2 5, -5 3 Z"/>
+          </g>
+          <circle cx="0" cy="0" r="1.4" fill="#e8c15a" opacity="0.95"/>
+          <path d="M -0.6 -0.15 C -0.35 0.1, 0.35 0.1, 0.6 -0.15" stroke="var(--ink-soft)" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      {/* 青 · slate · the chain strip — a horizontal chain of four linked loops, one hidden smile in the last */}
+      <svg slot="vignette-4" viewBox="0 0 200 220" role="img" aria-labelledby="stu-s-t"><title id="stu-s-t">A horizontal sumi-e chain of four linked loops with a hidden slate smile in the last link</title>
+        <rect x="10" y="10" width="180" height="200" fill="#a4b8c8" opacity="0.13" rx="1"/>
+        <path d="M 26 108 C 26 96, 42 92, 52 96 C 62 100, 62 116, 52 120 C 42 124, 26 120, 26 108 Z" fill="none" stroke="var(--ink-soft)" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+        <path d="M 26 108 C 26 96, 42 92, 52 96 C 62 100, 62 116, 52 120 C 42 124, 26 120, 26 108 Z" fill="none" stroke="var(--ink)" stroke-width="0.5" stroke-linejoin="round" opacity="0.4"/>
+        <path d="M 66 108 C 66 96, 82 92, 92 96 C 102 100, 102 116, 92 120 C 82 124, 66 120, 66 108 Z" fill="none" stroke="var(--ink-soft)" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+        <path d="M 66 108 C 66 96, 82 92, 92 96 C 102 100, 102 116, 92 120 C 82 124, 66 120, 66 108 Z" fill="none" stroke="var(--ink)" stroke-width="0.5" stroke-linejoin="round" opacity="0.4"/>
+        <path d="M 106 108 C 106 96, 122 92, 132 96 C 142 100, 142 116, 132 120 C 122 124, 106 120, 106 108 Z" fill="none" stroke="var(--ink-soft)" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.78"/>
+        <path d="M 106 108 C 106 96, 122 92, 132 96 C 142 100, 142 116, 132 120 C 122 124, 106 120, 106 108 Z" fill="none" stroke="var(--ink)" stroke-width="0.5" stroke-linejoin="round" opacity="0.4"/>
+        <path d="M 146 108 C 146 96, 162 92, 172 96 C 182 100, 182 116, 172 120 C 162 124, 146 120, 146 108 Z" fill="none" stroke="var(--ink-soft)" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+        <path d="M 146 108 C 146 96, 162 92, 172 96 C 182 100, 182 116, 172 120 C 162 124, 146 120, 146 108 Z" fill="none" stroke="var(--ink)" stroke-width="0.5" stroke-linejoin="round" opacity="0.42"/>
+        <g transform="translate(164 108)">
+          <circle cx="0" cy="0" r="4.2" fill="#a4b8c8" opacity="0.9" stroke="var(--ink-soft)" stroke-width="0.42"/>
+          <path d="M -1.4 -0.3 C -0.8 0.4, 0.8 0.4, 1.4 -0.3" stroke="var(--ink-soft)" stroke-width="0.4" fill="none" stroke-linecap="round"/>
+          <circle cx="-1.3" cy="-1.3" r="0.3" fill="var(--ink-soft)"/>
+          <circle cx="1.3" cy="-1.3" r="0.3" fill="var(--ink-soft)"/>
+        </g>
+        <path d="M 45 140 C 60 145, 100 148, 150 140" stroke="var(--ink-soft)" stroke-width="0.45" fill="none" stroke-linecap="round" opacity="0.35" stroke-dasharray="1 2"/>
+        <text font-family="var(--hand)" x="100" y="70" font-size="9.5" text-anchor="middle" font-style="italic" fill="var(--ink-soft)" opacity="0.68">the workshop chain</text>
+      </svg>
+    </PanelDoors>
+  </section>
+
   <section class="page wallwrap" aria-label="Pieces on the wall">
     <ul class="wall">
       {pieces.map(({ Content, hasBody, ...p }) => (
-        <li class="piece" data-kind={p.kind}>
+        <li class="piece" id={p.id} data-kind={p.kind}>
           <article>
             <header class="phead">
               <span class="kind">{p.kind}</span>
@@ -179,9 +294,12 @@ const pieces = await Promise.all(
     background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
     border-radius: 4px; padding: 1.3rem 1.25rem 1.2rem;
   }
+  /* Panel-language IA pass (2026-07-11 · sumi-e hubs): the .kind + .process dt
+     labels bumped ink-faint → ink-soft for WCAG AA at their small uppercase
+     tracking. Register held by size + spacing. */
   .kind {
     font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--ink-faint);
+    text-transform: uppercase; color: var(--ink-soft);
   }
   .phead h2 { font-size: 1.14rem; font-style: italic; letter-spacing: -0.01em; margin: 0.35rem 0 0; }
   .pbody { margin-top: 0.6rem; }
@@ -193,7 +311,7 @@ const pieces = await Promise.all(
   .process > div { display: grid; grid-template-columns: 5.8rem 1fr; gap: 0.55rem; align-items: baseline; padding: 0.2rem 0; }
   .process dt {
     font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--ink-faint);
+    text-transform: uppercase; color: var(--ink-soft);
   }
   .process dd { margin: 0; font-family: var(--hand); font-size: 1rem; line-height: 1.3; color: var(--canopy-deep); }
   .aside { font-family: var(--hand); font-size: 0.98rem; color: var(--ink-soft); margin-top: 0.65rem; }
