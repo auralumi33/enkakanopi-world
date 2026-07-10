@@ -403,9 +403,14 @@ const whatThisIs = [
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
   @media (min-width: 44rem) { .grid.begin { grid-template-columns: 1fr 1fr; gap: 1.2rem; } .grid.read { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
   @media (min-width: 62rem) { .grid.read { grid-template-columns: repeat(4, 1fr); } }
+  /* Alignment pass (2026-07-11 · second): each <li class="room"> becomes a
+     flex container so the child <a> anchor stretches to the row's tallest
+     card. Prevents the Nursery card sitting short next to a 2-line Studio
+     description (or any 1-line-vs-2-line variance in a row). */
+  .grid > .room { display: flex; }
   .grid a {
     display: grid; grid-template-columns: auto 1fr auto; align-items: center;
-    gap: 1rem; text-decoration: none;
+    gap: 1rem; text-decoration: none; width: 100%;
     background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
     border-radius: 5px; padding: 1.1rem 1.3rem;
     transition: border-color 0.15s ease, transform 0.15s ease;

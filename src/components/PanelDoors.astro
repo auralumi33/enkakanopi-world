@@ -146,9 +146,16 @@ const showSignature = signature && (row === "all" || row === rows);
   @media (max-width: 40rem) {
     .botanical-panels--hub .panels-grid { grid-template-columns: 1fr; }
   }
-  .panels-grid > li { margin: 0; padding: 0; }
+  /* Alignment pass (2026-07-11 · second): panels stretch to their grid row.
+     Each <li> is a flex container so the <a class="panel"> anchor fills the
+     cell height. The panel is itself a flex column so label → role → vignette
+     → caption → CTA distribute in order and the outer border-card stays
+     equal-height across the row regardless of caption line-count variance. */
+  .panels-grid > li { margin: 0; padding: 0; display: flex; }
   .panel {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     border: 1px solid rgba(231, 220, 198, 0.55);
     border-radius: 3px;
     padding: 0.85rem 0.6rem 0.7rem;
@@ -191,8 +198,14 @@ const showSignature = signature && (row === "all" || row === rows);
     font-style: italic;
   }
   .panel-vignette {
-    /* the drawing frame — width owned by the panel, height by the SVG */
-    display: block;
+    /* the drawing frame — width owned by the panel, height by the SVG. In the
+       flex-column panel the vignette holds its natural height (SVG intrinsic
+       aspect); the flex-grow property below lets any leftover cell height sit
+       here as breathing room, not as trailing padding under the caption. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
     line-height: 0;
   }
   .panel-vignette :global(svg) {
@@ -204,11 +217,16 @@ const showSignature = signature && (row === "all" || row === rows);
     font-family: var(--serif);
     font-size: 0.68rem;
     /* Panel-language IA pass (2026-07-11): same rationale as .panel-jp above.
-       Caption raised ink-faint → ink-soft for WCAG AA at 0.68rem italic. */
+       Caption raised ink-faint → ink-soft for WCAG AA at 0.68rem italic.
+       Alignment pass (second): min-height reserves 2-line space so a 1-line
+       caption (e.g. gold "chrysanthemum unfurled · ink heart") holds the same
+       height as a 2-line caption (e.g. lavender "the branch · the blossoms ·
+       lavender heart"). Vignettes across the row stay at the same Y baseline. */
     color: var(--ink-soft);
     font-style: italic;
     text-align: center;
     line-height: 1.45;
+    min-height: calc(0.68rem * 1.45 * 2);
     margin: 0.4rem 0 0;
   }
   .panel-cta {
