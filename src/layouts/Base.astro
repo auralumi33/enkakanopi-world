@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import ChapterOrnament from "../components/ChapterOrnament.astro";
-import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title?: string;
@@ -123,6 +122,53 @@ const ldSite = {
       <slot />
     </main>
     <Footer />
-    <Analytics />
+    {/* dwell + return, holdout only; the nursery is never A/B-optimized for
+        clicks. One aggregate beacon per pageview-end — no cookies, no
+        storage, no identifier. Fields: room (grainTier + top-level section),
+        dwellBucket (<30s | 30-120s | 2-8m | 8m+), scrollReached (25|50|75|100).
+        Nothing renders on any page; no dashboards. */}
+    <script is:inline>
+      (function () {
+        var body = document.body;
+        var tier = "grain-unknown";
+        var cls = body && body.className ? body.className.split(/\s+/) : [];
+        for (var i = 0; i < cls.length; i++) {
+          if (cls[i].indexOf("grain-") === 0) { tier = cls[i]; break; }
+        }
+        var seg = location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0] || "home";
+        var room = tier + ":" + seg.slice(0, 32);
+        var t0 = Date.now();
+        var maxQ = 25;
+        function onScroll() {
+          var doc = document.documentElement;
+          var h = doc.scrollHeight;
+          if (h <= window.innerHeight) { maxQ = Math.max(maxQ, 100); return; }
+          var pct = (window.scrollY + window.innerHeight) / h;
+          var q = pct >= 0.99 ? 100 : pct >= 0.75 ? 75 : pct >= 0.5 ? 50 : 25;
+          if (q > maxQ) maxQ = q;
+        }
+        var sent = false;
+        function send() {
+          if (sent) return;
+          sent = true;
+          var ms = Date.now() - t0;
+          var bucket = ms < 30000 ? "<30s"
+            : ms < 120000 ? "30-120s"
+            : ms < 480000 ? "2-8m"
+            : "8m+";
+          var payload = JSON.stringify({ room: room, dwellBucket: bucket, scrollReached: maxQ });
+          try {
+            var blob = new Blob([payload], { type: "application/json" });
+            if (navigator.sendBeacon) navigator.sendBeacon("/api/dwell", blob);
+          } catch (e) { /* silent — the floor is honest, not fragile */ }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        document.addEventListener("visibilitychange", function () {
+          if (document.visibilityState === "hidden") send();
+        });
+        window.addEventListener("pagehide", send);
+      })();
+    </script>
   </body>
 </html>

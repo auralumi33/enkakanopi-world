@@ -12,4 +12,8 @@ Allow: /
 User-agent: Bytespider
 Disallow: /
 
+# Functional endpoints — the aggregate dwell beacon, not a reading room.
+User-agent: *
+Disallow: /api/
+
 Sitemap: https://www.enkakanopi.world/sitemap-index.xml
