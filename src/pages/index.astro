@@ -55,6 +55,15 @@ const whatThisIs = [
         <path d="M66 4 L 68 4" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
       </svg>
     </div>
+
+    {/* Hand-invitation (2026-07-11 · portfolio-review pass). Verbatim from the
+        Studio Charter §3 design law ("Nothing here asks you for anything").
+        The intent-mapping micro-caption Dani's hero surfaces in a SaaS voice;
+        Enka surfaces in its own covenant register. Sits between the notch and
+        the sub so a first-scroll reader knows how to be here before they know
+        what they're reading. */}
+    <p class="hand-invitation">nothing here asks you for anything</p>
+
     <p class="sub">
       Essays on identity, memory, and the tender work of rebuilding in the age of AI —
       making &amp; honouring the craft on light feet
@@ -85,6 +94,14 @@ const whatThisIs = [
     </figure>
 
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
+
+    {/* Hand-correspondence (2026-07-11 · portfolio-review pass). Present-tense
+        echo of the canonical essay-foot correspondence line ("If something
+        here found you — the garden keeps a line open — say hello@…"). Brings
+        the correspondence rail forward from essay-foot-only to threshold. No
+        CTA, no mailto here — the invitation is the mention; the link lives
+        at essay foot + footer rail word, unchanged. */}
+    <p class="hand-correspondence">if something here finds you — the garden keeps a line open</p>
   </section>
 
   <HomeBotanicalPanels />
@@ -294,6 +311,39 @@ const whatThisIs = [
      poppy-soft dot, negative-space dominant. Never in the H1 wrap path. */
   .signature-notch { display: block; margin: 0.9rem 0 0; opacity: 0.72; }
   .signature-notch svg { display: block; }
+
+  /* Hand-invitation (2026-07-11) — the intent-mapping micro-caption between
+     signature-notch and sub. Verbatim doctrine ("nothing here asks you for
+     anything") · hand-face · quiet · left-aligned to the hero column.
+     Meets WCAG AA via ink-soft (whisper held by size + hand-family, not
+     contrast — same discipline as .panel-cap). */
+  .hand-invitation {
+    font-family: var(--hand);
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin: 0.9rem 0 0;
+    max-width: 42ch;
+    letter-spacing: 0.005em;
+    opacity: 0.92;
+  }
+  @media (max-width: 32rem) { .hand-invitation { font-size: 1.12rem; } }
+
+  /* Hand-correspondence (2026-07-11) — echo of the essay-foot correspondence
+     line, present-tense, at the hero close. Placed between the .vol link
+     and the botanical panels so the invitation register lands before the
+     wayfinding graph begins. Same register discipline as .hand-invitation. */
+  .hand-correspondence {
+    font-family: var(--hand);
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin: 1.4rem 0 0;
+    max-width: 46ch;
+    letter-spacing: 0.005em;
+    opacity: 0.92;
+  }
+  @media (max-width: 32rem) { .hand-correspondence { font-size: 1.12rem; } }
   @media (max-width: 46rem) {
     .signature-garden { padding: 2.1rem 0 1.1rem; }
   }
