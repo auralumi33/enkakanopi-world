@@ -454,6 +454,22 @@ language, use the names:
   sparse graph, in the site's own SLOT/nursery tradition, not a bug to
   paper over with invented links. Mounted below the Lexicon's existing
   content in `src/pages/lexicon.astro`.
+- **theWorkbenchMap** (2026-07-13 · ship-prompts Phase 1, Prompt A) — the
+  Workbench's one-idea map: the container thesis and five facets, held
+  from three lenses (the artist / the builder / the researcher).
+  `src/components/interactive/workbench.config.ts` supplies six nodes
+  ported from the remediated `GARDEN-SCULPT/touchable-workbench-study.html`
+  ("home" and "versions of me" dropped per the ship prompt's own list) —
+  `kind: "soul"` for the thesis nodes (the container · a self in motion ·
+  what appreciates · the open question · the seam), `kind: "craft"` for
+  the one method-register facet (the craft that deflates). `panel:
+  "specimen"` (material · constraint per node; no `tally` — honest-absent
+  per `graph.types.ts`, not invented). `illustrative: true`. Lens
+  switching re-labels nodes and swaps the intro `read` line (`theGraphCanvas`'s
+  contract carries one `blurb` per node, not a per-lens breath) — accepted
+  as the restrained first-ship reading rather than escalating a contract
+  change to the S owner. Mounted below the Workbench's existing doors +
+  essay listing, above the closing archway, in `src/pages/workbench/index.astro`.
 
 ## The panel language (the door grammar)
 

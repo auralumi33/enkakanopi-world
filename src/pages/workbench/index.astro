@@ -6,6 +6,8 @@ import Glyph from "../../components/Glyph.astro";
 import RowPlanter from "../../components/RowPlanter.astro";
 import MotifArchiveGate from "../../components/motifs/MotifArchiveGate.astro";
 import PanelDoors, { type Panel } from "../../components/PanelDoors.astro";
+import GraphCanvas from "../../components/interactive/GraphCanvas.astro";
+import { workbenchConfig } from "../../components/interactive/workbench.config";
 
 const entries = (await getCollection("workbench")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
@@ -109,6 +111,9 @@ const doors: Panel[] = [
   <section class="page listing">
     <EssayList items={items} basePath="/workbench" />
   </section>
+  <section class="page graph">
+    <GraphCanvas {...workbenchConfig} />
+  </section>
   {/* Slice-4.1 · MotifArchiveGate (arch) relocated from Volume I → to the
       bottom of Workbench + Body-Spine per Rika. Reads as: the archway
       that closes each practice tab. */}
@@ -124,6 +129,7 @@ const doors: Panel[] = [
   .lede { font-size: 1.04rem; color: var(--ink-soft); margin-top: 1rem; max-width: 56ch; line-height: 1.6; }
   @media (max-width: 32rem) { .lede { font-size: 1.08rem; } }
   .listing { max-width: 46rem; margin-top: 1.5rem; }
+  .graph { max-width: 46rem; }
   /* Slice-4.1 · archway at the tab close */
   .gate { display: flex; justify-content: center; margin: 2.6rem 0 0.4rem; opacity: 0.9; }
   .gate :global(svg) { max-width: 100%; height: auto; }
