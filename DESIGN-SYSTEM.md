@@ -44,6 +44,34 @@ The load-bearing summary:
 9. **Growth stage is the axis, not date.** Essays are *seedling · budding · evergreen*.
 10. **Openly unfinished.** *Volume I · In Formation* is the frame; nothing is polished into inertness.
 
+## The governed hero lane + reading the light
+
+*Full telling in [`ARCHITECTURE.md`](./ARCHITECTURE.md) — this is the design-system-facing summary.*
+
+**The homepage is paced in three beats**: a still, wide arrival (the whole
+garden seen from above, as a wayfinding map — see `CanopyFromAbove` below);
+a build (the ideas and how they connect); a close (the keystone line,
+landed as payoff rather than opening shout). Highest-leverage first,
+jo-ha-kyū pacing (still → build → payoff).
+
+**Rule 7 → the governed hero lane.** The hero is *protected, not frozen*:
+its wording is locked to Rika's own hand and never edited by an assist,
+but its position and composition can be deliberately recomposed — always
+as a single, serial, before/after-reviewed change on its own branch,
+never as a side effect of unrelated work. Invariants that never move
+without her per-instance yes: the keystone line's words, the ensō
+keystone's presence, **the paper stays still**, zero fabrication, the
+correspondence rail as the only outbound door, no dark mode.
+
+**Reading the light** — the visual system is a set of signals the reader
+learns to read, not decoration (Tanizaki's *In Praise of Shadows*: meaning
+can live in what's withheld as much as in what's shown). Every surface
+is held to the **Three-Audience Test**: it must hold up for the person
+just reading, for a design-literate eye that knows the reference and can
+spot a cliché, and for the source the reference is drawn from — honoured,
+never borrowed as costume. Fail one, cut or recompose. If a mark doesn't
+carry meaning, it doesn't ship.
+
 ## The named idioms (the vocabulary you can borrow)
 
 These have specific names because they compose. When you cite the
@@ -181,16 +209,36 @@ language, use the names:
   Louise Bourgeois's signed missing-piece card + wax seal, SiSi's
   laundry-tag micrographics, the internal Versions-of-Me node-and-
   edge + braided-current + verdict-vs-landings diagrams.
-- **The 円花 keystone mark** (`MotifEnkaEnso`, SUCCESSION §28) — the
-  definitive brand-voice motif. A hand-brushed ensō circle (the 円
-  of 円花) with the character 円 whispered at centre (serif, 0.38
-  opacity — a mark, not a label). Above the character, the 花 (flower)
-  is held on hairline stems + two canopy-soft leaves + a coral poppy
-  bloom — the flower held inside the circle. Four whispered orbit
-  dots at cardinal points in the site's canonical four colours mark
-  the four grounds/seasons/directions the circle holds. Reserved for
-  the Colophon (top + closing keystone) and the site's most load-
-  bearing brand surfaces. One gesture holding both halves of 円花.
+- **`EnkaMark` — the reserved mark** (SUCCESSION §39, supersedes the
+  §28 `MotifEnkaEnso` entry below). `MotifEnkaEnso` is retired; its two
+  Colophon placements now call `EnkaMark` directly, the flagship
+  (largest) rendering of the one shared mark. A hand-brushed ensō
+  ring (real `feTurbulence`/`feDisplacementMap` brush, the deliberate
+  hand-plotted-wobble exception) holding a fixed three-stem
+  lavender/poppy/slate bloom triad + an ink accent dot at the gap
+  (`hold="triad"`, the default). Props: `size`; `ring`
+  (`closed`/`partial`/`open`/`wide` — the gap width; `wide` drops the
+  closing curve for a classically visible opening); `hold`
+  (`triad`/`bloom`/`compass`/`none`); `accent` (for `hold="bloom"`);
+  `ringWeight`/`ringColor` overrides for small or tinted uses (small
+  inline contexts need roughly 2× the reference stroke-weight or the
+  brush reads as a hairline). One shared component — `RowPlanter`,
+  `GardenMedallion`, and `StageTag` are thin wrappers over it (no
+  independently-redrawn marks); `StageTag`'s seedling/budding/evergreen
+  reads as open/partial/closed ring-closure. `public/favicon.svg` is
+  the same mark, stroke-weight only (the brush filter is unreliable
+  below ~24px). Reserved: threshold / Colophon / load-bearing brand
+  surfaces only, never repeating ornament, one per surface.
+- **`EnkaWordmark` + `MotifNavPot`** (SUCCESSION §39) — the fused
+  logotype "enka kan(ensō)p(bloom)": the `EnkaMark` ensō stands in for
+  the "o" of *kanopi*, `MotifNavPot` (a small bolded potted bloom,
+  1.4× its dainty use elsewhere) stands in for the "i" — both sized in
+  `em` off the surrounding Fraunces text so the lockup scales as one
+  unit at every breakpoint. Replaces the old icon-beside-wordmark
+  pairing in `Nav.astro` entirely. Wordmark colour `var(--ink)`, ensō
+  in `var(--canopy-deep)` — an intentional inversion (ink text, green
+  mark). Nav + footer wordmark text reads "enka kanopi" (the domain
+  itself is unchanged).
 - **Scene-motif hybrid layer** now numbers **16 hybrid scenes**
   (was 9, plus §28's six new Workbench + Body-spine scenes): the
   original nine (redrawn in §27 with narrative object-poetry) plus
