@@ -235,6 +235,17 @@ const showSignature = signature && (row === "all" || row === rows);
     margin: 0 0 0.5rem;
     opacity: 0.85;
     font-style: italic;
+    /* 2026-07-13: a long single-word role (e.g. "chrysanthemum") could
+       overflow its own narrow grid column and bleed into the next card at
+       tight widths (found while narrowing Nursery's 4-column mobile grid
+       further inside a bordered frame) — break it instead of spilling.
+       overflow-wrap alone (not word-break: break-word, which breaks more
+       eagerly than needed) — only kicks in once a word truly can't fit.
+       hyphens: auto gives it a real hyphen at a real syllable break
+       ("chrysanthe-mum") instead of an arbitrary raw split — needs the
+       page's lang attribute, already set in Base.astro's <html>. */
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .panel-vignette {
     /* the drawing frame — width owned by the panel, height by the SVG. In the

@@ -59,17 +59,25 @@ const beds = [
           panel rows read as one clean, flushed visual block right after the
           first set — nothing (ladder, lede) breaks up the panels any more.
           Row 2 suppresses its own mid-cluster caption (showSignature=false);
-          row 3's closing line now reads as the single caption for all three. */}
-      <NurseryBotanicalPanels row={1} />
-      <NurseryBotanicalPanels row={2} showSignature={false} />
+          row 3's closing line now reads as the single caption for all three.
 
-      {/* Relocated from the arrival hero (RESTRUCTURE-CHARTER §2 intake #7 ·
-          §3 mapping) — the homepage restructure drops the door-panel
-          affordance there in favour of the painted canopy + the nine-room
-          grid, so these four botanicals move home to the seed-bed. A third,
-          distinct row: some destinations now have two doors, one from each
-          panel set (Rika, 2026-07-13). */}
-      <NurseryRelocatedBotanicals />
+          Housed in one bordered "stage" frame (2026-07-13, Rika) — the same
+          structural language as Studio's map (GraphCanvas's `.stage-wrap`:
+          hairline border, rounded corners, --paper-deep → --paper gradient),
+          rebuilt here nursery-local rather than by touching the shared
+          GraphCanvas engine. */}
+      <div class="panel-frame">
+        <NurseryBotanicalPanels row={1} />
+        <NurseryBotanicalPanels row={2} showSignature={false} />
+
+        {/* Relocated from the arrival hero (RESTRUCTURE-CHARTER §2 intake #7 ·
+            §3 mapping) — the homepage restructure drops the door-panel
+            affordance there in favour of the painted canopy + the nine-room
+            grid, so these four botanicals move home to the seed-bed. A third,
+            distinct row: some destinations now have two doors, one from each
+            panel set (Rika, 2026-07-13). */}
+        <NurseryRelocatedBotanicals />
+      </div>
 
       <p class="lede">
         Seeds land here first — fragments caught before they are essays, in her
@@ -200,6 +208,30 @@ const beds = [
      no-op wrapper; only the padding rhythm remains. */
   .dim {
     padding: 0.5rem 0 3.5rem;
+  }
+
+  /* the panel-frame — houses all three seed-bed rows in one bordered "stage",
+     the same structural language as Studio's map (GraphCanvas .stage-wrap):
+     hairline border, rounded corners, --paper-deep → --paper gradient.
+     Trims the panel rows' own top/bottom margins so the frame reads as one
+     tight card, not padding-on-margin. (Rika, 2026-07-13.) */
+  .panel-frame {
+    margin-top: 1.6rem;
+    padding: 1.1rem 1.1rem 1.4rem;
+    border: 1px solid var(--paper-edge);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--paper-deep), var(--paper) 72%);
+  }
+  .panel-frame :global(.botanical-panels:first-child) { margin-top: 0; }
+  .panel-frame :global(.botanical-panels:last-child) { margin-bottom: 0; }
+  /* Below 40rem the 4-column grid is already tight; a modest side inset still
+     reads as a frame (the border + colour-shift carry most of that on their
+     own). Traced the "chrysanthemum"/"germination" raw mid-word break to the
+     panel's own internal padding eating the column, not this frame — same
+     break exists at zero frame padding too. Real fix is proper hyphenation
+     on .panel-jp (PanelDoors.astro), not squeezing this padding further. */
+  @media (max-width: 40rem) {
+    .panel-frame { padding: 0.9rem 0.5rem 1.1rem; }
   }
 
   .head { max-width: 46rem; }
