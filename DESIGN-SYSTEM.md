@@ -456,6 +456,26 @@ language, use the names:
   in `src/pages/lexicon.astro` — the map leads, the full definitions
   list follows, not the other way round (2026-07-13 · placement
   revised so the map is the page's early draw, not a buried afterthought).
+- **theLexiconSeams + the restrained read-aloud** (2026-07-13 ·
+  `SHIP-PROMPT-LEX`, the citation-gallery pass) — two small, honest
+  additions to `/lexicon`, both additive around the already-shipped
+  keystone lead and `theLexiconMap`. **Seam cards** (`LexiconSeams.astro`,
+  data from `lexiconConfig`'s own `edges` in `lexicon.config.ts` —
+  `lexiconSeams` is the top 2 by weight, never a separate or fabricated
+  tally): "what the terms quietly admit," framed suggestive, not
+  measured (Charter §2 intake #4). Honestly empty — most terms still
+  stand alone — until real co-occurrence exists; the section then reads
+  *"no seam sits dense enough to name yet"* rather than inventing one.
+  Mounted after the full term list, just before the closing citation-seed
+  motif. **The read-aloud** is per-term, not a single page control or a
+  Q&A surface: a small "◦ hear it" button beside each definition's
+  `seeIn` line reads that one term + definition via the browser's own
+  `speechSynthesis` — never generates an answer, never a first-person
+  "the garden replies" (Charter §2 intake #6, Rika's ruling: *a gallery
+  placard, not a chatbot*). User-triggered only, no autoplay; toggles to
+  "◦ stop" while speaking; feature-detected — the buttons hide entirely
+  where `window.speechSynthesis` is absent. Zero npm dependencies; no
+  network calls; `theGraphCanvas` itself is untouched.
 - **theWorkbenchMap** (2026-07-13 · ship-prompts Phase 1, Prompt A) — the
   Workbench's one-idea map: six facets of the container thesis (*the
   container* · *a self in motion* · *the craft that deflates* · *what
