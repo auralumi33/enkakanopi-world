@@ -786,6 +786,18 @@ const graphId = `graph-${headingId}`;
        still real inset here. */
     .stage-wrap { padding: 1.4rem; }
     .hint { top: 2rem; left: 1.55rem; }
+    /* Rika (2026-07-14): node labels unreadable on mobile, on Studio's map
+       specifically. The stage's viewBox is a fixed 1120×480 regardless of
+       viewport, so at mobile widths the SVG (and every font-size inside it)
+       scales down by roughly 3x more than at desktop — a flat px bump here
+       compensates for that larger shrink ratio. Scoped to Studio's own
+       mount (#the-map-of-the-one-idea, its `headingId`) rather than every
+       GraphCanvas instance: tried it engine-wide first and it badly
+       overlapped Lexicon's much denser reading-map (many more, closer-
+       packed nodes) — this graph is sparse enough (6 nodes) to take a much
+       bigger label without collisions; Lexicon's isn't. */
+    :global(#the-map-of-the-one-idea .node-label) { font-size: 22px; }
+    :global(#the-map-of-the-one-idea .node-mark) { font-size: 15px; }
   }
   /* the expansive-bed breakout: on genuinely wide viewports the stage (not
      the heading/intro prose) spans past the article's reading measure, so
