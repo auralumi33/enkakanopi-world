@@ -6,6 +6,8 @@ import Glyph from "../../components/Glyph.astro";
 import RowPlanter from "../../components/RowPlanter.astro";
 import MotifArchiveGate from "../../components/motifs/MotifArchiveGate.astro";
 import PanelDoors, { type Panel } from "../../components/PanelDoors.astro";
+import GraphCanvas from "../../components/interactive/GraphCanvas.astro";
+import { workbenchConfig } from "../../components/interactive/workbench.config";
 
 const entries = (await getCollection("workbench")).sort((a, b) => a.data.order - b.data.order);
 const items = entries.map((e) => ({ slug: e.id, ...e.data }));
@@ -105,6 +107,9 @@ const doors: Panel[] = [
         </g>
       </svg>
     </PanelDoors>
+  </section>
+  <section class="page">
+    <GraphCanvas {...workbenchConfig} />
   </section>
   <section class="page listing">
     <EssayList items={items} basePath="/workbench" />
