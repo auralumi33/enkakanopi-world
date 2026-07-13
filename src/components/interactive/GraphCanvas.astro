@@ -317,8 +317,12 @@ const graphId = `graph-${headingId}`;
         if (n === dragging) return;
         n.vx *= 0.82; n.vy *= 0.82;
         n.x += n.vx; n.y += n.vy;
-        n.x = Math.max(n.r + 12, Math.min(VB.w - n.r - 12, n.x));
-        n.y = Math.max(n.r + 24, Math.min(VB.h - n.r - 24, n.y));
+        // 2026-07-13 (Rika): edge margin widened for breathing room at rest
+        // — was 12/24, tight enough that nodes could settle flush against
+        // the stage edge. Kept in sync with the drag clamp below so a
+        // dragged node never sits closer to the edge than a settled one.
+        n.x = Math.max(n.r + 34, Math.min(VB.w - n.r - 34, n.x));
+        n.y = Math.max(n.r + 32, Math.min(VB.h - n.r - 32, n.y));
         if (Math.abs(n.vx) > 0.03 || Math.abs(n.vy) > 0.03) moving = true;
       });
       return moving;
@@ -366,8 +370,8 @@ const graphId = `graph-${headingId}`;
     svg.addEventListener("pointermove", (e) => {
       if (dragging) {
         const p = svgPoint(e);
-        dragging.x = Math.max(dragging.r + 12, Math.min(VB.w - dragging.r - 12, p.x));
-        dragging.y = Math.max(dragging.r + 24, Math.min(VB.h - dragging.r - 24, p.y));
+        dragging.x = Math.max(dragging.r + 34, Math.min(VB.w - dragging.r - 34, p.x));
+        dragging.y = Math.max(dragging.r + 32, Math.min(VB.h - dragging.r - 32, p.y));
         pointerMoved = true;
         if (reduced) project(); else wake();
         return;
