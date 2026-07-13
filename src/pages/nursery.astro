@@ -8,6 +8,7 @@ import VineTrail from "../components/motifs/memoria/VineTrail.astro";
 import MotifNurseryPot from "../components/motifs/MotifNurseryPot.astro";
 import MotifSeasonalRound from "../components/motifs/MotifSeasonalRound.astro";
 import NurseryBotanicalPanels from "../components/NurseryBotanicalPanels.astro";
+import NurseryRelocatedBotanicals from "../components/NurseryRelocatedBotanicals.astro";
 
 // Seeds render above the beds when they exist. None do yet — they arrive
 // in Rika's hand, or not at all; nothing here is written for her.
@@ -52,8 +53,23 @@ const beds = [
       {/* Slice-2.6 (2026-07-09): Row 1 (scrap · germination · wobble · cracked
           seed) moved UP to sit above the "Seeds land here first" lede — the
           four fragment states land as visual overture before the words say
-          what a seed is. Storytelling arc: paradox panels → lede → the rest. */}
+          what a seed is. Storytelling arc: paradox panels → lede → the rest.
+
+          2026-07-13 (Rika): rows 2 and 3 joined row 1 here too, so all three
+          panel rows read as one clean, flushed visual block right after the
+          first set — nothing (ladder, lede) breaks up the panels any more.
+          Row 2 suppresses its own mid-cluster caption (showSignature=false);
+          row 3's closing line now reads as the single caption for all three. */}
       <NurseryBotanicalPanels row={1} />
+      <NurseryBotanicalPanels row={2} showSignature={false} />
+
+      {/* Relocated from the arrival hero (RESTRUCTURE-CHARTER §2 intake #7 ·
+          §3 mapping) — the homepage restructure drops the door-panel
+          affordance there in favour of the painted canopy + the nine-room
+          grid, so these four botanicals move home to the seed-bed. A third,
+          distinct row: some destinations now have two doors, one from each
+          panel set (Rika, 2026-07-13). */}
+      <NurseryRelocatedBotanicals />
 
       <p class="lede">
         Seeds land here first — fragments caught before they are essays, in her
@@ -144,8 +160,6 @@ const beds = [
         ))}
       </ul>
     </section>
-
-    <NurseryBotanicalPanels row={2} />
 
     <section class="page rows" aria-label="Seeds and prepared beds">
       <ul class="bedlist">

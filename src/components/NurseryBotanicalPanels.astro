@@ -16,8 +16,13 @@ import PanelDoors, { type Panel } from "./PanelDoors.astro";
 
 export interface Props {
   row?: 1 | 2 | "all";
+  /** Suppress this call's own closing signature line — for when a caller
+   * stacks another panel row immediately after (e.g. a relocated third
+   * row) and wants one closing caption for the whole cluster, not one
+   * per row. Default true (unchanged behaviour). */
+  showSignature?: boolean;
 }
-const { row = "all" } = Astro.props as Props;
+const { row = "all", showSignature = true } = Astro.props as Props;
 const showRow1 = row === "all" || row === 1;
 const showRow2 = row === "all" || row === 2;
 
@@ -124,7 +129,7 @@ const signature = "we arrive at legibility not by becoming linear, but by loving
     variant="seedbed"
     row={showRow1 ? 2 : row}
     rows={2}
-    signature={signature}
+    signature={showSignature ? signature : undefined}
   >
     <svg slot="vignette-1" viewBox="0 0 200 220" role="img" aria-labelledby="n5-t"><title id="n5-t">A closed lavender bud on a stem with a hidden smile sleeping inside</title>
       <rect x="10" y="10" width="180" height="200" fill="#b899c9" opacity="0.10" rx="1"/>

@@ -137,6 +137,24 @@ const showSignature = signature && (row === "all" || row === rows);
   @media (max-width: 40rem) {
     .panels-grid { grid-template-columns: repeat(2, 1fr); }
   }
+  /* --seedbed variant, mobile only (2026-07-13, Rika): the Nursery stacks three
+     of these rows in a row now (12 doors total) — at 2 columns that's 6 rows
+     of continuous scrolling. 4 columns keeps each seed-bed row a single mobile
+     row (4×3), matching the desktop reading shape. Scoped to --seedbed only —
+     Home/Colophon/hub panels keep the 2-column mobile default above. */
+  @media (max-width: 40rem) {
+    /* minmax(0, 1fr), not plain 1fr — plain 1fr floors each track at its
+       content's min-content width, so the four columns come out uneven
+       (a longer role/caption word stretches its own column). minmax(0,…)
+       removes that floor so all four columns stay a true, even 4×3 grid. */
+    .botanical-panels--seedbed .panels-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    /* Rika (2026-07-13): simplify to kanji/role + the drawing only at this
+       width — the caption line below the image goes, keeping the 4×3 grid
+       clean. Safe to hide: each door's accessible name is the explicit
+       aria-label on the <a> (role — cta), not this caption text, so nothing
+       is lost for screen-reader users. Desktop keeps the caption. */
+    .botanical-panels--seedbed .panel-cap { display: none; }
+  }
   /* --hub variant — three doors per row (field-notes, workbench, body-spine
      hubs). Desktop: 3 columns (no empty slot). Mobile: single column, stacked
      — a small room's three doors get room to breathe, and no ghost-slot next
