@@ -88,3 +88,28 @@ export const lexiconConfig: MapConfig = {
   heading: "how the terms hold each other",
   intro: "A quiet map of the lexicon — the terms this garden has named, and the pieces that hold them. Sizes and line-weights are a sketch, not a measurement; most terms stand alone until an essay grows to hold more than one.",
 };
+
+// ---- seams: the densest real co-occurrences, for the seam-cards partial ----
+// Same edges as the map above — never a separate or fabricated count. Top 2
+// by weight; honestly empty when nothing has crossed yet (most terms still
+// stand alone — see the map's own intro line, and DESIGN-SYSTEM.md § theLexiconMap).
+export interface LexiconSeam {
+  a: string;
+  b: string;
+  aLabel: string;
+  bLabel: string;
+  weight: number;
+}
+
+const nodeLabel = new Map(nodes.map((n) => [n.id, n.label]));
+export const lexiconSeams: LexiconSeam[] = edges
+  .slice()
+  .sort((x, y) => (y.weight ?? 0) - (x.weight ?? 0))
+  .slice(0, 2)
+  .map((e) => ({
+    a: e.a,
+    b: e.b,
+    aLabel: nodeLabel.get(e.a) ?? e.a,
+    bLabel: nodeLabel.get(e.b) ?? e.b,
+    weight: e.weight ?? 0,
+  }));
