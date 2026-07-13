@@ -70,7 +70,7 @@ const graphId = `graph-${headingId}`;
       ↳ <span class="k">drag</span> a node · <span class="k">hover</span> for one breath ·
       <span class="k">click</span> to open its {panel === "specimen" ? "specimen" : "bookmarks"}
     </p>
-    <svg class="stage" viewBox="0 0 880 520" preserveAspectRatio="xMidYMid meet" data-role="svg">
+    <svg class="stage" viewBox="0 0 1120 480" preserveAspectRatio="xMidYMid meet" data-role="svg">
       <title>An interactive map — {heading}</title>
       <g data-role="edges"></g>
       <g data-role="nodes"></g>
@@ -133,16 +133,17 @@ const graphId = `graph-${headingId}`;
     const base = root.dataset.base ?? "";
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const VB = { w: 880, h: 520 };
+    const VB = { w: 1120, h: 480 };
     const maxNodeWeight = Math.max(1, ...cfg.nodes.map((n) => n.weight ?? 1));
     const maxEdgeWeight = Math.max(1, ...cfg.edges.map((e) => e.weight ?? 1));
 
     const nodes: GNode[] = cfg.nodes.map((n, i) => {
       const ang = (i / cfg.nodes.length) * Math.PI * 2;
-      const rad = 130 + ((i * 41) % 90);
+      const rad = 170 + ((i * 41) % 110);
       const x = VB.w / 2 + Math.cos(ang) * rad;
       const y = VB.h / 2 + Math.sin(ang) * rad;
-      const r = 20 + ((n.weight ?? 1) / maxNodeWeight) * 16;
+      // Dainty scale: small blooms in a wide bed, not the earlier heavier stones.
+      const r = 13 + ((n.weight ?? 1) / maxNodeWeight) * 9;
       return { ...n, x, y, hx: x, hy: y, vx: 0, vy: 0, r };
     });
     const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -164,21 +165,26 @@ const graphId = `graph-${headingId}`;
     const panelEl = root.querySelector<HTMLElement>('[data-role="panel"]')!;
 
     // ---------- edges ----------
+    // Two-layer stroke (the site's own wet-ink idiom, inverted to a light
+    // gloss): the base line carries the weight/opacity signal; a thin,
+    // lighter highlight rides its centre for a subtle sheen.
     const edgeEls = cfg.edges.map((e) => {
       const p = el("path", { fill: "none", stroke: "var(--ink-faint)", "stroke-linecap": "round" });
+      const gloss = el("path", { fill: "none", stroke: "var(--paper-washi)", "stroke-linecap": "round", class: "edge-gloss" });
       const hitP = el("path", { fill: "none", stroke: "transparent", "stroke-width": "14" });
       const label = el("text", { class: "edge-label", "text-anchor": "middle" });
       gEdges.appendChild(p);
+      gEdges.appendChild(gloss);
       gEdges.appendChild(hitP);
       gEdges.appendChild(label);
-      return { data: e, p, hitP, label, lit: false };
+      return { data: e, p, gloss, hitP, label, lit: false };
     });
 
     // ---------- nodes ----------
     const nodeEls = new Map<string, { g: SVGGElement; halo: SVGCircleElement; circle: SVGCircleElement; label: SVGTextElement }>();
     nodes.forEach((n) => {
       const g = el("g", { class: "node", tabindex: "0", role: "button", "aria-label": `${labelFor(n)} — open its ${cfg.panel === "specimen" ? "specimen" : "bookmarks"}` });
-      const halo = el("circle", { r: String(n.r + 10), class: "halo", opacity: "0" });
+      const halo = el("circle", { r: String(n.r + 7), class: "halo", opacity: "0" });
       const isSoul = n.kind === "soul";
       const circle = el("circle", {
         r: String(n.r),
@@ -212,10 +218,13 @@ const graphId = `graph-${headingId}`;
         const my = (a.y + b.y) / 2 + (b.x - a.x) * 0.1;
         const d = `M${a.x} ${a.y} Q${mx} ${my} ${b.x} ${b.y}`;
         e.p.setAttribute("d", d);
+        e.gloss.setAttribute("d", d);
         e.hitP.setAttribute("d", d);
         const w = e.data.weight ?? 1;
-        e.p.setAttribute("stroke-width", String(0.8 + (w / maxEdgeWeight) * 2.2));
+        const baseWidth = 0.8 + (w / maxEdgeWeight) * 2.2;
+        e.p.setAttribute("stroke-width", String(baseWidth));
         e.p.setAttribute("opacity", String(0.32 + 0.35 * (w / maxEdgeWeight)));
+        e.gloss.setAttribute("stroke-width", String(baseWidth * 0.38));
         e.label.setAttribute("x", String(0.25 * a.x + 0.5 * mx + 0.25 * b.x));
         e.label.setAttribute("y", String(0.25 * a.y + 0.5 * my + 0.25 * b.y - 6));
       });
@@ -231,7 +240,7 @@ const graphId = `graph-${headingId}`;
           const dx = b.x - a.x, dy = b.y - a.y;
           const d2 = dx * dx + dy * dy || 1;
           const d = Math.sqrt(d2);
-          const rep = 5200 / d2;
+          const rep = 6600 / d2;
           const ux = dx / d, uy = dy / d;
           if (a !== dragging) { a.vx -= ux * rep; a.vy -= uy * rep; }
           if (b !== dragging) { b.vx += ux * rep; b.vy += uy * rep; }
@@ -247,7 +256,7 @@ const graphId = `graph-${headingId}`;
         const dx = b.x - a.x, dy = b.y - a.y;
         const d = Math.sqrt(dx * dx + dy * dy) || 1;
         const w = e.weight ?? 1;
-        const want = 165 - (w / maxEdgeWeight) * 40;
+        const want = 215 - (w / maxEdgeWeight) * 55;
         const f = (d - want) * 0.006;
         const ux = dx / d, uy = dy / d;
         if (a !== dragging) { a.vx += ux * f; a.vy += uy * f; }
@@ -621,13 +630,17 @@ const graphId = `graph-${headingId}`;
     letter-spacing: 0.02em;
   }
   .legend .dot { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: 0.35rem; vertical-align: middle; }
-  .dot-soul { background: var(--canopy); border: 1px solid var(--canopy-deep); }
+  .dot-soul { background: var(--canopy-soft); border: 1px solid var(--canopy); }
   .dot-craft { background: var(--paper-washi); border: 1px solid var(--canopy-soft); }
   .legend .illus { font-style: italic; }
   :global(.node) { cursor: grab; }
   :global(.node:active) { cursor: grabbing; }
-  :global(.node-soul) { fill: var(--canopy); stroke: var(--canopy-deep); stroke-width: var(--w-block); }
-  :global(.node-craft) { fill: var(--paper-washi); stroke: var(--canopy-soft); stroke-width: var(--w-block); }
+  /* Dainty pass (2026-07-13): lighter fills one step up the existing canopy
+     scale + the drawing-hand's thinnest weight, for small, soft blooms
+     rather than heavier stones. Still only the two established tokens per
+     kind — no colours invented. */
+  :global(.node-soul) { fill: var(--canopy-soft); stroke: var(--canopy); stroke-width: var(--w-hair); }
+  :global(.node-craft) { fill: var(--paper-washi); stroke: var(--canopy-soft); stroke-width: var(--w-hair); }
   :global(.node-label) {
     font-family: var(--display); font-style: italic; font-size: 10px;
     fill: var(--ink); pointer-events: none;
@@ -643,6 +656,9 @@ const graphId = `graph-${headingId}`;
     fill: var(--ink-soft); opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
   }
   :global(.edge-label.show) { opacity: 0.85; }
+  /* the gloss line — a thin, lighter highlight riding the edge's centre for
+     a subtle sheen, independent of the base stroke's weight/opacity signal. */
+  :global(.edge-gloss) { opacity: 0.55; pointer-events: none; }
   .tip {
     position: absolute; z-index: 8; pointer-events: none; opacity: 0;
     transition: opacity 0.25s ease; max-width: 240px;
@@ -695,6 +711,12 @@ const graphId = `graph-${headingId}`;
   @media (max-width: 40rem) {
     .stage { max-height: 26rem; }
     .gc-panel { left: 0.8rem; right: 0.8rem; width: auto; max-width: none; }
+  }
+  /* the expansive-bed breakout: on genuinely wide viewports the stage (not
+     the heading/intro prose) spans past the article's reading measure, so
+     the wider viewBox actually reads as a bed rather than a cropped card. */
+  @media (min-width: 56rem) {
+    .stage-wrap { margin-left: -9rem; margin-right: -9rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .lens, .panel, .panel-item-pivot, .halo, .edge-label { transition: none; }
