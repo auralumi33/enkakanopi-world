@@ -520,6 +520,12 @@ const graphId = `graph-${headingId}`;
       lastGraphNodeId = null;
     }
     panelEl.querySelector('[data-role="panel-close"]')!.addEventListener("click", closePanel);
+    // Escape closes from anywhere inside the panel too — not just from a
+    // graph node's own keydown handler, since opening moves focus INTO the
+    // panel (focusPanel()), where a node-scoped listener can no longer hear it.
+    panelEl.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") closePanel();
+    });
 
     // ---------- lenses ----------
     if (cfg.lenses && cfg.lenses.length > 0) {
