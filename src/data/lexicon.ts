@@ -70,6 +70,37 @@ export const terms: LexiconTerm[] = [
     def: "A phrase for the fact that the silent workspace is not a solitary room. In a language model, J-lens vectors compose broadly with upstream and downstream weights — the workspace is where the model's parts coordinate. In humans, the equivalent room is where memory, felt sense, and small emotions meet before a sentence forms. Made in company at the substrate level.",
     seeIn: [],
   },
+  // PROPOSED (2026-07-13 · content redline, Prompt C · awaiting Rika's ratification).
+  // Canon: ENKA-BRAND-OS/01-brand/PILLARS.md P2 — def is near-verbatim from
+  // that source, not invented. seeIn left empty per the site's own
+  // reciprocity discipline (implementation-notes.md, 2026-07-11 sweep): the
+  // phrase does not yet appear verbatim in any shipped essay.
+  {
+    term: "The entomology of the self",
+    def: "Observation as method; detachment as a discipline, not a defense — the watching self watched. Turned second-order, on the mind itself: which ideas it returns to, which seams keep arriving together, read with the same amoral precision as everything else this eye lands on.",
+    seeIn: [],
+  },
+  // PROPOSED (2026-07-13 · content redline, Prompt C · awaiting Rika's ratification).
+  // Canon: PILLARS.md P4 + 00-soul/EMOTION-REGISTERS.md (the body-as-archive
+  // row) — def assembled from those sources, not invented. seeIn left empty:
+  // the phrase itself is not yet in any shipped essay, though the body-spine
+  // collection is its practice (articulation · relearning-to-fall · the-tide-
+  // knows-when) — a link would need the phrase to actually appear there first.
+  {
+    term: "The body as archive",
+    def: "The somatic record, read with practitioner fluency rather than disclosure: pain with weight and scent, the shoulders and the spine, skin as reclamation. What the body has kept, spoken in weight and texture — never in charts.",
+    seeIn: [],
+  },
+  // PROPOSED (2026-07-13 · content redline, Prompt C · awaiting Rika's ratification).
+  // Canon: PILLARS.md P1 ("the house genre... lives here") + the public voice
+  // line (VOICE.md: "the first generation to be retrained alongside our
+  // machines") — def assembled from those sources, not invented. seeIn left
+  // empty: the phrase itself is not yet in any shipped essay.
+  {
+    term: "Autotheory for the age of artificial memory",
+    def: "The house genre: the self read as a trained, unevenly-remembering model — weighted memory it cannot edit at will, retrieval it must build, graceful forgetting it must learn. Life-writing for the first generation retrained alongside its machines.",
+    seeIn: [],
+  },
 ];
 
 /** Anchor id for a term — matches the lexicon page's #fragment scheme. */
