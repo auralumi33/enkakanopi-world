@@ -475,6 +475,32 @@ language, use the names:
   lens still titled its specimen with the base name. Fixed once in the
   engine (`labelFor()`, a single resolver every label read now goes
   through) rather than worked around per caller.
+- **CanopyFromAbove** (2026-07-13 · homepage restructure) — the painted
+  "view from above" hero: one crown, nine leaf-masses, a 円 ensō core.
+  Ported from `GARDEN-SCULPT/canopy-home-map.html` into
+  `src/components/CanopyFromAbove.astro` as a self-contained, prop-driven
+  component — `rooms` (name/label/register/maturity/blurb/href), tokens,
+  and copy are all inputs, nothing venture-specific lives in the logic,
+  the same discipline `theGraphCanvas` already holds.
+  · **the label-collision fix** — the study spaced its nine masses at
+    `360/7` (a leftover from an earlier seven-surface draft), which is
+    why two label pairs overlapped. Spacing is `360/n`, plus a label
+    anchor that flips by which side of the crown a mass sits on, so a
+    long name never crowds a neighbour.
+  · **the paper stays still, but for one blossom** — the crown, dapple,
+    branches, and ensō are static; the one governed exception is a
+    single, slow, continuous falling blossom (*mono no aware*),
+    confined to the SVG's own bounds. `prefers-reduced-motion` means the
+    fall loop is simply never started.
+  · **a11y** — the nine rooms are real `<a>` anchors (keyboard-reachable,
+    each carrying a full descriptive `aria-label`), not click-handlers on
+    a `<g>`; the hover leaf-tip has a `focus`/`blur` equivalent. The
+    outer `<svg>` deliberately carries no `role="img"` — that role tells
+    assistive tech to treat the graphic as flat, which suppressed the
+    nested links' own semantics (axe: nested-interactive) when tried.
+    `<title>`/`<desc>` still name and describe the whole figure.
+  · Illustrative sizing only (maturity drives visual weight); no hard
+    count is ever printed as data.
 
 ## The panel language (the door grammar)
 

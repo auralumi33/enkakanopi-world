@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import CanopyScene from "../components/CanopyScene.astro";
-import HomeBotanicalPanels from "../components/HomeBotanicalPanels.astro";
+import CanopyFromAbove from "../components/CanopyFromAbove.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
 import MoonCrescent from "../components/motifs/memoria/MoonCrescent.astro";
@@ -13,28 +12,50 @@ import GraphCanvas from "../components/interactive/GraphCanvas.astro";
 import { lexiconConfig } from "../components/interactive/lexicon.config";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-// The floor plan (D2 placemaking, Rika 2026-07-05): the home wayfinding reads
-// as rooms under one roof — where things begin, the reading rooms, and the
-// archive wall. Markup classes (.plan/.row/.room/.band) stay stable so the D3
-// scenography (gallery hang, workshop wall) can layer on as pure CSS later.
-const beginnings = [
-  { href: "/nursery", glyph: "leaf",    name: "The Nursery", mark: "◦", line: "a seed-bed of musings — tender, low light, no dates." },
-  { href: "/studio",  glyph: "compass", name: "The Studio",  mark: "",  line: "the wall of work-in-progress — bench light, tool marks, the honest tally." },
-] as const;
-const readingRooms = [
-  { href: "/field-notes", glyph: "seam",    name: "Field Notes" },
-  { href: "/workbench",   glyph: "compass", name: "The Workbench" },
-  { href: "/body-spine",  glyph: "spine",   name: "Body & Spine" },
-  { href: "/versions",    glyph: "leaf",    name: "Versions of Me" },
-] as const;
-
-const whatThisIs = [
-  { title: "a field-notes practice", body: "When new environments meet old theories of the mind — repos, harnesses, a model kept in a loop — most of what I learn arrives as field notes, not conclusions." },
-  { title: "observability before autonomy", body: "Every system worth running begins with the capacity to witness its own behaviour. Before I hand it the wheel, I log what it is — for the same reason I do, before the parameters reset." },
-  { title: "version control, and clinging to old selves", body: "When a model is retrained, only the architecture remains; the old paths fall away. Careers, certainties, identities deprecate the same way — and the trait that carries you through isn't the knowing. It's the retraining: the unlearning done without losing the trunk." },
+// The nine rooms (Charter §3 Zone 3 — "the surfaces"), absorbing the old
+// floor-plan (beginnings/reading-rooms) and archive-wall band into one grid.
+// Every register + line below is reused from copy already shipped elsewhere
+// (this page's own prior card lines for Nursery/Studio; each room's own hub
+// `description`/eyebrow for the rest) — nothing here is newly authored.
+// Maturity + register also drive the CanopyFromAbove map, so the two stay
+// in lockstep by construction (one data source, not two).
+const rooms = [
+  { slug: "nursery", href: base + "/nursery", name: "The Nursery", glyph: "leaf",
+    register: "where things begin", maturity: "seedling",
+    blurb: "a seed-bed of musings — tender, low light, no dates." },
+  { slug: "studio", href: base + "/studio", name: "The Studio", glyph: "compass",
+    register: "the making, shown", maturity: "budding",
+    blurb: "the wall of work-in-progress — bench light, tool marks, the honest tally." },
+  { slug: "field-notes", href: base + "/field-notes", name: "Field Notes", glyph: "seam",
+    register: "the diary", maturity: "budding",
+    blurb: "short letters from the seams between versions of a self — wabi-sabi, letting go, a self legible only in motion." },
+  { slug: "workbench", href: base + "/workbench", name: "The Workbench", glyph: "compass",
+    register: "maker · tinkerer", maturity: "evergreen",
+    blurb: "a living practice log — rebuilding maker foundations as an adult, the slow arc toward code and space as media." },
+  { slug: "body-spine", href: base + "/body-spine", name: "Body & Spine", glyph: "spine",
+    register: "the mind-body thread", maturity: "budding",
+    blurb: "spine work, skating, mat work — movement as the ground truth the head kept overruling." },
+  { slug: "versions", href: base + "/versions", name: "Versions of Me", glyph: "leaf",
+    register: "the identity room", maturity: "evergreen",
+    blurb: "a hand-drawn map of the selves that won't average into one." },
+  { slug: "lexicon", href: base + "/lexicon", name: "Lexicon", glyph: "compass",
+    register: "the coined terms", maturity: "evergreen",
+    blurb: "the named frameworks this garden tends — the container beneath the craft, the deflation of execution, form follows life." },
+  { slug: "colophon", href: base + "/colophon", name: "Colophon", glyph: "light",
+    register: "the origin-of-record", maturity: "evergreen",
+    blurb: "what this place is, and how it is made — by hand, in company with a small crew of machines." },
+  { slug: "volume-i", href: base + "/volume-i", name: "Volume I · In Formation", label: "Volume I", glyph: "canopy",
+    register: "the archive wall", maturity: "evergreen",
+    blurb: "the founding collection and the merging-frontier trilogy — twenty-two pieces, hung by theme." },
 ] as const;
 ---
 <Base title="Enka Kanopi">
+  {/* ZONE 1 — the painted canopy hero (Charter §3 Zone 1 · rule-7 hero lane).
+      The H1 signature stays here (the page's real heading; rule 7 protects
+      its words, not its position, but nothing here asks it to move). The
+      figcaption "keystone" and the .sub framing paragraph relocate to Zone 4
+      as the deeper payoff, per the charter's own mapping — only ONE distilled
+      clause from the keystone rides up top, reused verbatim, never authored. */}
   <section class="page hero">
     <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
     <div class="signature-garden">
@@ -46,9 +67,6 @@ const whatThisIs = [
       </h1>
     </div>
     <div class="signature-notch" aria-hidden="true">
-      {/* Hairline signature-notch — a small tattoo-vocabulary tick echoing
-          the "edge of what I know" register (§27). Two hairline pen-strokes
-          that meet at a poppy-soft dot; the dot is the notch. */}
       <svg viewBox="0 0 120 22" width="140" height="22">
         <path d="M6 14 C 24 8, 46 8, 58 12" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
         <path d="M58 12 C 70 8, 92 8, 114 14" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
@@ -58,55 +76,40 @@ const whatThisIs = [
       </svg>
     </div>
 
-    {/* Hand-invitation (2026-07-11 · portfolio-review pass). Verbatim from the
-        Studio Charter §3 design law ("Nothing here asks you for anything").
-        The intent-mapping micro-caption Dani's hero surfaces in a SaaS voice;
-        Enka surfaces in its own covenant register. Sits between the notch and
-        the sub so a first-scroll reader knows how to be here before they know
-        what they're reading. */}
     <p class="hand-invitation">nothing here asks you for anything</p>
 
-    <p class="sub">
-      Essays on identity, memory, and the tender work of rebuilding in the age of AI —
-      making &amp; honouring the craft on light feet
-      <span class="doodle" role="img" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
-      ; holding on, letting go, loving anyway.
-    </p>
-    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
+    {/* the painted canopy — the wayfinding + the 円 core (Charter §2 #1/#2) */}
+    <div class="canopy-slot">
+      <CanopyFromAbove
+        rooms={rooms}
+        headingId="the-garden-from-above"
+        eyebrow="the living map"
+        heading="the garden, from above"
+        intro="Nine rooms grow from one crown — a living map, not a menu. Move over a leaf-mass to feel it stir."
+      />
+    </div>
 
-    {/* Slice-2.7 · hero-figure integrated: the CanopyScene visual + the
-        Our-machines byline live inside ONE figure so the whole thing reads
-        as a fifth, larger panel — panel-style header (kanji 円 · canopy) at
-        top INSIDE the SVG · the woven-thread SceneWeaveSeam grammar baked
-        into the mid-composition · the byline as figcaption below, framed
-        by a hairline top-rule so it reads as part of the same figure, not
-        a floating paragraph. Storytelling arc: the container, the light,
-        the words spoken from under it. */}
-    <figure class="hero-figure">
-      <div class="scene"><CanopyScene /></div>
-      <figcaption class="keystone">
-        Our machines will outremember us, outdo us — maybe outlast us. A life,
-        though — brief, and bright while it lasts — is theirs to admire, never
-        to hand to us. That stays ours: breath to air, weight to lightness;
-        a small convoy of selves
-        <span class="doodle" role="img" aria-label="with patience between the hulls"><MotifTwoHulls size={64} /></span>
-        ,
-        <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
-      </figcaption>
-    </figure>
+    {/* the materiality passage (Charter §2 #2 · verbatim from the study —
+        this exact wording is the canon material named in the Charter/ship-
+        prompt, not newly authored here). */}
+    <p class="materiality">
+      Seen from above, a canopy is not a wall but a <b>weave</b> — light does
+      not stop at it, it comes <em>through</em>, changed and dappled and
+      warmer. <b>A home you enter by looking up.</b> Not a hierarchy read
+      top-down, but a shelter that holds without fixing — margin drawn to
+      centre, the many kept, the tender kept.
+    </p>
+
+    {/* Zone-1 heartbeat (Charter §3): one distilled clause, reused verbatim
+        from the keystone that now lives in full at Zone 4 — PROPOSED,
+        Rika's to ratify or redline; not authored here. */}
+    <p class="up-top">
+      <span class="proposed-tag">PROPOSED · ratify</span>
+      a small convoy of selves, <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
+    </p>
 
     <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
-
-    {/* Hand-correspondence (2026-07-11 · portfolio-review pass). Present-tense
-        echo of the canonical essay-foot correspondence line ("If something
-        here found you — the garden keeps a line open — say hello@…"). Brings
-        the correspondence rail forward from essay-foot-only to threshold. No
-        CTA, no mailto here — the invitation is the mention; the link lives
-        at essay foot + footer rail word, unchanged. */}
-    <p class="hand-correspondence">if something here finds you — the garden keeps a line open</p>
   </section>
-
-  <HomeBotanicalPanels />
 
   <section class="page ideas" aria-label="The garden's ideas, and how they hold together">
     <GraphCanvas
@@ -118,137 +121,120 @@ const whatThisIs = [
     <p class="ideas-more"><a class="vol" href={base + "/lexicon"}><Glyph name="canopy" size={16} /> &nbsp;the full Lexicon →</a></p>
   </section>
 
-  <section class="page what" aria-label="What this is">
-    <p class="eyebrow">what this is</p>
-    <ul class="cards">
-      {whatThisIs.map((c) => (
-        <li>
-          <h2>{c.title}</h2>
-          <p>{c.body}</p>
+  {/* ZONE 3 — the surfaces: nine rooms, one garden (Charter §3 Zone 3).
+      Absorbs the old "where things begin" / "reading rooms" / "archive
+      wall" rows into one legible grid. */}
+  <section class="page surfaces" aria-label="The surfaces — nine rooms, one garden">
+    <p class="eyebrow">the surfaces</p>
+    <h2 class="surfaces-h">nine rooms, one garden</h2>
+    <ul class="grid rooms">
+      {rooms.map((r) => (
+        <li class="room">
+          <a href={r.href} aria-label={`${r.name} — ${r.register}. ${r.blurb}`}>
+            <span class="g"><Glyph name={r.glyph} size={26} /></span>
+            <span class="txt">
+              <span class="name">{r.name}</span>
+              <span class="reg">{r.register}</span>
+              <span class="line">{r.blurb}</span>
+            </span>
+            <span class="mat" aria-hidden="true">{r.maturity === "seedling" ? "•" : r.maturity === "budding" ? "••" : "•••"}</span>
+          </a>
         </li>
       ))}
     </ul>
   </section>
 
-  <section class="page plan" aria-label="The floor plan — rooms under one roof">
-    <div class="row" id="beginnings">
-      <p class="eyebrow">where things begin</p>
-      <ul class="grid begin">
-        {beginnings.map((d) => (
-          <li class="room">
-            <a href={base + d.href}>
-              <span class="g"><Glyph name={d.glyph} size={30} /></span>
-              <span class="txt">
-                <span class="name">{d.name}{d.mark && <span class="seedmark"> {d.mark}</span>}</span>
-                <span class="line">{d.line}</span>
-              </span>
-              <span class="arr"><Glyph name="arrow" size={22} accent /></span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="row" id="reading-rooms">
-      <p class="eyebrow">the reading rooms</p>
-      <ul class="grid read">
-        {readingRooms.map((d) => (
-          <li class="room">
-            <a href={base + d.href}>
-              <span class="g"><Glyph name={d.glyph} size={22} /></span>
-              <span class="name">{d.name}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="row">
-      <p class="eyebrow">the archive wall</p>
-      <div class="band room">
-        <a class="band-main" href={base + "/volume-i"}>
-          <span class="band-title">Volume I · In Formation</span>
-          <span class="band-line">the founding collection + the merging-frontier trilogy — twenty-two pieces, hung with care</span>
-        </a>
-        <span class="band-side">
-          <a href={base + "/lexicon"}>Lexicon</a>
-          <span class="sep">·</span>
-          <a href={base + "/colophon"}>Colophon</a>
-        </span>
-      </div>
-      <p class="pepper pepper-heart" aria-hidden="true"><ScriptHeart size={42} /></p>
-    </div>
-    <p class="pepper pepper-vine" aria-hidden="true"><VineTrail size={280} /></p>
-  </section>
-
-  <section class="page grows" aria-label="How ideas grow">
-    <p class="eyebrow">ideas grow in public</p>
-    <p class="grows-lede">
-      Nothing here is filed by date. It&rsquo;s tended by maturity — a
-      nursery under the canopy: planted, shaped, and only sometimes grown
-      enough to stand on its own.
+  {/* ZONE 4 — the keystone, the deeper payoff (Charter §3 Zone 4). The full
+      poetic keystone (unchanged words), the framing .sub paragraph and its
+      loose motifs (CloudDancer, TwoHulls, the memoria peppers — Charter's
+      own "sub-surface" mapping sends them here), growth-stages, and the
+      correspondence-rail line, relocated from the hero rather than duplicated. */}
+  <section class="page payoff" aria-label="The deeper payoff">
+    <p class="sub">
+      Essays on identity, memory, and the tender work of rebuilding in the age of AI —
+      making &amp; honouring the craft on light feet
+      <span class="doodle" role="img" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
+      ; holding on, letting go, loving anyway.
     </p>
-    <ul class="stages">
-      <li>
-        <span class="dot" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28">
-            <path d="M12 21 L 12 12" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-            <ellipse cx="9" cy="9" rx="3" ry="4.8" transform="rotate(-25 9 9)" fill="#e8c15a"/>
-            <ellipse cx="15" cy="9" rx="3" ry="4.8" transform="rotate(25 15 9)" fill="#e8c15a"/>
-            <path d="M10 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="s">seedling</span>
-        <span class="d">just planted — tender, unsure, thinking out loud.</span>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28">
-            <path d="M12 21 L 12 11" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-            <g fill="#b899c9">
-              <ellipse cx="9" cy="8" rx="3" ry="4.8" transform="rotate(-25 9 8)"/>
-              <ellipse cx="15" cy="8" rx="3" ry="4.8" transform="rotate(25 15 8)"/>
-              <ellipse cx="12" cy="12" rx="3" ry="4.8"/>
-            </g>
-            <circle cx="12" cy="10" r="1.4" fill="#f7f2e7"/>
-            <path d="M10 15 L 12 14 M14 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="s">budding</span>
-        <span class="d">taking shape — the argument has a spine now.</span>
-      </li>
-      <li>
-        <span class="dot" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28">
-            <path d="M12 21 L 12 14" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-            <g fill="#e46b6b">
-              <path d="M12 3 C 14.2 3.5, 14.6 7.4, 12 8.8 C 9.4 7.4, 9.8 3.5, 12 3 Z"/>
-              <path d="M17.5 5.5 C 19.5 8, 17.5 11.5, 14 10.6 C 12.4 8.5, 14.9 5, 17.5 5.5 Z"/>
-              <path d="M15.2 13 C 12.5 15.4, 8.8 14, 10 10.8 C 12.5 9.5, 15.7 10.5, 15.2 13 Z"/>
-              <path d="M6.5 12.5 C 4.5 10.2, 5.8 7.4, 8.4 8 C 10.5 8.7, 10 12.9, 6.5 12.5 Z"/>
-              <path d="M4.6 5.5 C 7.6 4.9, 10.4 7.3, 9 10.4 C 5.8 11, 3.4 7, 4.6 5.5 Z"/>
-            </g>
-            <path d="M12 8.5 C 11 7.5, 9 7.7, 9 9.3 C 9 10.8, 12 11.9, 12 11.9 C 12 11.9, 15 10.8, 15 9.3 C 15 7.7, 13 7.5, 12 8.5 Z" fill="#f7f2e7"/>
-            <path d="M10 17 L 12 16 M14 17 L 12 16" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="s">evergreen</span>
-        <span class="d">stands on its own — as settled as this garden gets.</span>
-      </li>
-    </ul>
+    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
+
+    <figure class="hero-figure">
+      <figcaption class="keystone">
+        Our machines will outremember us, outdo us — maybe outlast us. A life,
+        though — brief, and bright while it lasts — is theirs to admire, never
+        to hand to us. That stays ours: breath to air, weight to lightness;
+        a small convoy of selves
+        <span class="doodle" role="img" aria-label="with patience between the hulls"><MotifTwoHulls size={64} /></span>
+        ,
+        <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
+      </figcaption>
+    </figure>
+    <p class="pepper pepper-heart" aria-hidden="true"><ScriptHeart size={42} /></p>
+    <p class="pepper pepper-vine" aria-hidden="true"><VineTrail size={280} /></p>
+
+    <div class="grows">
+      <p class="eyebrow">ideas grow in public</p>
+      <p class="grows-lede">
+        Nothing here is filed by date. It&rsquo;s tended by maturity — a
+        nursery under the canopy: planted, shaped, and only sometimes grown
+        enough to stand on its own.
+      </p>
+      <ul class="stages">
+        <li>
+          <span class="dot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M12 21 L 12 12" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+              <ellipse cx="9" cy="9" rx="3" ry="4.8" transform="rotate(-25 9 9)" fill="#e8c15a"/>
+              <ellipse cx="15" cy="9" rx="3" ry="4.8" transform="rotate(25 15 9)" fill="#e8c15a"/>
+              <path d="M10 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="s">seedling</span>
+          <span class="d">just planted — tender, unsure, thinking out loud.</span>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M12 21 L 12 11" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+              <g fill="#b899c9">
+                <ellipse cx="9" cy="8" rx="3" ry="4.8" transform="rotate(-25 9 8)"/>
+                <ellipse cx="15" cy="8" rx="3" ry="4.8" transform="rotate(25 15 8)"/>
+                <ellipse cx="12" cy="12" rx="3" ry="4.8"/>
+              </g>
+              <circle cx="12" cy="10" r="1.4" fill="#f7f2e7"/>
+              <path d="M10 15 L 12 14 M14 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="s">budding</span>
+          <span class="d">taking shape — the argument has a spine now.</span>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M12 21 L 12 14" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
+              <g fill="#e46b6b">
+                <path d="M12 3 C 14.2 3.5, 14.6 7.4, 12 8.8 C 9.4 7.4, 9.8 3.5, 12 3 Z"/>
+                <path d="M17.5 5.5 C 19.5 8, 17.5 11.5, 14 10.6 C 12.4 8.5, 14.9 5, 17.5 5.5 Z"/>
+                <path d="M15.2 13 C 12.5 15.4, 8.8 14, 10 10.8 C 12.5 9.5, 15.7 10.5, 15.2 13 Z"/>
+                <path d="M6.5 12.5 C 4.5 10.2, 5.8 7.4, 8.4 8 C 10.5 8.7, 10 12.9, 6.5 12.5 Z"/>
+                <path d="M4.6 5.5 C 7.6 4.9, 10.4 7.3, 9 10.4 C 5.8 11, 3.4 7, 4.6 5.5 Z"/>
+              </g>
+              <path d="M12 8.5 C 11 7.5, 9 7.7, 9 9.3 C 9 10.8, 12 11.9, 12 11.9 C 12 11.9, 15 10.8, 15 9.3 C 15 7.7, 13 7.5, 12 8.5 Z" fill="#f7f2e7"/>
+              <path d="M10 17 L 12 16 M14 17 L 12 16" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="s">evergreen</span>
+          <span class="d">stands on its own — as settled as this garden gets.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="hand-correspondence">if something here finds you — the garden keeps a line open</p>
   </section>
 </Base>
 
 <style>
-  /* the hero — indexed to the left, blooms sprouting from behind the h1.
-     LEFT alignment keeps everything anchored at the page's left gutter;
-     the sprout SVG hugs the h1 via width: fit-content, so the five crown
-     blooms fall exactly where the text lands.
-
-     Slice-2.5: the hero gets a soft washi wash (::before radial gradient)
-     that quiets body.grain-arrival's accent dots in the immediate zone
-     around the CanopyScene — so the paper reads clean, not "dirty",
-     without hiding the arrival grain elsewhere on the page. */
+  /* the hero — indexed to the left, blooms sprouting from behind the h1. */
   .hero { padding-top: 2.65rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
   .hero::before {
     content: "";
@@ -259,20 +245,9 @@ const whatThisIs = [
     z-index: -2;
     pointer-events: none;
   }
-  /* Text elements in the hero are optically nudged right ~1.4 rem so they
-     align with the CARD CONTENT edge (card border + padding) in the
-     "what this is" and "plan" sections below, and with the CanopyScene's
-     leftmost arch. .scene itself stays at the hero's native left edge —
-     its arches carry the internal indent that visually meets the text. */
-  /* Slice-2.7: exempt .hero-figure too — it sits at the hero's native left
-     edge (its .scene child inherits that); the .keystone figcaption inside
-     the hero-figure gets its own margin-left so the byline stays aligned
-     with the h1 baseline. */
-  .hero > :not(.scene):not(.hero-figure) { margin-left: 1.4rem; }
-  .hero-figure .keystone { margin-left: 1.4rem; }
+  .hero > :not(.scene):not(.hero-figure):not(.canopy-slot) { margin-left: 1.4rem; }
   @media (max-width: 46rem) {
-    .hero > :not(.scene):not(.hero-figure) { margin-left: 0; }
-    .hero-figure .keystone { margin-left: 0; }
+    .hero > :not(.scene):not(.hero-figure):not(.canopy-slot) { margin-left: 0; }
   }
   .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
@@ -289,8 +264,6 @@ const whatThisIs = [
     inset: 0;
     z-index: -1;
     display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
-    /* Slice-2.5: dialled down 0.8 → 0.58 so the crown-blooms behind the h1
-       whisper instead of shout, keeping the paper feeling dainty. */
     opacity: 0.58;
     pointer-events: none;
   }
@@ -303,32 +276,12 @@ const whatThisIs = [
     letter-spacing: -0.022em; max-width: 42rem; margin: 0;
     text-wrap: balance; text-align: left;
   }
-  /* Mobile + weight enlargement (SUCCESSION §27): floor 1.72 → 1.88rem
-     (~+9%), preferred 5vw → 5.5vw, ceiling 2.55 → 2.72rem; italic weight
-     440 → 520 for editorial heft (JW-Anderson-adjacent bold italic serif,
-     Bourgeois-quote-card altitude). Letter-spacing tightened slightly
-     (-0.020 → -0.022em) so the paren still holds its single line at
-     360–430px viewports (verified). Line-height dropped 1.3 → 1.28 to
-     preserve vertical rhythm as size grows. */
-  /* Desktop hero enlargement (SUCCESSION §20 · §27): scale the H1 up on
-     wider viewports. Ceiling grown alongside mobile (3.5 → 3.7rem) so the
-     bold-italic register lands with the same visual weight on desktop.
-     Max-width unchanged at 58rem — the intended line breaks hold. */
   @media (min-width: 60rem) {
     .signature { font-size: clamp(2.32rem, 6.4vw, 3.7rem); max-width: 58rem; }
   }
-  /* The signature-notch — a small hairline flourish that sits under the
-     H1 as a tattoo-vocabulary tick, echoing the "edge of what I know"
-     register (SUCCESSION §27). Marimekko-restrained: hairline 0.7 stroke,
-     poppy-soft dot, negative-space dominant. Never in the H1 wrap path. */
   .signature-notch { display: block; margin: 0.9rem 0 0; opacity: 0.72; }
   .signature-notch svg { display: block; }
 
-  /* Hand-invitation (2026-07-11) — the intent-mapping micro-caption between
-     signature-notch and sub. Verbatim doctrine ("nothing here asks you for
-     anything") · hand-face · quiet · left-aligned to the hero column.
-     Meets WCAG AA via ink-soft (whisper held by size + hand-family, not
-     contrast — same discipline as .panel-cap). */
   .hand-invitation {
     font-family: var(--hand);
     font-size: 1.05rem;
@@ -341,16 +294,12 @@ const whatThisIs = [
   }
   @media (max-width: 32rem) { .hand-invitation { font-size: 1.12rem; } }
 
-  /* Hand-correspondence (2026-07-11) — echo of the essay-foot correspondence
-     line, present-tense, at the hero close. Placed between the .vol link
-     and the botanical panels so the invitation register lands before the
-     wayfinding graph begins. Same register discipline as .hand-invitation. */
   .hand-correspondence {
     font-family: var(--hand);
     font-size: 1.05rem;
     color: var(--ink-soft);
     line-height: 1.4;
-    margin: 1.4rem 0 0;
+    margin: 2.2rem 0 0;
     max-width: 46ch;
     letter-spacing: 0.005em;
     opacity: 0.92;
@@ -364,22 +313,34 @@ const whatThisIs = [
   }
   .signature .paren {
     color: #e46b6b; font-size: 0.82em;
-    /* the aside breaks by hand after "old" — "growing old" is never split */
   }
-  .sub {
-    max-width: 62ch; margin: 1.4rem 0 0; color: var(--ink-soft);
-    font-size: 1.02rem; text-align: left; line-height: 1.65;
+
+  /* the canopy hero visual — full-bleed within the hero's measure */
+  .canopy-slot { margin: 2.6rem 0 0; max-width: 62rem; width: 100%; }
+  @media (max-width: 46rem) { .canopy-slot { margin-left: 0; } }
+
+  /* the materiality passage — the read-the-light framing beneath the map */
+  .materiality {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(0.98rem, 1.8vw, 1.12rem); line-height: 1.7;
+    max-width: 56rem; margin: 1.8rem 0 0; color: var(--ink-soft); text-align: left;
   }
-  /* Desktop sub breathability (SUCCESSION §21): widen + slightly enlarge
-     so the sub reads across the page with ~2/5 whitespace on the right,
-     never truncated into cramped wrapping. Mobile line-height + size
-     preserved. */
-  @media (min-width: 60rem) {
-    .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
+  .materiality b { font-weight: 500; font-style: normal; color: var(--ink); }
+
+  /* Zone-1 heartbeat — one distilled clause, quiet, clearly marked PROPOSED */
+  .up-top {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.16rem); line-height: 1.6;
+    max-width: 46rem; margin: 1.4rem 0 0; color: var(--ink);
   }
+  .up-top .accent { color: #e46b6b; font-style: normal; font-size: 0.96em; }
+  .proposed-tag {
+    display: block; font-family: var(--sans); font-style: normal;
+    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 0.35rem;
+  }
+
   .scene { margin: 0; max-width: 60rem; width: 100%; }
-  /* Slice-2.7 · integrated hero-figure — CanopyScene + byline read as one
-     panel. Hairline top-rule on the figcaption ties byline to visual. */
   .hero-figure {
     margin: 2rem 0 0;
     max-width: 60rem;
@@ -388,31 +349,18 @@ const whatThisIs = [
     flex-direction: column;
     align-self: stretch;
   }
-  .hero-figure .keystone {
-    margin-top: 1.2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(231, 220, 198, 0.65);
-  }
   .keystone {
     font-family: var(--serif); font-style: italic;
     font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.65;
-    max-width: 62ch; margin: 2rem 0 0; color: var(--ink); text-align: left;
+    max-width: 62ch; margin: 0; color: var(--ink); text-align: left;
   }
   .keystone .accent {
     color: #e46b6b; font-style: normal;
-    /* Shrink the accent a notch to match section rhythm (SUCCESSION §22) */
     font-size: 0.94em;
   }
-  /* Desktop keystone breathability (SUCCESSION §22): widen so the paragraph
-     spreads across the page instead of truncating into cramped wrapping.
-     Mobile untouched. */
   @media (min-width: 60rem) {
     .keystone { max-width: 58rem; line-height: 1.7; }
   }
-  /* Inline doodles (SUCCESSION §20 · phrase replacement register):
-     the cloud dancer replaces "dancing under the weight of the clouds"
-     inline in the .sub; the two hulls replace "patience between the
-     hulls" inline in the .keystone. Aligned to prose baseline. */
   .sub .doodle, .keystone .doodle {
     display: inline-block; vertical-align: middle;
     line-height: 0; margin: 0 0.15em;
@@ -420,9 +368,6 @@ const whatThisIs = [
   .sub .doodle :global(svg), .keystone .doodle :global(svg) {
     display: inline-block; vertical-align: middle;
   }
-  /* Peppering marks (SUCCESSION §20 · the memoria layer · cream skin):
-     small fine-line accents in negative space. Never a Figure, never a
-     head mark — quiet marks in the paper's rest. */
   .pepper { margin: 0; line-height: 0; opacity: 0.94; }
   .pepper-moon { text-align: right; margin: 0.6rem 1.4rem 0 0; }
   .pepper-vine { display: flex; justify-content: center; margin: 3rem 0 0; opacity: 0.88; }
@@ -438,87 +383,47 @@ const whatThisIs = [
   }
   .vol:hover { color: var(--ink); border-color: #e46b6b; }
 
-  /* ── shared section rhythm — every section band gets the same eyebrow-to-
-        body cadence, so hierarchy is predictable across the page ────────── */
-  .what, .plan, .grows { margin-top: 5rem; }
-  .what > .eyebrow, .plan .row > .eyebrow, .grows > .eyebrow { margin-bottom: 1rem; }
+  /* ── shared section rhythm ────────────────────────────────────────────── */
+  .surfaces, .payoff { margin-top: 5rem; }
+  .surfaces > .eyebrow { margin-bottom: 0.4rem; }
+  .surfaces-h { font-family: var(--display); font-weight: 500; font-style: italic; font-size: clamp(1.3rem, 3vw, 1.7rem); margin: 0 0 1.3rem; color: var(--ink); }
 
-  /* the garden's ideas — the knowledge-map, surfaced right after the hero's
-     welcome (botanical panels), well before the floor-plan nav grid, so the
-     map isn't buried three rooms deep. GraphCanvas owns its own heading +
-     rhythm; this section only adds top-of-page breathing room + the link
-     out to the full Lexicon (same discreet register as .vol). */
   .ideas { margin-top: 3rem; }
   .ideas-more { margin: 0.6rem 0 0; }
   .ideas-more .vol { margin-top: 0; }
 
-  /* what this is — candid cards */
-  .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
-  @media (min-width: 52rem) { .cards { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; } }
-  .cards li {
-    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
-    border-radius: 5px; padding: 1.25rem 1.35rem 1.3rem;
-    transition: border-color 0.15s ease;
+  .sub {
+    max-width: 62ch; margin: 0; color: var(--ink-soft);
+    font-size: 1.02rem; text-align: left; line-height: 1.65;
   }
-  .cards li:hover { border-color: var(--paper-edge); }
-  .cards h2 { font-size: 1.1rem; font-style: italic; margin: 0 0 0.55rem; letter-spacing: -0.01em; line-height: 1.3; }
-  .cards p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; max-width: none; line-height: 1.62; }
-  @media (max-width: 32rem) { .cards h2 { font-size: 1.14rem; } .cards p { font-size: 0.96rem; } }
+  @media (min-width: 60rem) {
+    .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
+  }
 
-  /* the floor plan — rooms under one roof.
-     All three rows (beginnings, reading rooms, archive wall) share one
-     consistent card treatment: paper-deep bg, hairline paper-edge border,
-     5px radius, hover lifts by 2px + border warms to coral-soft. */
-  .plan .row { margin-top: 2rem; }
-  .plan .row:first-child { margin-top: 0; }
+  /* the surfaces — nine rooms, one garden. Same card grammar as the old
+     floor-plan (paper-deep bg, hairline paper-edge border, 5px radius,
+     coral hover) so nothing in the visual language drifts. */
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
-  @media (min-width: 44rem) { .grid.begin { grid-template-columns: 1fr 1fr; gap: 1.2rem; } .grid.read { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-  @media (min-width: 62rem) { .grid.read { grid-template-columns: repeat(4, 1fr); } }
-  /* Alignment pass (2026-07-11 · second): each <li class="room"> becomes a
-     flex container so the child <a> anchor stretches to the row's tallest
-     card. Prevents the Nursery card sitting short next to a 2-line Studio
-     description (or any 1-line-vs-2-line variance in a row). */
+  @media (min-width: 44rem) { .grid.rooms { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 68rem) { .grid.rooms { grid-template-columns: repeat(3, 1fr); } }
   .grid > .room { display: flex; }
   .grid a {
-    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: start;
     gap: 1rem; text-decoration: none; width: 100%;
     background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
-    border-radius: 5px; padding: 1.1rem 1.3rem;
+    border-radius: 5px; padding: 1.15rem 1.3rem;
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  .grid a:hover { border-color: #e46b6b; transform: translateY(-2px); }
-  .grid .g { line-height: 0; color: var(--canopy-deep); }
-  .grid .name { display: block; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; }
-  .grid .seedmark { color: var(--canopy-soft); font-size: 0.85em; }
-  .grid .line { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.25rem; line-height: 1.55; }
-  .grid .arr { line-height: 0; opacity: 0; transition: opacity 0.15s ease; color: #e46b6b; }
-  .grid a:hover .arr { opacity: 1; }
-  .grid.read a { grid-template-columns: auto 1fr; padding: 0.95rem 1.15rem; gap: 0.85rem; }
-  .grid.read .name { font-size: 1rem; }
-  @media (max-width: 32rem) { .grid .name { font-size: 1.14rem; } .grid .line { font-size: 0.95rem; } .grid.read .name { font-size: 1.02rem; } }
-
-  /* the archive wall band — same card grammar as .grid a (paper-deep +
-     paper-edge + 5px radius + coral hover) so the three plan rows read
-     as one visual family. */
-  .band {
-    display: flex; align-items: baseline; gap: 1.1rem; flex-wrap: wrap;
-    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
-    border-radius: 5px; padding: 1.1rem 1.3rem;
-    transition: border-color 0.15s ease;
-  }
-  .band:hover { border-color: #e46b6b; }
-  .band-main { text-decoration: none; display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; flex: 1 1 auto; }
-  .band-title { font-family: var(--display); font-style: italic; font-weight: 460; font-size: 1.08rem; color: var(--ink); letter-spacing: -0.01em; line-height: 1.3; }
-  .band-line { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.55; }
-  /* Panel-language IA pass (2026-07-11): archive-band side links bumped
-     ink-faint → ink-soft for WCAG AA. Underline-on-hover unchanged. */
-  .band-side { margin-left: auto; font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); display: inline-flex; gap: 0.6rem; align-items: baseline; }
-  .band-side a { color: var(--ink-soft); text-decoration: none; padding: 0.35rem 0.15rem; border-bottom: 1.4px solid transparent; transition: color 0.15s, border-color 0.15s; }
-  .band-side a:hover { color: var(--ink); border-color: #e46b6b; }
-  .band-side .sep { color: var(--ink-faint); opacity: 0.6; }
+  .grid a:hover, .grid a:focus-visible { border-color: #e46b6b; transform: translateY(-2px); }
+  .grid .g { line-height: 0; color: var(--canopy-deep); margin-top: 0.15rem; }
+  .grid .name { display: block; font-size: 1.08rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; font-family: var(--display); font-style: italic; }
+  .grid .reg { display: block; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--canopy-deep); margin-top: 0.3rem; }
+  .grid .line { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.4rem; line-height: 1.55; }
+  .grid .mat { color: var(--canopy-soft); font-size: 0.85rem; margin-top: 0.2rem; letter-spacing: 0.05em; }
+  @media (max-width: 32rem) { .grid .name { font-size: 1.12rem; } .grid .line { font-size: 0.95rem; } }
 
   /* growth stages — the maturity ladder, one row per stage */
-  .grows { max-width: 52rem; }
+  .grows { max-width: 52rem; margin-top: 4rem; }
   .grows-lede { color: var(--ink-soft); margin-top: 0.5rem; font-size: 1rem; line-height: 1.62; max-width: 46rem; }
   .stages { list-style: none; padding: 0; margin: 1.6rem 0 0; }
   .stages li {

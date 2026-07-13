@@ -39,6 +39,7 @@ _archive/
 
 # local screenshot output
 _shots/
+_baseline/
 
 # claude code dev tooling — never ship to the public repo
 .claude/
