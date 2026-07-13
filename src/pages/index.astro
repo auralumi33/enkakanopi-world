@@ -52,12 +52,10 @@ const rooms = [
 ---
 <Base title="Enka Kanopi">
   {/* ZONE 1 — the painted canopy hero (Charter §3 Zone 1 · rule-7 hero lane).
-      Rika, 2026-07-14 (third pass): re-flowed to match canopy-home-map.html's
-      own storytelling order exactly — canopy (with its embedded ensō) →
-      tagline → H1 → lede → the materiality passage — as one continuous,
-      centred sequence (the study's own treatment; not left-indented). The
-      tree-friend teaser is removed from here (moved to /volume-i) so the
-      canopy opens the page with nothing above it. */}
+      Rika, 2026-07-14 (fourth pass): the canopy now leads straight into the
+      ideas graph — "ensō then the garden map," nothing between them. The
+      identity block (tagline/H1/lede/materiality) moves to the bottom, into
+      Zone 4 (see below), rather than interrupting canopy → map. */}
   <section class="page hero">
     <div class="canopy-slot">
       <CanopyFromAbove
@@ -68,58 +66,6 @@ const rooms = [
         intro="A curated space of thought — drawn to systems, visual art, research, and experimental craft; learning, every day. Nine rooms grow from one crown, a living map, not a menu — move over a leaf-mass to feel it stir."
       />
     </div>
-
-    <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
-    <div class="signature-garden">
-      <div class="sprout" aria-hidden="true"><Bloom size={780} /></div>
-      <h1 class="signature">
-        We are the first generation<br />
-        to be retrained alongside our machines<br />
-        <span class="paren">(no one told us growing old would feel like this)</span>
-      </h1>
-    </div>
-    <div class="signature-notch" aria-hidden="true">
-      <svg viewBox="0 0 120 22" width="140" height="22">
-        <path d="M6 14 C 24 8, 46 8, 58 12" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
-        <path d="M58 12 C 70 8, 92 8, 114 14" stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.78"/>
-        <circle cx="58" cy="12" r="1.4" fill="var(--poppy-soft)" opacity="0.92"/>
-        <path d="M52 4 L 54 4" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
-        <path d="M66 4 L 68 4" stroke="var(--ink-soft)" stroke-width="0.5" stroke-linecap="round" opacity="0.55"/>
-      </svg>
-    </div>
-
-    <p class="hand-invitation">nothing here asks you for anything</p>
-
-    {/* the lede — moved up from Zone 4 (Rika, 2026-07-14): this is exactly
-        where the study's own lede sits, right after the H1. */}
-    <p class="sub">
-      Essays on identity, memory, and the tender work of rebuilding in the age of AI —
-      making &amp; honouring the craft on light feet
-      <span class="doodle" role="img" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
-      ; holding on, letting go, loving anyway.
-    </p>
-    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
-
-    {/* the materiality passage (Charter §2 #2 · verbatim from the study —
-        this exact wording is the canon material named in the Charter/ship-
-        prompt, not newly authored here). */}
-    <p class="materiality">
-      Seen from above, a canopy is not a wall but a <b>weave</b> — light does
-      not stop at it, it comes <em>through</em>, changed and dappled and
-      warmer. <b>A home you enter by looking up.</b> Not a hierarchy read
-      top-down, but a shelter that holds without fixing — margin drawn to
-      centre, the many kept, the tender kept.
-    </p>
-
-    {/* Zone-1 heartbeat (Charter §3): one distilled clause, reused verbatim
-        from the keystone that now lives in full at Zone 4 — PROPOSED,
-        Rika's to ratify or redline; not authored here. */}
-    <p class="up-top">
-      <span class="proposed-tag">PROPOSED · ratify</span>
-      a small convoy of selves, <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
-    </p>
-
-    <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
   </section>
 
   <section class="page ideas" aria-label="The garden's ideas, and how they hold together">
