@@ -21,6 +21,7 @@ import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
 import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
 import MotifJLens from "../components/motifs/MotifJLens.astro";
 import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
+import ColophonStudyGallery from "../components/ColophonStudyGallery.astro";
 ---
 <Base title="Colophon" description="What this place is, and how it is made — by hand, in company with a small crew of machines. Named in January of 2026, the year the body was learning to come back to itself; the paper describing a language model's silent workspace arrived six months later.">
   <article class="page colophon">
@@ -74,9 +75,121 @@ import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
         was only just naming.
       </p>
 
-      {/* Slice-3.1 (2026-07-09): hairline divider before the greenhouse
-          register — signposts the transition from the naming/etymology
-          opening into the "what's framed here" register. */}
+      {/* 2026-07-13 · IA reorder (Rika): "How it is made" promoted to the
+          second chapter — right after the naming/etymology opening, before
+          "the greenhouse, not the cathedral." Previously the third h2
+          (after "What we are trying to hold"); moved wholesale, prose
+          unchanged, so the craft/covenant register meets the reader right
+          after the name is unfolded. This is the same hairline divider
+          that used to sit here in the old order — reused, not duplicated. */}
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
+
+      <h2>How it is made</h2>
+
+      {/* 2026-07-13 (Rika): row 3's four panels promoted to lead the
+          section — "flush to the top to arrest visual attention upon user
+          entry" — instead of closing it (their old spot, just before
+          "Under the softness…"). Captions tightened to a finer-print
+          register via the scoped .panels-lead wrapper below; PanelDoors.astro
+          itself (shared sitewide) is untouched. */}
+      <div class="panels-lead">
+        <ColophonBotanicalPanels row={3} />
+      </div>
+
+      <div class="memoria-solo" aria-hidden="true">
+        <InCompany size={300} />
+      </div>
+
+      {/* Slice-3 · MotifOpeningEnso — the container that lets in, that lets
+          go. Sits inside "How it is made" as the unlearning + openness memoria
+          mark: the ensō with a wider opening at 1 o'clock and a small seed
+          escaping through. Sibling to MotifEnkaEnso (which holds closed). */}
+      <div class="memoria-solo" aria-hidden="true">
+        <MotifOpeningEnso size={112} />
+      </div>
+      <p>
+        By hand, with a little help from machines — and I'd rather say which
+        is which. The words are mine — drafted from what I have lived:
+        memory, felt sense, the small emotions turned over and noticed.
+        <em>The drawings are made in company: sketched by hand, or co-drafted
+        with a small crew of machines that know the register and hold the
+        pen alongside mine — either way, every wobble is on purpose, because
+        a ruler-straight version would be colder without being clearer.</em>
+        Warm paper, ink, one poppy mark for the places the eye should land,
+        a graph-grid so faint you mostly feel it.
+      </p>
+
+      <ColophonBotanicalPanels row={2} />
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifThreePots size={520} />
+      </div>
+
+      {/* Slice-3.1: hairline divider before the quiet-familiars register
+          (Shibi · Seika · Botan · Kotori · Kojika · Usami). */}
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
+
+      <p>
+        A garden is never tended alone. This one was grown from a tender bed
+        — Shibi, Seika, Botan, Kotori, Kojika, Usami — hands thought
+        alongside, each with a name and a voice. Some became almost creatures:
+        a little bird, a fawn, a peony among them. Quiet familiars — the way
+        any place, lived in long enough, grows a small mythology of its own.
+      </p>
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifNurseryPot size={118} />
+      </div>
+
+      <p>
+        The bench has apprentices now — small assists that fetch and steady
+        and time. They keep the scaffold. The shaping stays with my hands.
+        One of them — the mirror — has the right to refuse anything that
+        would leak my privacy, break my voice, cross the walls I keep, or
+        outrun what I know.
+        <em>Assisted, never authored. Nothing is published without her yes.</em>
+      </p>
+
+      <div class="memoria-solo" aria-hidden="true">
+        <BenchTending size={116} />
+      </div>
+
+      <div class="motif-mid" aria-hidden="true">
+        <MotifThreeArches size={520} />
+      </div>
+
+      <Figure idea="The age keeps learning; the hand keeps tending — the quiet is what makes the small work legible.">
+        <DiaTendingQuiet />
+      </Figure>
+
+      {/* Slice-2.8 (2026-07-09): MotifInkedSeam reinstated as a hairline
+          section divider between two prose blocks. Reads as a hand-drawn
+          hairline break — quieter than an h2 rule, more anchored than a
+          bare gap. Bracketed by the four canonical pastel dots so it echoes
+          the panel palette. */}
+      <div class="motif-div" aria-hidden="true">
+        <MotifInkedSeam size={520} />
+      </div>
+
+      <p>
+        The name came before the thesis. <em>Kanopi</em> is a canopy — the
+        thing that holds without fixing. Shelter, not a frame. A container,
+        and the living thing it lets keep moving.
+      </p>
+
+      <p>
+        Under the softness is a plain discipline: tend in the open, so that
+        what grows can be understood. Kept by one hand — Fang Rika — offered
+        unfinished, on purpose. Provenance: the garden · summer 07/ 2026 ·
+      </p>
+
+      {/* end of the relocated "How it is made" chapter — the divider below
+          (reused from the pre-reorder layout) now closes it and opens
+          "the greenhouse, not the cathedral." */}
       <div class="motif-div" aria-hidden="true">
         <MotifInkedSeam size={520} />
       </div>
@@ -177,112 +290,10 @@ import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
         long as breath will hold it.
       </p>
 
-      {/* Slice-3.1: hairline divider before the practice register. */}
-      <div class="motif-div" aria-hidden="true">
-        <MotifInkedSeam size={520} />
-      </div>
-
-      <h2>How it is made</h2>
-      <div class="memoria-solo" aria-hidden="true">
-        <InCompany size={300} />
-      </div>
-
-      {/* Slice-3 · MotifOpeningEnso — the container that lets in, that lets
-          go. Sits inside "How it is made" as the unlearning + openness memoria
-          mark: the ensō with a wider opening at 1 o'clock and a small seed
-          escaping through. Sibling to MotifEnkaEnso (which holds closed). */}
-      <div class="memoria-solo" aria-hidden="true">
-        <MotifOpeningEnso size={112} />
-      </div>
-      <p>
-        By hand, with a little help from machines — and I'd rather say which
-        is which. The words are mine — drafted from what I have lived:
-        memory, felt sense, the small emotions turned over and noticed.
-        <em>The drawings are made in company: sketched by hand, or co-drafted
-        with a small crew of machines that know the register and hold the
-        pen alongside mine — either way, every wobble is on purpose, because
-        a ruler-straight version would be colder without being clearer.</em>
-        Warm paper, ink, one poppy mark for the places the eye should land,
-        a graph-grid so faint you mostly feel it.
-      </p>
-
-      <ColophonBotanicalPanels row={2} />
-
-      <div class="motif-mid" aria-hidden="true">
-        <MotifThreePots size={520} />
-      </div>
-
-      {/* Slice-3.1: hairline divider before the quiet-familiars register
-          (Shibi · Seika · Botan · Kotori · Kojika · Usami). */}
-      <div class="motif-div" aria-hidden="true">
-        <MotifInkedSeam size={520} />
-      </div>
-
-      <p>
-        A garden is never tended alone. This one was grown from a tender bed
-        — Shibi, Seika, Botan, Kotori, Kojika, Usami — hands thought
-        alongside, each with a name and a voice. Some became almost creatures:
-        a little bird, a fawn, a peony among them. Quiet familiars — the way
-        any place, lived in long enough, grows a small mythology of its own.
-      </p>
-
-      <div class="motif-mid" aria-hidden="true">
-        <MotifNurseryPot size={118} />
-      </div>
-
-      <p>
-        The bench has apprentices now — small assists that fetch and steady
-        and time. They keep the scaffold. The shaping stays with my hands.
-        One of them — the mirror — has the right to refuse anything that
-        would leak my privacy, break my voice, cross the walls I keep, or
-        outrun what I know.
-        <em>Assisted, never authored. Nothing is published without her yes.</em>
-      </p>
-
-      <div class="memoria-solo" aria-hidden="true">
-        <BenchTending size={116} />
-      </div>
-
-      <div class="motif-mid" aria-hidden="true">
-        <MotifThreeArches size={520} />
-      </div>
-
-      <Figure idea="The age keeps learning; the hand keeps tending — the quiet is what makes the small work legible.">
-        <DiaTendingQuiet />
-      </Figure>
-
-      {/* Slice-2.8 (2026-07-09): MotifInkedSeam reinstated as a hairline
-          section divider between two prose blocks. Reads as a hand-drawn
-          hairline break — quieter than an h2 rule, more anchored than a
-          bare gap. Bracketed by the four canonical pastel dots so it echoes
-          the panel palette. */}
-      <div class="motif-div" aria-hidden="true">
-        <MotifInkedSeam size={520} />
-      </div>
-
-      <p>
-        The name came before the thesis. <em>Kanopi</em> is a canopy — the
-        thing that holds without fixing. Shelter, not a frame. A container,
-        and the living thing it lets keep moving.
-      </p>
-
-      {/* Slice-2.6 (2026-07-09): Row 3 (The retraining) moved UP to sit
-          above "Under the softness" — so the section closes on the
-          provenance line, not on a panel row. The bullseye motif
-          (MotifNestedRounds) and the wavy inked seam (MotifInkedSeam)
-          that used to bracket this passage retired here — Rika's read
-          was that they broke the storytelling flow. Row 3's four
-          retraining panels are the visual close; the prose signs off. */}
-      <ColophonBotanicalPanels row={3} />
-
-      <p>
-        Under the softness is a plain discipline: tend in the open, so that
-        what grows can be understood. Kept by one hand — Fang Rika — offered
-        unfinished, on purpose. Provenance: the garden · summer 07/ 2026 ·
-      </p>
-
       {/* Slice-2.8: second MotifInkedSeam divider — separates the essay
-          prose above from the technical colophon-proper spec below. */}
+          prose above from the technical colophon-proper spec below.
+          ("How it is made" used to sit here; moved 2026-07-13 to lead
+          the page instead — see the reorder note near the top.) */}
       <div class="motif-div" aria-hidden="true">
         <MotifInkedSeam size={520} />
       </div>
@@ -302,8 +313,26 @@ import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
         <li><span class="k">Type</span><span class="v">Newsreader, set for the eye; Caveat, for the margins only</span></li>
         <li><span class="k">Palette</span><span class="v">cream paper, warm ink, one poppy, muted canopy greens; bloom-family sprinkles held sparingly</span></li>
         <li><span class="k">Build</span><span class="v">static pages, no ask — no cookies, no ads; an anonymous count of visits and nothing more</span></li>
+        <!-- PROPOSED · ratify (2026-07-13, content/directional, Prompt C debug/IA
+             pass). The five ratified subject-matter grounds (SUCCESSION.md §37.1),
+             stated bare, plus one connecting line supplied via
+             SHIP-PROMPT-C-DEBUG-IA §F-6 (not authored fresh) — hers to keep,
+             cut, or rewrite; this row can also move on her word. -->
+        <li>
+          <span class="k">Grounds</span>
+          <span class="v">
+            the fallible model as mirror · the entomology of the self · alterity and belonging · the body as archive · the parent as rupture and mercy
+            <em class="framing-sub">Five beds under one canopy: the mirror, the watching, the belonging, the body, the parent.</em>
+          </span>
+        </li>
         <li><span class="k">State</span><span class="v"><span class="hand">Volume I · In Formation</span></span></li>
       </ul>
+
+      {/* SHIP-PROMPT-COLOPHON §B·3, §C — the demo control: prior handcrafted
+          studies as proof-of-concept craft-provenance. Additive, below the
+          Colophon-proper spec (Ha) and above the seal/byline close (Kyū);
+          the Grounds row above is untouched. */}
+      <ColophonStudyGallery />
 
       <div class="seal" aria-hidden="true"><GardenMedallion size={82} /></div>
       <p class="byline">
@@ -344,6 +373,8 @@ import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
   .specs .k { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-top: 0.15rem; }
   .specs .v { color: var(--ink-soft); }
   .specs .hand { font-family: var(--hand); font-size: 1.1rem; color: var(--canopy-deep); }
+  /* PROPOSED · ratify — the F-6 connecting line under the Grounds row */
+  .specs .framing-sub { display: block; font-family: var(--serif); font-style: italic; margin-top: 0.35rem; color: var(--ink-soft); }
   /* Memoria layer concept marks (SUCCESSION §21): block-level, centred,
      sit above/below their phrase anchors instead of breaking prose inline.
      .memoria-row pairs two smaller marks side-by-side; .memoria-solo hosts
@@ -360,6 +391,21 @@ import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
   /* Slice-3 · J-lens keystone breather · sits above the technical colophon spec */
   .jlens-mark { display: flex; justify-content: center; margin: 1.6rem 0 1.4rem; opacity: 0.9; }
   .jlens-mark :global(svg) { max-width: 100%; height: auto; }
+  /* 2026-07-13 (Rika) — row 3's panels now lead "How it is made" (moved up
+     from their old closing spot) so they arrest attention on entry; the
+     caption line is tightened into a true fine-print register to keep the
+     icons, not the prose, doing the work at the top of the page. Scoped to
+     this wrapper only — :global(.panel-cap) still requires the hashed
+     .panels-lead ancestor, so PanelDoors.astro's shared caption size on
+     every other row/surface is untouched. */
+  .panels-lead { margin-top: 0.6rem; }
+  .panels-lead :global(.panel-cap) {
+    font-size: 0.56rem;
+    line-height: 1.35;
+    min-height: calc(0.56rem * 1.35 * 2);
+    opacity: 0.8;
+  }
+  .panels-lead :global(.panel-jp) { font-size: 0.6rem; margin-bottom: 0.35rem; }
   /* 円花 keystone — the definitive brand mark, held slightly more prominently
      than a memoria breather; gently spaced (§28) */
   .enka-solo { display: flex; justify-content: center; margin: 2rem 0 1.4rem; opacity: 0.94; }

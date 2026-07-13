@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the workbench — a touchable garden study</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500;600&display=swap');
+:root{
+  /* canonical Charts & Crafts tokens — /design-tokens.json */
+  --paper:#f7f2e7; --paper-deep:#efe7d6; --washi:#fbf8ee;
+  --ink:#2a251d; --ink-soft:#575049; --ink-faint:#8c8377;
+  --poppy:#cf4a45; --poppy-soft:#e08d84;
+  --canopy:#6f7d5a; --canopy-deep:#4f5b3f; --canopy-soft:#aeb896;
+  --seedling:#8a9a5b; --budding:#c48a3f; --evergreen:#4f5b3f;
+  --lavender:#b899c9; --gold:#e8c15a; --coral:#e46b6b; --slate:#a4b8c8; --hand:'Caveat',cursive;
+  /* aliases → canon */
+  --paper2:#efe7d6; --ink2:#575049; --faint:#8c8377; --line:#e7dcc6;
+  --leaf:#6f7d5a; --leaf2:#aeb896; --wax:#cf4a45; --ochre:#c48a3f; --graphite:#575049;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Newsreader',Georgia,serif;font-weight:400;color:var(--ink);
+  background:var(--paper);line-height:1.65;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* paper grain */
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.05'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* cursor light — textures of light */
+#light{
+  position:fixed;inset:0;pointer-events:none;z-index:4;opacity:0;
+  transition:opacity 1.2s ease;
+  background:radial-gradient(420px circle at var(--lx,50%) var(--ly,40%), rgba(255,248,225,.55), rgba(255,248,225,0) 68%);
+  mix-blend-mode:soft-light;
+}
+body.lit #light{opacity:1;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 30px;position:relative;z-index:6;}
+em{font-style:italic;}
+/* ===== masthead ===== */
+header{padding:58px 0 8px;}
+.crumb{font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--faint);}
+.crumb b{color:var(--leaf);font-weight:500;}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:42px;letter-spacing:-.4px;margin-top:14px;line-height:1.1;}
+h1 .tended{font-style:italic;color:var(--leaf);}
+.sub{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:17.5px;color:var(--ink2);margin-top:10px;max-width:36em;}
+.note{font-size:12.5px;color:var(--faint);margin-top:14px;max-width:44em;}
+.note .mark{color:var(--wax);}
+/* ===== lens rail ===== */
+.lens-rail{display:flex;align-items:center;gap:10px;margin:34px 0 6px;flex-wrap:wrap;}
+.lens-lbl{font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--faint);margin-right:6px;}
+.lens{
+  font-family:'Fraunces',Georgia,serif;font-size:14.5px;font-style:italic;color:var(--ink2);
+  background:transparent;border:1px solid var(--line);border-radius:22px;
+  padding:7px 18px;cursor:pointer;transition:all .35s ease;
+}
+.lens:hover{border-color:var(--leaf2);color:var(--leaf);}
+.lens.on{background:var(--ink);color:var(--paper);border-color:var(--ink);font-style:normal;}
+.lens-read{font-size:13px;color:var(--ink2);max-width:52em;margin-top:10px;min-height:40px;transition:opacity .4s;}
+.lens-read b{font-weight:500;color:var(--ink);}
+/* ===== the bench (svg stage) ===== */
+.bench{
+  position:relative;margin:22px 0 8px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(180deg,var(--paper2),var(--paper) 70%);
+  overflow:hidden;
+}
+.bench svg{display:block;width:100%;height:560px;touch-action:none;}
+.hint{
+  position:absolute;top:14px;left:18px;font-size:11px;color:var(--faint);
+  letter-spacing:.4px;z-index:3;pointer-events:none;transition:opacity .6s;
+}
+.hint .k{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--graphite);}
+.maturity{position:absolute;bottom:12px;left:18px;font-size:10.5px;color:var(--faint);letter-spacing:1.6px;z-index:3;}
+.maturity span{margin-right:14px;}
+.seedbtn{
+  position:absolute;top:12px;right:14px;z-index:3;
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:13px;color:var(--leaf);
+  background:rgba(255,255,255,.6);border:1px dashed var(--leaf2);border-radius:20px;
+  padding:6px 16px;cursor:pointer;transition:all .3s;
+}
+.seedbtn:hover{background:var(--leaf);color:#fff;border-style:solid;}
+.seedbtn.arm{background:var(--wax);border-color:var(--wax);color:#fff;}
+/* node + edge styles live inline in svg */
+/* tooltip */
+#tip{
+  position:absolute;z-index:8;pointer-events:none;opacity:0;transition:opacity .25s;
+  max-width:280px;background:#fffdf6;border:1px solid var(--line);border-radius:10px;
+  padding:12px 15px;box-shadow:0 8px 26px rgba(60,50,30,.12);
+}
+#tip .t-k{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--leaf);margin-bottom:4px;}
+#tip .t-n{font-family:'Fraunces',Georgia,serif;font-size:15px;font-weight:600;margin-bottom:4px;}
+#tip .t-b{font-size:12px;color:var(--ink2);line-height:1.5;}
+/* ===== specimen card ===== */
+.specimen{
+  position:absolute;right:16px;bottom:16px;width:308px;z-index:7;
+  background:#fffdf6;border:1px solid var(--line);border-radius:12px;
+  padding:20px 22px;box-shadow:0 14px 40px rgba(60,50,30,.16);
+  transform:translateY(14px);opacity:0;pointer-events:none;transition:all .45s cubic-bezier(.2,.8,.2,1);
+}
+.specimen.show{transform:none;opacity:1;pointer-events:auto;}
+.sp-close{position:absolute;top:10px;right:14px;border:none;background:none;color:var(--faint);font-size:16px;cursor:pointer;}
+.sp-k{font-size:9.5px;letter-spacing:2.2px;text-transform:uppercase;color:var(--wax);margin-bottom:6px;}
+.sp-n{font-family:'Fraunces',Georgia,serif;font-size:19px;font-weight:600;line-height:1.2;margin-bottom:8px;}
+.sp-line{font-size:12.5px;color:var(--ink2);line-height:1.55;margin-bottom:12px;}
+.sp-meta{border-top:1px dashed var(--line);padding-top:10px;font-size:11.5px;color:var(--graphite);}
+.sp-meta div{display:flex;justify-content:space-between;margin-bottom:4px;}
+.sp-meta b{font-weight:500;color:var(--ink);}
+.sp-mat{font-family:'Fraunces',Georgia,serif;color:var(--leaf);letter-spacing:2px;}
+/* ===== field notes strip ===== */
+.strip{padding:44px 0 10px;}
+.strip h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:24px;margin-bottom:4px;}
+.strip .s-sub{font-size:13px;color:var(--faint);margin-bottom:20px;}
+.rowcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.fcard{
+  border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:#fffdf7;
+  opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.7,.2,1);
+}
+.fcard.in{opacity:1;transform:none;}
+.fcard .f-m{font-family:'Fraunces',Georgia,serif;font-size:12px;color:var(--leaf);letter-spacing:3px;margin-bottom:8px;}
+.fcard h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:16.5px;margin-bottom:6px;line-height:1.3;}
+.fcard p{font-size:12.5px;color:var(--ink2);}
+.fcard .f-meta{margin-top:12px;font-size:10.5px;color:var(--faint);letter-spacing:.6px;}
+/* ===== the quiet door ===== */
+.door{padding:70px 0 26px;text-align:center;}
+.door .d-line{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15px;color:var(--ink2);max-width:34em;margin:0 auto;line-height:1.7;}
+.door .rail{
+  display:inline-block;margin-top:18px;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--faint);border-bottom:1px solid var(--line);padding-bottom:3px;cursor:default;
+  transition:color .4s, border-color .4s;
+}
+.door .rail:hover{color:var(--leaf);border-color:var(--leaf2);}
+footer{padding:26px 0 40px;text-align:center;}
+.covenant{font-size:11px;color:var(--faint);letter-spacing:.4px;}
+.covenant .seal{color:var(--wax);}
+.study-tag{margin-top:10px;font-size:10px;color:var(--faint);letter-spacing:1.6px;text-transform:uppercase;}
+@media(max-width:760px){
+  h1{font-size:30px;} .rowcards{grid-template-columns:1fr;}
+  .bench svg{height:470px;} .specimen{width:calc(100% - 32px);}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;}
+}
+</style>
+</head>
+<body>
+<div id="light"></div>
+
+<header>
+  <div class="wrap">
+    <div class="crumb">enka kanopi · <b>the workbench</b> · a touchable study — nothing here asks you for anything</div>
+    <h1>Where the thinking is <span class="tended">left out on the bench.</span></h1>
+    <div class="sub">Pick up the diagrams. Drag them. Change the lens. This is the map of the garden's one idea — the container beneath the craft — laid out as a thing your hands can hold.</div>
+    <div class="note"><span class="mark">◦</span> A study, not the site: interactions are gifts, never gates. The essays keep their stillness; only the connective tissue learns to respond.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="lens-rail" role="tablist" aria-label="reading lens">
+    <span class="lens-lbl">one graph · many lenses</span>
+    <button class="lens on" data-lens="artist" role="tab" aria-selected="true">the artist</button>
+    <button class="lens" data-lens="builder" role="tab" aria-selected="false">the builder</button>
+    <button class="lens" data-lens="researcher" role="tab" aria-selected="false">the researcher</button>
+  </div>
+  <div class="lens-read" id="lensRead"><b>The artist reads the map as a life:</b> the self is the most intimate container there is — reinvention is re-containing, and home is the container we ache toward. Touch a node to see what it holds.</div>
+
+  <div class="bench" id="bench">
+    <div class="hint" id="hint">↳ <span class="k">drag</span> a node · <span class="k">hover</span> for one breath · <span class="k">click</span> to open its specimen</div>
+    <button class="seedbtn" id="seedBtn" title="plant a seed on the bench">+ plant a seed</button>
+    <svg id="stage" viewBox="0 0 1060 560" aria-label="an interactive map of the garden's ideas">
+      <defs>
+        <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter>
+        <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fffdf4" stop-opacity="0.9"/><stop offset="100%" stop-color="#fffdf4" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <g id="ghost"></g>
+      <g id="edges"></g>
+      <g id="nodes"></g>
+    </svg>
+    <div class="maturity"><span>seed</span><span>seedling ·</span><span>budding ··</span><span>evergreen ···</span></div>
+    <div id="tip"><div class="t-k"></div><div class="t-n"></div><div class="t-b"></div></div>
+    <div class="specimen" id="spec">
+      <button class="sp-close" id="spClose" aria-label="close">×</button>
+      <div class="sp-k">specimen · from the nursery</div>
+      <div class="sp-n" id="spName"></div>
+      <div class="sp-line" id="spLine"></div>
+      <div class="sp-meta">
+        <div><span>material</span><b id="spMat">prose · diagram</b></div>
+        <div><span>constraint</span><b id="spCon"></b></div>
+        <div><span>failure count</span><b id="spFail"></b></div>
+        <div><span>maturity</span><b class="sp-mat" id="spGrow"></b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="strip">
+  <div class="wrap">
+    <h2>What just happened, quietly</h2>
+    <div class="s-sub">three laws this study keeps — the same three the full sculpt will keep</div>
+    <div class="rowcards">
+      <div class="fcard"><div class="f-m">law ·</div><h3>Gifts, never gates</h3><p>Every interaction gives something — a breath of meaning, a specimen, a seed. Nothing asks for an email, a follow, a purchase. Dwell is the only harvest.</p><div class="f-meta">the covenant, applied to touch</div></div>
+      <div class="fcard"><div class="f-m">law ··</div><h3>The essays keep their stillness</h3><p>Interactivity lives in the connective tissue — maps, benches, the lexicon — never inside the writing. The diary's register is untouched; the tools around it learn to respond.</p><div class="f-meta">nursery-as-moat, preserved</div></div>
+      <div class="fcard"><div class="f-m">law ···</div><h3>One graph, many lenses</h3><p>The same territory re-projects for the artist, the builder, the researcher. Role is decision context — the reader chooses how deep the water is.</p><div class="f-meta">the cartographer's rule</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="door">
+  <div class="wrap">
+    <div class="d-line">If something here found you, the garden keeps a line open. The bench is always mid-work — and the work is better when someone is looking.</div>
+    <div class="rail">correspondence</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="covenant">Assisted, never authored. Nothing is published without her yes. · <span class="seal">tended, not timestamped</span></div>
+    <div class="study-tag">a touchable-garden study · charts &amp; crafts register · tokens provisional pending extraction from the live site</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- cursor light ---------- */
+  var body=document.body;
+  window.addEventListener('pointermove',function(e){
+    body.classList.add('lit');
+    document.documentElement.style.setProperty('--lx', e.clientX+'px');
+    document.documentElement.style.setProperty('--ly', e.clientY+'px');
+  },{passive:true});
+
+  /* ---------- data: the map ---------- */
+  var LENS = {
+    artist:{
+      read:'<b>The artist reads the map as a life:</b> the self is the most intimate container there is — reinvention is re-containing, and home is the container we ache toward. Touch a node to see what it holds.',
+      names:{root:'the container',c1:'a self in motion',c2:'the craft that deflates',c3:'what appreciates',c4:'home',c5:'the open question',c6:'versions of me',c7:'the seam'},
+      breaths:{
+        root:'The object deflates; the container appreciates. A canopy holds a self without pinning it to one shape.',
+        c1:'Identity is not a statue but a weathering — the vessel rebuilt while sailing.',
+        c2:'Paint, prose, code — every medium commoditises. Grieve it lightly; it was never the point.',
+        c3:'Attention, judgment, provenance, the relationship. What holds the work outlives the work.',
+        c4:'Home is the container we ache toward — the room that holds without fixing.',
+        c5:'End inside the question. Resolution is a door closed on the reader.',
+        c6:'A changelog of a person — diffs, deprecations, the retrained generation.',
+        c7:'Where the machine’s hand shows: keep the seam visible; wabi-sabi is honesty.'
+      }
+    },
+    builder:{
+      read:'<b>The builder reads the same map as a system:</b> tokens → components → patterns → experiences; memory in four stores; every essay leaves a named framework or diagram behind. Same territory, harder edges.',
+      names:{root:'the substrate',c1:'state, versioned',c2:'execution (deflating)',c3:'infrastructure (appreciating)',c4:'the schema is the road',c5:'resist premature closure',c6:'changelogs & diffs',c7:'observability'},
+      breaths:{
+        root:'MD is source of truth; HTML a disposable render. The contract outlives every tool that reads it.',
+        c1:'A self as versioned state: migrations, rollbacks, the occasional breaking change.',
+        c2:'Any skill an API does better is already deprecated. Ship judgment, not keystrokes.',
+        c3:'The citation graph, the returning reader, the named lexicon — what compounds quietly over time.',
+        c4:'Every artifact writes to the same schema, or it is a leak.',
+        c5:'A design frozen too early is technical debt with good posture.',
+        c6:'Diff the voice weekly against golden outputs; drift is measurable.',
+        c7:'If you cannot trace the dollar or the sentence to its cause, it does not exist.'
+      }
+    },
+    researcher:{
+      read:'<b>The researcher reads it as a field:</b> features as directions, circuits as paths, memory in classes — autotheory for the age of artificial memory, where the self reads the models and the models read back.',
+      names:{root:'the feature bundle',c1:'a trained self',c2:'capability (commodity)',c3:'the scarce directions',c4:'consolidation',c5:'the unasked question',c6:'weighted memory',c7:'interpretability'},
+      breaths:{
+        root:'Irreducible specificity: a bundle of directions learned from one life, present in no other latent space.',
+        c1:'The self as a fine-tuned model — uneven retrieval, graceful forgetting still unlearned.',
+        c2:'Intelligence deflates on schedule. The scarce act is choosing which question deserves it.',
+        c3:'Trust, taste, provenance — directions no scaling law reaches.',
+        c4:'A learning postpones until it survives a streak; memory is consolidation, not capture.',
+        c5:'Predict the question the discourse has not asked; be the source the answer must cite.',
+        c6:'Some weights cannot be edited at will. Write anyway.',
+        c7:'Name the features, trace the circuits, probe the drift — read the self like a model, kindly.'
+      }
+    }
+  };
+
+  var NODES=[
+    {id:'root',x:530,y:255,r:46,grow:'···',fail:'—',con:'one sentence, three registers',line:'The keystone the whole garden grows from.'},
+    {id:'c1',x:300,y:130,r:30,grow:'··',fail:'2',con:'wholly true, wholly unidentifiable',line:'The identity pillar — still owed its one true story.'},
+    {id:'c2',x:255,y:335,r:27,grow:'··',fail:'1',con:'grieve lightly, no nostalgia',line:'The deflation essays — execution, objects, intelligence.'},
+    {id:'c3',x:560,y:445,r:30,grow:'··',fail:'1',con:'never sound like a consultant',line:'What appreciates — the container economics.'},
+    {id:'c4',x:790,y:355,r:27,grow:'·',fail:'3',con:'ache without address',line:'Home & belonging — tender, unfinished, growing.'},
+    {id:'c5',x:815,y:140,r:25,grow:'···',fail:'—',con:'end inside the question',line:'The voice law itself, held as a bed of its own.'},
+    {id:'c6',x:95,y:225,r:23,grow:'·',fail:'2',con:'diffs, not confessions',line:'Versions of me — autotheory as changelog.'},
+    {id:'c7',x:415,y:70,r:21,grow:'·',fail:'1',con:'keep the seam visible',line:'In the company of machines — the co-authored seam.'}
+  ];
+  var EDGES=[['root','c1'],['root','c2'],['root','c3'],['root','c4'],['root','c5'],['c1','c6'],['c1','c7'],['c3','c4'],['c2','c3']];
+
+  var svg=document.getElementById('stage'),
+      gN=document.getElementById('nodes'), gE=document.getElementById('edges'), gG=document.getElementById('ghost'),
+      tip=document.getElementById('tip'), bench=document.getElementById('bench');
+  var lens='artist', seeds=0, armed=false;
+
+  /* ghost possibility-space boxes */
+  for(var i=0;i<7;i++){
+    var b=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    var w=60+Math.round(90*((i*37)%10)/10), h=40+Math.round(60*((i*53)%10)/10);
+    b.setAttribute('x', 40+((i*151)%900)); b.setAttribute('y', 30+((i*97)%460));
+    b.setAttribute('width',w); b.setAttribute('height',h);
+    b.setAttribute('fill','none'); b.setAttribute('stroke','#cfc8b4'); b.setAttribute('stroke-width','.7');
+    b.setAttribute('stroke-dasharray','3 5'); b.setAttribute('opacity','.5');
+    if(!reduced){
+      var a=document.createElementNS('http://www.w3.org/2000/svg','animateTransform');
+      a.setAttribute('attributeName','transform'); a.setAttribute('type','translate');
+      a.setAttribute('values','0 0; '+((i%2?6:-7))+' '+((i%3?-8:6))+'; 0 0');
+      a.setAttribute('dur',(16+i*3)+'s'); a.setAttribute('repeatCount','indefinite');
+      b.appendChild(a);
+    }
+    gG.appendChild(b);
+  }
+
+  function el(t,attrs){var e=document.createElementNS('http://www.w3.org/2000/svg',t);for(var k in attrs)e.setAttribute(k,attrs[k]);return e;}
+
+  /* edges */
+  var edgeEls=EDGES.map(function(pair){
+    var p=el('path',{fill:'none',stroke:'#b9b19a','stroke-width':'1.1',opacity:'.8',filter:'url(#rough)'});
+    p.dataset.a=pair[0]; p.dataset.b=pair[1];
+    gE.appendChild(p); return p;
+  });
+
+  /* nodes */
+  var nodeEls={};
+  NODES.forEach(function(n){
+    var g=el('g',{class:'node','data-id':n.id,cursor:'grab'});
+    var halo=el('circle',{r:n.r+16,fill:'url(#halo)',opacity:'0'});
+    var isRoot=n.id==='root';
+    var c=el('circle',{r:n.r, fill:isRoot?'#6f7d5a':'#fbf8ee', stroke:isRoot?'#4f5b3f':'#aeb896','stroke-width':isRoot?'2':'1.4', filter:'url(#rough)'});
+    var mark=el('text',{y:-n.r-9,'text-anchor':'middle','font-size':'10','fill':'#b98d3f','letter-spacing':'2'}); mark.textContent=n.grow;
+    var label=el('text',{y:isRoot?4:3,'text-anchor':'middle','font-family':'Fraunces,Georgia,serif','font-size':isRoot?'14.5':'11.5','font-style':'italic',fill:isRoot?'#fdfaf1':'#2b2a24'});
+    g.appendChild(halo); g.appendChild(c); g.appendChild(mark); g.appendChild(label);
+    g._n=n; g._label=label; g._halo=halo;
+    gN.appendChild(g); nodeEls[n.id]=g;
+    n.hx=n.x; n.hy=n.y; n.vx=0; n.vy=0;
+  });
+
+  function project(){
+    NODES.forEach(function(n){ nodeEls[n.id].setAttribute('transform','translate('+n.x+','+n.y+')');
+      nodeEls[n.id]._label.textContent=LENS[lens].names[n.id]||n.custom||'a seed';
+    });
+    edgeEls.forEach(function(p){
+      var a=NODES.find(function(n){return n.id===p.dataset.a;}), b=NODES.find(function(n){return n.id===p.dataset.b;});
+      if(!a||!b)return;
+      var mx=(a.x+b.x)/2 + (a.y-b.y)*0.12, my=(a.y+b.y)/2 + (b.x-a.x)*0.12;
+      p.setAttribute('d','M'+a.x+' '+a.y+' Q'+mx+' '+my+' '+b.x+' '+b.y);
+    });
+  }
+  project();
+
+  /* spring-home physics */
+  function tick(){
+    var moving=false;
+    NODES.forEach(function(n){
+      if(n===drag.n) return;
+      var dx=n.hx-n.x, dy=n.hy-n.y;
+      n.vx=(n.vx+dx*0.02)*0.86; n.vy=(n.vy+dy*0.02)*0.86;
+      if(Math.abs(n.vx)>.01||Math.abs(n.vy)>.01||Math.abs(dx)>.4||Math.abs(dy)>.4){
+        n.x+=n.vx; n.y+=n.vy; moving=true;
+      }
+    });
+    if(moving||drag.n) project();
+    requestAnimationFrame(tick);
+  }
+  var drag={n:null};
+  if(!reduced) requestAnimationFrame(tick);
+
+  function svgPoint(e){
+    var pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  /* interactions */
+  var hintShown=true;
+  svg.addEventListener('pointerdown',function(e){
+    var g=e.target.closest('.node');
+    if(armed){ plant(svgPoint(e)); return; }
+    if(!g)return;
+    drag.n=g._n; drag.g=g; g.setAttribute('cursor','grabbing');
+    svg.setPointerCapture(e.pointerId);
+    if(hintShown){document.getElementById('hint').style.opacity='0';hintShown=false;}
+  });
+  svg.addEventListener('pointermove',function(e){
+    if(drag.n){ var p=svgPoint(e); drag.n.x=Math.max(30,Math.min(1030,p.x)); drag.n.y=Math.max(30,Math.min(530,p.y)); project(); return; }
+    var g=e.target.closest('.node');
+    if(g){ showTip(g,e); } else hideTip();
+  });
+  svg.addEventListener('pointerup',function(e){
+    if(drag.g){drag.g.setAttribute('cursor','grab');}
+    if(drag.n && reduced){ drag.n.x=drag.n.hx; drag.n.y=drag.n.hy; project(); }
+    drag.n=null; drag.g=null;
+  });
+  svg.addEventListener('pointerleave',hideTip);
+
+  var moved={};
+  svg.addEventListener('click',function(e){
+    var g=e.target.closest('.node'); if(!g||armed)return;
+    openSpecimen(g._n);
+  });
+
+  function showTip(g,e){
+    var n=g._n, L=LENS[lens];
+    tip.querySelector('.t-k').textContent = (n.seed?'a planted seed':'in one breath');
+    tip.querySelector('.t-n').textContent = L.names[n.id]||n.custom||'a seed, unnamed';
+    tip.querySelector('.t-b').textContent = n.seed? 'Planted on this visit. Seeds keep their silence until they are ready.' : (L.breaths[n.id]||'');
+    var r=bench.getBoundingClientRect();
+    tip.style.left=Math.min(r.width-300, Math.max(8, e.clientX-r.left+16))+'px';
+    tip.style.top =Math.max(8, e.clientY-r.top-14)+'px';
+    tip.style.opacity='1';
+    g._halo.setAttribute('opacity','.9');
+  }
+  function hideTip(){ tip.style.opacity='0'; NODES.forEach(function(n){nodeEls[n.id]._halo.setAttribute('opacity','0');}); }
+
+  /* specimen card */
+  var spec=document.getElementById('spec');
+  function openSpecimen(n){
+    document.getElementById('spName').textContent=LENS[lens].names[n.id]||n.custom||'a seed, unnamed';
+    document.getElementById('spLine').textContent=n.line||'Planted by a visitor’s hand. What it becomes is not decided here.';
+    document.getElementById('spCon').textContent=n.con||'silence until ready';
+    document.getElementById('spFail').textContent=n.fail||'0 — untested';
+    document.getElementById('spGrow').textContent=n.grow||'seed';
+    document.getElementById('spMat').textContent=n.seed?'intention':'prose · diagram';
+    spec.classList.add('show');
+  }
+  document.getElementById('spClose').addEventListener('click',function(){spec.classList.remove('show');});
+
+  /* lenses */
+  document.querySelectorAll('.lens').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.lens').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');});
+      b.classList.add('on'); b.setAttribute('aria-selected','true');
+      lens=b.dataset.lens;
+      var read=document.getElementById('lensRead');
+      read.style.opacity='0';
+      setTimeout(function(){ read.innerHTML=LENS[lens].read; read.style.opacity='1'; project(); },220);
+    });
+  });
+
+  /* plant a seed */
+  var seedBtn=document.getElementById('seedBtn');
+  seedBtn.addEventListener('click',function(){
+    armed=!armed; seedBtn.classList.toggle('arm',armed);
+    seedBtn.textContent=armed?'· touch the bench to plant ·':'+ plant a seed';
+  });
+  function plant(p){
+    armed=false; seedBtn.classList.remove('arm'); seedBtn.textContent='+ plant a seed';
+    seeds++;
+    var n={id:'seed'+seeds,x:p.x,y:p.y,hx:p.x,hy:p.y,vx:0,vy:0,r:12,grow:'seed',fail:'0 — untested',con:'silence until ready',seed:true,custom:'a seed · '+seeds};
+    NODES.push(n);
+    var g=el('g',{class:'node','data-id':n.id,cursor:'grab'});
+    var halo=el('circle',{r:26,fill:'url(#halo)',opacity:'0'});
+    var c=el('circle',{r:1,fill:'#fbf8ee',stroke:'#cf4a45','stroke-width':'1.3','stroke-dasharray':'2 3',filter:'url(#rough)'});
+    var label=el('text',{y:26,'text-anchor':'middle','font-family':'Fraunces,Georgia,serif','font-size':'10','font-style':'italic',fill:'#8d887c'});
+    label.textContent='a seed';
+    g.appendChild(halo);g.appendChild(c);g.appendChild(label);
+    g._n=n; g._label=label; g._halo=halo;
+    gN.appendChild(g); nodeEls[n.id]=g;
+    /* sprout */
+    var r0=1, target=12, t0=null;
+    function sprout(ts){ if(!t0)t0=ts; var k=Math.min(1,(ts-t0)/700);
+      c.setAttribute('r', 1+(target-1)*(1-Math.pow(1-k,3)) );
+      if(k<1) requestAnimationFrame(sprout);
+    }
+    if(reduced){ c.setAttribute('r',target); } else requestAnimationFrame(sprout);
+    project();
+  }
+
+  /* field cards on scroll */
+  var cards=document.querySelectorAll('.fcard');
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){
+    if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target);} });},{threshold:.25});
+  cards.forEach(function(c,i){ c.style.transitionDelay=(i*120)+'ms'; io.observe(c); });
+
+  /* G2 note: dwell would be instrumented here — holdout only, never CTR. */
+})();
+</script>
+</body>
+</html>
