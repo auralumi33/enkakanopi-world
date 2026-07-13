@@ -678,18 +678,20 @@ const graphId = `graph-${headingId}`;
     margin: 0.5rem 0 0; min-height: 2.4em;
   }
   .stage-wrap {
-    /* more breathing room at the borders (Rika, 2026-07-14 · bumped again
-       for a cleaner principal-designer read) — nodes were sitting right
-       up against the edge of the panel; padding insets the whole graph
-       (SVG + legend) without touching node-position math. */
-    position: relative; margin: 1.2rem 0 0.5rem; padding: 3rem;
+    /* three-tier padding (Rika, 2026-07-14 · "predominantly for desktop,
+       don't overdo mobile and tablet"): this bare rule is the TABLET
+       middle value (roughly 40rem–60rem) — the generous 3rem inset is
+       reserved for genuinely wide desktop viewports below; mobile stays
+       smaller still. Padding insets the whole graph (SVG + legend)
+       without touching node-position math. */
+    position: relative; margin: 1.2rem 0 0.5rem; padding: 1.75rem;
     border: 1px solid var(--paper-edge); border-radius: 12px;
     background: linear-gradient(180deg, var(--paper-deep), var(--paper) 72%);
     overflow: hidden;
   }
   .stage { display: block; width: 100%; height: auto; max-height: 34rem; touch-action: none; }
   .hint {
-    position: absolute; top: 3.6rem; left: 3.2rem; font-size: 0.68rem;
+    position: absolute; top: 2.35rem; left: 1.95rem; font-size: 0.68rem;
     color: var(--ink-faint); z-index: 3; pointer-events: none;
     transition: opacity 0.6s ease; margin: 0; letter-spacing: 0.01em;
   }
@@ -790,6 +792,13 @@ const graphId = `graph-${headingId}`;
      the wider viewBox actually reads as a bed rather than a cropped card. */
   @media (min-width: 56rem) {
     .stage-wrap { margin-left: -9rem; margin-right: -9rem; }
+  }
+  /* desktop tier: the full generous inset lives here and only here — a
+     laptop-or-wider viewport has room to spare, so this is where the
+     "few more inches" reading actually pays off. */
+  @media (min-width: 60rem) {
+    .stage-wrap { padding: 3rem; }
+    .hint { top: 3.6rem; left: 3.2rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .lens, .panel, .panel-item-pivot, .halo, .edge-label { transition: none; }
