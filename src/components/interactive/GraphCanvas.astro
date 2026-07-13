@@ -15,10 +15,10 @@
  *                 click an entry → pivot to see the terms it carries
  *                 (walking a citation graph)
  *
- * seijaku: the layout settles once, synchronously, before first paint —
- * nothing animates on load. Motion is a response to touch (drag), never
- * ambient, and self-terminates once velocities go quiet. Fully inert under
- * prefers-reduced-motion.
+ * The paper stays still: the layout settles once, synchronously, before
+ * first paint — nothing animates on load. Motion is a response to touch
+ * (drag), never ambient, and self-terminates once velocities go quiet.
+ * Fully inert under prefers-reduced-motion.
  *
  * illustrative: true suppresses every hard number — weight/count data
  * drives sizing only, never printed as a figure.
@@ -256,7 +256,7 @@ const graphId = `graph-${headingId}`;
       return moving;
     }
 
-    // Settle synchronously before first paint — seijaku: nothing animates on load.
+    // Settle synchronously before first paint — the paper stays still: nothing animates on load.
     for (let i = 0; i < 260; i++) physicsStep();
     project();
 

@@ -392,8 +392,7 @@ language, use the names:
   · **yugen** (subtle grace — paradox smiles hidden on close look)
   · **datsuzoku** (freedom — break strict convention with canonical
     pastels + English hand-labels)
-  · **seijaku** (tranquility — no animations on the hero; paper stays
-    still).
+  · **the paper stays still** (tranquility — no animations on the hero).
 - **theGraphCanvas** (2026-07-13 · ship-prompts Phase 0, Prompt S) — the
   one force-directed knowledge-map engine every interactive map on the
   site consumes, so no two maps can drift from each other. Ported and
@@ -408,7 +407,7 @@ language, use the names:
     stroke, craft nodes `--paper-washi` fill / `--canopy-soft` stroke,
     the poppy halo as the *one* focal signal (held to hover/focus,
     never ambient), hairline `--ink-faint` edges.
-  · **seijaku, applied to interaction** — the force layout settles
+  · **the paper stays still, applied to interaction** — the force layout settles
     synchronously before first paint (no rAF loop runs on load); motion
     is a response to touch (drag) and self-terminates once velocities
     go quiet. Fully inert under `prefers-reduced-motion` (dragging
