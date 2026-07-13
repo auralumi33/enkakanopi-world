@@ -29,6 +29,16 @@
   --canopy-deep:  #4f5b3f;   /* shadow side of a leaf */
   --canopy-soft:  #aeb896;   /* dappled edge */
 
+  /* — the pastel-leaf register (2026-07-14 · Rika: "lighter, more feminine
+     pastel" for the canopy hero + the ideas-map nodes) — a gentler, softer
+     step further than --canopy-soft, for illustrations that want the
+     garden to read as tended and mindful rather than mossy/structural.
+     Scoped to those two illustrations; --canopy* stay the structural
+     register everywhere else (type, glyphs, the nav wordmark). */
+  --leaf-pastel-1: #dcead0;  /* lightest — mint-cream */
+  --leaf-pastel-2: #c3dab0;  /* light pastel sage */
+  --leaf-pastel-3: #a6c98f;  /* a touch deeper, still gentle */
+
   /* — drawing-hand line weights (micron-pen idiom, §3) — */
   --w-spine:      1.5;       /* the load-bearing stroke */
   --w-block:      1.1;       /* box / node edges */

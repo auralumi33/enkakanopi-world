@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CanopyFromAbove from "../components/CanopyFromAbove.astro";
+import MaturityBud from "../components/motifs/MaturityBud.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
 import MoonCrescent from "../components/motifs/memoria/MoonCrescent.astro";
@@ -56,7 +57,25 @@ const rooms = [
       figcaption "keystone" and the .sub framing paragraph relocate to Zone 4
       as the deeper payoff, per the charter's own mapping — only ONE distilled
       clause from the keystone rides up top, reused verbatim, never authored. */}
-  <section class="page hero">
+  {/* Rika, 2026-07-14: open with the painted canopy first — the most
+      arresting thing on the page, no text ahead of it — then use the
+      original hero caption (tagline + H1 + hand-invitation) as a page
+      breaker right after, for narrative consistency (jo-ha-kyū: the
+      still image, then a human breath, then the map's own thesis). */}
+  <section class="page hero-image">
+    <div class="canopy-slot">
+      <CanopyFromAbove
+        rooms={rooms}
+        headingId="the-garden-from-above"
+        eyebrow="the living map"
+        heading="the garden, from above"
+        intro="Nine rooms grow from one crown — a living map, not a menu. Move over a leaf-mass to feel it stir."
+      />
+    </div>
+  </section>
+
+  {/* the page breaker — the original hero caption, verbatim */}
+  <section class="page hero-break" aria-label="A pause, in the garden's own voice">
     <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
     <div class="signature-garden">
       <div class="sprout" aria-hidden="true"><Bloom size={780} /></div>
@@ -77,18 +96,10 @@ const rooms = [
     </div>
 
     <p class="hand-invitation">nothing here asks you for anything</p>
+  </section>
 
-    {/* the painted canopy — the wayfinding + the 円 core (Charter §2 #1/#2) */}
-    <div class="canopy-slot">
-      <CanopyFromAbove
-        rooms={rooms}
-        headingId="the-garden-from-above"
-        eyebrow="the living map"
-        heading="the garden, from above"
-        intro="Nine rooms grow from one crown — a living map, not a menu. Move over a leaf-mass to feel it stir."
-      />
-    </div>
-
+  {/* the canopy's own continuing thesis — materiality + the Zone-1 heartbeat */}
+  <section class="page hero-close">
     {/* the materiality passage (Charter §2 #2 · verbatim from the study —
         this exact wording is the canon material named in the Charter/ship-
         prompt, not newly authored here). */}
@@ -117,6 +128,7 @@ const rooms = [
       headingId="the-gardens-ideas"
       heading="the garden's ideas, and how they hold together"
       intro="A living map of the named frameworks this garden tends, and the pieces that hold them. The full lexicon — every term, defined — is one click further."
+      animateNodes={true}
     />
     <p class="ideas-more"><a class="vol" href={base + "/lexicon"}><Glyph name="canopy" size={16} /> &nbsp;the full Lexicon →</a></p>
   </section>
@@ -181,48 +193,17 @@ const rooms = [
       </p>
       <ul class="stages">
         <li>
-          <span class="dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28">
-              <path d="M12 21 L 12 12" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-              <ellipse cx="9" cy="9" rx="3" ry="4.8" transform="rotate(-25 9 9)" fill="#e8c15a"/>
-              <ellipse cx="15" cy="9" rx="3" ry="4.8" transform="rotate(25 15 9)" fill="#e8c15a"/>
-              <path d="M10 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-            </svg>
-          </span>
+          <span class="dot" aria-hidden="true"><MaturityBud stage="seedling" /></span>
           <span class="s">seedling</span>
           <span class="d">just planted — tender, unsure, thinking out loud.</span>
         </li>
         <li>
-          <span class="dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28">
-              <path d="M12 21 L 12 11" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-              <g fill="#b899c9">
-                <ellipse cx="9" cy="8" rx="3" ry="4.8" transform="rotate(-25 9 8)"/>
-                <ellipse cx="15" cy="8" rx="3" ry="4.8" transform="rotate(25 15 8)"/>
-                <ellipse cx="12" cy="12" rx="3" ry="4.8"/>
-              </g>
-              <circle cx="12" cy="10" r="1.4" fill="#f7f2e7"/>
-              <path d="M10 15 L 12 14 M14 15 L 12 14" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-            </svg>
-          </span>
+          <span class="dot" aria-hidden="true"><MaturityBud stage="budding" /></span>
           <span class="s">budding</span>
           <span class="d">taking shape — the argument has a spine now.</span>
         </li>
         <li>
-          <span class="dot" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="28" height="28">
-              <path d="M12 21 L 12 14" stroke="#4f5b3f" stroke-width="1" stroke-linecap="round"/>
-              <g fill="#e46b6b">
-                <path d="M12 3 C 14.2 3.5, 14.6 7.4, 12 8.8 C 9.4 7.4, 9.8 3.5, 12 3 Z"/>
-                <path d="M17.5 5.5 C 19.5 8, 17.5 11.5, 14 10.6 C 12.4 8.5, 14.9 5, 17.5 5.5 Z"/>
-                <path d="M15.2 13 C 12.5 15.4, 8.8 14, 10 10.8 C 12.5 9.5, 15.7 10.5, 15.2 13 Z"/>
-                <path d="M6.5 12.5 C 4.5 10.2, 5.8 7.4, 8.4 8 C 10.5 8.7, 10 12.9, 6.5 12.5 Z"/>
-                <path d="M4.6 5.5 C 7.6 4.9, 10.4 7.3, 9 10.4 C 5.8 11, 3.4 7, 4.6 5.5 Z"/>
-              </g>
-              <path d="M12 8.5 C 11 7.5, 9 7.7, 9 9.3 C 9 10.8, 12 11.9, 12 11.9 C 12 11.9, 15 10.8, 15 9.3 C 15 7.7, 13 7.5, 12 8.5 Z" fill="#f7f2e7"/>
-              <path d="M10 17 L 12 16 M14 17 L 12 16" stroke="#4f5b3f" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-            </svg>
-          </span>
+          <span class="dot" aria-hidden="true"><MaturityBud stage="evergreen" /></span>
           <span class="s">evergreen</span>
           <span class="d">stands on its own — as settled as this garden gets.</span>
         </li>
@@ -234,9 +215,12 @@ const rooms = [
 </Base>
 
 <style>
-  /* the hero — indexed to the left, blooms sprouting from behind the h1. */
-  .hero { padding-top: 2.65rem; text-align: left; display: flex; flex-direction: column; align-items: flex-start; position: relative; }
-  .hero::before {
+  /* the hero, split in three (Rika, 2026-07-14): the painted canopy opens
+     bare, the original caption is a page breaker right after, then the
+     canopy's own thesis closes the sequence — indexed to the left, blooms
+     sprouting from behind the h1 in the breaker. */
+  .hero-image { padding-top: 1.8rem; position: relative; }
+  .hero-image::before {
     content: "";
     position: absolute;
     inset: -1rem -2rem -1rem -2rem;
@@ -245,9 +229,14 @@ const rooms = [
     z-index: -2;
     pointer-events: none;
   }
-  .hero > :not(.scene):not(.hero-figure):not(.canopy-slot) { margin-left: 1.4rem; }
+  .hero-break, .hero-close {
+    text-align: left; display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .hero-break { margin-top: 3.5rem; }
+  .hero-close { margin-top: 2.6rem; }
+  .hero-break > *, .hero-close > * { margin-left: 1.4rem; }
   @media (max-width: 46rem) {
-    .hero > :not(.scene):not(.hero-figure):not(.canopy-slot) { margin-left: 0; }
+    .hero-break > *, .hero-close > * { margin-left: 0; }
   }
   .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
@@ -315,9 +304,8 @@ const rooms = [
     color: #e46b6b; font-size: 0.82em;
   }
 
-  /* the canopy hero visual — full-bleed within the hero's measure */
-  .canopy-slot { margin: 2.6rem 0 0; max-width: 62rem; width: 100%; }
-  @media (max-width: 46rem) { .canopy-slot { margin-left: 0; } }
+  /* the canopy hero visual — opens the page, full-bleed within the measure */
+  .canopy-slot { margin: 0 auto; max-width: 62rem; width: 100%; }
 
   /* the materiality passage — the read-the-light framing beneath the map */
   .materiality {

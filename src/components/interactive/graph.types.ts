@@ -62,4 +62,13 @@ export interface MapConfig {
   intro?: string;
   /** Default label for an edge with no typed relation. */
   defaultRelation?: string;
+  /**
+   * Opt-in, per-mount only (default false/undefined — every existing
+   * consumer stays exactly as still as before). When true, soul-node buds
+   * carry a slow, gentle, continuous sway (Rika, 2026-07-14 — a second
+   * sanctioned exception to "the paper stays still", alongside the
+   * canopy hero's blossom). `prefers-reduced-motion` still kills it
+   * entirely; drag/physics behaviour is unchanged either way.
+   */
+  animateNodes?: boolean;
 }

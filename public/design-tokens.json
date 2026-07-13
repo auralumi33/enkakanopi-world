@@ -36,6 +36,11 @@
       "deep": { "$value": "#4f5b3f", "$type": "color", "$description": "Shadow side of a leaf" },
       "soft": { "$value": "#aeb896", "$type": "color", "$description": "Dappled edge" }
     },
+    "leafPastel": {
+      "1": { "$value": "#dcead0", "$type": "color", "$description": "Lightest — mint-cream. The canopy hero + ideas-map illustrations only; canopy.* stays structural elsewhere." },
+      "2": { "$value": "#c3dab0", "$type": "color", "$description": "Light pastel sage" },
+      "3": { "$value": "#a6c98f", "$type": "color", "$description": "A touch deeper, still gentle" }
+    },
     "growth": {
       "seedling":  { "$value": "#8a9a5b", "$type": "color", "$description": "Essay stage: just planted, tender" },
       "budding":   { "$value": "#c48a3f", "$type": "color", "$description": "Essay stage: taking shape" },
