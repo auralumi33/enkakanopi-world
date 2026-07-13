@@ -141,6 +141,13 @@ const graphId = `graph-${headingId}`;
     const cfg: GConfig = JSON.parse(raw);
     const base = root.dataset.base ?? "";
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Rika (2026-07-14): "the nodes itself" bigger too, not just the label
+    // text — mobile only, Studio's map only (same scoping as the CSS label/
+    // mark bump below; Lexicon's much denser graph would just overlap more
+    // if every node grew). Evaluated once at load, same pattern as `reduced`
+    // above — this component doesn't re-run on viewport resize.
+    const studioMobileBoost =
+      root.id === "the-map-of-the-one-idea" && window.matchMedia("(max-width: 40rem)").matches ? 1.5 : 1;
 
     const VB = { w: 1120, h: 480 };
     const maxNodeWeight = Math.max(1, ...cfg.nodes.map((n) => n.weight ?? 1));
@@ -152,7 +159,7 @@ const graphId = `graph-${headingId}`;
       const x = VB.w / 2 + Math.cos(ang) * rad;
       const y = VB.h / 2 + Math.sin(ang) * rad;
       // Dainty scale: small blooms in a wide bed, not the earlier heavier stones.
-      const r = 13 + ((n.weight ?? 1) / maxNodeWeight) * 9;
+      const r = (13 + ((n.weight ?? 1) / maxNodeWeight) * 9) * studioMobileBoost;
       return { ...n, x, y, hx: x, hy: y, vx: 0, vy: 0, r };
     });
     const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -798,6 +805,43 @@ const graphId = `graph-${headingId}`;
        bigger label without collisions; Lexicon's isn't. */
     :global(#the-map-of-the-one-idea .node-label) { font-size: 22px; }
     :global(#the-map-of-the-one-idea .node-mark) { font-size: 15px; }
+  }
+  /* Follow-up (Rika, 2026-07-14): still not readable enough, and asked for
+     the nodes/labels bigger still, with the hint + legend (the text "we can
+     shrink") moved down and out of the way so the graph reads as most of
+     the card — Studio-scoped throughout, same reasoning as above. */
+  @media (max-width: 40rem) {
+    #the-map-of-the-one-idea .stage-wrap { padding-top: 1rem; }
+    /* base .stage rule is height:auto (aspect-ratio-driven from the fixed
+       1120×480 viewBox) — at a ~290px-wide mobile card that computes to
+       only ~125px tall, regardless of max-height. An explicit height
+       overrides that so the graph section actually claims roughly 2/3 of
+       the card (Rika's ask); preserveAspectRatio="xMidYMid meet" centres
+       the (width-limited) content within the extra room rather than
+       cropping or distorting it. */
+    #the-map-of-the-one-idea .stage { height: 14rem; max-height: none; }
+    /* The hint used to float (position:absolute) over the top of the graph,
+       which collided with the topmost node once the label text became
+       legible. Rather than hand-tune another absolute offset against the
+       legend (which sits immediately after the SVG in flow, leaving zero
+       gap to slot a second absolutely-positioned block into), reflow the
+       stack instead: .stage-wrap becomes a column flexbox and the hint
+       drops out of `position:absolute` into normal flow, ordered after the
+       graph and before the legend — both now read as the card's "small
+       print", stacked below it, with no manual offset to keep in sync as
+       either block's height changes. */
+    #the-map-of-the-one-idea .stage-wrap { display: flex; flex-direction: column; }
+    #the-map-of-the-one-idea .stage { order: 1; }
+    #the-map-of-the-one-idea .hint {
+      order: 2; position: static; margin: 0.6rem 0 0;
+      font-size: 0.6rem; line-height: 1.35;
+    }
+    #the-map-of-the-one-idea .legend {
+      order: 3; font-size: 0.58rem; padding: 0.3rem 0 0; gap: 0 0.7rem;
+    }
+    /* labels + marks a further notch up from the first pass (22px/15px) */
+    :global(#the-map-of-the-one-idea .node-label) { font-size: 28px; }
+    :global(#the-map-of-the-one-idea .node-mark) { font-size: 18px; }
   }
   /* the expansive-bed breakout: on genuinely wide viewports the stage (not
      the heading/intro prose) spans past the article's reading measure, so
