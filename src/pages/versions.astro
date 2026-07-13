@@ -7,6 +7,7 @@ import DiaMerging from "../components/diagrams/DiaMerging.astro";
 import DiaTwoVerdicts from "../components/diagrams/DiaTwoVerdicts.astro";
 import Glyph from "../components/Glyph.astro";
 import MotifBraidedSeam from "../components/motifs/MotifBraidedSeam.astro";
+import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
 import PanelDoors, { type Panel } from "../components/PanelDoors.astro";
 
 // The four seams — companion essays that trace what this meditation names.
@@ -235,6 +236,21 @@ const doors: Panel[] = [
         <text font-family="var(--hand)" x="100" y="196" text-anchor="middle" font-size="9.5" font-style="italic" fill="var(--ink-soft)" opacity="0.62">rhyming, not resolving</text>
       </svg>
     </PanelDoors>
+
+    {/* relocated from the homepage's closing Zone 4 (2026-07-14, sixth pass):
+        this line's own "convoy of selves" / sailing imagery is already
+        native to this page's voice, so it settles here — as a quiet
+        closing note, not a repeated hero. Wording unchanged from its
+        original home. */}
+    <p class="closing-note">
+      Our machines will outremember us, outdo us — maybe outlast us. A life,
+      though — brief, and bright while it lasts — is theirs to admire, never
+      to hand to us. That stays ours: breath to air, weight to lightness;
+      a small convoy of selves
+      <span class="doodle" role="img" aria-label="with patience between the hulls"><MotifTwoHulls size={30} /></span>
+      ,
+      <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
+    </p>
   </article>
 </Base>
 <style>
@@ -251,4 +267,17 @@ const doors: Panel[] = [
   /* braided seam — the traffic between the versions (SUCCESSION §19); restrained one-mark foot */
   .braid { display: flex; justify-content: center; margin: 2.4rem 0 0; opacity: 0.94; }
   .braid :global(svg) { max-width: 100%; height: auto; }
+
+  /* the closing note — minimal subtext relocated from the homepage's Zone 4
+     (2026-07-14, sixth pass): small, quiet, no hero-scale treatment. */
+  .closing-note {
+    font-family: var(--serif); font-style: italic; font-size: 0.92rem;
+    line-height: 1.6; color: var(--ink-soft); text-align: center;
+    max-width: 42rem; margin: 3rem auto 0;
+  }
+  .closing-note .doodle {
+    display: inline-block; vertical-align: middle; line-height: 0; margin: 0 0.15em;
+  }
+  .closing-note .doodle :global(svg) { display: inline-block; vertical-align: middle; }
+  .closing-note .accent { color: #e46b6b; font-style: normal; font-size: 0.94em; }
 </style>
