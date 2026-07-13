@@ -1,7 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
 import CanopyFromAbove from "../components/CanopyFromAbove.astro";
-import MotifTreeFriend from "../components/motifs/MotifTreeFriend.astro";
 import MaturityBud from "../components/motifs/MaturityBud.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
@@ -53,27 +52,13 @@ const rooms = [
 ---
 <Base title="Enka Kanopi">
   {/* ZONE 1 — the painted canopy hero (Charter §3 Zone 1 · rule-7 hero lane).
-      The H1 signature stays here (the page's real heading; rule 7 protects
-      its words, not its position, but nothing here asks it to move). The
-      figcaption "keystone" and the .sub framing paragraph relocate to Zone 4
-      as the deeper payoff, per the charter's own mapping — only ONE distilled
-      clause from the keystone rides up top, reused verbatim, never authored. */}
-  {/* Rika, 2026-07-14: open with the painted canopy first — the most
-      arresting thing on the page, no text ahead of it — then use the
-      original hero caption (tagline + H1 + hand-invitation) as a page
-      breaker right after, for narrative consistency (jo-ha-kyū: the
-      still image, then a human breath, then the map's own thesis). */}
-  <section class="page hero-image">
-    {/* a small arrival beat right above the reveal (Rika, 2026-07-14):
-        "is that tree your friend?" — looking up into a canopy, in the
-        same pastel/sway register as the big map below, so the two read
-        as one visual family rather than two different treatments. */}
-    <div class="tree-teaser"><MotifTreeFriend size={150} /></div>
-    {/* PROPOSED · ratify — eyebrow is Rika's exact dictated text (the study's
-        own eyebrow, minus "a home study"); the intro is drafted closely from
-        her own words in chat (the "curated space of thought" framing + her
-        named interdisciplinary draw), not independently authored. Hers to
-        edit or ratify. */}
+      Rika, 2026-07-14 (third pass): re-flowed to match canopy-home-map.html's
+      own storytelling order exactly — canopy (with its embedded ensō) →
+      tagline → H1 → lede → the materiality passage — as one continuous,
+      centred sequence (the study's own treatment; not left-indented). The
+      tree-friend teaser is removed from here (moved to /volume-i) so the
+      canopy opens the page with nothing above it. */}
+  <section class="page hero">
     <div class="canopy-slot">
       <CanopyFromAbove
         rooms={rooms}
@@ -83,10 +68,7 @@ const rooms = [
         intro="A curated space of thought — drawn to systems, visual art, research, and experimental craft; learning, every day. Nine rooms grow from one crown, a living map, not a menu — move over a leaf-mass to feel it stir."
       />
     </div>
-  </section>
 
-  {/* the page breaker — the original hero caption, verbatim */}
-  <section class="page hero-break" aria-label="A pause, in the garden's own voice">
     <p class="eyebrow kicker"><Glyph name="light" size={17} /> &nbsp;writing on the edge of the self</p>
     <div class="signature-garden">
       <div class="sprout" aria-hidden="true"><Bloom size={780} /></div>
@@ -107,10 +89,17 @@ const rooms = [
     </div>
 
     <p class="hand-invitation">nothing here asks you for anything</p>
-  </section>
 
-  {/* the canopy's own continuing thesis — materiality + the Zone-1 heartbeat */}
-  <section class="page hero-close">
+    {/* the lede — moved up from Zone 4 (Rika, 2026-07-14): this is exactly
+        where the study's own lede sits, right after the H1. */}
+    <p class="sub">
+      Essays on identity, memory, and the tender work of rebuilding in the age of AI —
+      making &amp; honouring the craft on light feet
+      <span class="doodle" role="img" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
+      ; holding on, letting go, loving anyway.
+    </p>
+    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
+
     {/* the materiality passage (Charter §2 #2 · verbatim from the study —
         this exact wording is the canon material named in the Charter/ship-
         prompt, not newly authored here). */}
@@ -171,19 +160,11 @@ const rooms = [
   </section>
 
   {/* ZONE 4 — the keystone, the deeper payoff (Charter §3 Zone 4). The full
-      poetic keystone (unchanged words), the framing .sub paragraph and its
-      loose motifs (CloudDancer, TwoHulls, the memoria peppers — Charter's
-      own "sub-surface" mapping sends them here), growth-stages, and the
-      correspondence-rail line, relocated from the hero rather than duplicated. */}
+      poetic keystone (unchanged words) and its loose motif (TwoHulls, the
+      memoria peppers), growth-stages, and the correspondence-rail line.
+      The .sub lede + pepper-moon moved back up to the hero (Rika,
+      2026-07-14 third pass) to match the study's own order. */}
   <section class="page payoff" aria-label="The deeper payoff">
-    <p class="sub">
-      Essays on identity, memory, and the tender work of rebuilding in the age of AI —
-      making &amp; honouring the craft on light feet
-      <span class="doodle" role="img" aria-label="dancing under the weight of the clouds"><MotifCloudDancer size={40} /></span>
-      ; holding on, letting go, loving anyway.
-    </p>
-    <p class="pepper pepper-moon" aria-hidden="true"><MoonCrescent size={38} /></p>
-
     <figure class="hero-figure">
       <figcaption class="keystone">
         Our machines will outremember us, outdo us — maybe outlast us. A life,
@@ -229,13 +210,12 @@ const rooms = [
 </Base>
 
 <style>
-  /* the hero, split in three (Rika, 2026-07-14): the painted canopy opens
-     bare, the original caption is a page breaker right after, then the
-     canopy's own thesis closes the sequence — indexed to the left, blooms
-     sprouting from behind the h1 in the breaker. */
-  .hero-image { padding-top: 1.8rem; position: relative; }
-  .tree-teaser { display: flex; justify-content: center; margin: 0 0 0.6rem; }
-  .hero-image::before {
+  /* the hero — one continuous, centred sequence matching canopy-home-map.html's
+     own order (Rika, 2026-07-14, third pass): canopy (embedded ensō) →
+     tagline → H1 → lede → the materiality passage. Centred throughout — the
+     study's own treatment — not left-indented. */
+  .hero { padding-top: 1.8rem; position: relative; text-align: center; }
+  .hero::before {
     content: "";
     position: absolute;
     inset: -1rem -2rem -1rem -2rem;
@@ -244,14 +224,11 @@ const rooms = [
     z-index: -2;
     pointer-events: none;
   }
-  .hero-break, .hero-close {
-    text-align: left; display: flex; flex-direction: column; align-items: flex-start;
-  }
-  .hero-break { margin-top: 3.5rem; }
-  .hero-close { margin-top: 2.6rem; }
-  .hero-break > *, .hero-close > * { margin-left: 1.4rem; }
-  @media (max-width: 46rem) {
-    .hero-break > *, .hero-close > * { margin-left: 0; }
+  /* the sitewide `p { max-width: var(--measure) }` rule caps each of these
+     below the hero's full width; margin: auto centres that capped box
+     itself (the same fix as the canopy's own fine print). */
+  .hero > p, .hero > .signature-garden, .hero > .signature-notch {
+    margin-left: auto; margin-right: auto;
   }
   .kicker { display: inline-flex; align-items: center; }
   .signature-garden {
@@ -260,7 +237,7 @@ const rooms = [
     display: block;
     width: fit-content;
     max-width: 100%;
-    margin: 5.5rem 0 0;
+    margin-top: 2.2rem;
     padding: 2rem 0 1.4rem;
   }
   .signature-garden .sprout {
@@ -277,13 +254,13 @@ const rooms = [
     z-index: 1;
     font-weight: 520; font-style: italic;
     font-size: clamp(1.88rem, 5.5vw, 2.72rem); line-height: 1.28;
-    letter-spacing: -0.022em; max-width: 42rem; margin: 0;
-    text-wrap: balance; text-align: left;
+    letter-spacing: -0.022em; max-width: 42rem; margin: 0 auto;
+    text-wrap: balance; text-align: center;
   }
   @media (min-width: 60rem) {
     .signature { font-size: clamp(2.32rem, 6.4vw, 3.7rem); max-width: 58rem; }
   }
-  .signature-notch { display: block; margin: 0.9rem 0 0; opacity: 0.72; }
+  .signature-notch { display: block; width: fit-content; margin-top: 0.9rem; opacity: 0.72; }
   .signature-notch svg { display: block; }
 
   .hand-invitation {
@@ -291,7 +268,7 @@ const rooms = [
     font-size: 1.05rem;
     color: var(--ink-soft);
     line-height: 1.4;
-    margin: 0.9rem 0 0;
+    margin-top: 0.9rem;
     max-width: 42ch;
     letter-spacing: 0.005em;
     opacity: 0.92;
@@ -326,7 +303,7 @@ const rooms = [
   .materiality {
     font-family: var(--serif); font-style: italic;
     font-size: clamp(0.98rem, 1.8vw, 1.12rem); line-height: 1.7;
-    max-width: 56rem; margin: 1.8rem 0 0; color: var(--ink-soft); text-align: left;
+    max-width: 56rem; margin-top: 1.8rem; color: var(--ink-soft); text-align: center;
   }
   .materiality b { font-weight: 500; font-style: normal; color: var(--ink); }
 
@@ -334,7 +311,7 @@ const rooms = [
   .up-top {
     font-family: var(--serif); font-style: italic;
     font-size: clamp(1rem, 2vw, 1.16rem); line-height: 1.6;
-    max-width: 46rem; margin: 1.4rem 0 0; color: var(--ink);
+    max-width: 46rem; margin-top: 1.4rem; color: var(--ink); text-align: center;
   }
   .up-top .accent { color: #e46b6b; font-style: normal; font-size: 0.96em; }
   .proposed-tag {
@@ -372,7 +349,10 @@ const rooms = [
     display: inline-block; vertical-align: middle;
   }
   .pepper { margin: 0; line-height: 0; opacity: 0.94; }
-  .pepper-moon { text-align: right; margin: 0.6rem 1.4rem 0 0; }
+  /* the moon sits in the hero now (Rika, 2026-07-14 third pass) — its box
+     centres like every other hero paragraph; text-align:right keeps the
+     moon itself toward that centred box's own right edge. */
+  .pepper-moon { text-align: right; margin: 0.6rem auto 0; }
   .pepper-vine { display: flex; justify-content: center; margin: 3rem 0 0; opacity: 0.88; }
   .pepper-vine :global(svg) { max-width: 100%; height: auto; }
   .pepper-heart { text-align: right; margin: 0.6rem 0.4rem 0 0; }
@@ -396,8 +376,8 @@ const rooms = [
   .ideas-more .vol { margin-top: 0; }
 
   .sub {
-    max-width: 62ch; margin: 0; color: var(--ink-soft);
-    font-size: 1.02rem; text-align: left; line-height: 1.65;
+    max-width: 62ch; margin-top: 1.4rem; color: var(--ink-soft);
+    font-size: 1.02rem; text-align: center; line-height: 1.65;
   }
   @media (min-width: 60rem) {
     .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
