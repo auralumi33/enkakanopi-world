@@ -38,6 +38,38 @@ Rika writes    scans the edge     structures,     keeps voice &      in the gard
 The chain is surfaced on the site itself, lightly, in the footer — the machine
 made visible, its internals kept private.
 
+## Reading the light — the design's own signals
+
+The visual system is a set of signals the reader learns to read, not
+decoration: the maturity glyphs, the four fixed hues, the small hand-drawn
+marks that reward a second look. This owes a debt to Tanizaki's *In Praise of
+Shadows* and to the idea that meaning can live in what's withheld as much as
+in what's shown — an empty room can mean something, if the light falling
+through it is designed on purpose. A surface here is meant to hold up for
+three readers at once: the person just reading, a design-literate eye that
+knows the reference and can spot a cliché, and the source the reference is
+drawn from, honoured rather than borrowed as costume. The paper stays light
+in every case, and nothing here is decoration for its own sake — if a mark
+doesn't carry meaning, it doesn't ship.
+
+## The homepage — lead with the map, land on the keystone
+
+The front page is paced in three beats: a still, wide arrival (the whole
+garden, seen from above, as a wayfinding map — the widest view first, not
+buried under introduction); a build (the ideas and how they connect to each
+other); and a close (the keystone line, landed as a considered payoff rather
+than the opening line). The hero itself is under change control rather than
+frozen solid: its wording is locked to Rika's own hand and never edited by
+an assist, but its position and composition can be deliberately recomposed —
+always as a single, serial, before/after-reviewed change, never as a side
+effect of unrelated work.
+
+**The paper stays still.** No animation plays on the hero, and reduced-motion
+is always honoured. The one narrow exception is a single, slow, barely-there
+bloom drifting across the garden-from-above view — a small nod to the idea
+that a thing can be beautiful partly because it doesn't last — which
+disappears entirely under reduced-motion and never sits behind any text.
+
 ## Growth stages (not dates)
 
 Pieces are organised by **maturity**, never chronology:
