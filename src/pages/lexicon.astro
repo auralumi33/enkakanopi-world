@@ -59,6 +59,10 @@ const ldTerms = {
       </div>
     </header>
 
+    <GraphCanvas {...lexiconConfig} />
+
+    <p class="eyebrow section-turn">the full lexicon, one by one</p>
+
     <div class="doors">
       <PanelDoors
         panels={doors}
@@ -180,8 +184,6 @@ const ldTerms = {
     <div class="seed" aria-hidden="true">
       <MotifCitationSeed size={420} />
     </div>
-
-    <GraphCanvas {...lexiconConfig} />
   </article>
   <script type="application/ld+json" set:html={JSON.stringify(ldTerms)} />
 </Base>
@@ -191,6 +193,9 @@ const ldTerms = {
   .bloom { margin-bottom: 0.8rem; }
   .head .eyebrow { display: flex; align-items: center; }
   .head h1 { margin-top: 0.6rem; }
+  /* the reading-map now leads (2026-07-13 IA reorder); this label marks the
+     turn from map-overview into the full term-by-term detail below it. */
+  .section-turn { margin: 3.2rem 0 0.6rem; }
   .dek { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
   /* word-plot intro visual (SUCCESSION §19) — the vocabulary as a plot of plants */
   .plot { display: flex; justify-content: center; margin: 1.4rem 0 0; opacity: 0.94; }
