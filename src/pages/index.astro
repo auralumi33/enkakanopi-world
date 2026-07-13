@@ -153,14 +153,11 @@ const rooms = [
         centre, the many kept, the tender kept.
       </p>
 
-      {/* Zone-1 heartbeat (Charter §3): one distilled clause, reused verbatim
-          from the keystone right below — PROPOSED, Rika's to ratify or
-          redline; not authored here. */}
-      <p class="up-top">
-        <span class="proposed-tag">PROPOSED · ratify</span>
-        a small convoy of selves, <span class="accent">sailing deep water we&rsquo;ve stopped asking to be still.</span>
-      </p>
-
+      {/* Rika, 2026-07-14 (fifth pass): the Zone-1 heartbeat clause removed
+          entirely — now that the identity block sits right before the
+          keystone figcaption, the clause was repeating the keystone's own
+          closing line a few lines later. Stripped for a cleaner read; the
+          keystone below still carries it, once, in full. */}
       <a class="vol" href={base + "/volume-i"}><Glyph name="canopy" size={16} /> &nbsp;Volume I · In Formation</a>
     </div>
 
@@ -307,19 +304,6 @@ const rooms = [
     max-width: 56rem; margin-top: 1.8rem; color: var(--ink-soft); text-align: center;
   }
   .materiality b { font-weight: 500; font-style: normal; color: var(--ink); }
-
-  /* Zone-1 heartbeat — one distilled clause, quiet, clearly marked PROPOSED */
-  .up-top {
-    font-family: var(--serif); font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.16rem); line-height: 1.6;
-    max-width: 46rem; margin-top: 1.4rem; color: var(--ink); text-align: center;
-  }
-  .up-top .accent { color: #e46b6b; font-style: normal; font-size: 0.96em; }
-  .proposed-tag {
-    display: block; font-family: var(--sans); font-style: normal;
-    font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-faint); margin-bottom: 0.35rem;
-  }
 
   .scene { margin: 0; max-width: 60rem; width: 100%; }
   .hero-figure {
