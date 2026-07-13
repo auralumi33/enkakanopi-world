@@ -394,6 +394,51 @@ language, use the names:
     pastels + English hand-labels)
   · **seijaku** (tranquility — no animations on the hero; paper stays
     still).
+- **theGraphCanvas** (2026-07-13 · ship-prompts Phase 0, Prompt S) — the
+  one force-directed knowledge-map engine every interactive map on the
+  site consumes, so no two maps can drift from each other. Ported and
+  merged from the two GARDEN-SCULPT reference studies
+  (`touchable-workbench-study.html` + `canopy-memory-study.html`) into
+  `src/components/interactive/GraphCanvas.astro` + `graph.types.ts`. A
+  single typed `MapConfig` prop contract (`nodes`, `edges`, optional
+  `entries`/`lenses`, `panel: "specimen" | "bookmarks"`, `illustrative`,
+  `headingId`/`heading`/`intro`) — leaf callers supply data + copy only;
+  the engine owns every visual and interaction rule:
+  · **token palette** — soul nodes `--canopy` fill / `--canopy-deep`
+    stroke, craft nodes `--paper-washi` fill / `--canopy-soft` stroke,
+    the poppy halo as the *one* focal signal (held to hover/focus,
+    never ambient), hairline `--ink-faint` edges.
+  · **seijaku, applied to interaction** — the force layout settles
+    synchronously before first paint (no rAF loop runs on load); motion
+    is a response to touch (drag) and self-terminates once velocities
+    go quiet. Fully inert under `prefers-reduced-motion` (dragging
+    still repositions the node; nothing else animates).
+  · **gifts, not gates** — hover gives a one-breath blurb; click opens
+    a **specimen** panel (material · constraint · tally · maturity —
+    Workbench-style, one thing examined closely) or a **bookmarks**
+    panel (definition + the real entries that hold it; click an entry
+    to pivot and see its own terms light up — Lexicon-style, walking a
+    citation graph). Nothing is gated behind an email or a click-quota.
+  · **typed edges** — an edge may carry a `relation` verb (e.g.
+    *shelters*, *re-reads*); absent a specific reading, the engine
+    falls back to a generic default (`"appears with"`) rather than
+    inventing one. Labels surface on edge hover and when a focused
+    node/entry's highlighted set is small enough to read cleanly.
+  · **illustrative discipline** — `illustrative: true` lets
+    weight/count data drive node radius and edge thickness, but the
+    engine never prints a hard number; it shows the qualifying line
+    *"an illustrative sketch, not a measurement"* instead.
+  · **full keyboard path** — every node is `tabindex="0" role="button"`
+    with arrow-key traversal, Enter/Space to open, Escape to close;
+    opening a panel moves focus into it (the close button), closing
+    returns focus to the node that opened it. No `role="img"` on the
+    interactive `<svg>` itself (it has focusable descendants); an
+    `aria-label` + `<title>` carry the accessible name instead.
+  · **one canvas, many callers** — one `<script>` per component
+    instance, keyed by `data-graph-id`/`data-config` on the root
+    section, so a page can host more than one map without collision.
+  Zero npm dependencies; no network calls; no browser storage. See also
+  **theLexiconMap** below for the first live consumer.
 
 ## The panel language (the door grammar)
 
