@@ -6,10 +6,10 @@ import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astr
 import MotifWorkbench from "../components/motifs/MotifWorkbench.astro";
 import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
 import TheFirstApproximation from "../components/motifs/memoria/TheFirstApproximation.astro";
-import MotifTallyMark from "../components/motifs/MotifTallyMark.astro";
-import MotifApprenticeBench from "../components/motifs/MotifApprenticeBench.astro";
 import VineTrail from "../components/motifs/memoria/VineTrail.astro";
 import PanelDoors, { type Panel } from "../components/PanelDoors.astro";
+import GraphCanvas from "../components/interactive/GraphCanvas.astro";
+import { workbenchConfig } from "../components/interactive/workbench.config";
 
 // The studio's arrival doors — one per shipped wall-piece, in sumi-e register
 // (2026-07-11 · panel-language extension). The doors sit above the wall so the
@@ -67,6 +67,13 @@ const pieces = await Promise.all(
     </div>
     <p class="eyebrow"><Glyph name="compass" size={18} /> &nbsp;the studio wall</p>
     <h1>The Studio</h1>
+
+    {/* the one-idea map, moved here from the Workbench (Rika, 2026-07-14) —
+        "the container beneath the craft" already speaks the Studio's own
+        register (material · constraint · tally is this room's specimen
+        panel too). Config/engine unchanged; only the mount moved. */}
+    <GraphCanvas {...workbenchConfig} />
+
     <p class="lede">
       The making, shown — each piece hangs with its working note: material,
       constraint, tally.

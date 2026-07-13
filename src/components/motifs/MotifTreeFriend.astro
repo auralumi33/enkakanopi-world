@@ -40,20 +40,24 @@ const height = Math.round(size * 1.05);
     <path d="M 110 92 C 124 76, 138 58, 148 42"
       stroke="var(--ink-soft)" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.6"/>
 
-    {/* — the foliage · seven soft leaf clusters in canopy + canopy-soft — */}
-    <ellipse cx="58" cy="82" rx="22" ry="14" transform="rotate(-14 58 82)" fill="var(--canopy-soft)" opacity="0.5"
+    {/* — the foliage · seven soft leaf clusters, the pastel register (Rika,
+        2026-07-14) — same tones + gentle sway as the canopy hero's leaf-
+        masses and the ideas-map's buds, so all three read as one visual
+        family. The tree's shape is unchanged; only the ink lightens and
+        each cluster gets its own slow, phase-offset rotation. */}
+    <ellipse class="tf-leaf" data-sway="0" cx="58" cy="82" rx="22" ry="14" transform="rotate(-14 58 82)" fill="var(--leaf-pastel-2)" opacity="0.6"
       stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-    <ellipse cx="88" cy="46" rx="20" ry="13" transform="rotate(-6 88 46)" fill="var(--canopy)" opacity="0.4"
+    <ellipse class="tf-leaf" data-sway="1" cx="88" cy="46" rx="20" ry="13" transform="rotate(-6 88 46)" fill="var(--leaf-pastel-3)" opacity="0.5"
       stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-    <ellipse cx="118" cy="34" rx="22" ry="14" transform="rotate(4 118 34)" fill="var(--canopy-soft)" opacity="0.55"
+    <ellipse class="tf-leaf" data-sway="2" cx="118" cy="34" rx="22" ry="14" transform="rotate(4 118 34)" fill="var(--leaf-pastel-1)" opacity="0.65"
       stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-    <ellipse cx="150" cy="46" rx="20" ry="13" transform="rotate(10 150 46)" fill="var(--canopy)" opacity="0.4"
+    <ellipse class="tf-leaf" data-sway="3" cx="150" cy="46" rx="20" ry="13" transform="rotate(10 150 46)" fill="var(--leaf-pastel-3)" opacity="0.5"
       stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-    <ellipse cx="176" cy="76" rx="22" ry="14" transform="rotate(16 176 76)" fill="var(--canopy-soft)" opacity="0.5"
+    <ellipse class="tf-leaf" data-sway="4" cx="176" cy="76" rx="22" ry="14" transform="rotate(16 176 76)" fill="var(--leaf-pastel-2)" opacity="0.6"
       stroke="var(--ink-soft)" stroke-width="0.4" stroke-linejoin="round"/>
-    <ellipse cx="76" cy="112" rx="18" ry="12" transform="rotate(-18 76 112)" fill="var(--canopy-soft)" opacity="0.35"
+    <ellipse class="tf-leaf" data-sway="5" cx="76" cy="112" rx="18" ry="12" transform="rotate(-18 76 112)" fill="var(--leaf-pastel-1)" opacity="0.45"
       stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
-    <ellipse cx="148" cy="112" rx="18" ry="12" transform="rotate(18 148 112)" fill="var(--canopy-soft)" opacity="0.35"
+    <ellipse class="tf-leaf" data-sway="6" cx="148" cy="112" rx="18" ry="12" transform="rotate(18 148 112)" fill="var(--leaf-pastel-1)" opacity="0.45"
       stroke="var(--ink-soft)" stroke-width="0.35" stroke-linejoin="round"/>
 
     {/* — dappled sun · four canonical pastels · sun-through-leaves — */}
@@ -95,6 +99,29 @@ const height = Math.round(size * 1.05);
     <text class="tree-caption" x="110" y="228" text-anchor="middle" font-size="9" fill="var(--ink-faint)" font-style="italic" opacity="0.72">is that tree your friend?</text>
   </svg>
 </figure>
+<script>
+  // the second sanctioned "paper stays still" exception, applied here too
+  // (Rika, 2026-07-14) — each leaf cluster gets a slow, gentle, phase-
+  // offset sway, matching the canopy hero + the ideas-map's buds. Fully
+  // static under prefers-reduced-motion: the loop is never started.
+  (function () {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    document.querySelectorAll<SVGEllipseElement>(".tf-leaf").forEach((leaf) => {
+      const i = Number(leaf.dataset.sway ?? "0");
+      const amp = (0.8 + (i % 3) * 0.3).toFixed(2);
+      const dur = (8 + i * 1.1).toFixed(1);
+      const anim = document.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+      anim.setAttribute("attributeName", "transform");
+      anim.setAttribute("type", "rotate");
+      anim.setAttribute("additive", "sum");
+      anim.setAttribute("values", `0 0 0; ${amp} 0 0; 0 0 0; -${amp} 0 0; 0 0 0`);
+      anim.setAttribute("dur", `${dur}s`);
+      anim.setAttribute("repeatCount", "indefinite");
+      leaf.appendChild(anim);
+    });
+  })();
+</script>
 <style>
   .motif--tree-friend { margin: 0; display: flex; justify-content: center; opacity: 0.94; }
   .motif--tree-friend :global(svg) { max-width: 100%; height: auto; display: block; }

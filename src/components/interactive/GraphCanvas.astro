@@ -20,6 +20,13 @@
  * (drag), never ambient, and self-terminates once velocities go quiet.
  * Fully inert under prefers-reduced-motion.
  *
+ * The one opt-in exception (`animateNodes`, default off — 2026-07-14):
+ * a mount may ask for a slow, gentle, continuous sway on its soul-node
+ * buds ("potting little plants" — Rika's own words). Off by default so
+ * every existing mount (Workbench, Lexicon) stays exactly as still as
+ * before; only a mount that explicitly sets it gets the second sanctioned
+ * motion exception, alongside the canopy hero's blossom.
+ *
  * illustrative: true suppresses every hard number — weight/count data
  * drives sizing only, never printed as a figure.
  *
@@ -38,13 +45,14 @@ const {
   heading,
   intro,
   defaultRelation = "appears with",
+  animateNodes = false,
 } = Astro.props as MapConfig;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const hasStages = nodes.some((n) => n.stage);
 const stageGlyph: Record<string, string> = { seedling: "•", budding: "••", evergreen: "•••" };
 
-const config = { nodes, edges, entries, lenses, panel, illustrative, defaultRelation };
+const config = { nodes, edges, entries, lenses, panel, illustrative, defaultRelation, animateNodes };
 const configJson = JSON.stringify(config);
 const graphId = `graph-${headingId}`;
 ---
@@ -116,6 +124,7 @@ const graphId = `graph-${headingId}`;
     panel: "specimen" | "bookmarks";
     illustrative: boolean;
     defaultRelation: string;
+    animateNodes: boolean;
   }
 
   const STAGE_GLYPH: Record<string, string> = { seedling: "•", budding: "••", evergreen: "•••" };
@@ -181,15 +190,42 @@ const graphId = `graph-${headingId}`;
     });
 
     // ---------- nodes ----------
-    const nodeEls = new Map<string, { g: SVGGElement; halo: SVGCircleElement; circle: SVGCircleElement; label: SVGTextElement }>();
-    nodes.forEach((n) => {
+    // deterministic pseudo-random (no Math.random drift across re-renders)
+    let seed = 20260714;
+    function rnd() {
+      seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+      return seed / 0x7fffffff;
+    }
+
+    // a small bud silhouette for soul nodes — "the individual green
+    // coloured dots" (Rika, 2026-07-14), replacing the plain circle.
+    // Craft nodes stay a plain circle (they were never the green ones).
+    function budVisual(r: number): SVGGElement {
+      const g = el("g", { class: "node-soul" });
+      const tones = ["var(--leaf-pastel-2)", "var(--leaf-pastel-1)", "var(--leaf-pastel-3)"];
+      const lobes = 3;
+      for (let k = 0; k < lobes; k++) {
+        const a = (-90 + k * (360 / lobes)) * (Math.PI / 180);
+        const lr = r * 0.62;
+        const lx = Math.cos(a) * lr * 0.4, ly = Math.sin(a) * lr * 0.4;
+        g.appendChild(el("ellipse", {
+          cx: lx.toFixed(1), cy: ly.toFixed(1), rx: (r * 0.62).toFixed(1), ry: (r * 0.5).toFixed(1),
+          fill: tones[k % tones.length],
+          transform: `rotate(${(k * (360 / lobes)).toFixed(0)} ${lx.toFixed(1)} ${ly.toFixed(1)})`,
+        }));
+      }
+      g.appendChild(el("circle", { r: (r * 0.22).toFixed(1), fill: "var(--paper-washi)", opacity: "0.8" }));
+      return g;
+    }
+
+    const nodeEls = new Map<string, { g: SVGGElement; halo: SVGCircleElement; visual: SVGElement; label: SVGTextElement }>();
+    nodes.forEach((n, i) => {
       const g = el("g", { class: "node", tabindex: "0", role: "button", "aria-label": `${labelFor(n)} — open its ${cfg.panel === "specimen" ? "specimen" : "bookmarks"}` });
       const halo = el("circle", { r: String(n.r + 7), class: "halo", opacity: "0" });
       const isSoul = n.kind === "soul";
-      const circle = el("circle", {
-        r: String(n.r),
-        class: isSoul ? "node-soul" : "node-craft",
-      });
+      const visual: SVGElement = isSoul
+        ? budVisual(n.r)
+        : el("circle", { r: String(n.r), class: "node-craft" });
       const label = el("text", { y: String(n.r + 15), "text-anchor": "middle", class: "node-label" });
       label.textContent = labelFor(n);
       const glyph = n.stage ? STAGE_GLYPH[n.stage] : "";
@@ -199,11 +235,25 @@ const graphId = `graph-${headingId}`;
         markEl.textContent = glyph;
       }
       g.appendChild(halo);
-      g.appendChild(circle);
+      g.appendChild(visual);
       if (markEl) g.appendChild(markEl);
       g.appendChild(label);
+
+      // the second sanctioned "paper stays still" exception — opt-in only
+      // (MapConfig.animateNodes), gentle, continuous, phase-offset per
+      // node, and never started at all under prefers-reduced-motion.
+      if (isSoul && cfg.animateNodes && !reduced) {
+        const amp = (0.8 + rnd() * 0.6).toFixed(2);
+        const dur = (7 + (i % 5) * 1.1 + rnd() * 2).toFixed(1);
+        visual.appendChild(el("animateTransform", {
+          attributeName: "transform", type: "rotate", additive: "sum",
+          values: `0 0 0; ${amp} 0 0; 0 0 0; -${amp} 0 0; 0 0 0`,
+          dur: `${dur}s`, repeatCount: "indefinite",
+        }));
+      }
+
       gNodes.appendChild(g);
-      nodeEls.set(n.id, { g, halo, circle, label });
+      nodeEls.set(n.id, { g, halo, visual, label });
     });
 
     function project() {
@@ -642,17 +692,16 @@ const graphId = `graph-${headingId}`;
     letter-spacing: 0.02em;
   }
   .legend .dot { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: 0.35rem; vertical-align: middle; }
-  .dot-soul { background: var(--canopy-soft); border: 1px solid var(--canopy); }
-  .dot-craft { background: var(--paper-washi); border: 1px solid var(--canopy-soft); }
+  .dot-soul { background: var(--leaf-pastel-3); border: 1px solid var(--leaf-pastel-2); }
+  .dot-craft { background: var(--paper-washi); border: 1px solid var(--leaf-pastel-2); }
   .legend .illus { font-style: italic; }
   :global(.node) { cursor: grab; }
   :global(.node:active) { cursor: grabbing; }
-  /* Dainty pass (2026-07-13): lighter fills one step up the existing canopy
-     scale + the drawing-hand's thinnest weight, for small, soft blooms
-     rather than heavier stones. Still only the two established tokens per
-     kind — no colours invented. */
-  :global(.node-soul) { fill: var(--canopy-soft); stroke: var(--canopy); stroke-width: var(--w-hair); }
-  :global(.node-craft) { fill: var(--paper-washi); stroke: var(--canopy-soft); stroke-width: var(--w-hair); }
+  /* Pastel-bud pass (2026-07-14 · Rika: "lighter, more feminine pastel" +
+     "replace the dots with floral buds"): soul nodes are a small bud
+     shape built from --leaf-pastel-*; craft nodes stay a plain circle
+     (they were never the green ones) with a matching softer stroke. */
+  :global(.node-craft) { fill: var(--paper-washi); stroke: var(--leaf-pastel-2); stroke-width: var(--w-hair); }
   :global(.node-label) {
     font-family: var(--display); font-style: italic; font-size: 10px;
     fill: var(--ink); pointer-events: none;
