@@ -863,8 +863,8 @@ composition read as *ruler lines* — retire them.
   dry-brush tail. Promoted to DESIGN-SYSTEM.md.
 - **The seven wabi-sabi principles as named policy** (§38 · shipped
   4.0-4.8) — fukinsei · kanso · koko · shizen · yugen · datsuzoku ·
-  seijaku each applied to specific compositional choices in the
-  CanopyScene. Documented in the enka-design-language SKILL as the
+  the paper stays still — each applied to specific compositional choices
+  in the CanopyScene. Documented in the enka-design-language SKILL as the
   register discipline for sumi-e-register scenes. Promoted to
   DESIGN-SYSTEM.md.
 
@@ -884,7 +884,7 @@ composition read as *ruler lines* — retire them.
 - **The "add scatter to fill" instinct** (§38 · slice-4.4) — when a
   composition feels empty, adding small decorative dots or flowers to
   fill it. Fix: usually the composition doesn't need filling; empty
-  space is register-carrying (kanso · seijaku).
+  space is register-carrying (kanso · the paper stays still).
 - **The unilateral OR-choice** (§38 · slice-3.9) — when a brief offers
   a choice ("move OR remove"), unilaterally picking the more
   destructive option. Fix: preview both routes with the human before
