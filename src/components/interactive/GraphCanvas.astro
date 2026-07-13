@@ -678,17 +678,18 @@ const graphId = `graph-${headingId}`;
     margin: 0.5rem 0 0; min-height: 2.4em;
   }
   .stage-wrap {
-    /* more breathing room at the borders (Rika, 2026-07-14) — nodes were
-       sitting right up against the edge of the panel; padding insets the
-       whole graph (SVG + legend) without touching node-position math. */
-    position: relative; margin: 1.2rem 0 0.5rem; padding: 1.75rem;
+    /* more breathing room at the borders (Rika, 2026-07-14 · bumped again
+       for a cleaner principal-designer read) — nodes were sitting right
+       up against the edge of the panel; padding insets the whole graph
+       (SVG + legend) without touching node-position math. */
+    position: relative; margin: 1.2rem 0 0.5rem; padding: 3rem;
     border: 1px solid var(--paper-edge); border-radius: 12px;
     background: linear-gradient(180deg, var(--paper-deep), var(--paper) 72%);
     overflow: hidden;
   }
   .stage { display: block; width: 100%; height: auto; max-height: 34rem; touch-action: none; }
   .hint {
-    position: absolute; top: 2.35rem; left: 1.95rem; font-size: 0.68rem;
+    position: absolute; top: 3.6rem; left: 3.2rem; font-size: 0.68rem;
     color: var(--ink-faint); z-index: 3; pointer-events: none;
     transition: opacity 0.6s ease; margin: 0; letter-spacing: 0.01em;
   }
@@ -779,6 +780,10 @@ const graphId = `graph-${headingId}`;
   @media (max-width: 40rem) {
     .stage { max-height: 26rem; }
     .gc-panel { left: 0.8rem; right: 0.8rem; width: auto; max-width: none; }
+    /* 3rem a side would eat too much of a narrow screen — a smaller but
+       still real inset here. */
+    .stage-wrap { padding: 1.4rem; }
+    .hint { top: 2rem; left: 1.55rem; }
   }
   /* the expansive-bed breakout: on genuinely wide viewports the stage (not
      the heading/intro prose) spans past the article's reading measure, so
