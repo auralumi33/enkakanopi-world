@@ -287,6 +287,12 @@ const showSignature = signature && (row === "all" || row === rows);
     font-size: 0.7rem;
     margin-top: 0.35rem;
   }
+  /* Rika (2026-07-13): drop the kanji/hue-name top line on Nursery's seed-bed
+     panels, at every width (not just mobile) — role + drawing only, a
+     tighter, more minimal clickable card. The kanji/hue pairing still carries
+     the accessible name's colour-independent signal via the <a>'s aria-label
+     (role — cta), so this is a purely visual simplification. */
+  .botanical-panels--seedbed .panel-label { display: none; }
   .botanical-panels > figcaption {
     font-family: var(--hand);
     font-size: 0.85rem;

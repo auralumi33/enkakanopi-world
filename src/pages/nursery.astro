@@ -193,12 +193,12 @@ const beds = [
   </div>
 </Base>
 <style>
-  /* the nursery's lower light — a full-bleed wash; the paper stays warm */
+  /* 2026-07-13 (Rika): dropped the distinct "lower light" wash + hairline
+     borders — Nursery now reads as one flat paper top-to-bottom, standardised
+     to Studio's plain background instead of its own tinted band. .dim kept as
+     a class name (existing markup/tests may reference it) but it's now a
+     no-op wrapper; only the padding rhythm remains. */
   .dim {
-    background: var(--paper-dim);
-    border-top: 0.7px solid var(--paper-edge);
-    border-bottom: 0.7px solid var(--paper-edge);
-    margin-top: -1px;
     padding: 0.5rem 0 3.5rem;
   }
 
