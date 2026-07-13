@@ -13,11 +13,9 @@ interface Props {
   tended?: string;
   breath?: string;
   // farewell — an optional hand-written goodbye at the door, rendered in the
-  // .end footer above the "more from …" link. Layout support only for now:
-  // the essay schema in content.config.ts doesn't carry this field yet (that
-  // file has its own owner today; the Zod schema strips unknown frontmatter
-  // keys, so the field must be added there before pages can thread it through).
-  // Rika hand-writes the farewells — never generate one.
+  // .end footer above the "more from …" link. Present on the essay schema
+  // (content.config.ts) and threaded through every [slug].astro page; still
+  // unset on every essay by default — Rika hand-writes each farewell.
   farewell?: string;
   // seal — the maker's-mark closing (G4). Off by default; one piece at a time
   // earns the mark. When true, the essay foot renders the poppy-red wax press
@@ -28,6 +26,12 @@ interface Props {
   backHref: string;
   backLabel: string;
   description?: string;
+  // Machine-mirror only — populated ONLY where the essay's prose already names
+  // the source. citations → BlogPosting.citation (papers, books, scholarly
+  // works). mentionsWorks → BlogPosting.mentions (a work referenced but not
+  // the subject of the essay). No rendered surface for either.
+  citations?: { name: string; work?: string; url?: string }[];
+  mentionsWorks?: { name: string; creator?: string }[];
   // ─── Editorial anchor discipline (codified 2026-07-08 · SUCCESSION §31,
   //     applies to every essay authored via this layout; enforced at
   //     authorship time, no build-time linter exists yet):
@@ -51,7 +55,7 @@ interface Props {
   //
   //   Full rationale + evolving-decisions log lives in DESIGN-NOTES.md.
 }
-const { title, dek, status = "in formation · v0", glyph = "seam", stage = "seedling", tended, breath, farewell, seal = false, backHref, backLabel, description } = Astro.props;
+const { title, dek, status = "in formation · v0", glyph = "seam", stage = "seedling", tended, breath, farewell, seal = false, backHref, backLabel, description, citations, mentionsWorks } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 
@@ -70,6 +74,28 @@ const aboutIds = (termAnchorsByHref[`/${essayPath}`] ?? []).map(
 );
 
 const rika = { "@type": "Person", name: "Fang Rika", alternateName: "Rika Fang", "@id": "https://www.enkakanopi.world/#rika" };
+
+// citations → schema.org citation (CreativeWork the essay references at
+// scholarly-source strength: papers, books). One entry per source the essay
+// names in its own prose. Anthropic is treated as an Organization author;
+// everything else is a Person.
+const citationLd = (citations ?? []).map((c) => {
+  const author = { "@type": c.name === "Anthropic" ? "Organization" : "Person", name: c.name };
+  return {
+    "@type": "CreativeWork",
+    name: c.work ?? c.name,
+    ...(c.work && { author }),
+    ...(c.url && { url: c.url }),
+  };
+});
+
+// mentionsWorks → schema.org mentions (a work referenced but not the subject).
+const mentionsLd = (mentionsWorks ?? []).map((m) => ({
+  "@type": "CreativeWork",
+  name: m.name,
+  ...(m.creator && { creator: { "@type": "Person", name: m.creator } }),
+}));
+
 const ldArticle = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -80,8 +106,24 @@ const ldArticle = {
   publisher: rika,
   ...(essayDates && { datePublished: essayDates.published, dateModified: essayDates.modified }),
   ...(aboutIds.length > 0 && { about: aboutIds.map((id) => ({ "@id": id })) }),
+  ...(citationLd.length > 0 && { citation: citationLd }),
+  ...(mentionsLd.length > 0 && { mentions: mentionsLd }),
   ...(breath && { abstract: breath }),
   isPartOf: { "@type": "Blog", name: `Enka Kanopi · ${backLabel}` },
+};
+
+// BreadcrumbList JSON-LD — home → collection → essay. Machine-mirror only;
+// the rendered breadcrumb is the small "← {backLabel}" link at page head.
+const siteHref = Astro.site ? Astro.site.href.replace(/\/$/, "") : "https://www.enkakanopi.world";
+const collectionHref = `${siteHref}${backHref}`;
+const ldBreadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Enka Kanopi", item: siteHref + "/" },
+    { "@type": "ListItem", position: 2, name: backLabel, item: collectionHref },
+    ...(canonical ? [{ "@type": "ListItem", position: 3, name: title, item: canonical }] : []),
+  ],
 };
 ---
 <Base title={title} description={description ?? dek}>
@@ -140,6 +182,7 @@ const ldArticle = {
     </footer>
   </article>
   <script type="application/ld+json" set:html={JSON.stringify(ldArticle)} />
+  <script type="application/ld+json" set:html={JSON.stringify(ldBreadcrumbs)} />
 </Base>
 <style>
   .essay { max-width: 46rem; padding-top: 0.5rem; }

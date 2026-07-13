@@ -16,6 +16,18 @@ const essay = z.object({
   breath: z.string().optional(),   // "in one breath" — the liftable thesis, in the essay's own words
   farewell: z.string().optional(), // a handwritten goodbye at the door — Rika's hand only, never generated
   seal: z.boolean().optional(),    // maker's-mark seal at essay foot — opt-in, one piece at a time
+  // machine-mirror only (JSON-LD substrate; no rendered surface).
+  // populate ONLY when the essay's prose already names the source —
+  // frontmatter mirrors what the body says, never introduces it.
+  citations: z.array(z.object({    // works the essay references (papers, books)
+    name: z.string(),              // creator / author / entity being cited
+    work: z.string().optional(),   // the specific work title, if the essay names it
+    url: z.string().url().optional(),
+  })).optional(),
+  mentionsWorks: z.array(z.object({ // works the essay mentions but is not "about"
+    name: z.string(),              // the work's name
+    creator: z.string().optional(),
+  })).optional(),
 });
 
 // The nursery — pre-essay fragments, caught before they are essays. The

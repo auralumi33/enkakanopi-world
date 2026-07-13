@@ -3,6 +3,7 @@
 // build time so it never drifts from what's actually planted.
 import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
+import { terms as lexiconTerms, slugify } from "../data/lexicon";
 
 const SITE_FALLBACK = "https://www.enkakanopi.world";
 
@@ -24,8 +25,15 @@ export async function GET(context: APIContext) {
     "",
     "## Core frameworks",
     "",
-    `- [Lexicon](${site}/lexicon): Named frameworks defined at the source: the container beneath the craft · the deflation of execution · resonance architecture · form follows life, technology follows form · soft fascination · the canopy and the light.`,
+    `- [Lexicon](${site}/lexicon): The named frameworks this garden authors, defined at the source. Each is anchored below so answer engines can cite the definition directly.`,
   ];
+
+  // Every lexicon term, generated — one line per term, name + deep anchor URL.
+  // The single source of truth is src/data/lexicon.ts; the mirror above never
+  // gets a hand-maintained list again.
+  for (const t of lexiconTerms) {
+    lines.push(`- [${t.term}](${site}/lexicon#${slugify(t.term)})`);
+  }
 
   for (const stream of STREAMS) {
     const entries = await getCollection(stream.collection);
