@@ -147,6 +147,15 @@ const graphId = `graph-${headingId}`;
     });
     const byId = new Map(nodes.map((n) => [n.id, n]));
 
+    // The active lens changes what a node is CALLED everywhere — the SVG
+    // label, the hover tip, and the specimen/bookmarks panel alike — not
+    // just the graph face. cfg.lenses[0] is the default active lens.
+    let activeLensKey: string | null = cfg.lenses?.[0]?.key ?? null;
+    function labelFor(n: GNode): string {
+      const lens = activeLensKey ? cfg.lenses?.find((l) => l.key === activeLensKey) : undefined;
+      return lens?.relabel?.[n.id] ?? n.label;
+    }
+
     const svg = root.querySelector<SVGSVGElement>('[data-role="svg"]')!;
     const gEdges = root.querySelector<SVGGElement>('[data-role="edges"]')!;
     const gNodes = root.querySelector<SVGGElement>('[data-role="nodes"]')!;
@@ -168,7 +177,7 @@ const graphId = `graph-${headingId}`;
     // ---------- nodes ----------
     const nodeEls = new Map<string, { g: SVGGElement; halo: SVGCircleElement; circle: SVGCircleElement; label: SVGTextElement }>();
     nodes.forEach((n) => {
-      const g = el("g", { class: "node", tabindex: "0", role: "button", "aria-label": `${n.label} — open its ${cfg.panel === "specimen" ? "specimen" : "bookmarks"}` });
+      const g = el("g", { class: "node", tabindex: "0", role: "button", "aria-label": `${labelFor(n)} — open its ${cfg.panel === "specimen" ? "specimen" : "bookmarks"}` });
       const halo = el("circle", { r: String(n.r + 10), class: "halo", opacity: "0" });
       const isSoul = n.kind === "soul";
       const circle = el("circle", {
@@ -176,7 +185,7 @@ const graphId = `graph-${headingId}`;
         class: isSoul ? "node-soul" : "node-craft",
       });
       const label = el("text", { y: String(n.r + 15), "text-anchor": "middle", class: "node-label" });
-      label.textContent = n.label;
+      label.textContent = labelFor(n);
       const glyph = n.stage ? STAGE_GLYPH[n.stage] : "";
       let markEl: SVGTextElement | null = null;
       if (glyph) {
@@ -322,7 +331,7 @@ const graphId = `graph-${headingId}`;
 
     function showTip(n: GNode, e: PointerEvent) {
       tip.querySelector('[data-role="tip-k"]')!.textContent = "in one breath";
-      tip.querySelector('[data-role="tip-n"]')!.textContent = n.label;
+      tip.querySelector('[data-role="tip-n"]')!.textContent = labelFor(n);
       tip.querySelector('[data-role="tip-b"]')!.textContent = n.blurb;
       const r = root.querySelector('[data-role="stage-wrap"]')!.getBoundingClientRect();
       tip.style.left = Math.min(r.width - 260, Math.max(8, e.clientX - r.left + 14)) + "px";
@@ -398,7 +407,7 @@ const graphId = `graph-${headingId}`;
     // ---------- panel: specimen ----------
     function openSpecimen(n: GNode) {
       panelEl.querySelector('[data-role="panel-k"]')!.textContent = "specimen";
-      panelEl.querySelector('[data-role="panel-n"]')!.textContent = n.label;
+      panelEl.querySelector('[data-role="panel-n"]')!.textContent = labelFor(n);
       panelEl.querySelector('[data-role="panel-b"]')!.textContent = n.blurb;
       const meta = panelEl.querySelector('[data-role="panel-meta"]')!;
       meta.innerHTML = "";
@@ -424,7 +433,7 @@ const graphId = `graph-${headingId}`;
     // ---------- panel: bookmarks ----------
     function openBookmarkNode(n: GNode) {
       panelEl.querySelector('[data-role="panel-k"]')!.textContent = "term";
-      panelEl.querySelector('[data-role="panel-n"]')!.textContent = n.label;
+      panelEl.querySelector('[data-role="panel-n"]')!.textContent = labelFor(n);
       panelEl.querySelector('[data-role="panel-b"]')!.textContent = n.blurb;
       panelEl.querySelector('[data-role="panel-meta"]')!.innerHTML = "";
       const list = cfg.entries.filter((en) => en.nodeIds.includes(n.id));
@@ -484,7 +493,7 @@ const graphId = `graph-${headingId}`;
         const btn = document.createElement("button");
         btn.className = "panel-item-pivot";
         btn.type = "button";
-        btn.textContent = n.label;
+        btn.textContent = labelFor(n);
         btn.addEventListener("click", () => openBookmarkNode(n));
         row.appendChild(btn);
         L.appendChild(row);
@@ -538,10 +547,13 @@ const graphId = `graph-${headingId}`;
           btn.setAttribute("aria-selected", "true");
           const lens = cfg.lenses!.find((l) => l.key === btn.dataset.lens);
           if (!lens) return;
+          activeLensKey = lens.key;
           lensRead.textContent = lens.read;
           nodes.forEach((n) => {
-            const relabel = lens.relabel?.[n.id];
-            if (relabel) nodeEls.get(n.id)!.label.textContent = relabel;
+            const els = nodeEls.get(n.id)!;
+            const current = labelFor(n);
+            els.label.textContent = current;
+            els.g.setAttribute("aria-label", `${current} — open its ${cfg.panel === "specimen" ? "specimen" : "bookmarks"}`);
           });
         });
       });

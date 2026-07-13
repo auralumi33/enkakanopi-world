@@ -452,8 +452,29 @@ language, use the names:
   untyped edges fall back to `theGraphCanvas`'s generic default rather
   than invent a reading. Most terms currently stand alone — an honestly
   sparse graph, in the site's own SLOT/nursery tradition, not a bug to
-  paper over with invented links. Mounted below the Lexicon's existing
-  content in `src/pages/lexicon.astro`.
+  paper over with invented links. Mounted right after the arrival doors
+  in `src/pages/lexicon.astro` — the map leads, the full definitions
+  list follows, not the other way round (2026-07-13 · placement
+  revised so the map is the page's early draw, not a buried afterthought).
+- **theWorkbenchMap** (2026-07-13 · ship-prompts Phase 1, Prompt A) — the
+  Workbench's one-idea map: six facets of the container thesis (*the
+  container* · *a self in motion* · *the craft that deflates* · *what
+  appreciates* · *the open question* · *the seam*), re-read through three
+  lenses (`the artist` · `the builder` · `the researcher`) that relabel
+  the same six nodes rather than drawing a different graph per lens.
+  `src/components/interactive/workbench.config.ts` — names, lens
+  readings, and relabels ported verbatim from the conceptual canon in
+  `GARDEN-SCULPT/touchable-workbench-study.html`; no new terms coined.
+  `panel: "specimen"` (material · constraint · tally · maturity, honest
+  or absent per node — never a fabricated count). `illustrative: true`.
+  Mounted right after the hub doors in `src/pages/workbench/index.astro`,
+  before the essay listing — the map is the room's early draw.
+  Building this surfaced a real gap in `theGraphCanvas` itself: a lens's
+  relabel only touched the SVG face, not the specimen panel, the hover
+  tip, or a node's aria-label — so a node opened under a relabeling
+  lens still titled its specimen with the base name. Fixed once in the
+  engine (`labelFor()`, a single resolver every label read now goes
+  through) rather than worked around per caller.
 
 ## The panel language (the door grammar)
 
