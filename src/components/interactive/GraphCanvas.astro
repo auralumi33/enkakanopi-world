@@ -591,22 +591,34 @@ const graphId = `graph-${headingId}`;
     max-width: var(--measure);
     margin: 0 0 1.2rem;
   }
+  /* Lens prominence pass (2026-07-13): the lens IS an identity the reader
+     tries on — the artist / the builder / the researcher — so the switcher
+     reads as a real choice, not a footnote. Bigger targets, a tab-like
+     bottom rule to separate it from the prose above, and an active state
+     that lifts (canopy-deep + a soft shadow) rather than just inverting to
+     flat ink. Still only the established canopy family — no new colour. */
   .lens-rail {
-    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
-    margin: 1rem 0 0.4rem;
+    display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap;
+    margin: 1.4rem 0 0.7rem; padding-bottom: 0.7rem;
+    border-bottom: 1.5px solid var(--paper-edge);
   }
   .lens-lbl {
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--ink-faint); margin-right: 0.2rem;
+    font-size: 0.64rem; letter-spacing: 0.17em; text-transform: uppercase;
+    color: var(--ink-faint); margin-right: 0.3rem;
   }
   .lens {
-    font-family: var(--display); font-size: 0.85rem; font-style: italic;
-    color: var(--ink-soft); background: transparent; border: 1px solid var(--paper-edge);
-    border-radius: 999px; padding: 0.35rem 0.9rem; cursor: pointer;
-    transition: all 0.3s ease;
+    font-family: var(--display); font-size: 0.98rem; font-style: italic;
+    font-weight: 500; color: var(--ink-soft); background: var(--paper-washi);
+    border: 1.5px solid var(--paper-edge);
+    border-radius: 999px; padding: 0.58rem 1.35rem; cursor: pointer;
+    transition: all 0.25s ease;
   }
-  .lens:hover { border-color: var(--canopy-soft); color: var(--canopy-deep); }
-  .lens.on { background: var(--ink); color: var(--paper); border-color: var(--ink); font-style: normal; }
+  .lens:hover { border-color: var(--canopy); color: var(--canopy-deep); background: var(--paper-deep); }
+  .lens.on {
+    background: var(--canopy-deep); color: var(--paper-washi); border-color: var(--canopy-deep);
+    font-style: normal; font-weight: 600;
+    box-shadow: 0 3px 10px rgba(79, 91, 63, 0.22);
+  }
   .lens-read {
     font-size: 0.82rem; color: var(--ink-soft); max-width: var(--measure);
     margin: 0.5rem 0 0; min-height: 2.4em;
