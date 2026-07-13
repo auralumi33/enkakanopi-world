@@ -126,6 +126,18 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
   </div>
   <p class="core-caption">円 · the container and the light</p>
 
+  {/* The fine print (Rika, 2026-07-14): ported from the study's own footer,
+      composed entirely of phrases already canonical elsewhere on the site
+      (ChainStrip.astro / colophon.astro / nursery.astro / this page's own
+      hand-invitation) — nothing newly authored. Per her constraints: no
+      "a home study · Charts & Crafts" branding; "a study, not the shipped
+      home" becomes "a study in the age of artificial memory". */}
+  <p class="fine-print">
+    <em>Assisted, never authored. Nothing is published without her yes.</em><br />
+    The canopy holds without fixing · tended, not timestamped · nothing here asks you for anything.<br />
+    a view from above · a study in the age of artificial memory
+  </p>
+
   {/* Hidden bud templates — the one source of the maturity glyphs (shared
       with the growth-stages list) is MaturityBud.astro; the client script
       below clones the matching stage as a nested <svg> per room, instead
@@ -388,6 +400,14 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
     text-align: center; font-family: var(--display); font-style: italic;
     font-size: 0.9rem; color: var(--ink-soft); margin: 0.6rem 0 0;
   }
+  .fine-print {
+    /* ink-soft, not ink-faint — ink-faint fails AA at this size (the same
+       fix already established for .band-side elsewhere on the site). */
+    text-align: center; font-family: var(--sans); font-size: 0.66rem;
+    letter-spacing: 0.02em; color: var(--ink-soft); line-height: 1.7;
+    margin: 1rem 0 0; opacity: 0.85;
+  }
+  .fine-print em { font-style: italic; }
 
   .leaf-tip {
     position: absolute; z-index: 8; pointer-events: none; opacity: 0;

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CanopyFromAbove from "../components/CanopyFromAbove.astro";
+import MotifTreeFriend from "../components/motifs/MotifTreeFriend.astro";
 import MaturityBud from "../components/motifs/MaturityBud.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
@@ -63,13 +64,23 @@ const rooms = [
       breaker right after, for narrative consistency (jo-ha-kyū: the
       still image, then a human breath, then the map's own thesis). */}
   <section class="page hero-image">
+    {/* a small arrival beat right above the reveal (Rika, 2026-07-14):
+        "is that tree your friend?" — looking up into a canopy, in the
+        same pastel/sway register as the big map below, so the two read
+        as one visual family rather than two different treatments. */}
+    <div class="tree-teaser"><MotifTreeFriend size={150} /></div>
+    {/* PROPOSED · ratify — eyebrow is Rika's exact dictated text (the study's
+        own eyebrow, minus "a home study"); the intro is drafted closely from
+        her own words in chat (the "curated space of thought" framing + her
+        named interdisciplinary draw), not independently authored. Hers to
+        edit or ratify. */}
     <div class="canopy-slot">
       <CanopyFromAbove
         rooms={rooms}
         headingId="the-garden-from-above"
-        eyebrow="the living map"
+        eyebrow="enka kanopi · a view from above"
         heading="the garden, from above"
-        intro="Nine rooms grow from one crown — a living map, not a menu. Move over a leaf-mass to feel it stir."
+        intro="A curated space of thought — drawn to systems, visual art, research, and experimental craft; learning, every day. Nine rooms grow from one crown, a living map, not a menu — move over a leaf-mass to feel it stir."
       />
     </div>
   </section>
@@ -139,17 +150,20 @@ const rooms = [
   <section class="page surfaces" aria-label="The surfaces — nine rooms, one garden">
     <p class="eyebrow">the surfaces</p>
     <h2 class="surfaces-h">nine rooms, one garden</h2>
+    {/* card design ported from GARDEN-SCULPT/canopy-home-map.html's
+        "nine rooms, one garden" cards (Rika, 2026-07-14): numbered index,
+        a left-border accent keyed to the room's own maturity token, and
+        the "maturity · **stage**" line — no new colours, no fabricated
+        accent per room (the accent IS the existing growth-stage token). */}
     <ul class="grid rooms">
-      {rooms.map((r) => (
+      {rooms.map((r, i) => (
         <li class="room">
-          <a href={r.href} aria-label={`${r.name} — ${r.register}. ${r.blurb}`}>
-            <span class="g"><Glyph name={r.glyph} size={26} /></span>
-            <span class="txt">
-              <span class="name">{r.name}</span>
-              <span class="reg">{r.register}</span>
-              <span class="line">{r.blurb}</span>
-            </span>
-            <span class="mat" aria-hidden="true">{r.maturity === "seedling" ? "•" : r.maturity === "budding" ? "••" : "•••"}</span>
+          <a class="card" style={`--accent: var(--${r.maturity})`} href={r.href} aria-label={`${r.name} — ${r.register}. ${r.blurb}`}>
+            <span class="idx">{String(i + 1).padStart(2, "0")} · from above</span>
+            <span class="reg">{r.register}</span>
+            <span class="name"><Glyph name={r.glyph} size={19} /> {r.name}</span>
+            <span class="line">{r.blurb}</span>
+            <span class="mat">maturity · <b>{r.maturity}</b></span>
           </a>
         </li>
       ))}
@@ -220,6 +234,7 @@ const rooms = [
      canopy's own thesis closes the sequence — indexed to the left, blooms
      sprouting from behind the h1 in the breaker. */
   .hero-image { padding-top: 1.8rem; position: relative; }
+  .tree-teaser { display: flex; justify-content: center; margin: 0 0 0.6rem; }
   .hero-image::before {
     content: "";
     position: absolute;
@@ -388,27 +403,39 @@ const rooms = [
     .sub { max-width: 52rem; font-size: 1.14rem; line-height: 1.7; }
   }
 
-  /* the surfaces — nine rooms, one garden. Same card grammar as the old
-     floor-plan (paper-deep bg, hairline paper-edge border, 5px radius,
-     coral hover) so nothing in the visual language drifts. */
+  /* the surfaces — nine rooms, one garden. Card design ported from the
+     canopy-home-map study (Rika, 2026-07-14): numbered index, a left-
+     border accent keyed to each room's own maturity token, refined
+     shadow-lift on hover. */
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
   @media (min-width: 44rem) { .grid.rooms { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 68rem) { .grid.rooms { grid-template-columns: repeat(3, 1fr); } }
   .grid > .room { display: flex; }
-  .grid a {
-    display: grid; grid-template-columns: auto 1fr auto; align-items: start;
-    gap: 1rem; text-decoration: none; width: 100%;
-    background: var(--paper-deep); border: 1.1px solid var(--paper-edge);
-    border-radius: 5px; padding: 1.15rem 1.3rem;
-    transition: border-color 0.15s ease, transform 0.15s ease;
+  .grid a.card {
+    position: relative; display: flex; flex-direction: column; gap: 0.4rem;
+    width: 100%; text-decoration: none; overflow: hidden;
+    background: var(--paper); border: 1px solid var(--paper-edge); border-radius: 13px;
+    padding: 1.3rem 1.4rem 1.15rem;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   }
-  .grid a:hover, .grid a:focus-visible { border-color: #e46b6b; transform: translateY(-2px); }
-  .grid .g { line-height: 0; color: var(--canopy-deep); margin-top: 0.15rem; }
-  .grid .name { display: block; font-size: 1.08rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.3; font-family: var(--display); font-style: italic; }
-  .grid .reg { display: block; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--canopy-deep); margin-top: 0.3rem; }
-  .grid .line { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.4rem; line-height: 1.55; }
-  .grid .mat { color: var(--canopy-soft); font-size: 0.85rem; margin-top: 0.2rem; letter-spacing: 0.05em; }
-  @media (max-width: 32rem) { .grid .name { font-size: 1.12rem; } .grid .line { font-size: 0.95rem; } }
+  .grid a.card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--accent, var(--canopy)); opacity: 0.75;
+  }
+  .grid a.card:hover, .grid a.card:focus-visible {
+    transform: translateY(-3px); box-shadow: 0 14px 32px rgba(70, 60, 35, 0.1); border-color: var(--canopy-soft);
+  }
+  /* text stays a fixed, AA-safe tone regardless of maturity — only the
+     left-border bar (decorative, not text) carries the per-room accent.
+     --seedling on --paper fails small-text contrast; ink-faint does too
+     (the same fix this codebase already made once for .band-side). */
+  .grid .idx { font-family: var(--display); font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+  .grid .reg { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--canopy-deep); }
+  .grid .name { display: flex; align-items: center; gap: 0.4rem; font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.06rem; color: var(--ink); line-height: 1.28; margin-top: 0.05rem; }
+  .grid .line { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.58; }
+  .grid .mat { margin-top: 0.35rem; font-family: var(--display); font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.06em; }
+  .grid .mat b { color: var(--canopy-deep); font-weight: 500; font-style: italic; }
+  @media (max-width: 32rem) { .grid .name { font-size: 1.1rem; } .grid .line { font-size: 0.94rem; } }
 
   /* growth stages — the maturity ladder, one row per stage */
   .grows { max-width: 52rem; margin-top: 4rem; }
