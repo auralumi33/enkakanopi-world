@@ -129,6 +129,13 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
         <circle cx="188" cy="36" r="0.8" fill="var(--poppy-soft)" opacity="0.85"/>
       </svg>
     </div>
+    {/* MotifTreeFriend moved here from the close (Rika, 2026-07-14) — the
+        arrival "is that tree your friend?" now opens the room, right
+        outside the "Volume I · In Formation" caption, rather than closing
+        it. */}
+    <div class="tree-friend" aria-hidden="true">
+      <MotifTreeFriend size={280} />
+    </div>
     <p class="eyebrow"><Glyph name="canopy" size={18} /> &nbsp;the archive wall</p>
     <h1>Volume I · In Formation</h1>
     <p class="lede">
@@ -169,22 +176,14 @@ if (hung !== pieces.size) throw new Error(`volume-i: ${hung} pieces hung, ${piec
   </section>
 
   <section class="page close">
-    {/* Slice-3.9 (2026-07-09) · MotifTreeFriend restored per Rika — the
-        arrival tree-friend (looking up from below into the canopy) sits at
-        the founding-collection close: the archive is a tree; the reader is
-        at its base, looking up. */}
-    <div class="tree-friend" aria-hidden="true">
-      <MotifTreeFriend size={320} />
-    </div>
+    {/* MotifTreeFriend moved to the top of this page (Rika, 2026-07-14) —
+        see .head above. */}
     <p class="close-line">
       The founding collection stays open — each piece is still tended: a living
       line you can return to and find changed. The
       <a class="link" href={base + "/lexicon"}>lexicon</a> and the
       <a class="link" href={base + "/colophon"}>colophon</a> hang in this room too.
     </p>
-    {/* Slice-3.9b · MotifArchiveGate (arch) retired per Rika — the
-        tree-friend above IS the close visual, not the arch. Component
-        file preserved for future re-wiring elsewhere if needed. */}
   </section>
 </Base>
 
