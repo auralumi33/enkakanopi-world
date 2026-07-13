@@ -55,9 +55,6 @@ const ldTerms = {
         this one tends — defined here, and left where anyone (or anything) can
         find the source. Each links to the essays that carry it.
       </p>
-      <div class="plot" aria-hidden="true">
-        <MotifWordPlot size={320} />
-      </div>
     </header>
 
     <GraphCanvas {...lexiconConfig} />
@@ -162,6 +159,10 @@ const ldTerms = {
       </PanelDoors>
     </div>
 
+    <div class="plot breather" aria-hidden="true">
+      <MotifWordPlot size={320} />
+    </div>
+
     <dl class="terms">
       {terms.map((t) => (
         <div class="entry" id={slugify(t.term)}>
@@ -188,6 +189,12 @@ const ldTerms = {
         </div>
       ))}
     </dl>
+
+    <p class="echo">
+      A garden accumulates its own vocabulary. These are the named frameworks
+      this one tends — defined here, and left where anyone (or anything) can
+      find the source. Each links to the essays that carry it.
+    </p>
 
     <LexiconSeams seams={lexiconSeams} />
 
@@ -249,9 +256,13 @@ const ldTerms = {
      turn from map-overview into the full term-by-term detail below it. */
   .section-turn { margin: 3.2rem 0 0.6rem; }
   .dek { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1rem; max-width: 52ch; }
-  /* word-plot intro visual (SUCCESSION §19) — the vocabulary as a plot of plants */
-  .plot { display: flex; justify-content: center; margin: 1.4rem 0 0; opacity: 0.94; }
+  /* word-plot visual (SUCCESSION §19) — the vocabulary as a plot of plants.
+     Moved off the header (2026-07-13 · visual-hierarchy pass) so the reading-map
+     leads uninterrupted; now a quiet page-break just before the term-by-term
+     detail begins. */
+  .plot { display: flex; justify-content: center; opacity: 0.94; }
   .plot :global(svg) { max-width: 100%; height: auto; }
+  .plot.breather { margin: 3.4rem 0 3rem; }
   .terms { margin: 0; }
   .entry { padding: 1.5rem 0; border-top: 1.1px solid var(--paper-edge); }
   dt {
@@ -276,6 +287,14 @@ const ldTerms = {
     border-bottom: 1px dotted var(--ink-faint); line-height: 1.2;
   }
   .hear:hover, .hear:focus-visible { color: var(--ink); border-bottom-color: var(--poppy-soft); }
+  /* closing echo — the header's own dek, returned to after the full lexicon
+     and its panels; a quiet recap, not a restatement (2026-07-13). */
+  .echo {
+    font-family: var(--serif); font-style: italic; font-size: 1.05rem;
+    color: var(--ink-soft); max-width: 42ch; margin: 2.8rem auto 0;
+    padding-top: 2rem; border-top: 1.1px solid var(--paper-edge);
+    text-align: center;
+  }
   /* citation seed — closing foot motif; the seeds carry the source outward */
   .seed { display: flex; justify-content: center; margin: 3rem 0 0; opacity: 0.94; }
   .seed :global(svg) { max-width: 100%; height: auto; }
