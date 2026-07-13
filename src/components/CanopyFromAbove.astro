@@ -126,16 +126,13 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
   </div>
   <p class="core-caption">円 · the container and the light</p>
 
-  {/* The fine print (Rika, 2026-07-14): ported from the study's own footer,
-      composed entirely of phrases already canonical elsewhere on the site
-      (ChainStrip.astro / colophon.astro / nursery.astro / this page's own
-      hand-invitation) — nothing newly authored. Per her constraints: no
-      "a home study · Charts & Crafts" branding; "a study, not the shipped
-      home" becomes "a study in the age of artificial memory". */}
+  {/* The fine print (Rika, 2026-07-14, amended): her own exact rewrite —
+      leads with the tag line, drops the separate covenant restatement
+      (already carried sitewide by Footer/ChainStrip), and "tended, not
+      timestamped" becomes "tended, assisted with human & machine(s)". */}
   <p class="fine-print">
-    <em>Assisted, never authored. Nothing is published without her yes.</em><br />
-    The canopy holds without fixing · tended, not timestamped · nothing here asks you for anything.<br />
-    a view from above · a study in the age of artificial memory
+    a view from above · a study in the age of artificial memory<br />
+    The canopy holds without fixing · tended, assisted with human &amp; machine(s)
   </p>
 
   {/* Hidden bud templates — the one source of the maturity glyphs (shared
@@ -412,7 +409,6 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
     letter-spacing: 0.02em; color: var(--ink-soft); line-height: 1.7;
     margin: 1rem auto 0; opacity: 0.85;
   }
-  .fine-print em { font-style: italic; }
 
   .leaf-tip {
     position: absolute; z-index: 8; pointer-events: none; opacity: 0;
