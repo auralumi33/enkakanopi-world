@@ -43,7 +43,8 @@ const { seams, headingId = "what-the-terms-admit" } = Astro.props;
     color: var(--ink); margin: 0; letter-spacing: -0.01em;
   }
   .intro { color: var(--ink-soft); max-width: var(--measure); margin: 0.7rem 0 0; font-size: 0.98rem; }
-  .intro.empty { color: var(--ink-faint); font-style: italic; }
+  /* ink-faint fails AA at this size (3.34:1 vs paper) — ink-soft holds the same whisper register */
+  .intro.empty { color: var(--ink-soft); font-style: italic; }
   .cards {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.2rem; margin-top: 1.4rem;
@@ -59,5 +60,6 @@ const { seams, headingId = "what-the-terms-admit" } = Astro.props;
     color: var(--ink); margin: 0; line-height: 1.4;
   }
   .pair .join { color: var(--poppy); font-style: normal; margin: 0 0.35rem; }
-  .note { color: var(--ink-faint); font-size: 0.85rem; margin: 0.5rem 0 0; }
+  /* ink-faint fails AA at this size (3.34:1 vs paper) — ink-soft holds the same whisper register */
+  .note { color: var(--ink-soft); font-size: 0.85rem; margin: 0.5rem 0 0; }
 </style>
