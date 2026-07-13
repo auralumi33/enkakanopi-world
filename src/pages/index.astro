@@ -9,6 +9,8 @@ import VineTrail from "../components/motifs/memoria/VineTrail.astro";
 import ScriptHeart from "../components/motifs/memoria/ScriptHeart.astro";
 import Glyph from "../components/Glyph.astro";
 import Bloom from "../components/Bloom.astro";
+import GraphCanvas from "../components/interactive/GraphCanvas.astro";
+import { lexiconConfig } from "../components/interactive/lexicon.config";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // The floor plan (D2 placemaking, Rika 2026-07-05): the home wayfinding reads
@@ -105,6 +107,16 @@ const whatThisIs = [
   </section>
 
   <HomeBotanicalPanels />
+
+  <section class="page ideas" aria-label="The garden's ideas, and how they hold together">
+    <GraphCanvas
+      {...lexiconConfig}
+      headingId="the-gardens-ideas"
+      heading="the garden's ideas, and how they hold together"
+      intro="A living map of the named frameworks this garden tends, and the pieces that hold them. The full lexicon — every term, defined — is one click further."
+    />
+    <p class="ideas-more"><a class="vol" href={base + "/lexicon"}><Glyph name="canopy" size={16} /> &nbsp;the full Lexicon →</a></p>
+  </section>
 
   <section class="page what" aria-label="What this is">
     <p class="eyebrow">what this is</p>
@@ -430,6 +442,15 @@ const whatThisIs = [
         body cadence, so hierarchy is predictable across the page ────────── */
   .what, .plan, .grows { margin-top: 5rem; }
   .what > .eyebrow, .plan .row > .eyebrow, .grows > .eyebrow { margin-bottom: 1rem; }
+
+  /* the garden's ideas — the knowledge-map, surfaced right after the hero's
+     welcome (botanical panels), well before the floor-plan nav grid, so the
+     map isn't buried three rooms deep. GraphCanvas owns its own heading +
+     rhythm; this section only adds top-of-page breathing room + the link
+     out to the full Lexicon (same discreet register as .vol). */
+  .ideas { margin-top: 3rem; }
+  .ideas-more { margin: 0.6rem 0 0; }
+  .ideas-more .vol { margin-top: 0; }
 
   /* what this is — candid cards */
   .cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
