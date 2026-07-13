@@ -1,0 +1,173 @@
+---
+/**
+ * EnkaMark — the ensō ring + held bloom(s), the site's one shared brand-mark
+ * grammar. A thick hand-brushed ring (feTurbulence-textured, matching the
+ * approved reference mark) holding three small stemmed blooms — lavender,
+ * poppy, slate — plus one ink accent dot near the brush gap. The Colophon's
+ * flagship instances are simply larger (120/148px); no separate character
+ * or orbit-dot layer — those collided with the triad's centre and aren't
+ * part of the approved mark. Formerly six independently hand-tuned SVGs
+ * (nav, favicon, home hero constellation, RowPlanter, GardenMedallion,
+ * StageTag) plus the Colophon-only `MotifEnkaEnso` keystone — now one
+ * parametrized component.
+ */
+export type EnkaRing = "closed" | "partial" | "open" | "wide";
+export type EnkaHold = "triad" | "bloom" | "compass" | "none";
+export type EnkaAccent = "poppy" | "lavender" | "gold" | "slate";
+
+interface Props {
+  size?: number;
+  ring?: EnkaRing;
+  hold?: EnkaHold;
+  accent?: EnkaAccent;
+  ringWeight?: number;
+  ringColor?: string;
+  title?: string;
+}
+
+// A page can carry many EnkaMark instances (an essay list with several
+// StageTag badges, for example) — each needs its own ids, or
+// aria-labelledby / filter references collide across instances.
+const uid = crypto.randomUUID().slice(0, 8);
+const titleId = `enkaMarkTitle-${uid}`;
+const brushId = `enkaBrush-${uid}`;
+
+const {
+  size = 120,
+  ring = "closed",
+  hold = "triad",
+  accent = "poppy",
+  // 7.5 is tuned for 100-148px contexts (Colophon, hero, RowPlanter). Tiny
+  // inline uses (the kan(O)pi wordmark's "o", ~13-19px rendered) need a
+  // much bolder ratio or the brush reads as a thin hairline next to the
+  // surrounding bold serif letters — callers at that scale should pass a
+  // higher value explicitly.
+  ringWeight = 7.5,
+  ringColor = "var(--ink)",
+  title = "enka kanopi — the ensō holding the garden",
+} = Astro.props;
+
+// The three ring-closure states share one ~1-o'clock-opening brush gesture;
+// the gap widens as the state moves seedling → budding → evergreen (open →
+// partial → closed).
+const ringPaths: Record<EnkaRing, string> = {
+  closed:
+    "M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66 C 88 54, 88 38, 78 26",
+  partial:
+    "M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66 C 87 57, 88 47, 85 38",
+  open:
+    "M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66 C 85 60, 87 54, 87 48",
+  // A generous, classically-visible ensō gap (the wordmark's "o" wants this
+  // — a bigger opening than any of the StageTag states) — the closing
+  // curve is dropped entirely, stopping right where the main sweep lands.
+  wide:
+    "M 62 12 C 44 8, 24 16, 14 34 C 6 52, 12 74, 30 84 C 48 92, 72 84, 82 66",
+};
+
+// Bloom-family accent hexes — hand-held constants matching the palette
+// already established across MotifEnkaEnso / Bloom / RowPlanter /
+// GardenMedallion. Deliberately NOT aliased to the --gold/--lavender-shaped
+// CSS custom properties: --gold (#d7a45c) is a different "night skin"
+// token, not this palette's gold (#e8c15a).
+const accentHex: Record<EnkaAccent, { petal: string; heart: string }> = {
+  poppy: { petal: "#e46b6b", heart: "#f7f2e7" },
+  lavender: { petal: "#b899c9", heart: "#f7f2e7" },
+  gold: { petal: "#e8c15a", heart: "#f7f2e7" },
+  slate: { petal: "#a4b8c8", heart: "#f7f2e7" },
+};
+const { petal, heart } = accentHex[accent];
+
+// A single small five-petal bloom, used both by the triad (fixed three) and
+// the single-accent `bloom` hold (RowPlanter's per-room lead, StageTag's
+// per-stage colour).
+function mini(fill: string, heartFill: string) {
+  return { fill, heartFill };
+}
+const triadBlooms = [
+  { x: -12, stemTop: -16, scale: 0.74, ...mini("#b899c9", "#e8c15a") },
+  { x: 0, stemTop: -26, scale: 0.92, ...mini("#e46b6b", "#f7f2e7") },
+  { x: 12, stemTop: -12, scale: 0.68, ...mini("#a4b8c8", "#e8c15a") },
+];
+---
+
+<svg width={size} height={size} viewBox="0 0 100 100" role="img" aria-labelledby={titleId} class="enka-mark">
+  <title id={titleId}>{title}</title>
+  <defs>
+    <filter id={brushId} x="-45%" y="-45%" width="190%" height="190%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="t" />
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="5" />
+    </filter>
+  </defs>
+
+  {/* the ensō — a thick hand-brushed ring, one deliberate gesture, plus a
+      thinner echo stroke for depth (the same layering MotifOpeningEnso
+      uses for its own brush wobble) */}
+  <g filter={`url(#${brushId})`}>
+    <path d={ringPaths[ring]} stroke={ringColor} stroke-width={ringWeight} fill="none" stroke-linecap="round" opacity="0.82" />
+    <path d={ringPaths[ring]} stroke={ringColor} stroke-width={ringWeight * 0.27} fill="none" stroke-linecap="round" opacity="0.22" />
+  </g>
+  {/* the accent dot, held at the brush gap */}
+  <circle cx="72" cy="19" r="3.6" fill={ringColor} opacity="0.7" filter={`url(#${brushId})`} />
+
+  {hold === "triad" && (
+    <g transform="translate(50 62)">
+      <g stroke="var(--canopy-deep)" stroke-width="1.1" stroke-linecap="round">
+        {triadBlooms.map((b) => <path d={`M${b.x} 20 L${b.x} ${b.stemTop}`} />)}
+      </g>
+      {triadBlooms.map((b) => (
+        <g transform={`translate(${b.x} ${b.stemTop}) scale(${b.scale})`}>
+          <g fill={b.fill} opacity="0.92">
+            <path d="M0 -12 C 2.4 -11.6, 2.8 -7.6, 0 -6.2 C -2.8 -7.6, -2.4 -11.6, 0 -12 Z" />
+            <path d="M4.6 -9 C 6.6 -7.5, 5.6 -4, 2.8 -4.9 C 1.6 -6.5, 2.8 -8.6, 4.6 -9 Z" />
+            <path d="M3.2 -1.2 C 0.5 0.7, -3.2 -0.7, -2.2 -3.4 C 0.3 -4.7, 3.7 -3.4, 3.2 -1.2 Z" />
+            <path d="M-4.6 -1.8 C -6.6 -3.6, -5.6 -6.9, -2.9 -6.3 C -1.6 -4.9, -2.9 -2.2, -4.6 -1.8 Z" />
+            <path d="M-4.4 -9 C -2.4 -9.6, -0.6 -7.6, -1.6 -5.6 C -4 -5.2, -5.6 -7.6, -4.4 -9 Z" />
+          </g>
+          <circle cx="0" cy="-6.5" r="2.1" fill={b.heartFill} />
+        </g>
+      ))}
+    </g>
+  )}
+
+  {hold === "bloom" && (
+    <g transform="translate(50 30)">
+      <path d="M0 -8 L 0 4" stroke="var(--canopy)" stroke-width="0.55" stroke-linecap="round" opacity="0.72" />
+      <path d="M-2 -2 L -6 -6" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.6" />
+      <path d="M2 -2 L 6 -6" stroke="var(--canopy)" stroke-width="0.4" stroke-linecap="round" opacity="0.6" />
+      <path d="M-6 -6 C -8 -8, -8 -10, -6 -9 C -5 -8, -5 -6, -6 -6 Z" fill="var(--canopy-soft)" opacity="0.7" />
+      <path d="M6 -6 C 8 -8, 8 -10, 6 -9 C 5 -8, 5 -6, 6 -6 Z" fill="var(--canopy-soft)" opacity="0.7" />
+      <g fill={petal} opacity="0.92">
+        <path d="M0 -12 C 2.4 -11.6, 2.8 -7.6, 0 -6.2 C -2.8 -7.6, -2.4 -11.6, 0 -12 Z" />
+        <path d="M4.6 -9 C 6.6 -7.5, 5.6 -4, 2.8 -4.9 C 1.6 -6.5, 2.8 -8.6, 4.6 -9 Z" />
+        <path d="M3.2 -1.2 C 0.5 0.7, -3.2 -0.7, -2.2 -3.4 C 0.3 -4.7, 3.7 -3.4, 3.2 -1.2 Z" />
+        <path d="M-4.6 -1.8 C -6.6 -3.6, -5.6 -6.9, -2.9 -6.3 C -1.6 -4.9, -2.9 -2.2, -4.6 -1.8 Z" />
+        <path d="M-4.4 -9 C -2.4 -9.6, -0.6 -7.6, -1.6 -5.6 C -4 -5.2, -5.6 -7.6, -4.4 -9 Z" />
+      </g>
+      <circle cx="0" cy="-6.5" r="2.1" fill={heart} />
+    </g>
+  )}
+
+  {hold === "compass" && (
+    <g transform="translate(50 50)">
+      <circle r="30" fill="none" stroke="var(--canopy)" stroke-width="0.5" opacity="0.35" stroke-dasharray="1.5 3" />
+      <g fill="var(--poppy-soft)" opacity="0.92">
+        <path d="M0 -10 C 4 -9, 4.4 -2, 0 1.6 C -4.4 -2, -4 -9, 0 -10 Z" />
+      </g>
+      <g fill="#b899c9" opacity="0.85">
+        <path d="M-14 0 C -13 -4, -6 -4.4, -1.6 0 C -6 4.4, -13 4, -14 0 Z" transform="rotate(0)" />
+      </g>
+      <g fill="#a4b8c8" opacity="0.85">
+        <path d="M0 14 C 4 13, 4.4 6, 0 1.6 C -4.4 6, -4 13, 0 14 Z" />
+      </g>
+      <g fill="#e8c15a" opacity="0.85">
+        <path d="M14 0 C 13 4, 6 4.4, 1.6 0 C 6 -4.4, 13 -4, 14 0 Z" />
+      </g>
+      <circle r="1.8" fill="var(--paper)" />
+    </g>
+  )}
+
+</svg>
+
+<style>
+  .enka-mark { display: block; }
+</style>

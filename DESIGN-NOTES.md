@@ -161,11 +161,19 @@ readers).
   hand-drawn organic register that reads as *craft — the garden's own hand* —
   not as scatter-sparkle noise. Applies to scene-scale illustrations AND to
   breather motifs.
-- **The 円花 keystone** (§28 · brand-voice apex). The mark that holds both
-  halves of the name in one figure (`MotifEnkaEnso`) is the site's most
-  concentrated brand mark. Reserved for the Colophon (top of about + closing
-  keystone) and load-bearing brand surfaces. Rare enough to read as a keystone,
-  never as a repeated ornament.
+- **The ensō mark, `EnkaMark`** (§28 · §39 · brand-voice apex — supersedes
+  the §28 "Colophon-only, never a repeated ornament" framing). A thick
+  hand-brushed ring (real `feTurbulence` texture, not hand-plotted wobble —
+  the one exception to this codebase's usual brush technique, kept because
+  the reference mark called for it) holding a fixed three-stem
+  lavender/poppy/slate bloom triad + an ink accent dot at the gap is now the
+  site's one everyday brand mark: favicon, RowPlanter, GardenMedallion,
+  StageTag, and — fused into the wordmark itself as the "o" in kanopi,
+  `EnkaWordmark.astro` — the nav. The Colophon keeps the largest rendering
+  (still the same triad, just bigger) — the flagship instance, not the only
+  one. The "home hero constellation" surface from the original plan did NOT
+  ship — a concurrent session removed the homepage identity block it would
+  have lived on before this landed; see §39.1.
 - **Scene-scale must be object-poetry, not ornament** (§27 · rule). A hybrid
   scene must carry an image that only makes sense for THAT essay's argument.
   Real named objects, real instruments, real gestures the prose actually
@@ -312,7 +320,8 @@ readers).
 
 ### Updated vocabulary
 
-- **円花 keystone** — brand-voice apex mark (`MotifEnkaEnso`). Colophon-only.
+- **円花 mark, `EnkaMark`** — brand-voice apex mark (§39, supersedes
+  `MotifEnkaEnso`, retired). Everyday mark, sitewide — not Colophon-only.
 - **Middleground register** — the design language's tonal band between
   mechanical and haphazard.
 - **Scene-anchor discipline** — visuals sit with their concept anchor.
@@ -606,7 +615,7 @@ grammar (`SceneShapeAndCrack` / `SceneHandsBegin`) and wired each to
 an appropriate route so they're not orphaned files:
 - `MotifTreeFriend` → Volume I close (arrival looking up)
 - `MotifOpeningEnso` → Colophon "How it is made" (the container that
-  lets in / lets go — sibling to MotifEnkaEnso which holds closed)
+  lets in / lets go — sibling to the closed-ring `EnkaMark`, §39)
 - `MotifJLens` → Colophon above "Colophon proper" (Enka's own
   architecture, in her hand)
 

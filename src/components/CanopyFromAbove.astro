@@ -15,11 +15,13 @@
  * right; left of centre, to the left; near-vertical masses centre their
  * label) so long names never run into a neighbour.
  *
- * Motion: everything is static except one falling blossom (mono no aware,
+ * Motion: everything is static except one falling thing (mono no aware,
  * Charter §2 #8b) — an ambient, slow, restrained loop, confined to the
- * SVG's own bounds. `prefers-reduced-motion` removes it entirely (the
- * script never starts the loop; no reduced-motion listener is needed at
- * runtime since the check runs once on load).
+ * SVG's own bounds. It alternates one whole fall at a time between two
+ * dainty forms, a sakura petal and an autumn leaf — never both together;
+ * still one governed exception, just two faces of it. `prefers-reduced-motion`
+ * removes it entirely (the script never starts the loop; no reduced-motion
+ * listener is needed at runtime since the check runs once on load).
  */
 import MaturityBud from "./motifs/MaturityBud.astro";
 
@@ -114,9 +116,12 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
         <text x={CX} y={CY + 9} text-anchor="middle" class="core-kanji">円</text>
       </g>
 
-      {/* the one governed exception — a single falling blossom, ambient and
-          slow; the script below never starts it if reduced-motion is set */}
-      <path data-blossom d="M0 0 C 4 -6 12 -6 8 2 C 12 8 4 8 0 4 C -4 8 -12 8 -8 2 C -12 -6 -4 -6 0 0 Z" fill="var(--poppy-soft)" opacity="0" aria-hidden="true" />
+      {/* the one governed exception — a single falling thing, ambient and
+          slow; the script below never starts it if reduced-motion is set.
+          It alternates, one whole fall at a time, between two dainty forms
+          — a sakura petal and an autumn leaf — never both at once; still
+          exactly one governed exception, just two faces of it. */}
+      <path data-blossom d="M0 -7 C 5 -6.5 6.5 -1 4.5 3.5 C 3.5 5.5 1.5 5 0 3 C -1.5 5 -3.5 5.5 -4.5 3.5 C -6.5 -1 -5 -6.5 0 -7 Z" fill="var(--poppy-soft)" opacity="0" aria-hidden="true" />
     </svg>
     <div class="leaf-tip" data-leaf-tip role="status" aria-hidden="true">
       <div class="n" data-tip-n></div>
@@ -360,14 +365,32 @@ const MAT_SIZE: Record<Room["maturity"], number> = { seedling: 46, budding: 54, 
     start.setAttribute("cy", sy.toFixed(1));
   })();
 
-  // the one governed exception — a single, slow, ambient falling blossom.
+  // the one governed exception — a single, slow, ambient falling thing.
   // Confirmed with Rika: a continuous restrained loop, not a one-shot fall.
+  // It alternates, one whole fall at a time (never mid-fall), between two
+  // dainty forms — a sakura petal and an autumn leaf — deterministically
+  // (fall-count parity, no Math.random, matching this file's existing
+  // pseudo-random convention above). Still exactly one falling thing.
   // prefers-reduced-motion: the loop is simply never started.
   if (!reduced) {
     const petal = root.querySelector("[data-blossom]");
+    const FORMS = [
+      { d: "M0 -7 C 5 -6.5 6.5 -1 4.5 3.5 C 3.5 5.5 1.5 5 0 3 C -1.5 5 -3.5 5.5 -4.5 3.5 C -6.5 -1 -5 -6.5 0 -7 Z", fill: "var(--poppy-soft)" }, // sakura petal
+      { d: "M0 -8 C 5 -6 6 0 3 6 C 2 7.5 -2 7.5 -3 6 C -6 0 -5 -6 0 -8 Z", fill: "#e8c15a" }, // autumn leaf (bloom-family gold)
+    ];
     let t = 0;
+    let cycle = 0;
+    petal.setAttribute("d", FORMS[0].d);
+    petal.setAttribute("fill", FORMS[0].fill);
     (function fall() {
       t += 0.0011;
+      const prevCycle = cycle;
+      cycle = Math.floor(t);
+      if (cycle !== prevCycle) {
+        const form = FORMS[cycle % FORMS.length];
+        petal.setAttribute("d", form.d);
+        petal.setAttribute("fill", form.fill);
+      }
       const u = t % 1;
       const x = 150 + Math.sin(u * 6.5) * 36 + u * 30;
       const y = -20 + u * 660;

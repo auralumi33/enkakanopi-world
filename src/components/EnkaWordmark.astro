@@ -1,0 +1,40 @@
+---
+/**
+ * EnkaWordmark — "enka kan(ensō)p(potted plant)": the fused logotype. The
+ * ensō mark replaces the "o" in kanopi; the little potted plant replaces
+ * the "i" — both sized in `em` off the surrounding Fraunces text (not
+ * hand-plotted SVG text offsets, which would break at every font/size
+ * change) so callers control actual size the normal CSS way — `font-size`
+ * on the wrapping context, media-query-overridable. One tightened lockup,
+ * not a wordmark plus a separate companion icon.
+ */
+import EnkaMark from "./EnkaMark.astro";
+import MotifNavPot from "./motifs/MotifNavPot.astro";
+interface Props { size?: number } // optional absolute rem override; default inherits ambient font-size
+const { size } = Astro.props;
+---
+<span class="enka-wordmark" style={size ? `font-size:${size}rem` : undefined}>
+  <span class="txt">enka kan</span><span class="o-ring" aria-hidden="true"><EnkaMark size={40} ring="wide" ringWeight={16} ringColor="var(--canopy-deep)" /></span><span class="txt">p</span><span class="i-pot" aria-hidden="true"><MotifNavPot size={30} /></span>
+</span>
+<style>
+  .enka-wordmark {
+    display: inline-flex; align-items: baseline;
+    font-family: var(--display); font-weight: 440;
+    letter-spacing: 0.005em; text-transform: lowercase;
+    line-height: 1; color: var(--ink);
+  }
+  .o-ring {
+    display: inline-block;
+    width: 0.66em; height: 0.66em;
+    margin: 0 0.01em;
+    transform: translateY(0.11em);
+  }
+  .o-ring :global(svg) { width: 100%; height: 100%; display: block; }
+  .i-pot {
+    display: inline-block;
+    width: 0.85em; height: 1.5em;
+    margin-left: -0.06em;
+    transform: translateY(0.11em);
+  }
+  .i-pot :global(svg) { width: 100%; height: 100%; display: block; }
+</style>

@@ -18,7 +18,7 @@ import PlaceNotFunnel from "../components/motifs/memoria/PlaceNotFunnel.astro";
 import InCompany from "../components/motifs/memoria/InCompany.astro";
 import MotifCloudDancer from "../components/motifs/MotifCloudDancer.astro";
 import MotifTwoHulls from "../components/motifs/MotifTwoHulls.astro";
-import MotifEnkaEnso from "../components/motifs/MotifEnkaEnso.astro";
+import EnkaMark from "../components/EnkaMark.astro";
 import MotifJLens from "../components/motifs/MotifJLens.astro";
 import MotifOpeningEnso from "../components/motifs/MotifOpeningEnso.astro";
 import ColophonStudyGallery from "../components/ColophonStudyGallery.astro";
@@ -43,7 +43,7 @@ import ColophonStudyGallery from "../components/ColophonStudyGallery.astro";
       {/* the 円花 keystone — held at the top of the about-story so the mark
           reads first, before the words that unfold it (§28) */}
       <div class="enka-solo" aria-hidden="true">
-        <MotifEnkaEnso size={120} />
+        <EnkaMark size={120} />
       </div>
 
       <p>
@@ -105,7 +105,7 @@ import ColophonStudyGallery from "../components/ColophonStudyGallery.astro";
       {/* Slice-3 · MotifOpeningEnso — the container that lets in, that lets
           go. Sits inside "How it is made" as the unlearning + openness memoria
           mark: the ensō with a wider opening at 1 o'clock and a small seed
-          escaping through. Sibling to MotifEnkaEnso (which holds closed). */}
+          escaping through. Sibling to EnkaMark's ring="closed" state. */}
       <div class="memoria-solo" aria-hidden="true">
         <MotifOpeningEnso size={112} />
       </div>
@@ -272,7 +272,7 @@ import ColophonStudyGallery from "../components/ColophonStudyGallery.astro";
           halves of the name in one figure; sits before the closing line as
           the site's held gesture */}
       <div class="enka-keystone" aria-hidden="true">
-        <MotifEnkaEnso size={148} />
+        <EnkaMark size={148} />
       </div>
 
       <p>
