@@ -439,6 +439,22 @@ language, use the names:
     section, so a page can host more than one map without collision.
   Zero npm dependencies; no network calls; no browser storage. See also
   **theLexiconMap** below for the first live consumer.
+- **theLexiconMap** (2026-07-13 · ship-prompts Phase 1, Prompt B) — the
+  Lexicon's reading-map, the first live `theGraphCanvas` consumer.
+  `src/components/interactive/lexicon.config.ts` derives a `MapConfig`
+  at build time, never by hand: **nodes** are the real terms in
+  `src/data/lexicon.ts` (one per term, `kind: "soul"`); **entries** are
+  the real pages a term's `seeIn` cites (field notes, body & spine,
+  workbench, or a known static page); **edges** are honest co-occurrence
+  — two terms earn an edge only when a real entry cites both. A build-time
+  `assertResolves` check throws rather than ship a dead `seeIn` href.
+  `panel: "bookmarks"`, `illustrative: true` (the map states outright that
+  sizes are a sketch, not a measurement). No relation is force-typed;
+  untyped edges fall back to `theGraphCanvas`'s generic default rather
+  than invent a reading. Most terms currently stand alone — an honestly
+  sparse graph, in the site's own SLOT/nursery tradition, not a bug to
+  paper over with invented links. Mounted below the Lexicon's existing
+  content in `src/pages/lexicon.astro`.
 
 ## The panel language (the door grammar)
 
